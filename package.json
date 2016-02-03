@@ -1,8 +1,8 @@
 {
-  "name": "kendo-react-component-base",
+  "name": "kendo-react-panelbar",
   "version": "0.1.0",
-  "description": "Kendo UI React component starter template",
-  "repository": "telerik/kendo-react-component-base",
+  "description": "Kendo UI React PanelBar",
+  "repository": "telerik/kendo-react-panelbar",
   "main": "dist/npm/js/index.js",
   "scripts": {
     "test": "gulp test",

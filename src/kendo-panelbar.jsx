@@ -4,7 +4,7 @@ import util from './util';
 
 import styles from '@telerik/kendo-theme-default-base/styles/main';
 
-export default function KendoComponent(props) {
+export default function KendoPanelBar(props) {
   return (
     <div {...props} className={styles.componentClass}>A Kendo UI react component{util()} </div>
   );

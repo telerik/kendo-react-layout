@@ -1,3 +1,3 @@
-import KendoComponent from './kendo-component';
+import KendoPanelBar from './kendo-panelbar';
 
-module.exports = KendoComponent;
+module.exports = KendoPanelBar;

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import KendoComponent from '../src/kendo-component';
+import KendoPanelBar from '../src/kendo-panelbar';
 
 ReactDOM.render(
-  <KendoComponent />,
+  <KendoPanelBar />,
   document.getElementById('app')
 );
