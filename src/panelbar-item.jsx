@@ -68,5 +68,5 @@ PanelBarItem.propTypes = {
             }
         }
     },
-    title: React.PropTypes.element
+    title: React.PropTypes.string
 };
