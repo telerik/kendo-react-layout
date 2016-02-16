@@ -17,9 +17,13 @@ export default class PanelBarItem extends React.Component {
     //}
 
     render() {
+        const { title = "Untitled", isLast, index } = this.props;
+
         let panelBarItemClasses = ClassNames({
             'k-item': true,
-            'k-state-default': true
+            'k-state-default': true,
+            'k-last': isLast,
+            'k-first': index === 0
         });
 
         let panelBarItemSpanClasses = ClassNames({
@@ -46,7 +50,7 @@ export default class PanelBarItem extends React.Component {
 
         return (
             <li className={panelBarItemClasses}>
-                <span className={panelBarItemSpanClasses}>{this.props.title}</span>
+                <span className={panelBarItemSpanClasses}>{title}</span>
                 {this.props.children}
             </li>
         );
@@ -68,5 +72,7 @@ PanelBarItem.propTypes = {
             }
         }
     },
+    index: React.PropTypes.number,
+    isLast: React.PropTypes.bool,
     title: React.PropTypes.string
 };

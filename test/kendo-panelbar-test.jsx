@@ -15,6 +15,17 @@ describe('KendoPanelBar', () => {
         expect(result.type()).toEqual('ul');
     });
 
+    it('should pass index to children', () => {
+        result = shallow(<KendoPanelBar>
+            <PanelBarItem title="first"></PanelBarItem>
+            <PanelBarItem title="second"></PanelBarItem>
+        </KendoPanelBar>);
+
+        expect(result.node.props.children[0].props.index).toEqual(0);
+        expect(result.node.props.children[1].props.index).toEqual(1);
+        expect(result.node.props.children[1].props.isLast).toEqual(true);
+    });
+
     it('should add CSS classes', () => {
         result = shallow(<KendoPanelBar />);
 

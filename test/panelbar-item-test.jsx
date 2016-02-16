@@ -19,20 +19,37 @@ describe('PanelBarItem', () => {
     it('should render title correctly', () => {
         result = shallow(<PanelBarItem title="sometext" />);
 
-        let node = result.children().node;
-        expect(node.type).toEqual('span');
-        expect(node.props.children).toEqual('sometext');
+        expect(result.find("span").length).toEqual(1);
+        expect(result.find("span").text()).toEqual('sometext');
     });
 
     it('should add title CSS classes', () => {
         result = shallow(<PanelBarItem title="sometext" />);
 
-        let node = result.children().node;
+        expect(result.find("span").hasClass('k-link')).toBeGreaterThan(-1);
+        expect(result.find("span").hasClass('k-header')).toBeGreaterThan(-1);
+        expect(result.find("span").hasClass('k-state-selected')).toEqual(false);
+        expect(result.find("span").hasClass('k-state-default')).toBeGreaterThan(-1);
+    });
 
-        expect(node.props.className.indexOf('k-link')).toBeGreaterThan(-1);
-        expect(node.props.className.indexOf('k-header')).toBeGreaterThan(-1);
-        expect(node.props.className.indexOf('k-state-selected')).toEqual(-1);
-        expect(node.props.className.indexOf('k-state-default')).toBeGreaterThan(-1);
+    it('should add k-first CSS class', () => {
+        let props = {
+            index: 0
+        };
+
+        result = shallow(<PanelBarItem title="sometext" {...props}></PanelBarItem>);
+
+        expect(result.find("li").first().hasClass('k-first')).toEqual(true);
+    });
+
+    it('should add k-last CSS class', () => {
+        let props = {
+            isLast: true
+        };
+
+        result = shallow(<PanelBarItem title="sometext" {...props} />);
+
+        expect(result.find("li").hasClass('k-last')).toBeGreaterThan(-1);
     });
 
     it('should add CSS classes', () => {

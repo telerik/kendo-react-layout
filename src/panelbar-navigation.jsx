@@ -7,7 +7,33 @@ import classNames from 'classnames';
 import PanelBarItem from "../src/panelbar-item.jsx";
 
 export default class PanelBarNavigation extends React.Component {
+    mapComponents(props) {
+        let { children } = props;
+        return React.Children.map(children, (child, index) => {
+            if (React.isValidElement(child)) {
+                return this.renderItem(child, index);
+            }
+            return child;
+        });
+    }
+
+    renderItem(child, index) {
+        let { children } = this.props;
+
+        let panelProps = {
+            index,
+            isLast: children.length - 1 === index,
+            title: child.props.title
+        };
+
+        return (
+            <PanelBarItem {...panelProps } />
+        );
+    }
+
     render() {
+        const items = this.mapComponents(this.props);
+
         const panelBarItemsClasses = classNames({
             'k-group': true,
             'k-panel': true
@@ -15,7 +41,7 @@ export default class PanelBarNavigation extends React.Component {
 
         return (
             <ul className={panelBarItemsClasses}>
-                {this.props.children}
+                {items}
             </ul>
         );
     }

@@ -7,7 +7,33 @@ import PanelBarItem from "../src/panelbar-item.jsx";
 import classNames from 'classnames';
 
 export default class KendoPanelBar extends React.Component {
+    mapComponents(props) {
+        let { children } = props;
+        return React.Children.map(children, (child, index) => {
+            if (React.isValidElement(child)) {
+                return this.renderItem(child, index);
+            }
+            return child;
+        });
+    }
+
+    renderItem(child, index) {
+        let { children } = this.props;
+
+        let panelProps = {
+            index,
+            isLast: children.length - 1 === index,
+            title: child.props.title
+        };
+
+        return (
+            <PanelBarItem {...panelProps } />
+        );
+    }
+
     render() {
+        const items = this.mapComponents(this.props);
+
         const panelBarClasses = classNames({
             'k-widget': true,
             'k-reset': true,
@@ -15,9 +41,10 @@ export default class KendoPanelBar extends React.Component {
             'k-panelbar': true
         });
 
+        //TODO: Give keys to children
         return (
             <ul className={panelBarClasses}>
-                {this.props.children}
+                {items}
             </ul>
         );
     }
