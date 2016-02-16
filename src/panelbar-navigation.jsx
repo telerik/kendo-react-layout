@@ -27,7 +27,7 @@ export default class PanelBarNavigation extends React.Component {
         };
 
         return (
-            <PanelBarItem {...panelProps } />
+            <PanelBarItem {...panelProps }>{child.props.children}</PanelBarItem>
         );
     }
 

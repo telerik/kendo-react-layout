@@ -25,7 +25,13 @@ ReactDOM.render(
                           <p>&nbsp;Example content</p>
                       </PanelBarContent>
                   </PanelBarItem>
-                  <PanelBarItem title="Fifth item (without content, second level)" />
+                  <PanelBarItem title="Fifth item (with children, second level)">
+                      <PanelBarNavigation>
+                          <PanelBarItem title="Sixth item (without children, third level)">
+                              <PanelBarContent>Some text</PanelBarContent>
+                          </PanelBarItem>
+                      </PanelBarNavigation>
+                  </PanelBarItem>
               </PanelBarNavigation>
           </PanelBarItem>
       </KendoPanelBar>

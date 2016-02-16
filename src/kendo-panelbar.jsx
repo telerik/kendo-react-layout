@@ -27,7 +27,7 @@ export default class KendoPanelBar extends React.Component {
         };
 
         return (
-            <PanelBarItem {...panelProps } />
+            <PanelBarItem {...panelProps }>{child.props.children}</PanelBarItem>
         );
     }
 

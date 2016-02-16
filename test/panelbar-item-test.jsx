@@ -37,7 +37,7 @@ describe('PanelBarItem', () => {
             index: 0
         };
 
-        result = shallow(<PanelBarItem title="sometext" {...props}></PanelBarItem>);
+        result = shallow(<PanelBarItem title="sometext" {...props} />);
 
         expect(result.find("li").first().hasClass('k-first')).toEqual(true);
     });
@@ -60,7 +60,7 @@ describe('PanelBarItem', () => {
     });
 
     it('should accept only  PanelBarContent or PanelBarNavigation as child', () => {
-        result = shallow(<PanelBarItem>sometext<PanelBarContent></PanelBarContent></PanelBarItem>);
+        result = shallow(<PanelBarItem>sometext<PanelBarContent/></PanelBarItem>);
 
         expect(console.error).toHaveBeenCalledWith("Warning: Failed propType: Children should be either PanelBarContent or PanelBarNavigation.");
     });

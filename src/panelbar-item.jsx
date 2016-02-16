@@ -8,14 +8,6 @@ import PanelBarContent from "../src/panelbar-content.jsx";
 import ClassNames from 'classnames';
 
 export default class PanelBarItem extends React.Component {
-    ///put each children in different collection to render them
-    //renderContent(child) {
-    //    return <PanelBarContent {...child.props}></PanelBarContent>;
-    //}
-    //renderNavigation(child) {
-    //    return <PanelBarNavigation {...child.props}></PanelBarNavigation>;
-    //}
-
     render() {
         const { title = "Untitled", isLast, index } = this.props;
 
@@ -32,21 +24,6 @@ export default class PanelBarItem extends React.Component {
             'k-state-selected': false,
             'k-state-default': true
         });
-
-        //TODO: use if first / last item in array should have class applied
-        //const children = React.Children.toArray(this.props.children);
-        //var content = null;
-        //var navigation = null;
-        //for (var idx = 0; idx < children.length; idx++) {
-        //    if (children[idx].type === PanelBarContent) {
-        //        content = this.renderContent(children[idx]);
-        //    }
-        //    if (children[idx].type === PanelBarNavigation) {
-        //        navigation = this.renderNavigation(children[idx]);
-        //    }
-        //}
-        //should have first item / last item
-        //k-item k-first k-state-highlight
 
         return (
             <li className={panelBarItemClasses}>

@@ -17,13 +17,31 @@ describe('PanelBarNavigation', () => {
 
     it('should pass index to children', () => {
         result = shallow(<PanelBarNavigation>
-            <PanelBarItem title="first"></PanelBarItem>
-            <PanelBarItem title="second"></PanelBarItem>
+            <PanelBarItem title="first" />
+            <PanelBarItem title="second" />
         </PanelBarNavigation>);
 
-        expect(result.node.props.children[0].props.index).toEqual(0);
-        expect(result.node.props.children[1].props.index).toEqual(1);
-        expect(result.node.props.children[1].props.isLast).toEqual(true);
+        let children = result.node.props.children;
+
+        expect(children[0].props.index).toEqual(0);
+        expect(children[1].props.index).toEqual(1);
+        expect(children[1].props.isLast).toEqual(true);
+    });
+
+    it('should pass children to PanelBarItem', () => {
+        result = shallow(<PanelBarNavigation>
+            <PanelBarItem title="first">
+                <PanelBarNavigation><PanelBarItem title="third" /></PanelBarNavigation>
+            </PanelBarItem>
+            <PanelBarItem title="second" />
+        </PanelBarNavigation>);
+
+        let children = result.node.props.children;
+
+        expect(children[0].props.index).toEqual(0);
+        expect(children[1].props.index).toEqual(1);
+        expect(children[1].props.isLast).toEqual(true);
+        expect(children[0].props.children.props.children.props.title).toEqual("third");
     });
 
     it('should add CSS classes', () => {
