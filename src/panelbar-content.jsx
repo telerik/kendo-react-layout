@@ -15,5 +15,8 @@ export default class PanelBarContent extends React.Component {
 }
 
 PanelBarContent.propTypes = {
-    children: React.PropTypes.element
+    children: React.PropTypes.oneOfType([
+        React.PropTypes.element,
+        React.PropTypes.arrayOf(React.PropTypes.element)
+    ])
 };

@@ -28,7 +28,9 @@ ReactDOM.render(
                   <PanelBarItem title="Fifth item (with children, second level)">
                       <PanelBarNavigation>
                           <PanelBarItem title="Sixth item (without children, third level)">
-                              <PanelBarContent>Some text</PanelBarContent>
+                              <PanelBarContent>
+                                  <p>Some text</p>
+                              </PanelBarContent>
                           </PanelBarItem>
                       </PanelBarNavigation>
                   </PanelBarItem>

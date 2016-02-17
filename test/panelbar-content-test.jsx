@@ -21,8 +21,9 @@ describe('PanelBarContent', () => {
     });
 
     it('should render child content', () => {
-        result = shallow(<PanelBarContent>SomeText</PanelBarContent>);
+        result = shallow(<PanelBarContent><p>SomeText</p></PanelBarContent>);
 
-        expect(result.props().children.indexOf('SomeText')).toBeGreaterThan(-1);
+        expect(console.error).not.toHaveBeenCalled();
+        expect(result.props().children.props.children.indexOf('SomeText')).toBeGreaterThan(-1);
     });
 });
