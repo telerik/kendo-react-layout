@@ -23,7 +23,8 @@ export default class KendoPanelBar extends React.Component {
         let panelProps = {
             index,
             isLast: children.length - 1 === index,
-            title: child.props.title
+            title: child.props.title,
+            active: child.props.active
         };
 
         return (

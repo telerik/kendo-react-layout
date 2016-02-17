@@ -8,8 +8,23 @@ import PanelBarContent from "../src/panelbar-content.jsx";
 import ClassNames from 'classnames';
 
 export default class PanelBarItem extends React.Component {
+    mapComponents(props, other) {
+        let { children } = props;
+
+        return React.Children.map(children, (child) => {
+            if (React.isValidElement(child)) {
+                if (child.type === PanelBarNavigation) {
+                    return <PanelBarNavigation {...other }>{child.props.children}</PanelBarNavigation>;
+                }
+
+                return <PanelBarContent {...other }>{child.props.children}</PanelBarContent>;
+            }
+            return child;
+        });
+    }
+
     render() {
-        const { title = "Untitled", isLast, index } = this.props;
+        const { title = "Untitled", isLast, index, ...other } = this.props;
 
         let panelBarItemClasses = ClassNames({
             'k-item': true,
@@ -25,16 +40,19 @@ export default class PanelBarItem extends React.Component {
             'k-state-default': true
         });
 
+        const children = this.mapComponents(this.props, other);
+
         return (
             <li className={panelBarItemClasses}>
                 <span className={panelBarItemSpanClasses}>{title}</span>
-                {this.props.children}
+                {children}
             </li>
         );
     }
 }
 
 PanelBarItem.propTypes = {
+    active: React.PropTypes.bool,
     children: function(props, propName) {
         let prop = props[propName];
 
@@ -51,5 +69,6 @@ PanelBarItem.propTypes = {
     },
     index: React.PropTypes.number,
     isLast: React.PropTypes.bool,
+    //TODO: change to react element?
     title: React.PropTypes.string
 };

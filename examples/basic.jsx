@@ -8,7 +8,7 @@ import PanelBarContent from '../src/panelbar-content';
 ReactDOM.render(
   <div>
       <KendoPanelBar>
-          <PanelBarItem title="First item (with content)">
+          <PanelBarItem title="First item (with content)" active>
               <PanelBarContent>
                   <p>&nbsp;Example content</p>
               </PanelBarContent>

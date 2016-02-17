@@ -19,15 +19,10 @@ export default class PanelBarNavigation extends React.Component {
 
     renderItem(child, index) {
         let { children } = this.props;
-
-        let panelProps = {
-            index,
-            isLast: children.length - 1 === index,
-            title: child.props.title
-        };
+        let isLast = children.length - 1 === index;
 
         return (
-            <PanelBarItem {...panelProps }>{child.props.children}</PanelBarItem>
+            <PanelBarItem {...child.props } index={index} isLast={isLast}>{child.props.children}</PanelBarItem>
         );
     }
 
@@ -39,8 +34,12 @@ export default class PanelBarNavigation extends React.Component {
             'k-panel': true
         });
 
+        const inlineStyles = {
+            display: this.props.active ? "block" : "none"
+        };
+
         return (
-            <ul className={panelBarItemsClasses}>
+            <ul className={panelBarItemsClasses} style={inlineStyles}>
                 {items}
             </ul>
         );
@@ -48,6 +47,7 @@ export default class PanelBarNavigation extends React.Component {
 }
 
 PanelBarNavigation.propTypes = {
+    active: React.PropTypes.bool,
     children: function(props, propName) {
         const prop = props[propName];
 

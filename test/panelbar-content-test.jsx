@@ -20,6 +20,18 @@ describe('PanelBarContent', () => {
         expect(result.props().className.indexOf('k-content')).toBeGreaterThan(-1);
     });
 
+    it('should render invisible', () => {
+        result = shallow(<PanelBarContent active={false} />);
+
+        expect(result.props().style.display).toEqual('none');
+    });
+
+    it('should render visbile', () => {
+        result = shallow(<PanelBarContent active />);
+
+        expect(result.props().style.display).toEqual('block');
+    });
+
     it('should render child content', () => {
         result = shallow(<PanelBarContent><p>SomeText</p></PanelBarContent>);
 

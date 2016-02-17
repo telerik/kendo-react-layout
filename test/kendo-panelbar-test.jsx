@@ -29,9 +29,9 @@ describe('KendoPanelBar', () => {
         expect(children[1].props.isLast).toEqual(true);
     });
 
-    it('should pass children to PanelBarItem', () => {
+    it('should pass children and props to PanelBarItem', () => {
         result = shallow(<KendoPanelBar>
-            <PanelBarItem title="first">
+            <PanelBarItem title="first" active>
                 <PanelBarNavigation><PanelBarItem title="third" /></PanelBarNavigation>
             </PanelBarItem>
             <PanelBarItem title="second" />
@@ -43,6 +43,7 @@ describe('KendoPanelBar', () => {
         expect(children[1].props.index).toEqual(1);
         expect(children[1].props.isLast).toEqual(true);
         expect(children[0].props.children.props.children.props.title).toEqual("third");
+        expect(children[0].props.active).toEqual(true);
     });
 
     it('should add CSS classes', () => {

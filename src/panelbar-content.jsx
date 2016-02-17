@@ -8,13 +8,18 @@ export default class PanelBarContent extends React.Component {
             'k-content': true
         });
 
+        const inlineStyles = {
+            display: this.props.active ? "block" : "none"
+        };
+
         return (
-            <div className={panelBarItemContentClasses}>{this.props.children}</div>
+            <div className={panelBarItemContentClasses} style={inlineStyles}>{this.props.children}</div>
         );
     }
 }
 
 PanelBarContent.propTypes = {
+    active: React.PropTypes.bool,
     children: React.PropTypes.oneOfType([
         React.PropTypes.element,
         React.PropTypes.arrayOf(React.PropTypes.element)

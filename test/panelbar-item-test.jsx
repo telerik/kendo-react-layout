@@ -59,6 +59,23 @@ describe('PanelBarItem', () => {
         expect(result.props().className.indexOf('k-state-default')).toBeGreaterThan(-1);
     });
 
+    it('should pass children and props correctly to PanelBarItem', () => {
+        result = shallow(<PanelBarNavigation>
+            <PanelBarItem title="first" active>
+                <PanelBarNavigation><PanelBarItem title="third" /></PanelBarNavigation>
+            </PanelBarItem>
+            <PanelBarItem title="second" />
+        </PanelBarNavigation>);
+
+        let children = result.node.props.children;
+
+        expect(children[0].props.index).toEqual(0);
+        expect(children[1].props.index).toEqual(1);
+        expect(children[1].props.isLast).toEqual(true);
+        expect(children[0].props.children.props.children.props.title).toEqual("third");
+        expect(children[0].props.active).toEqual(true);
+    });
+
     it('should accept only  PanelBarContent or PanelBarNavigation as child', () => {
         result = shallow(<PanelBarItem>sometext<PanelBarContent/></PanelBarItem>);
 

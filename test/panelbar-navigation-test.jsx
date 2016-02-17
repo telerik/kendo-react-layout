@@ -30,7 +30,7 @@ describe('PanelBarNavigation', () => {
 
     it('should pass children to PanelBarItem', () => {
         result = shallow(<PanelBarNavigation>
-            <PanelBarItem title="first">
+            <PanelBarItem title="first" active>
                 <PanelBarNavigation><PanelBarItem title="third" /></PanelBarNavigation>
             </PanelBarItem>
             <PanelBarItem title="second" />
@@ -42,6 +42,7 @@ describe('PanelBarNavigation', () => {
         expect(children[1].props.index).toEqual(1);
         expect(children[1].props.isLast).toEqual(true);
         expect(children[0].props.children.props.children.props.title).toEqual("third");
+        expect(children[0].props.active).toEqual(true);
     });
 
     it('should add CSS classes', () => {
@@ -49,6 +50,18 @@ describe('PanelBarNavigation', () => {
 
         expect(result.props().className.indexOf('k-group')).toBeGreaterThan(-1);
         expect(result.props().className.indexOf('k-panel')).toBeGreaterThan(-1);
+    });
+
+    it('should render invisible', () => {
+        result = shallow(<PanelBarNavigation active={false} />);
+
+        expect(result.props().style.display).toEqual('none');
+    });
+
+    it('should render visible', () => {
+        result = shallow(<PanelBarNavigation active />);
+
+        expect(result.props().style.display).toEqual('block');
     });
 
     it('should accept only PanelBarItem as child', () => {
