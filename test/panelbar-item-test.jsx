@@ -28,8 +28,15 @@ describe('PanelBarItem', () => {
 
         expect(result.find("span").hasClass('k-link')).toBeGreaterThan(-1);
         expect(result.find("span").hasClass('k-header')).toBeGreaterThan(-1);
-        expect(result.find("span").hasClass('k-state-selected')).toEqual(false);
         expect(result.find("span").hasClass('k-state-default')).toBeGreaterThan(-1);
+        expect(result.find("span").hasClass('k-state-selected')).toEqual(false);
+    });
+
+    it('should add CSS classes', () => {
+        result = shallow(<PanelBarItem />);
+
+        expect(result.props().className.indexOf('k-item')).toBeGreaterThan(-1);
+        expect(result.props().className.indexOf('k-state-default')).toBeGreaterThan(-1);
     });
 
     it('should add k-first CSS class', () => {
@@ -52,28 +59,15 @@ describe('PanelBarItem', () => {
         expect(result.find("li").hasClass('k-last')).toBeGreaterThan(-1);
     });
 
-    it('should add CSS classes', () => {
-        result = shallow(<PanelBarItem />);
+    it('should pass children and props correctly to child components', () => {
+        result = shallow(
+            <PanelBarItem active title="first">
+                <PanelBarNavigation></PanelBarNavigation>
+            </PanelBarItem>);
 
-        expect(result.props().className.indexOf('k-item')).toBeGreaterThan(-1);
-        expect(result.props().className.indexOf('k-state-default')).toBeGreaterThan(-1);
-    });
+        let navigation = result.find(PanelBarNavigation);
 
-    it('should pass children and props correctly to PanelBarItem', () => {
-        result = shallow(<PanelBarNavigation>
-            <PanelBarItem title="first" active>
-                <PanelBarNavigation><PanelBarItem title="third" /></PanelBarNavigation>
-            </PanelBarItem>
-            <PanelBarItem title="second" />
-        </PanelBarNavigation>);
-
-        let children = result.node.props.children;
-
-        expect(children[0].props.index).toEqual(0);
-        expect(children[1].props.index).toEqual(1);
-        expect(children[1].props.isLast).toEqual(true);
-        expect(children[0].props.children.props.children.props.title).toEqual("third");
-        expect(children[0].props.active).toEqual(true);
+        expect(navigation.props().active).toEqual(true);
     });
 
     it('should accept only  PanelBarContent or PanelBarNavigation as child', () => {

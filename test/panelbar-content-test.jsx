@@ -6,7 +6,7 @@ describe('PanelBarContent', () => {
     let result;
 
     beforeEach(() => {
-      spyOn(console, 'error');
+        spyOn(console, 'error');
     });
 
     it('should render a div', () => {
@@ -36,6 +36,6 @@ describe('PanelBarContent', () => {
         result = shallow(<PanelBarContent><p>SomeText</p></PanelBarContent>);
 
         expect(console.error).not.toHaveBeenCalled();
-        expect(result.props().children.props.children.indexOf('SomeText')).toBeGreaterThan(-1);
+        expect(result.find("p").props().children.indexOf('SomeText')).toBeGreaterThan(-1);
     });
 });

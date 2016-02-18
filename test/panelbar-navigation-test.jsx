@@ -21,11 +21,11 @@ describe('PanelBarNavigation', () => {
             <PanelBarItem title="second" />
         </PanelBarNavigation>);
 
-        let children = result.node.props.children;
+        let items = result.find(PanelBarItem);
 
-        expect(children[0].props.index).toEqual(0);
-        expect(children[1].props.index).toEqual(1);
-        expect(children[1].props.isLast).toEqual(true);
+        expect(items.first().props().index).toEqual(0);
+        expect(items.last().props().index).toEqual(1);
+        expect(items.last().props().isLast).toEqual(true);
     });
 
     it('should pass children to PanelBarItem', () => {
@@ -36,13 +36,14 @@ describe('PanelBarNavigation', () => {
             <PanelBarItem title="second" />
         </PanelBarNavigation>);
 
-        let children = result.node.props.children;
+        let items = result.find(PanelBarItem);
 
-        expect(children[0].props.index).toEqual(0);
-        expect(children[1].props.index).toEqual(1);
-        expect(children[1].props.isLast).toEqual(true);
-        expect(children[0].props.children.props.children.props.title).toEqual("third");
-        expect(children[0].props.active).toEqual(true);
+        expect(items.first().props().index).toEqual(0);
+        expect(items.first().props().active).toEqual(true);
+        expect(items.last().props().index).toEqual(1);
+        expect(items.last().props().isLast).toEqual(true);
+        expect(items.last().props().isLast).toEqual(true);
+        expect(items.at(1).props().title).toEqual("third");
     });
 
     it('should add CSS classes', () => {
