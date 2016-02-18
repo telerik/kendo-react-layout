@@ -30,7 +30,7 @@ describe('PanelBarNavigation', () => {
 
     it('should pass children to PanelBarItem', () => {
         result = shallow(<PanelBarNavigation>
-            <PanelBarItem title="first" active>
+            <PanelBarItem title="first" active selected>
                 <PanelBarNavigation><PanelBarItem title="third" /></PanelBarNavigation>
             </PanelBarItem>
             <PanelBarItem title="second" disabled />
@@ -40,6 +40,7 @@ describe('PanelBarNavigation', () => {
 
         expect(items.first().props().index).toEqual(0);
         expect(items.first().props().active).toEqual(true);
+        expect(items.first().props().selected).toEqual(true);
 
         expect(items.last().props().index).toEqual(1);
         expect(items.last().props().isLast).toEqual(true);

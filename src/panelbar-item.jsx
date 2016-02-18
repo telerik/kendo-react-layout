@@ -23,7 +23,7 @@ export default class PanelBarItem extends React.Component {
         });
     }
     render() {
-        const { title = "Untitled", isLast, index, disabled, ...other } = this.props;
+        const { title = "Untitled", isLast, index, disabled, selected, ...other } = this.props;
 
         let panelBarItemClasses = ClassNames({
             'k-item': true,
@@ -39,7 +39,8 @@ export default class PanelBarItem extends React.Component {
         let panelBarItemSpanClasses = ClassNames({
             'k-link': true,
             'k-header': true,
-            'k-state-selected': false,
+            //TODO: this should be applied only on enabled nodes
+            'k-state-selected': selected,
             'k-state-default': true
         });
 
@@ -73,6 +74,7 @@ PanelBarItem.propTypes = {
     disabled: React.PropTypes.bool,
     index: React.PropTypes.number,
     isLast: React.PropTypes.bool,
+    selected: React.PropTypes.bool,
     //TODO: change to react element?
     title: React.PropTypes.string
 };

@@ -25,7 +25,8 @@ export default class KendoPanelBar extends React.Component {
             isLast: children.length - 1 === index,
             title: child.props.title,
             active: child.props.active,
-            disabled: child.props.disabled
+            disabled: child.props.disabled,
+            selected: child.props.selected
         };
 
         return (
