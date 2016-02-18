@@ -34,26 +34,29 @@ describe('KendoPanelBar', () => {
             <PanelBarItem title="first" active>
                 <PanelBarNavigation><PanelBarItem title="third" /></PanelBarNavigation>
             </PanelBarItem>
-            <PanelBarItem title="second" />
+            <PanelBarItem title="second" disabled />
         </KendoPanelBar>);
 
         let items = result.find(PanelBarItem);
 
         expect(items.first().props().index).toEqual(0);
         expect(items.first().props().active).toEqual(true);
+
         expect(items.last().props().index).toEqual(1);
         expect(items.last().props().isLast).toEqual(true);
         expect(items.last().props().isLast).toEqual(true);
+        expect(items.last().props().disabled).toEqual(true);
+
         expect(items.at(1).props().title).toEqual("third");
     });
 
     it('should add CSS classes', () => {
         result = shallow(<KendoPanelBar />);
 
-        expect(result.props().className.indexOf('k-panelbar')).toBeGreaterThan(-1);
-        expect(result.props().className.indexOf('k-widget')).toBeGreaterThan(-1);
-        expect(result.props().className.indexOf('k-header')).toBeGreaterThan(-1);
-        expect(result.props().className.indexOf('k-panelbar')).toBeGreaterThan(-1);
+        expect(result.hasClass('k-panelbar')).toEqual(true);
+        expect(result.hasClass('k-widget')).toEqual(true);
+        expect(result.hasClass('k-header')).toEqual(true);
+        expect(result.hasClass('k-panelbar')).toEqual(true);
     });
 
     it('should accept only PanelBarItem as child', () => {

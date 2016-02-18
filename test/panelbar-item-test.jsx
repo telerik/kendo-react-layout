@@ -35,8 +35,8 @@ describe('PanelBarItem', () => {
     it('should add CSS classes', () => {
         result = shallow(<PanelBarItem />);
 
-        expect(result.props().className.indexOf('k-item')).toBeGreaterThan(-1);
-        expect(result.props().className.indexOf('k-state-default')).toBeGreaterThan(-1);
+        expect(result.hasClass('k-item')).toEqual(true);
+        expect(result.hasClass('k-state-default')).toEqual(true);
     });
 
     it('should add k-first CSS class', () => {
@@ -51,12 +51,14 @@ describe('PanelBarItem', () => {
 
     it('should add k-last CSS class', () => {
         let props = {
-            isLast: true
+            isLast: true,
+            disabled: true
         };
 
         result = shallow(<PanelBarItem title="sometext" {...props} />);
 
-        expect(result.find("li").hasClass('k-last')).toBeGreaterThan(-1);
+        expect(result.find("li").hasClass('k-last')).toEqual(true);
+        expect(result.find("li").hasClass('k-state-disabled')).toEqual(true);
     });
 
     it('should pass children and props correctly to child components', () => {

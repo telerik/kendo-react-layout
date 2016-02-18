@@ -33,24 +33,27 @@ describe('PanelBarNavigation', () => {
             <PanelBarItem title="first" active>
                 <PanelBarNavigation><PanelBarItem title="third" /></PanelBarNavigation>
             </PanelBarItem>
-            <PanelBarItem title="second" />
+            <PanelBarItem title="second" disabled />
         </PanelBarNavigation>);
 
         let items = result.find(PanelBarItem);
 
         expect(items.first().props().index).toEqual(0);
         expect(items.first().props().active).toEqual(true);
+
         expect(items.last().props().index).toEqual(1);
         expect(items.last().props().isLast).toEqual(true);
         expect(items.last().props().isLast).toEqual(true);
+        expect(items.last().props().disabled).toEqual(true);
+
         expect(items.at(1).props().title).toEqual("third");
     });
 
     it('should add CSS classes', () => {
         result = shallow(<PanelBarNavigation />);
 
-        expect(result.props().className.indexOf('k-group')).toBeGreaterThan(-1);
-        expect(result.props().className.indexOf('k-panel')).toBeGreaterThan(-1);
+        expect(result.hasClass('k-group')).toEqual(true);
+        expect(result.hasClass('k-panel')).toEqual(true);
     });
 
     it('should render invisible', () => {

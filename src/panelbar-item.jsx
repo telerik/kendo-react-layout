@@ -22,15 +22,18 @@ export default class PanelBarItem extends React.Component {
             return child;
         });
     }
-
     render() {
-        const { title = "Untitled", isLast, index, ...other } = this.props;
+        const { title = "Untitled", isLast, index, disabled, ...other } = this.props;
 
         let panelBarItemClasses = ClassNames({
             'k-item': true,
-            'k-state-default': true,
             'k-last': isLast,
-            'k-first': index === 0
+            'k-first': index === 0,
+            'k-state-default': true,
+            'k-state-disabled': disabled
+            //'k-state-active': true
+            //'k-state-highlight'
+            //'k-state-hover', --for span element
         });
 
         let panelBarItemSpanClasses = ClassNames({
@@ -67,6 +70,7 @@ PanelBarItem.propTypes = {
             }
         }
     },
+    disabled: React.PropTypes.bool,
     index: React.PropTypes.number,
     isLast: React.PropTypes.bool,
     //TODO: change to react element?

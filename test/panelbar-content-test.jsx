@@ -17,7 +17,7 @@ describe('PanelBarContent', () => {
     it('should add CSS classes', () => {
         result = shallow(<PanelBarContent />);
 
-        expect(result.props().className.indexOf('k-content')).toBeGreaterThan(-1);
+        expect(result.hasClass('k-content')).toEqual(true);
     });
 
     it('should render invisible', () => {
