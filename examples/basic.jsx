@@ -1,41 +1,41 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import KendoPanelBar from '../src/kendo-panelbar';
-import PanelBarItem from '../src/panelbar-item';
-import PanelBarNavigation from '../src/panelbar-navigation';
-import PanelBarContent from '../src/panelbar-content';
+import KendoPanelBar from '../src/KendoPanelBar.jsx';
+import KendoPanelBarItem from '../src/KendoPanelBarItem.jsx';
+import KendoPanelBarNavigation from '../src/KendoPanelBarNavigation.jsx';
+import KendoPanelBarContent from '../src/KendoPanelBarContent.jsx';
 
 ReactDOM.render(
   <div>
       <KendoPanelBar>
-          <PanelBarItem title="First item (with content)" active>
-              <PanelBarContent>
+          <KendoPanelBarItem title="First item (with content)" active>
+              <KendoPanelBarContent>
                   <p>&nbsp;Example content</p>
-              </PanelBarContent>
-          </PanelBarItem>
-          <PanelBarItem title="Second item (with content)">
-              <PanelBarContent>
+              </KendoPanelBarContent>
+          </KendoPanelBarItem>
+          <KendoPanelBarItem title="Second item (with content)">
+              <KendoPanelBarContent>
                   <p>&nbsp;Example content</p>
-              </PanelBarContent>
-          </PanelBarItem>
-          <PanelBarItem title="Third item (with childrens)">
-              <PanelBarNavigation>
-                  <PanelBarItem title="Forth item (with content, second level)">
-                      <PanelBarContent>
+              </KendoPanelBarContent>
+          </KendoPanelBarItem>
+          <KendoPanelBarItem title="Third item (with childrens)">
+              <KendoPanelBarNavigation>
+                  <KendoPanelBarItem title="Forth item (with content, second level)">
+                      <KendoPanelBarContent>
                           <p>&nbsp;Example content</p>
-                      </PanelBarContent>
-                  </PanelBarItem>
-                  <PanelBarItem title="Fifth item (with children, second level)">
-                      <PanelBarNavigation>
-                          <PanelBarItem title="Sixth item (without children, third level)">
-                              <PanelBarContent>
+                      </KendoPanelBarContent>
+                  </KendoPanelBarItem>
+                  <KendoPanelBarItem title="Fifth item (with children, second level)">
+                      <KendoPanelBarNavigation>
+                          <KendoPanelBarItem title="Sixth item (without children, third level)">
+                              <KendoPanelBarContent>
                                   <p>Some text</p>
-                              </PanelBarContent>
-                          </PanelBarItem>
-                      </PanelBarNavigation>
-                  </PanelBarItem>
-              </PanelBarNavigation>
-          </PanelBarItem>
+                              </KendoPanelBarContent>
+                          </KendoPanelBarItem>
+                      </KendoPanelBarNavigation>
+                  </KendoPanelBarItem>
+              </KendoPanelBarNavigation>
+          </KendoPanelBarItem>
       </KendoPanelBar>
   </div>,
   document.getElementById('app')

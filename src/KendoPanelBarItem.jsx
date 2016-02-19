@@ -3,21 +3,21 @@ import * as React from 'react';
 //TODO: uncomment when the styles are ready:
 //import styles from '@telerik/kendo-theme-default-base/styles/main';
 
-import PanelBarNavigation from "../src/panelbar-navigation.jsx";
-import PanelBarContent from "../src/panelbar-content.jsx";
+import KendoPanelBarNavigation from "../src/KendoPanelBarNavigation.jsx";
+import KendoPanelBarContent from "../src/KendoPanelBarContent.jsx";
 import ClassNames from 'classnames';
 
-export default class PanelBarItem extends React.Component {
+export default class KendoPanelBarItem extends React.Component {
     mapComponents(props, other) {
         let { children } = props;
 
         return React.Children.map(children, (child) => {
             if (React.isValidElement(child)) {
-                if (child.type === PanelBarNavigation) {
-                    return <PanelBarNavigation {...other }>{child.props.children}</PanelBarNavigation>;
+                if (child.type === KendoPanelBarNavigation) {
+                    return <KendoPanelBarNavigation {...other }>{child.props.children}</KendoPanelBarNavigation>;
                 }
 
-                return <PanelBarContent {...other }>{child.props.children}</PanelBarContent>;
+                return <KendoPanelBarContent {...other }>{child.props.children}</KendoPanelBarContent>;
             }
             return child;
         });
@@ -55,7 +55,7 @@ export default class PanelBarItem extends React.Component {
     }
 }
 
-PanelBarItem.propTypes = {
+KendoPanelBarItem.propTypes = {
     active: React.PropTypes.bool,
     children: function(props, propName) {
         let prop = props[propName];
@@ -66,7 +66,7 @@ PanelBarItem.propTypes = {
                 return new Error('Children should be either PanelBarContent or PanelBarNavigation.');
             }
 
-            if (prop.type !== PanelBarContent && prop.type !== PanelBarNavigation) {
+            if (prop.type !== KendoPanelBarContent && prop.type !== KendoPanelBarNavigation) {
                 return new Error('Child should be either PanelBarContent or PanelBarNavigation.');
             }
         }

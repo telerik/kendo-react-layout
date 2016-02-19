@@ -4,9 +4,9 @@ import * as React from 'react';
 //import styles from '@telerik/kendo-theme-default-base/styles/main';
 
 import classNames from 'classnames';
-import PanelBarItem from "../src/panelbar-item.jsx";
+import KendoPanelBarItem from "../src/KendoPanelBarItem.jsx";
 
-export default class PanelBarNavigation extends React.Component {
+export default class KendoPanelBarNavigation extends React.Component {
     mapComponents(props) {
         let { children } = props;
         return React.Children.map(children, (child, index) => {
@@ -22,7 +22,7 @@ export default class PanelBarNavigation extends React.Component {
         let isLast = children.length - 1 === index;
 
         return (
-            <PanelBarItem {...child.props } index={index} isLast={isLast}>{child.props.children}</PanelBarItem>
+            <KendoPanelBarItem {...child.props } index={index} isLast={isLast}>{child.props.children}</KendoPanelBarItem>
         );
     }
 
@@ -46,7 +46,7 @@ export default class PanelBarNavigation extends React.Component {
     }
 }
 
-PanelBarNavigation.propTypes = {
+KendoPanelBarNavigation.propTypes = {
     active: React.PropTypes.bool,
     children: function(props, propName) {
         const prop = props[propName];
@@ -55,12 +55,12 @@ PanelBarNavigation.propTypes = {
             //TODO: instead use: if (Object.prototype.toString.call(obj) == '[object Array]')
             if (prop instanceof Array) {
                 for (let value of prop) {
-                    if (!value.type || value.type !== PanelBarItem) {
+                    if (!value.type || value.type !== KendoPanelBarItem) {
                         return new Error('Navigation children should be either PanelBarItem or Array of PanelBarItem.');
                     }
                 }
             } else {
-                if (prop.type !== PanelBarItem) {
+                if (prop.type !== KendoPanelBarItem) {
                     return new Error('Navigation child should be either PanelBarItem or Array of PanelBarItem.');
                 }
             }

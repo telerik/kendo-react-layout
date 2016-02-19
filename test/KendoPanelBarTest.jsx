@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import KendoPanelBar from '../src/kendo-panelbar';
-import PanelBarItem from '../src/panelbar-item';
-import PanelBarNavigation from '../src/panelbar-navigation';
+import KendoPanelBar from '../src/KendoPanelBar.jsx';
+import KendoPanelBarItem from '../src/KendoPanelBarItem.jsx';
+import KendoPanelBarNavigation from '../src/KendoPanelBarNavigation.jsx';
 
 describe('KendoPanelBar', () => {
     let result;
@@ -18,11 +18,11 @@ describe('KendoPanelBar', () => {
 
     it('should pass index to children', () => {
         result = shallow(<KendoPanelBar>
-            <PanelBarItem title="first" />
-            <PanelBarItem title="second" />
+            <KendoPanelBarItem title="first" />
+            <KendoPanelBarItem title="second" />
         </KendoPanelBar>);
 
-        let items = result.find(PanelBarItem);
+        let items = result.find(KendoPanelBarItem);
 
         expect(items.first().props().index).toEqual(0);
         expect(items.last().props().index).toEqual(1);
@@ -31,13 +31,13 @@ describe('KendoPanelBar', () => {
 
     it('should pass children and props to PanelBarItem', () => {
         result = shallow(<KendoPanelBar>
-            <PanelBarItem title="first" active selected>
-                <PanelBarNavigation><PanelBarItem title="third" /></PanelBarNavigation>
-            </PanelBarItem>
-            <PanelBarItem title="second" disabled />
+            <KendoPanelBarItem title="first" active selected>
+                <KendoPanelBarNavigation><KendoPanelBarItem title="third" /></KendoPanelBarNavigation>
+            </KendoPanelBarItem>
+            <KendoPanelBarItem title="second" disabled />
         </KendoPanelBar>);
 
-        let items = result.find(PanelBarItem);
+        let items = result.find(KendoPanelBarItem);
 
         expect(items.first().props().index).toEqual(0);
         expect(items.first().props().active).toEqual(true);
@@ -67,7 +67,7 @@ describe('KendoPanelBar', () => {
     });
 
     it('should accept only PanelBarItem array as children', () => {
-        result = shallow(<KendoPanelBar>sometext<PanelBarItem title="some title" /></KendoPanelBar>);
+        result = shallow(<KendoPanelBar>sometext<KendoPanelBarItem title="some title" /></KendoPanelBar>);
 
         expect(console.error).toHaveBeenCalledWith("Warning: Failed propType: KendoPanelBar children should be either PanelBarItem or Array of PanelBarItem.");
     });

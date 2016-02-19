@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import PanelBarNavigation from '../src/panelbar-navigation';
-import PanelBarItem from '../src/panelbar-item';
+import KendoPanelBarNavigation from '../src/KendoPanelBarNavigation.jsx';
+import KendoPanelBarItem from '../src/KendoPanelBarItem.jsx';
 
-describe('PanelBarNavigation', () => {
+describe('KendoPanelBarNavigation', () => {
     let result;
 
     beforeEach(() => {
@@ -11,17 +11,17 @@ describe('PanelBarNavigation', () => {
     });
 
     it('should render a ul', () => {
-        result = shallow(<PanelBarNavigation />);
+        result = shallow(<KendoPanelBarNavigation />);
         expect(result.type()).toEqual('ul');
     });
 
     it('should pass index to children', () => {
-        result = shallow(<PanelBarNavigation>
-            <PanelBarItem title="first" />
-            <PanelBarItem title="second" />
-        </PanelBarNavigation>);
+        result = shallow(<KendoPanelBarNavigation>
+            <KendoPanelBarItem title="first" />
+            <KendoPanelBarItem title="second" />
+        </KendoPanelBarNavigation>);
 
-        let items = result.find(PanelBarItem);
+        let items = result.find(KendoPanelBarItem);
 
         expect(items.first().props().index).toEqual(0);
         expect(items.last().props().index).toEqual(1);
@@ -29,14 +29,14 @@ describe('PanelBarNavigation', () => {
     });
 
     it('should pass children to PanelBarItem', () => {
-        result = shallow(<PanelBarNavigation>
-            <PanelBarItem title="first" active selected>
-                <PanelBarNavigation><PanelBarItem title="third" /></PanelBarNavigation>
-            </PanelBarItem>
-            <PanelBarItem title="second" disabled />
-        </PanelBarNavigation>);
+        result = shallow(<KendoPanelBarNavigation>
+            <KendoPanelBarItem title="first" active selected>
+                <KendoPanelBarNavigation><KendoPanelBarItem title="third" /></KendoPanelBarNavigation>
+            </KendoPanelBarItem>
+            <KendoPanelBarItem title="second" disabled />
+        </KendoPanelBarNavigation>);
 
-        let items = result.find(PanelBarItem);
+        let items = result.find(KendoPanelBarItem);
 
         expect(items.first().props().index).toEqual(0);
         expect(items.first().props().active).toEqual(true);
@@ -51,32 +51,32 @@ describe('PanelBarNavigation', () => {
     });
 
     it('should add CSS classes', () => {
-        result = shallow(<PanelBarNavigation />);
+        result = shallow(<KendoPanelBarNavigation />);
 
         expect(result.hasClass('k-group')).toEqual(true);
         expect(result.hasClass('k-panel')).toEqual(true);
     });
 
     it('should render invisible', () => {
-        result = shallow(<PanelBarNavigation active={false} />);
+        result = shallow(<KendoPanelBarNavigation active={false} />);
 
         expect(result.props().style.display).toEqual('none');
     });
 
     it('should render visible', () => {
-        result = shallow(<PanelBarNavigation active />);
+        result = shallow(<KendoPanelBarNavigation active />);
 
         expect(result.props().style.display).toEqual('block');
     });
 
     it('should accept only PanelBarItem as child', () => {
-        result = shallow(<PanelBarNavigation>sometext</PanelBarNavigation>);
+        result = shallow(<KendoPanelBarNavigation>sometext</KendoPanelBarNavigation>);
 
         expect(console.error).toHaveBeenCalledWith("Warning: Failed propType: Navigation child should be either PanelBarItem or Array of PanelBarItem.");
     });
 
     it('should accept only PanelBarItem array as children', () => {
-        result = shallow(<PanelBarNavigation>sometext<PanelBarItem title="some title" /></PanelBarNavigation>);
+        result = shallow(<KendoPanelBarNavigation>sometext<KendoPanelBarItem title="some title" /></KendoPanelBarNavigation>);
 
         expect(console.error).toHaveBeenCalledWith("Warning: Failed propType: Navigation children should be either PanelBarItem or Array of PanelBarItem.");
     });
