@@ -8,22 +8,23 @@ import KendoPanelBarContent from "../src/KendoPanelBarContent.jsx";
 import ClassNames from 'classnames';
 
 export default class KendoPanelBarItem extends React.Component {
-    mapComponents(props, other) {
+    mapComponents(props, others) {
         let { children } = props;
 
         return React.Children.map(children, (child) => {
             if (React.isValidElement(child)) {
                 if (child.type === KendoPanelBarNavigation) {
-                    return <KendoPanelBarNavigation {...other }>{child.props.children}</KendoPanelBarNavigation>;
+                    return <KendoPanelBarNavigation {...others } parentKey={this.props.itemKey}>{child.props.children}</KendoPanelBarNavigation>;
                 }
 
-                return <KendoPanelBarContent {...other }>{child.props.children}</KendoPanelBarContent>;
+                return <KendoPanelBarContent {...others }>{child.props.children}</KendoPanelBarContent>;
             }
             return child;
         });
     }
+
     render() {
-        const { title = "Untitled", isLast, index, disabled, selected, ...other } = this.props;
+        const { title = "Untitled", isLast, index, disabled, selected, ...others } = this.props;
 
         let panelBarItemClasses = ClassNames({
             'k-item': true,
@@ -39,12 +40,11 @@ export default class KendoPanelBarItem extends React.Component {
         let panelBarItemSpanClasses = ClassNames({
             'k-link': true,
             'k-header': true,
-            //TODO: this should be applied only on enabled nodes
-            'k-state-selected': selected,
+            'k-state-selected': !disabled && selected,
             'k-state-default': true
         });
 
-        const children = this.mapComponents(this.props, other);
+        const children = this.mapComponents(this.props, others);
 
         return (
             <li className={panelBarItemClasses}>

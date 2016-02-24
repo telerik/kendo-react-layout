@@ -7,8 +7,7 @@ import classNames from 'classnames';
 import KendoPanelBarItem from "../src/KendoPanelBarItem.jsx";
 
 export default class KendoPanelBarNavigation extends React.Component {
-    mapComponents(props) {
-        let { children } = props;
+    mapComponents(children) {
         return React.Children.map(children, (child, index) => {
             if (React.isValidElement(child)) {
                 return this.renderItem(child, index);
@@ -19,23 +18,29 @@ export default class KendoPanelBarNavigation extends React.Component {
 
     renderItem(child, index) {
         let { children } = this.props;
-        let isLast = children.length - 1 === index;
 
         return (
-            <KendoPanelBarItem {...child.props } index={index} isLast={isLast}>{child.props.children}</KendoPanelBarItem>
+            <KendoPanelBarItem {...child.props } index={index} isLast={children.length - 1 === index}>
+                {child.props.children}
+            </KendoPanelBarItem>
         );
     }
 
     render() {
-        const items = this.mapComponents(this.props);
+        const { active, isMaster, children } = this.props;
+        const items = this.mapComponents(children);
 
         const panelBarItemsClasses = classNames({
-            'k-group': true,
-            'k-panel': true
+            'k-group': !isMaster,
+            'k-panel': !isMaster,
+            'k-widget': isMaster,
+            'k-reset': isMaster,
+            'k-header': isMaster,
+            'k-panelbar': isMaster
         });
 
         const inlineStyles = {
-            display: this.props.active ? "block" : "none"
+            display: active ? "block" : "none"
         };
 
         return (
@@ -65,5 +70,6 @@ KendoPanelBarNavigation.propTypes = {
                 }
             }
         }
-    }
+    },
+    isMaster: React.PropTypes.bool
 };

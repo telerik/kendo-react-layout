@@ -79,6 +79,17 @@ describe('KendoPanelBarItem', () => {
         expect(result.find("span").first().hasClass('k-state-selected')).toEqual(true);
     });
 
+    it('should not add k-state-selected CSS class when disabled', () => {
+        let props = {
+            selected: true,
+            disabled: true
+        };
+
+        result = shallow(<KendoPanelBarItem title="sometext" {...props} />);
+
+        expect(result.find("span").first().hasClass('k-state-selected')).toEqual(false);
+    });
+
     it('should pass children and props correctly to child components', () => {
         result = shallow(
             <KendoPanelBarItem active title="first">

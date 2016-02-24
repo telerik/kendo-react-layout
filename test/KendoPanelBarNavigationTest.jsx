@@ -44,15 +44,29 @@ describe('KendoPanelBarNavigation', () => {
 
         expect(items.last().props().index).toEqual(1);
         expect(items.last().props().isLast).toEqual(true);
-        expect(items.last().props().isLast).toEqual(true);
         expect(items.last().props().disabled).toEqual(true);
 
         expect(items.at(1).props().title).toEqual("third");
     });
 
+    it('should add master CSS classes', () => {
+        result = shallow(<KendoPanelBarNavigation isMaster />);
+
+        expect(result.hasClass('k-panelbar')).toEqual(true);
+        expect(result.hasClass('k-widget')).toEqual(true);
+        expect(result.hasClass('k-header')).toEqual(true);
+        expect(result.hasClass('k-panelbar')).toEqual(true);
+        expect(result.hasClass('k-group')).toEqual(false);
+        expect(result.hasClass('k-panel')).toEqual(false);
+    });
+
     it('should add CSS classes', () => {
         result = shallow(<KendoPanelBarNavigation />);
 
+        expect(result.hasClass('k-panelbar')).toEqual(false);
+        expect(result.hasClass('k-widget')).toEqual(false);
+        expect(result.hasClass('k-header')).toEqual(false);
+        expect(result.hasClass('k-panelbar')).toEqual(false);
         expect(result.hasClass('k-group')).toEqual(true);
         expect(result.hasClass('k-panel')).toEqual(true);
     });

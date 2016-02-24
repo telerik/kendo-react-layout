@@ -11,53 +11,36 @@ describe('KendoPanelBar', () => {
         spyOn(console, 'error');
     });
 
-    it('should render a ul', () => {
+    it('should render a KendoPanelBarNavigation', () => {
         result = shallow(<KendoPanelBar />);
-        expect(result.type()).toEqual('ul');
+        expect(result.type().name).toEqual('KendoPanelBarNavigation');
     });
 
-    it('should pass index to children', () => {
+    it('should set isMaster to children', () => {
+        result = shallow(<KendoPanelBar />);
+
+        let items = result.find(KendoPanelBarNavigation);
+
+        expect(items.first().props().isMaster).toEqual(true);
+    });
+
+    it('should pass custom props to children', () => {
+        result = shallow(<KendoPanelBar customProp />);
+
+        let items = result.find(KendoPanelBarNavigation);
+
+        expect(items.first().props().customProp).toEqual(true);
+    });
+
+    it('should pass children to KendoPanelBarNavigation', () => {
         result = shallow(<KendoPanelBar>
-            <KendoPanelBarItem title="first" />
-            <KendoPanelBarItem title="second" />
+            <KendoPanelBarItem title="first" active selected />
         </KendoPanelBar>);
 
         let items = result.find(KendoPanelBarItem);
 
-        expect(items.first().props().index).toEqual(0);
-        expect(items.last().props().index).toEqual(1);
-        expect(items.last().props().isLast).toEqual(true);
-    });
-
-    it('should pass children and props to PanelBarItem', () => {
-        result = shallow(<KendoPanelBar>
-            <KendoPanelBarItem title="first" active selected>
-                <KendoPanelBarNavigation><KendoPanelBarItem title="third" /></KendoPanelBarNavigation>
-            </KendoPanelBarItem>
-            <KendoPanelBarItem title="second" disabled />
-        </KendoPanelBar>);
-
-        let items = result.find(KendoPanelBarItem);
-
-        expect(items.first().props().index).toEqual(0);
         expect(items.first().props().active).toEqual(true);
         expect(items.first().props().selected).toEqual(true);
-
-        expect(items.last().props().index).toEqual(1);
-        expect(items.last().props().isLast).toEqual(true);
-        expect(items.last().props().isLast).toEqual(true);
-        expect(items.last().props().disabled).toEqual(true);
-
-        expect(items.at(1).props().title).toEqual("third");
-    });
-
-    it('should add CSS classes', () => {
-        result = shallow(<KendoPanelBar />);
-
-        expect(result.hasClass('k-panelbar')).toEqual(true);
-        expect(result.hasClass('k-widget')).toEqual(true);
-        expect(result.hasClass('k-header')).toEqual(true);
-        expect(result.hasClass('k-panelbar')).toEqual(true);
     });
 
     it('should accept only PanelBarItem as child', () => {
