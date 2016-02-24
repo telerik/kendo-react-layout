@@ -14,7 +14,7 @@ export default class KendoPanelBarItem extends React.Component {
         return React.Children.map(children, (child) => {
             if (React.isValidElement(child)) {
                 if (child.type === KendoPanelBarNavigation) {
-                    return <KendoPanelBarNavigation {...others } parentKey={this.props.itemKey}>{child.props.children}</KendoPanelBarNavigation>;
+                    return <KendoPanelBarNavigation {...others }>{child.props.children}</KendoPanelBarNavigation>;
                 }
 
                 return <KendoPanelBarContent {...others }>{child.props.children}</KendoPanelBarContent>;
