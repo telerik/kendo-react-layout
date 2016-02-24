@@ -17,10 +17,15 @@ export default class KendoPanelBarNavigation extends React.Component {
     }
 
     renderItem(child, index) {
-        let { children } = this.props;
+        const { children } = this.props;
 
         return (
-            <KendoPanelBarItem {...child.props } index={index} isLast={children.length - 1 === index}>
+            <KendoPanelBarItem {...child.props }
+                index={index}
+                isLast={children.length - 1 === index}
+                itemKey={child.key}
+                key={child.key}
+            >
                 {child.props.children}
             </KendoPanelBarItem>
         );

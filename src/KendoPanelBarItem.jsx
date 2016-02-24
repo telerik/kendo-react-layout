@@ -74,7 +74,13 @@ KendoPanelBarItem.propTypes = {
     disabled: React.PropTypes.bool,
     index: React.PropTypes.number,
     isLast: React.PropTypes.bool,
+    itemKey: React.PropTypes.oneOfType([
+        React.PropTypes.string,
+        React.PropTypes.number
+    ]),
     selected: React.PropTypes.bool,
-    //TODO: change to react element?
-    title: React.PropTypes.string
+    title: React.PropTypes.oneOfType([
+        React.PropTypes.string,
+        React.PropTypes.element
+    ])
 };

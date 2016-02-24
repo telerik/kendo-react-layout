@@ -28,9 +28,9 @@ describe('KendoPanelBarNavigation', () => {
         expect(items.last().props().isLast).toEqual(true);
     });
 
-    it('should pass children to PanelBarItem', () => {
+    it('should pass valid props to children', () => {
         result = shallow(<KendoPanelBarNavigation>
-            <KendoPanelBarItem title="first" active selected>
+            <KendoPanelBarItem title="first" active selected key="200">
                 <KendoPanelBarNavigation><KendoPanelBarItem title="third" /></KendoPanelBarNavigation>
             </KendoPanelBarItem>
             <KendoPanelBarItem title="second" disabled />
@@ -41,6 +41,7 @@ describe('KendoPanelBarNavigation', () => {
         expect(items.first().props().index).toEqual(0);
         expect(items.first().props().active).toEqual(true);
         expect(items.first().props().selected).toEqual(true);
+        expect(items.first().props().itemKey).toEqual("200");
 
         expect(items.last().props().index).toEqual(1);
         expect(items.last().props().isLast).toEqual(true);
