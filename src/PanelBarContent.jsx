@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import classNames from 'classnames';
 
-export default class KendoPanelBarContent extends React.Component {
+export default class PanelBarContent extends React.Component {
     render() {
         let panelBarItemContentClasses = classNames({
             'k-content': true
@@ -18,7 +18,7 @@ export default class KendoPanelBarContent extends React.Component {
     }
 }
 
-KendoPanelBarContent.propTypes = {
+PanelBarContent.propTypes = {
     active: React.PropTypes.bool,
     children: React.PropTypes.oneOfType([
         React.PropTypes.element,

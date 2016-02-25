@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import KendoPanelBarItem from '../src/KendoPanelBarItem.jsx';
-import KendoPanelBarContent from '../src/KendoPanelBarContent.jsx';
-import KendoPanelBarNavigation from '../src/KendoPanelBarNavigation.jsx';
+import PanelBarItem from '../src/PanelBarItem.jsx';
+import PanelBarContent from '../src/PanelBarContent.jsx';
+import PanelBarNavigation from '../src/PanelBarNavigation.jsx';
 
-describe('KendoPanelBarItem', () => {
+describe('PanelBarItem', () => {
     let result;
 
     beforeEach(() => {
@@ -12,19 +12,19 @@ describe('KendoPanelBarItem', () => {
     });
 
     it('should render a li', () => {
-        result = shallow(<KendoPanelBarItem />);
+        result = shallow(<PanelBarItem />);
         expect(result.type()).toEqual('li');
     });
 
     it('should render title correctly', () => {
-        result = shallow(<KendoPanelBarItem title="sometext" />);
+        result = shallow(<PanelBarItem title="sometext" />);
 
         expect(result.find("span").length).toEqual(1);
         expect(result.find("span").text()).toEqual('sometext');
     });
 
     it('should add title CSS classes', () => {
-        result = shallow(<KendoPanelBarItem title="sometext" />);
+        result = shallow(<PanelBarItem title="sometext" />);
 
         expect(result.find("span").hasClass('k-link')).toBeGreaterThan(-1);
         expect(result.find("span").hasClass('k-header')).toBeGreaterThan(-1);
@@ -33,62 +33,62 @@ describe('KendoPanelBarItem', () => {
     });
 
     it('should set aria-selected attribute to true', () => {
-        result = shallow(<KendoPanelBarItem selected title="sometext" />);
+        result = shallow(<PanelBarItem selected title="sometext" />);
 
         expect(result.find("li").props()['aria-selected']).toEqual(true);
     });
 
     it('should set aria-selected attribute to false', () => {
-        result = shallow(<KendoPanelBarItem selected={false} title="sometext" />);
+        result = shallow(<PanelBarItem selected={false} title="sometext" />);
 
         expect(result.find("li").props()['aria-selected']).toEqual(false);
     });
 
     it('should set aria-selected attribute to false when disabled', () => {
-        result = shallow(<KendoPanelBarItem disabled selected title="sometext" />);
+        result = shallow(<PanelBarItem disabled selected title="sometext" />);
 
         expect(result.find("li").props()['aria-selected']).toEqual(false);
     });
 
     it('should set aria-expanded attribute to true', () => {
-        result = shallow(<KendoPanelBarItem active title="sometext" />);
+        result = shallow(<PanelBarItem active title="sometext" />);
 
         expect(result.find("li").props()['aria-expanded']).toEqual(true);
     });
 
     it('should set aria-expanded attribute to false', () => {
-        result = shallow(<KendoPanelBarItem active={false} title="sometext" />);
+        result = shallow(<PanelBarItem active={false} title="sometext" />);
 
         expect(result.find("li").props()['aria-expanded']).toEqual(false);
     });
 
     it('should set aria-expanded attribute to false', () => {
-        result = shallow(<KendoPanelBarItem active disabled title="sometext" />);
+        result = shallow(<PanelBarItem active disabled title="sometext" />);
 
         expect(result.find("li").props()['aria-expanded']).toEqual(false);
     });
 
     it('should set aria-hidden attribute to true', () => {
-        result = shallow(<KendoPanelBarItem active title="sometext" />);
+        result = shallow(<PanelBarItem active title="sometext" />);
 
         expect(result.find("li").props()['aria-hidden']).toEqual(false);
     });
 
     it('should set aria-hidden attribute to false', () => {
-        result = shallow(<KendoPanelBarItem active={false} title="sometext" />);
+        result = shallow(<PanelBarItem active={false} title="sometext" />);
 
         expect(result.find("li").props()['aria-hidden']).toEqual(true);
     });
 
     it('should add CSS classes', () => {
-        result = shallow(<KendoPanelBarItem active />);
+        result = shallow(<PanelBarItem active />);
 
         expect(result.hasClass('k-item')).toEqual(true);
         expect(result.hasClass('k-state-default')).toEqual(true);
     });
 
     it('should add CSS classes when active', () => {
-        result = shallow(<KendoPanelBarItem active />);
+        result = shallow(<PanelBarItem active />);
 
         expect(result.hasClass('k-item')).toEqual(true);
         expect(result.hasClass('k-state-default')).toEqual(true);
@@ -96,7 +96,7 @@ describe('KendoPanelBarItem', () => {
     });
 
     it('should add CSS classes when disabled', () => {
-        result = shallow(<KendoPanelBarItem active disabled />);
+        result = shallow(<PanelBarItem active disabled />);
 
         expect(result.hasClass('k-item')).toEqual(true);
         expect(result.hasClass('k-state-default')).toEqual(false);
@@ -109,7 +109,7 @@ describe('KendoPanelBarItem', () => {
             index: 0
         };
 
-        result = shallow(<KendoPanelBarItem title="sometext" {...props} />);
+        result = shallow(<PanelBarItem title="sometext" {...props} />);
 
         expect(result.find("li").first().hasClass('k-first')).toEqual(true);
     });
@@ -119,7 +119,7 @@ describe('KendoPanelBarItem', () => {
             isLast: true
         };
 
-        result = shallow(<KendoPanelBarItem title="sometext" {...props} />);
+        result = shallow(<PanelBarItem title="sometext" {...props} />);
 
         expect(result.find("li").hasClass('k-last')).toEqual(true);
     });
@@ -129,7 +129,7 @@ describe('KendoPanelBarItem', () => {
             disabled: true
         };
 
-        result = shallow(<KendoPanelBarItem title="sometext" {...props} />);
+        result = shallow(<PanelBarItem title="sometext" {...props} />);
 
         expect(result.find("li").hasClass('k-state-disabled')).toEqual(true);
     });
@@ -140,11 +140,11 @@ describe('KendoPanelBarItem', () => {
             active: true
         };
 
-        result = shallow(<KendoPanelBarItem disabled title="sometext" {...props}>
-            <KendoPanelBarContent>SomeContent</KendoPanelBarContent>
-        </KendoPanelBarItem>);
+        result = shallow(<PanelBarItem disabled title="sometext" {...props}>
+            <PanelBarContent>SomeContent</PanelBarContent>
+        </PanelBarItem>);
 
-        expect(result.find("KendoPanelBarContent").props().active).toEqual(false);
+        expect(result.find("PanelBarContent").props().active).toEqual(false);
     });
 
     it('should collapse navigation if disabled', () => {
@@ -153,11 +153,11 @@ describe('KendoPanelBarItem', () => {
             active: true
         };
 
-        result = shallow(<KendoPanelBarItem disabled title="sometext" {...props}>
-            <KendoPanelBarNavigation />
-        </KendoPanelBarItem>);
+        result = shallow(<PanelBarItem disabled title="sometext" {...props}>
+            <PanelBarNavigation />
+        </PanelBarItem>);
 
-        expect(result.find(KendoPanelBarNavigation).props().active).toEqual(false);
+        expect(result.find(PanelBarNavigation).props().active).toEqual(false);
     });
 
     it('should add k-state-selected CSS class', () => {
@@ -165,7 +165,7 @@ describe('KendoPanelBarItem', () => {
             selected: true
         };
 
-        result = shallow(<KendoPanelBarItem title="sometext" {...props} />);
+        result = shallow(<PanelBarItem title="sometext" {...props} />);
 
         expect(result.find("span").first().hasClass('k-state-selected')).toEqual(true);
     });
@@ -176,44 +176,44 @@ describe('KendoPanelBarItem', () => {
             disabled: true
         };
 
-        result = shallow(<KendoPanelBarItem title="sometext" {...props} />);
+        result = shallow(<PanelBarItem title="sometext" {...props} />);
 
         expect(result.find("span").first().hasClass('k-state-selected')).toEqual(false);
     });
 
     it('should pass children and props correctly to child components', () => {
         result = shallow(
-            <KendoPanelBarItem active title="first">
-                <KendoPanelBarNavigation />
-            </KendoPanelBarItem>);
+            <PanelBarItem active title="first">
+                <PanelBarNavigation />
+            </PanelBarItem>);
 
-        let navigation = result.find(KendoPanelBarNavigation);
+        let navigation = result.find(PanelBarNavigation);
 
         expect(navigation.props().active).toEqual(true);
     });
 
     it('handler is called when clicked', () => {
         let spy = jasmine.createSpy('click');
-        result = shallow(<KendoPanelBarItem onSelect={spy} key="10" itemKey="10" />);
+        result = shallow(<PanelBarItem onSelect={spy} key="10" itemKey="10" />);
         result.find('span').simulate('click');
         expect(spy).toHaveBeenCalledWith("10");
     });
 
     it('handler is not called for disabled panels', () => {
         let spy = jasmine.createSpy('click');
-        result = shallow(<KendoPanelBarItem disabled onSelect={spy} key="10" itemKey="10" />);
+        result = shallow(<PanelBarItem disabled onSelect={spy} key="10" itemKey="10" />);
         result.find('span').simulate('click');
         expect(spy).not.toHaveBeenCalled();
     });
 
     it('should accept only  PanelBarContent or PanelBarNavigation as child', () => {
-        result = shallow(<KendoPanelBarItem>sometext<KendoPanelBarContent/></KendoPanelBarItem>);
+        result = shallow(<PanelBarItem>sometext<PanelBarContent/></PanelBarItem>);
 
         expect(console.error).toHaveBeenCalledWith("Warning: Failed propType: Children should be either PanelBarContent or PanelBarNavigation.");
     });
 
     it('should accept only  PanelBarContent or PanelBarNavigation as children', () => {
-        result = shallow(<KendoPanelBarItem>sometext</KendoPanelBarItem>);
+        result = shallow(<PanelBarItem>sometext</PanelBarItem>);
 
         expect(console.error).toHaveBeenCalledWith("Warning: Failed propType: Child should be either PanelBarContent or PanelBarNavigation.");
     });

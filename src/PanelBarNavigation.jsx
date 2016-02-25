@@ -4,9 +4,9 @@ import * as React from 'react';
 //import styles from '@telerik/kendo-theme-default-base/styles/main';
 
 import classNames from 'classnames';
-import KendoPanelBarItem from "../src/KendoPanelBarItem.jsx";
+import PanelBarItem from "../src/PanelBarItem.jsx";
 
-export default class KendoPanelBarNavigation extends React.Component {
+export default class PanelBarNavigation extends React.Component {
     mapComponents(children) {
         return React.Children.map(children, (child, index) => {
             if (React.isValidElement(child)) {
@@ -20,7 +20,7 @@ export default class KendoPanelBarNavigation extends React.Component {
         const { children, onSelect } = this.props;
 
         return (
-            <KendoPanelBarItem {...child.props }
+            <PanelBarItem {...child.props }
                 index={index}
                 isLast={children.length - 1 === index}
                 itemKey={child.key}
@@ -28,7 +28,7 @@ export default class KendoPanelBarNavigation extends React.Component {
                 onSelect={onSelect}
             >
                 {child.props.children}
-            </KendoPanelBarItem>
+            </PanelBarItem>
         );
     }
 
@@ -57,7 +57,7 @@ export default class KendoPanelBarNavigation extends React.Component {
     }
 }
 
-KendoPanelBarNavigation.propTypes = {
+PanelBarNavigation.propTypes = {
     active: React.PropTypes.bool,
     children: function(props, propName) {
         const prop = props[propName];
@@ -66,12 +66,12 @@ KendoPanelBarNavigation.propTypes = {
             //TODO: instead use: if (Object.prototype.toString.call(obj) == '[object Array]')
             if (prop instanceof Array) {
                 for (let value of prop) {
-                    if (!value.type || value.type !== KendoPanelBarItem) {
+                    if (!value.type || value.type !== PanelBarItem) {
                         return new Error('Navigation children should be either PanelBarItem or Array of PanelBarItem.');
                     }
                 }
             } else {
-                if (prop.type !== KendoPanelBarItem) {
+                if (prop.type !== PanelBarItem) {
                     return new Error('Navigation child should be either PanelBarItem or Array of PanelBarItem.');
                 }
             }

@@ -1,42 +1,42 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import KendoPanelBar from '../src/KendoPanelBar.jsx';
-import KendoPanelBarItem from '../src/KendoPanelBarItem.jsx';
-import KendoPanelBarNavigation from '../src/KendoPanelBarNavigation.jsx';
-import KendoPanelBarContent from '../src/KendoPanelBarContent.jsx';
+import PanelBar from '../src/PanelBar.jsx';
+import PanelBarItem from '../src/PanelBarItem.jsx';
+import PanelBarNavigation from '../src/PanelBarNavigation.jsx';
+import PanelBarContent from '../src/PanelBarContent.jsx';
 
 ReactDOM.render(
   <div>
-      <KendoPanelBar>
-          <KendoPanelBarItem title="First item (with content)" active>
-              <KendoPanelBarContent>
+      <PanelBar>
+          <PanelBarItem active key="1" selected title="First item (with content)">
+              <PanelBarContent>
                   <p>&nbsp;Example content</p>
-              </KendoPanelBarContent>
-          </KendoPanelBarItem>
-          <KendoPanelBarItem title="Second item (with content)">
-              <KendoPanelBarContent>
+              </PanelBarContent>
+          </PanelBarItem>
+          <PanelBarItem key="2" title="Second item (with content)">
+              <PanelBarContent>
                   <p>&nbsp;Example content</p>
-              </KendoPanelBarContent>
-          </KendoPanelBarItem>
-          <KendoPanelBarItem title="Third item (with childrens)">
-              <KendoPanelBarNavigation>
-                  <KendoPanelBarItem title="Forth item (with content, second level)">
-                      <KendoPanelBarContent>
+              </PanelBarContent>
+          </PanelBarItem>
+          <PanelBarItem disabled active title="Third item (with childrens)" key="3">
+              <PanelBarNavigation>
+                  <PanelBarItem active disabled key="4" title="Forth item (with content, second level)">
+                      <PanelBarContent>
                           <p>&nbsp;Example content</p>
-                      </KendoPanelBarContent>
-                  </KendoPanelBarItem>
-                  <KendoPanelBarItem title="Fifth item (with children, second level)">
-                      <KendoPanelBarNavigation>
-                          <KendoPanelBarItem title="Sixth item (without children, third level)">
-                              <KendoPanelBarContent>
+                      </PanelBarContent>
+                  </PanelBarItem>
+                  <PanelBarItem active key="5" title="Fifth item (with children, second level)">
+                      <PanelBarNavigation>
+                          <PanelBarItem active key="78" title="Sixth item (without children, third level)">
+                              <PanelBarContent>
                                   <p>Some text</p>
-                              </KendoPanelBarContent>
-                          </KendoPanelBarItem>
-                      </KendoPanelBarNavigation>
-                  </KendoPanelBarItem>
-              </KendoPanelBarNavigation>
-          </KendoPanelBarItem>
-      </KendoPanelBar>
+                              </PanelBarContent>
+                          </PanelBarItem>
+                      </PanelBarNavigation>
+                  </PanelBarItem>
+              </PanelBarNavigation>
+          </PanelBarItem>
+      </PanelBar>
   </div>,
   document.getElementById('app')
 );

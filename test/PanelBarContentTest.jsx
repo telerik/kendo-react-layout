@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import KendoPanelBarContent from '../src/KendoPanelBarContent.jsx';
+import PanelBarContent from '../src/PanelBarContent.jsx';
 
-describe('KendoPanelBarContent', () => {
+describe('PanelBarContent', () => {
     let result;
 
     beforeEach(() => {
@@ -10,30 +10,30 @@ describe('KendoPanelBarContent', () => {
     });
 
     it('should render a div', () => {
-        result = shallow(<KendoPanelBarContent />);
+        result = shallow(<PanelBarContent />);
         expect(result.type()).toEqual('div');
     });
 
     it('should add CSS classes', () => {
-        result = shallow(<KendoPanelBarContent />);
+        result = shallow(<PanelBarContent />);
 
         expect(result.hasClass('k-content')).toEqual(true);
     });
 
     it('should render invisible', () => {
-        result = shallow(<KendoPanelBarContent active={false} />);
+        result = shallow(<PanelBarContent active={false} />);
 
         expect(result.props().style.display).toEqual('none');
     });
 
     it('should render visbile', () => {
-        result = shallow(<KendoPanelBarContent active />);
+        result = shallow(<PanelBarContent active />);
 
         expect(result.props().style.display).toEqual('block');
     });
 
     it('should render child content', () => {
-        result = shallow(<KendoPanelBarContent><p>SomeText</p></KendoPanelBarContent>);
+        result = shallow(<PanelBarContent><p>SomeText</p></PanelBarContent>);
 
         expect(console.error).not.toHaveBeenCalled();
         expect(result.find("p").props().children.indexOf('SomeText')).toBeGreaterThan(-1);

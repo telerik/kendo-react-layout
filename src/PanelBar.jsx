@@ -3,10 +3,10 @@ import * as React from 'react';
 //TODO: uncomment when the styles are ready:
 //import styles from '@telerik/kendo-theme-default-base/styles/main';
 
-import PanelBarNavigation from "../src/KendoPanelBarNavigation.jsx";
-import KendoPanelBarItem from "../src/KendoPanelBarItem.jsx";
+import PanelBarNavigation from "../src/PanelBarNavigation.jsx";
+import PanelBarItem from "../src/PanelBarItem.jsx";
 
-export default class KendoPanelBar extends React.Component {
+export default class PanelBar extends React.Component {
     onSelect(itemKey) {
         if (this.props.onSelect) {
             this.props.onSelect({
@@ -24,7 +24,7 @@ export default class KendoPanelBar extends React.Component {
     }
 }
 
-KendoPanelBar.propTypes = {
+PanelBar.propTypes = {
     children: function(props, propName) {
         const prop = props[propName];
 
@@ -32,13 +32,13 @@ KendoPanelBar.propTypes = {
             //TODO: instead use: if (Object.prototype.toString.call(obj) == '[object Array]')
             if (prop instanceof Array) {
                 for (let value of prop) {
-                    if (!value.type || value.type !== KendoPanelBarItem) {
-                        return new Error('KendoPanelBar children should be either PanelBarItem or Array of PanelBarItem.');
+                    if (!value.type || value.type !== PanelBarItem) {
+                        return new Error('PanelBar children should be either PanelBarItem or Array of PanelBarItem.');
                     }
                 }
             } else {
-                if (prop.type !== KendoPanelBarItem) {
-                    return new Error('KendoPanelBar child should be either PanelBarItem or Array of PanelBarItem.');
+                if (prop.type !== PanelBarItem) {
+                    return new Error('PanelBar child should be either PanelBarItem or Array of PanelBarItem.');
                 }
             }
         }

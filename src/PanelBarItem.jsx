@@ -3,25 +3,25 @@ import * as React from 'react';
 //TODO: uncomment when the styles are ready:
 //import styles from '@telerik/kendo-theme-default-base/styles/main';
 
-import KendoPanelBarNavigation from "../src/KendoPanelBarNavigation.jsx";
-import KendoPanelBarContent from "../src/KendoPanelBarContent.jsx";
+import PanelBarNavigation from "../src/PanelBarNavigation.jsx";
+import PanelBarContent from "../src/PanelBarContent.jsx";
 import ClassNames from 'classnames';
 
-export default class KendoPanelBarItem extends React.Component {
+export default class PanelBarItem extends React.Component {
     mapComponents(props, childProps) {
         let { children, disabled, active } = props;
 
         return React.Children.map(children, (child) => {
             if (React.isValidElement(child)) {
-                if (child.type === KendoPanelBarNavigation) {
-                    return (<KendoPanelBarNavigation {...childProps } active={disabled ? !disabled : active}>
+                if (child.type === PanelBarNavigation) {
+                    return (<PanelBarNavigation {...childProps } active={disabled ? !disabled : active}>
                         {child.props.children}
-                    </KendoPanelBarNavigation>);
+                    </PanelBarNavigation>);
                 }
 
-                return (<KendoPanelBarContent {...childProps } active={disabled ? !disabled : active}>
+                return (<PanelBarContent {...childProps } active={disabled ? !disabled : active}>
                     {child.props.children}
-                </KendoPanelBarContent>);
+                </PanelBarContent>);
             }
             return child;
         });
@@ -34,7 +34,6 @@ export default class KendoPanelBarItem extends React.Component {
     render() {
         const { active, title = "Untitled", isLast, index, disabled, selected, ...others } = this.props;
 
-        //TODO: Add aria attributes
         let panelBarItemProps = {
             'role': "menuitem",
             'aria-expanded': !disabled && active,
@@ -71,7 +70,7 @@ export default class KendoPanelBarItem extends React.Component {
     }
 }
 
-KendoPanelBarItem.propTypes = {
+PanelBarItem.propTypes = {
     active: React.PropTypes.bool,
     children: function(props, propName) {
         let prop = props[propName];
@@ -82,7 +81,7 @@ KendoPanelBarItem.propTypes = {
                 return new Error('Children should be either PanelBarContent or PanelBarNavigation.');
             }
 
-            if (prop.type !== KendoPanelBarContent && prop.type !== KendoPanelBarNavigation) {
+            if (prop.type !== PanelBarContent && prop.type !== PanelBarNavigation) {
                 return new Error('Child should be either PanelBarContent or PanelBarNavigation.');
             }
         }
