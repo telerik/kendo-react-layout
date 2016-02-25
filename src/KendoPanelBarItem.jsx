@@ -8,16 +8,21 @@ import KendoPanelBarContent from "../src/KendoPanelBarContent.jsx";
 import ClassNames from 'classnames';
 
 export default class KendoPanelBarItem extends React.Component {
-    mapComponents(props, others) {
-        let { children } = props;
+    mapComponents(props, childProps) {
+        let { children, disabled } = props;
+        let { active, ...others } = childProps;
 
         return React.Children.map(children, (child) => {
             if (React.isValidElement(child)) {
                 if (child.type === KendoPanelBarNavigation) {
-                    return <KendoPanelBarNavigation {...others }>{child.props.children}</KendoPanelBarNavigation>;
+                    return <KendoPanelBarNavigation {...others } active={disabled ? !disabled : active}>
+                        {child.props.children}
+                    </KendoPanelBarNavigation>;
                 }
 
-                return <KendoPanelBarContent {...others }>{child.props.children}</KendoPanelBarContent>;
+                return <KendoPanelBarContent {...others } active={disabled ? !disabled : active}>
+                    {child.props.children}
+                </KendoPanelBarContent>;
             }
             return child;
         });

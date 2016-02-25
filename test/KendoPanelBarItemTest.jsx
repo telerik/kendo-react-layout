@@ -69,6 +69,32 @@ describe('KendoPanelBarItem', () => {
         expect(result.find("li").hasClass('k-state-disabled')).toEqual(true);
     });
 
+    it('should collapse content if disabled', () => {
+        let props = {
+            disabled: true,
+            active: true
+        };
+
+        result = shallow(<KendoPanelBarItem disabled title="sometext" {...props}>
+            <KendoPanelBarContent>SomeContent</KendoPanelBarContent>
+        </KendoPanelBarItem>);
+
+        expect(result.find("KendoPanelBarContent").props().active).toEqual(false);
+    });
+
+    it('should collapse navigation if disabled', () => {
+        let props = {
+            disabled: true,
+            active: true
+        };
+
+        result = shallow(<KendoPanelBarItem disabled title="sometext" {...props}>
+            <KendoPanelBarNavigation />
+        </KendoPanelBarItem>);
+
+        expect(result.find(KendoPanelBarNavigation).props().active).toEqual(false);
+    });
+
     it('should add k-state-selected CSS class', () => {
         let props = {
             selected: true
