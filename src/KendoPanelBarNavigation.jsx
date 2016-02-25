@@ -17,7 +17,7 @@ export default class KendoPanelBarNavigation extends React.Component {
     }
 
     renderItem(child, index) {
-        const { children } = this.props;
+        const { children, onSelect } = this.props;
 
         return (
             <KendoPanelBarItem {...child.props }
@@ -25,6 +25,7 @@ export default class KendoPanelBarNavigation extends React.Component {
                 isLast={children.length - 1 === index}
                 itemKey={child.key}
                 key={child.key}
+                onSelect={onSelect}
             >
                 {child.props.children}
             </KendoPanelBarItem>
@@ -76,5 +77,6 @@ KendoPanelBarNavigation.propTypes = {
             }
         }
     },
-    isMaster: React.PropTypes.bool
+    isMaster: React.PropTypes.bool,
+    onSelect: React.PropTypes.func
 };

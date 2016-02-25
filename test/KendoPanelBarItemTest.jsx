@@ -101,6 +101,20 @@ describe('KendoPanelBarItem', () => {
         expect(navigation.props().active).toEqual(true);
     });
 
+    it('handler is called when clicked', () => {
+        let spy = jasmine.createSpy('click');
+        result = shallow(<KendoPanelBarItem onSelect={spy} key="10" itemKey="10" />);
+        result.find('span').simulate('click');
+        expect(spy).toHaveBeenCalledWith("10");
+    });
+
+    it('handler is not called for disabled panels', () => {
+        let spy = jasmine.createSpy('click');
+        result = shallow(<KendoPanelBarItem disabled onSelect={spy} key="10" itemKey="10" />);
+        result.find('span').simulate('click');
+        expect(spy).not.toHaveBeenCalled();
+    });
+
     it('should accept only  PanelBarContent or PanelBarNavigation as child', () => {
         result = shallow(<KendoPanelBarItem>sometext<KendoPanelBarContent/></KendoPanelBarItem>);
 

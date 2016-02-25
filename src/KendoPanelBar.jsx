@@ -7,11 +7,19 @@ import PanelBarNavigation from "../src/KendoPanelBarNavigation.jsx";
 import KendoPanelBarItem from "../src/KendoPanelBarItem.jsx";
 
 export default class KendoPanelBar extends React.Component {
+    onSelect(itemKey) {
+        if (this.props.onSelect) {
+            this.props.onSelect({
+                selectedKey: itemKey
+            });
+        }
+    }
+
     render() {
         const { children, ...props } = this.props;
 
         return (
-            <PanelBarNavigation active isMaster {...props }>{children}</PanelBarNavigation>
+            <PanelBarNavigation active isMaster {...props } onSelect={this.onSelect.bind(this)}>{children}</PanelBarNavigation>
         );
     }
 }
@@ -34,6 +42,7 @@ KendoPanelBar.propTypes = {
                 }
             }
         }
-    }
+    },
+    onSelect: React.PropTypes.func
 };
 

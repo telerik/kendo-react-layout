@@ -23,32 +23,46 @@ export default class KendoPanelBarItem extends React.Component {
         });
     }
 
+    onSelect() {
+        this.props.onSelect(this.props.itemKey);
+    }
+
     render() {
         const { title = "Untitled", isLast, index, disabled, selected, ...others } = this.props;
 
-        let panelBarItemClasses = ClassNames({
-            'k-item': true,
-            'k-last': isLast,
-            'k-first': index === 0,
-            'k-state-default': true,
-            'k-state-disabled': disabled
-            //'k-state-active': true
-            //'k-state-highlight'
-            //'k-state-hover', --for span element
-        });
+        //TODO: Add aria attributes
+        let panelBarItemProps = {
+            'role': "menuitem",
+            //'aria-expanded': true
+            //'aria-selected': true
+            //'aria-hidden': true
+            className: ClassNames({
+                'k-item': true,
+                'k-last': isLast,
+                'k-first': index === 0,
+                'k-state-default': true,
+                'k-state-disabled': disabled
+                //'k-state-active': true
+                //'k-state-highlight'
+                //'k-state-hover', --for span element
+            })
+        };
 
-        let panelBarItemSpanClasses = ClassNames({
-            'k-link': true,
-            'k-header': true,
-            'k-state-selected': !disabled && selected,
-            'k-state-default': true
-        });
+        let panelBarItemSpanProps = {
+            onClick: !disabled ? this.onSelect.bind(this) : null,
+            className: ClassNames({
+                'k-link': true,
+                'k-header': true,
+                'k-state-selected': !disabled && selected,
+                'k-state-default': true
+            })
+        };
 
         const children = this.mapComponents(this.props, others);
 
         return (
-            <li className={panelBarItemClasses}>
-                <span className={panelBarItemSpanClasses}>{title}</span>
+            <li {...panelBarItemProps }>
+                <span {...panelBarItemSpanProps }>{title}</span>
                 {children}
             </li>
         );
@@ -78,6 +92,7 @@ KendoPanelBarItem.propTypes = {
         React.PropTypes.string,
         React.PropTypes.number
     ]),
+    onSelect: React.PropTypes.func,
     selected: React.PropTypes.bool,
     title: React.PropTypes.oneOfType([
         React.PropTypes.string,
