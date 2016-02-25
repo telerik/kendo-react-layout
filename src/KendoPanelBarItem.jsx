@@ -9,20 +9,19 @@ import ClassNames from 'classnames';
 
 export default class KendoPanelBarItem extends React.Component {
     mapComponents(props, childProps) {
-        let { children, disabled } = props;
-        let { active, ...others } = childProps;
+        let { children, disabled, active } = props;
 
         return React.Children.map(children, (child) => {
             if (React.isValidElement(child)) {
                 if (child.type === KendoPanelBarNavigation) {
-                    return <KendoPanelBarNavigation {...others } active={disabled ? !disabled : active}>
+                    return (<KendoPanelBarNavigation {...childProps } active={disabled ? !disabled : active}>
                         {child.props.children}
-                    </KendoPanelBarNavigation>;
+                    </KendoPanelBarNavigation>);
                 }
 
-                return <KendoPanelBarContent {...others } active={disabled ? !disabled : active}>
+                return (<KendoPanelBarContent {...childProps } active={disabled ? !disabled : active}>
                     {child.props.children}
-                </KendoPanelBarContent>;
+                </KendoPanelBarContent>);
             }
             return child;
         });
@@ -33,23 +32,22 @@ export default class KendoPanelBarItem extends React.Component {
     }
 
     render() {
-        const { title = "Untitled", isLast, index, disabled, selected, ...others } = this.props;
+        const { active, title = "Untitled", isLast, index, disabled, selected, ...others } = this.props;
 
         //TODO: Add aria attributes
         let panelBarItemProps = {
             'role': "menuitem",
-            //'aria-expanded': true
-            //'aria-selected': true
-            //'aria-hidden': true
+            'aria-expanded': !disabled && active,
+            'aria-selected': !disabled && selected,
+            'aria-hidden': !disabled && !active,
             className: ClassNames({
                 'k-item': true,
                 'k-last': isLast,
                 'k-first': index === 0,
-                'k-state-default': true,
-                'k-state-disabled': disabled
-                //'k-state-active': true
+                'k-state-default': !disabled,
+                'k-state-disabled': disabled,
+                'k-state-active': !disabled && active
                 //'k-state-highlight'
-                //'k-state-hover', --for span element
             })
         };
 
@@ -58,8 +56,7 @@ export default class KendoPanelBarItem extends React.Component {
             className: ClassNames({
                 'k-link': true,
                 'k-header': true,
-                'k-state-selected': !disabled && selected,
-                'k-state-default': true
+                'k-state-selected': !disabled && selected
             })
         };
 

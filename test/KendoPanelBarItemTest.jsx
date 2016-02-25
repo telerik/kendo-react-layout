@@ -32,11 +32,76 @@ describe('KendoPanelBarItem', () => {
         expect(result.find("span").hasClass('k-state-selected')).toEqual(false);
     });
 
+    it('should set aria-selected attribute to true', () => {
+        result = shallow(<KendoPanelBarItem selected title="sometext" />);
+
+        expect(result.find("li").props()['aria-selected']).toEqual(true);
+    });
+
+    it('should set aria-selected attribute to false', () => {
+        result = shallow(<KendoPanelBarItem selected={false} title="sometext" />);
+
+        expect(result.find("li").props()['aria-selected']).toEqual(false);
+    });
+
+    it('should set aria-selected attribute to false when disabled', () => {
+        result = shallow(<KendoPanelBarItem disabled selected title="sometext" />);
+
+        expect(result.find("li").props()['aria-selected']).toEqual(false);
+    });
+
+    it('should set aria-expanded attribute to true', () => {
+        result = shallow(<KendoPanelBarItem active title="sometext" />);
+
+        expect(result.find("li").props()['aria-expanded']).toEqual(true);
+    });
+
+    it('should set aria-expanded attribute to false', () => {
+        result = shallow(<KendoPanelBarItem active={false} title="sometext" />);
+
+        expect(result.find("li").props()['aria-expanded']).toEqual(false);
+    });
+
+    it('should set aria-expanded attribute to false', () => {
+        result = shallow(<KendoPanelBarItem active disabled title="sometext" />);
+
+        expect(result.find("li").props()['aria-expanded']).toEqual(false);
+    });
+
+    it('should set aria-hidden attribute to true', () => {
+        result = shallow(<KendoPanelBarItem active title="sometext" />);
+
+        expect(result.find("li").props()['aria-hidden']).toEqual(false);
+    });
+
+    it('should set aria-hidden attribute to false', () => {
+        result = shallow(<KendoPanelBarItem active={false} title="sometext" />);
+
+        expect(result.find("li").props()['aria-hidden']).toEqual(true);
+    });
+
     it('should add CSS classes', () => {
-        result = shallow(<KendoPanelBarItem />);
+        result = shallow(<KendoPanelBarItem active />);
 
         expect(result.hasClass('k-item')).toEqual(true);
         expect(result.hasClass('k-state-default')).toEqual(true);
+    });
+
+    it('should add CSS classes when active', () => {
+        result = shallow(<KendoPanelBarItem active />);
+
+        expect(result.hasClass('k-item')).toEqual(true);
+        expect(result.hasClass('k-state-default')).toEqual(true);
+        expect(result.hasClass('k-state-active')).toEqual(true);
+    });
+
+    it('should add CSS classes when disabled', () => {
+        result = shallow(<KendoPanelBarItem active disabled />);
+
+        expect(result.hasClass('k-item')).toEqual(true);
+        expect(result.hasClass('k-state-default')).toEqual(false);
+        expect(result.hasClass('k-state-active')).toEqual(false);
+        expect(result.hasClass('k-state-disabled')).toEqual(true);
     });
 
     it('should add k-first CSS class', () => {
