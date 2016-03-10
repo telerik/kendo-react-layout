@@ -1,6 +1,14 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
+const propTypes = {
+    active: React.PropTypes.bool,
+    children: React.PropTypes.oneOfType([
+        React.PropTypes.element,
+        React.PropTypes.arrayOf(React.PropTypes.element)
+    ])
+};
+
 export default class PanelBarContent extends React.Component {
     render() {
         let panelBarItemContentClasses = classNames({
@@ -17,10 +25,4 @@ export default class PanelBarContent extends React.Component {
     }
 }
 
-PanelBarContent.propTypes = {
-    active: React.PropTypes.bool,
-    children: React.PropTypes.oneOfType([
-        React.PropTypes.element,
-        React.PropTypes.arrayOf(React.PropTypes.element)
-    ])
-};
+PanelBarContent.propTypes = propTypes;

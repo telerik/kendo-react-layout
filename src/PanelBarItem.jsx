@@ -7,6 +7,37 @@ import PanelBarNavigation from "../src/PanelBarNavigation";
 import PanelBarContent from "../src/PanelBarContent";
 import classNames from 'classnames';
 
+const propTypes = {
+    active: React.PropTypes.bool,
+    children: function(props, propName) {
+        let prop = props[propName];
+
+        if (prop) {
+            //TODO: instead use: if (Object.prototype.toString.call(obj) == '[object Array]')
+            if (prop instanceof Array) {
+                return new Error('Children should be either PanelBarContent or PanelBarNavigation.');
+            }
+
+            if (prop.type !== PanelBarContent && prop.type !== PanelBarNavigation) {
+                return new Error('Child should be either PanelBarContent or PanelBarNavigation.');
+            }
+        }
+    },
+    disabled: React.PropTypes.bool,
+    index: React.PropTypes.number,
+    isLast: React.PropTypes.bool,
+    itemKey: React.PropTypes.oneOfType([
+        React.PropTypes.string,
+        React.PropTypes.number
+    ]),
+    onSelect: React.PropTypes.func,
+    selected: React.PropTypes.bool,
+    title: React.PropTypes.oneOfType([
+        React.PropTypes.string,
+        React.PropTypes.element
+    ])
+};
+
 export default class PanelBarItem extends React.Component {
     mapComponents(props, childProps) {
         let { children, disabled, active } = props;
@@ -70,33 +101,4 @@ export default class PanelBarItem extends React.Component {
     }
 }
 
-PanelBarItem.propTypes = {
-    active: React.PropTypes.bool,
-    children: function(props, propName) {
-        let prop = props[propName];
-
-        if (prop) {
-            //TODO: instead use: if (Object.prototype.toString.call(obj) == '[object Array]')
-            if (prop instanceof Array) {
-                return new Error('Children should be either PanelBarContent or PanelBarNavigation.');
-            }
-
-            if (prop.type !== PanelBarContent && prop.type !== PanelBarNavigation) {
-                return new Error('Child should be either PanelBarContent or PanelBarNavigation.');
-            }
-        }
-    },
-    disabled: React.PropTypes.bool,
-    index: React.PropTypes.number,
-    isLast: React.PropTypes.bool,
-    itemKey: React.PropTypes.oneOfType([
-        React.PropTypes.string,
-        React.PropTypes.number
-    ]),
-    onSelect: React.PropTypes.func,
-    selected: React.PropTypes.bool,
-    title: React.PropTypes.oneOfType([
-        React.PropTypes.string,
-        React.PropTypes.element
-    ])
-};
+PanelBarItem.propTypes = propTypes;

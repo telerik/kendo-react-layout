@@ -6,25 +6,7 @@ import * as React from 'react';
 import PanelBarNavigation from "../src/PanelBarNavigation";
 import PanelBarItem from "../src/PanelBarItem";
 
-export default class PanelBar extends React.Component {
-    onSelect(itemKey) {
-        if (this.props.onSelect) {
-            this.props.onSelect({
-                selectedKey: itemKey
-            });
-        }
-    }
-
-    render() {
-        const { children, ...props } = this.props;
-
-        return (
-            <PanelBarNavigation active isMaster {...props } onSelect={this.onSelect.bind(this)}>{children}</PanelBarNavigation>
-        );
-    }
-}
-
-PanelBar.propTypes = {
+const propTypes = {
     children: function(props, propName) {
         const prop = props[propName];
 
@@ -45,4 +27,24 @@ PanelBar.propTypes = {
     },
     onSelect: React.PropTypes.func
 };
+
+export default class PanelBar extends React.Component {
+    onSelect(itemKey) {
+        if (this.props.onSelect) {
+            this.props.onSelect({
+                selectedKey: itemKey
+            });
+        }
+    }
+
+    render() {
+        const { children, ...props } = this.props;
+
+        return (
+            <PanelBarNavigation active isMaster {...props } onSelect={this.onSelect.bind(this)}>{children}</PanelBarNavigation>
+        );
+    }
+}
+
+PanelBar.propTypes = propTypes;
 
