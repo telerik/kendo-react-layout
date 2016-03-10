@@ -4,7 +4,7 @@ import * as React from 'react';
 //import styles from '@telerik/kendo-theme-default-base/styles/main';
 
 import classNames from 'classnames';
-import PanelBarItem from "../src/PanelBarItem.jsx";
+import PanelBarItem from '../src/PanelBarItem';
 
 export default class PanelBarNavigation extends React.Component {
     mapComponents(children) {
@@ -46,7 +46,7 @@ export default class PanelBarNavigation extends React.Component {
         });
 
         const inlineStyles = {
-            display: active ? "block" : "none"
+            'display': active ? 'block' : 'none'
         };
 
         return (

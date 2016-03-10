@@ -3,9 +3,9 @@ import * as React from 'react';
 //TODO: uncomment when the styles are ready:
 //import styles from '@telerik/kendo-theme-default-base/styles/main';
 
-import PanelBarNavigation from "../src/PanelBarNavigation.jsx";
-import PanelBarContent from "../src/PanelBarContent.jsx";
-import ClassNames from 'classnames';
+import PanelBarNavigation from "../src/PanelBarNavigation";
+import PanelBarContent from "../src/PanelBarContent";
+import classNames from 'classnames';
 
 export default class PanelBarItem extends React.Component {
     mapComponents(props, childProps) {
@@ -32,14 +32,14 @@ export default class PanelBarItem extends React.Component {
     }
 
     render() {
-        const { active, title = "Untitled", isLast, index, disabled, selected, ...others } = this.props;
+        const { active, title = 'Untitled', isLast, index, disabled, selected, ...others } = this.props;
 
         let panelBarItemProps = {
-            'role': "menuitem",
+            'role': 'menuitem',
             'aria-expanded': !disabled && active,
             'aria-selected': !disabled && selected,
             'aria-hidden': !disabled && !active,
-            className: ClassNames({
+            'className': classNames({
                 'k-item': true,
                 'k-last': isLast,
                 'k-first': index === 0,
@@ -51,8 +51,8 @@ export default class PanelBarItem extends React.Component {
         };
 
         let panelBarItemSpanProps = {
-            onClick: !disabled ? this.onSelect.bind(this) : null,
-            className: ClassNames({
+            'onClick': !disabled ? this.onSelect.bind(this) : null,
+            'className': classNames({
                 'k-link': true,
                 'k-header': true,
                 'k-state-selected': !disabled && selected

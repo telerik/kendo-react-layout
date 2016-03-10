@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import classNames from 'classnames';
 
 export default class PanelBarContent extends React.Component {
@@ -9,7 +8,7 @@ export default class PanelBarContent extends React.Component {
         });
 
         const inlineStyles = {
-            display: this.props.active ? "block" : "none"
+            'display': this.props.active ? 'block' : 'none'
         };
 
         return (

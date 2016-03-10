@@ -3,8 +3,8 @@ import * as React from 'react';
 //TODO: uncomment when the styles are ready:
 //import styles from '@telerik/kendo-theme-default-base/styles/main';
 
-import PanelBarNavigation from "../src/PanelBarNavigation.jsx";
-import PanelBarItem from "../src/PanelBarItem.jsx";
+import PanelBarNavigation from "../src/PanelBarNavigation";
+import PanelBarItem from "../src/PanelBarItem";
 
 export default class PanelBar extends React.Component {
     onSelect(itemKey) {
