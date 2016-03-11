@@ -1,9 +1,9 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import PanelBar from '../src/PanelBar.jsx';
-import PanelBarItem from '../src/PanelBarItem.jsx';
-import PanelBarNavigation from '../src/PanelBarNavigation.jsx';
-import PanelBarContent from '../src/PanelBarContent.jsx';
+import PanelBar from '../src/panelbar/PanelBar';
+import PanelBarItem from '../src/panelbar/PanelBarItem';
+import PanelBarNavigation from '../src/panelbar/PanelBarNavigation';
+import PanelBarContent from '../src/panelbar/PanelBarContent';
 
 ReactDOM.render(
   <div>

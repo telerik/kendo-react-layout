@@ -1,8 +1,8 @@
 {
-  "name": "@telerik/kendo-react-panelbar",
+  "name": "@telerik/kendo-react-layout",
   "version": "0.1.0",
-  "description": "Kendo UI React PanelBar",
-  "repository": "telerik/kendo-react-panelbar",
+  "description": "Kendo UI React Layout component",
+  "repository": "telerik/kendo-react-layout",
   "main": "dist/npm/js/main.js",
   "scripts": {
     "test": "gulp test",
@@ -19,13 +19,14 @@
     "classnames": "^2.1.5"
   },
   "devDependencies": {
-    "@telerik/eslint-config": "telerik/eslint-config-kendo#master",
-    "@telerik/kendo-react-tasks": "telerik/kendo-react-tasks#master",
-    "@telerik/kendo-theme-default-base": "telerik/kendo-theme-default-base#master",
+    "@telerik/eslint-config": "1.1.0",
     "cz-conventional-changelog": "^1.1.5",
     "ghooks": "^1.0.3",
     "gulp": "3.9.0",
-    "validate-commit-msg": "^1.1.1"
+    "@telerik/kendo-react-tasks": "~1.0.0",
+    "@telerik/kendo-theme-default": "telerik/kendo-theme-default#master",
+    "validate-commit-msg": "^1.1.1",
+    "semantic-release": "^4.3.5"
   },
   "author": "Telerik",
   "license": "Apache-2.0",

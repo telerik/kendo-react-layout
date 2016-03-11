@@ -1,4 +1,4 @@
 require('@telerik/kendo-react-tasks')(
   require('gulp'),
-  'kendo-react-panelbar'
+  'kendo-react-layout'
 );

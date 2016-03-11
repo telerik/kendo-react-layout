@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import PanelBarItem from '../src/PanelBarItem.jsx';
-import PanelBarContent from '../src/PanelBarContent.jsx';
-import PanelBarNavigation from '../src/PanelBarNavigation.jsx';
+import PanelBarItem from '../../src/panelbar/PanelBarItem';
+import PanelBarContent from '../../src/panelbar/PanelBarContent';
+import PanelBarNavigation from '../../src/panelbar/PanelBarNavigation';
 
 describe('PanelBarItem', () => {
     let result;
