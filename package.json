@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Kendo UI React PanelBar",
   "repository": "telerik/kendo-react-panelbar",
-  "main": "dist/npm/js/index.js",
+  "main": "dist/npm/js/main.js",
   "scripts": {
     "test": "gulp test",
     "start": "gulp start",
@@ -20,11 +20,11 @@
   },
   "devDependencies": {
     "@telerik/eslint-config": "telerik/eslint-config-kendo#master",
+    "@telerik/kendo-react-tasks": "telerik/kendo-react-tasks#master",
+    "@telerik/kendo-theme-default-base": "telerik/kendo-theme-default-base#master",
     "cz-conventional-changelog": "^1.1.5",
     "ghooks": "^1.0.3",
     "gulp": "3.9.0",
-    "@telerik/kendo-react-tasks": "telerik/kendo-react-tasks#master",
-    "@telerik/kendo-theme-default-base": "telerik/kendo-theme-default-base#master",
     "validate-commit-msg": "^1.1.1"
   },
   "author": "Telerik",

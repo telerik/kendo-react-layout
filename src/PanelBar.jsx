@@ -47,4 +47,3 @@ export default class PanelBar extends React.Component {
 }
 
 PanelBar.propTypes = propTypes;
-
