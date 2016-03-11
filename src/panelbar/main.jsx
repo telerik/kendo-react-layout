@@ -1,3 +1,3 @@
-import PanelBar from '../../src/panelbar/PanelBar';
+import PanelBar from './PanelBar';
 
 module.exports = PanelBar;

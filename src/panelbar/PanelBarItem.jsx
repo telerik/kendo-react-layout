@@ -3,8 +3,8 @@ import * as React from 'react';
 //TODO: uncomment when the styles are ready:
 //import styles from '@telerik/kendo-theme-default-base/styles/main';
 
-import PanelBarNavigation from "../../src/panelbar/PanelBarNavigation";
-import PanelBarContent from "../../src/panelbar/PanelBarContent";
+import PanelBarNavigation from "./PanelBarNavigation";
+import PanelBarContent from "./PanelBarContent";
 import classNames from 'classnames';
 
 const propTypes = {

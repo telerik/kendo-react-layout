@@ -4,7 +4,7 @@ import * as React from 'react';
 //import styles from '@telerik/kendo-theme-default-base/styles/main';
 
 import classNames from 'classnames';
-import PanelBarItem from '../../src/panelbar/PanelBarItem';
+import PanelBarItem from './PanelBarItem';
 
 const propTypes = {
     active: React.PropTypes.bool,
