@@ -4,12 +4,6 @@ import TabstripNavigation from './TabstripNavigation';
 import TabstripContent from './TabstripContent';
 import keycode from 'keycode';
 
-
-//TODO
-//integrate e2e tests
-//write unit tests
-//change example
-// handle keyboard navigation when disabled tab in the middle
 const propTypes = {
     children: React.PropTypes.oneOfType([
         React.PropTypes.element,
@@ -34,7 +28,7 @@ export default class Tabstrip extends React.Component {
         }
     }
 
-    handleKeyDown = (event) => {
+    onKeyDown = (event) => {
         const handler = this.keyBinding[event.keyCode];
         if (handler) {
             const next = handler();
@@ -101,7 +95,7 @@ export default class Tabstrip extends React.Component {
         ].join(" ");
 
         return (
-            <div className={componentClasses} onKeyDown={this.keyDownHandler}>
+            <div className={componentClasses} onKeyDown={this.onKeyDown}>
                 <TabstripNavigation {...tabProps} />
                 <TabstripContent {...tabProps} />
             </div>
