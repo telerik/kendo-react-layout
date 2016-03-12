@@ -4,6 +4,12 @@ import TabstripNavigation from './TabstripNavigation';
 import TabstripContent from './TabstripContent';
 import keycode from 'keycode';
 
+
+//TODO
+//integrate e2e tests
+//write unit tests
+//change example
+// handle keyboard navigation when disabled tab in the middle
 const propTypes = {
     children: React.PropTypes.oneOfType([
         React.PropTypes.element,
@@ -29,27 +35,10 @@ export default class Tabstrip extends React.Component {
     }
 
     handleKeyDown = (event) => {
-        let next = null;
-        switch (event.keyCode) {
-        case keycode.codes.left:
-        case keycode.codes.up :
-            next = this.moveNext(false);
+        const handler = this.keyBinding[event.keyCode];
+        if (handler) {
+            const next = handler();
             this.onSelect(next);
-            break;
-        case keycode.codes.right:
-        case keycode.codes.down:
-            next = this.moveNext(true);
-            this.onSelect(next);
-            break;
-        case keycode.codes.home:
-            next = this.moveEnd(false);
-            this.onSelect(next);
-            break;
-        case keycode.codes.end:
-            next = this.moveEnd(true);
-            this.onSelect(next);
-            break;
-        default:
         }
     }
 
@@ -86,6 +75,15 @@ export default class Tabstrip extends React.Component {
             next = 0;
         }
         return next;
+    }
+
+    keyBinding = {
+        [keycode.codes.left]: () => this.moveNext(false),
+        [keycode.codes.right]: () => this.moveNext(true),
+        [keycode.codes.down]: () => this.moveNext(true),
+        [keycode.codes.up]: () => this.moveNext(false),
+        [keycode.codes.home]: () => this.moveEnd(false),
+        [keycode.codes.end]: () => this.moveEnd(true)
     }
 
     render() {
