@@ -23,19 +23,19 @@ export default class TabstripContent extends React.Component {
         const { content } = this.refs;
         requestAnimationFrame(function() {
             if (content) {
-                content.className = "k-state-active k-content k-hide";
+                content.className = 'k-state-active k-content k-hide';
             }
             requestAnimationFrame(function() {
                 if (content) {
-                    content.className = "k-state-active k-content k-reveal";
+                    content.className = 'k-state-active k-content k-reveal';
                 }
             });
         });
     }
     renderContent(child, index) {
         let contentProps = {
-            "role": "tabpanel",
-            "aria-expanded": "true"
+            'role': 'tabpanel',
+            'aria-expanded': 'true'
         };
 
         if (this.props.selected === index) {

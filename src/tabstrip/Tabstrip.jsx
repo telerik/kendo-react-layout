@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styles from '@telerik/kendo-theme-default/styles/main';
-import TabstripNavigation from "./TabstripNavigation";
-import TabstripContent from "./TabstripContent";
+import TabstripNavigation from './TabstripNavigation';
+import TabstripContent from './TabstripContent';
 import keycode from 'keycode';
 
 const propTypes = {
