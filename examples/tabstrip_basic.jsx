@@ -1,21 +1,24 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import KendoTabstrip from '../src/tabstrip/Tabstrip';
+import Tabstrip from '../src/tabstrip/Tabstrip';
 
-const { Tab } = KendoTabstrip;
+const { Tab } = Tabstrip;
 
-var Tabstrip = React.createClass({
-      getInitialState: function() {
-          return { selected : 0 }
-      },
-      onSelect: function(e) {
-          this.setState({
-              selected: e.selected
-          })
-      },
-      render: function() {
+class TabstripContainer extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            selected: 1
+        };
+    }
+    onSelect = (e) => {
+        this.setState({
+            selected: e.selected
+        });
+    }
+    render() {
         return (
-          <KendoTabstrip onSelect={this.onSelect} selected={this.state.selected}>
+          <Tabstrip onSelect={this.onSelect} selected={this.state.selected}>
             <Tab title="Paris">
                 <span className="rainy">&nbsp;</span>
                 <div className="weather">
@@ -44,10 +47,10 @@ var Tabstrip = React.createClass({
                     <p>Cloudy weather in Moscow.</p>
                 </div>
             </Tab>
-        </KendoTabstrip>
-        )}
-});
+          </Tabstrip>);
+    }
+}
 ReactDOM.render(
-    <Tabstrip />,
+    <TabstripContainer />,
     document.getElementById('app')
-)
+);
