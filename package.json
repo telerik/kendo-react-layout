@@ -1,7 +1,7 @@
 {
   "name": "@telerik/kendo-react-layout",
   "version": "0.1.0",
-  "description": "Kendo UI React Layout component",
+  "description": "Kendo UI React Layout components",
   "repository": "telerik/kendo-react-layout",
   "main": "dist/npm/js/main.js",
   "scripts": {
