@@ -15,7 +15,7 @@ export default class TabstripNavigationItem extends React.Component {
         ])
     };
 
-    onSelect() {
+    onSelect = () => {
         this.props.onSelect(this.props.index);
     }
     render() {
@@ -28,7 +28,7 @@ export default class TabstripNavigationItem extends React.Component {
 
         if (!disabled) {
             Object.assign(props, {
-                onClick: this.onSelect.bind(this)
+                onClick: this.onSelect
             });
         }
 
@@ -47,4 +47,3 @@ export default class TabstripNavigationItem extends React.Component {
         );
     }
 }
-

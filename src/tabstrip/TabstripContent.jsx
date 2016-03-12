@@ -49,7 +49,7 @@ export default class TabstripContent extends React.Component {
     render() {
         const content = this.mapComponents(this.props.children);
         const contentClasses = [
-            styles.content,
+            styles['content'],
             styles['state-active']
         ].join(" ");
 

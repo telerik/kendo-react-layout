@@ -21,7 +21,7 @@ export default class TabstripNavigation extends React.Component {
             return child;
         });
     }
-    select(index) {
+    select = (index) => {
         this.props.onSelect(index);
     }
 
@@ -32,7 +32,7 @@ export default class TabstripNavigation extends React.Component {
             active: selected === index,
             title: child.props.title,
             disabled: child.props.disabled,
-            onSelect: this.select.bind(this)
+            onSelect: this.select
         };
 
         return (
@@ -44,7 +44,7 @@ export default class TabstripNavigation extends React.Component {
         const tabs = this.mapComponents(this.props);
         const navClasses = [
             styles['tabstrip-items'],
-            styles.reset
+            styles['reset']
         ].join(" ");
 
         return (
@@ -54,5 +54,3 @@ export default class TabstripNavigation extends React.Component {
         );
     }
 }
-
-

@@ -16,9 +16,9 @@ export default class Tabstrip extends React.Component {
 
     constructor(props) {
         super(props);
-        this.keyDownHandler = this.handleKeyDown.bind(this);
+        this.keyDownHandler = this.handleKeyDown;
     }
-    onSelect(index) {
+    onSelect = (index) => {
         if (index === this.props.selected ) { return; }
         const disabled = this._isDisabled(index);
         if (!disabled) {
@@ -61,7 +61,7 @@ export default class Tabstrip extends React.Component {
         }
         return next;
     }
-    handleKeyDown(event) {
+    handleKeyDown = (event) => {
         let next = null;
         switch (event.keyCode) {
         case keycode.codes.left:
@@ -89,14 +89,14 @@ export default class Tabstrip extends React.Component {
         const tabProps = {
             ...this.props,
             selected: this.props.selected,
-            onSelect: this.onSelect.bind(this),
+            onSelect: this.onSelect,
             isDisabled: this._isDisabled
         };
         const componentClasses = [
-            styles.widget,
-            styles.header,
-            styles.floatwrap,
-            styles.tabstrip
+            styles['widget'],
+            styles['header'],
+            styles['floatwrap'],
+            styles['tabstrip']
         ].join(" ");
 
         return (
