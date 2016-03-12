@@ -2,19 +2,19 @@ import * as React from 'react';
 import classNames from 'classnames';
 import styles from '@telerik/kendo-theme-default/styles/main';
 
-export default class TabstripNavigationItem extends React.Component {
-    static propTypes = {
-        active: React.PropTypes.bool,
-        className: React.PropTypes.string,
-        disabled: React.PropTypes.bool,
-        index: React.PropTypes.number,
-        onSelect: React.PropTypes.func,
-        title: React.PropTypes.oneOfType([
-            React.PropTypes.element,
-            React.PropTypes.string
-        ])
-    };
+const propTypes = {
+    active: React.PropTypes.bool,
+    className: React.PropTypes.string,
+    disabled: React.PropTypes.bool,
+    index: React.PropTypes.number,
+    onSelect: React.PropTypes.func,
+    title: React.PropTypes.oneOfType([
+        React.PropTypes.element,
+        React.PropTypes.string
+    ])
+};
 
+export default class TabstripNavigationItem extends React.Component {
     onSelect = () => {
         this.props.onSelect(this.props.index);
     }
@@ -47,3 +47,5 @@ export default class TabstripNavigationItem extends React.Component {
         );
     }
 }
+
+TabstripNavigationItem.propTypes = propTypes;

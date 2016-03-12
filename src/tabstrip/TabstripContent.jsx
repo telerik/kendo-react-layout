@@ -2,15 +2,15 @@ import * as React from 'react';
 import ReactTransitionGroup from 'react-addons-transition-group';
 import styles from '@telerik/kendo-theme-default/styles/main';
 
-export default class TabstripContent extends React.Component {
-    static propTypes = {
-        children: React.PropTypes.oneOfType([
-            React.PropTypes.element,
-            React.PropTypes.arrayOf(React.PropTypes.element)
-        ]),
-        selected: React.PropTypes.number
-    };
+const propTypes = {
+    children: React.PropTypes.oneOfType([
+        React.PropTypes.element,
+        React.PropTypes.arrayOf(React.PropTypes.element)
+    ]),
+    selected: React.PropTypes.number
+};
 
+export default class TabstripContent extends React.Component {
     mapComponents(props) {
         return React.Children.map(props, (child, index) => {
             if (React.isValidElement(child)) {
@@ -65,3 +65,5 @@ export default class TabstripContent extends React.Component {
         return null;
     }
 }
+
+TabstripContent.propTypes = propTypes;

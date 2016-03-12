@@ -4,16 +4,16 @@ import TabstripNavigation from "./TabstripNavigation";
 import TabstripContent from "./TabstripContent";
 import keycode from 'keycode';
 
-export default class Tabstrip extends React.Component {
-    static propTypes = {
-        children: React.PropTypes.oneOfType([
-            React.PropTypes.element,
-            React.PropTypes.arrayOf(React.PropTypes.element)
-        ]),
-        onSelect: React.PropTypes.func,
-        selected: React.PropTypes.number
-    };
+const propTypes = {
+    children: React.PropTypes.oneOfType([
+        React.PropTypes.element,
+        React.PropTypes.arrayOf(React.PropTypes.element)
+    ]),
+    onSelect: React.PropTypes.func,
+    selected: React.PropTypes.number
+};
 
+export default class Tabstrip extends React.Component {
     constructor(props) {
         super(props);
         this.keyDownHandler = this.handleKeyDown;
@@ -107,5 +107,6 @@ export default class Tabstrip extends React.Component {
       );
     }
   }
+Tabstrip.propTypes = propTypes;
 
 Tabstrip.Tab = () => { /* metadata object */ };
