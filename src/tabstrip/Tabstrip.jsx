@@ -27,6 +27,32 @@ export default class Tabstrip extends React.Component {
             });
         }
     }
+
+    handleKeyDown = (event) => {
+        let next = null;
+        switch (event.keyCode) {
+        case keycode.codes.left:
+        case keycode.codes.up :
+            next = this.moveNext(false);
+            this.onSelect(next);
+            break;
+        case keycode.codes.right:
+        case keycode.codes.down:
+            next = this.moveNext(true);
+            this.onSelect(next);
+            break;
+        case keycode.codes.home:
+            next = this.moveEnd(false);
+            this.onSelect(next);
+            break;
+        case keycode.codes.end:
+            next = this.moveEnd(true);
+            this.onSelect(next);
+            break;
+        default:
+        }
+    }
+
     _isDisabled(position) {
         let disabledIndex;
         this.props.children.map((tab, index) => {
@@ -61,30 +87,7 @@ export default class Tabstrip extends React.Component {
         }
         return next;
     }
-    handleKeyDown = (event) => {
-        let next = null;
-        switch (event.keyCode) {
-        case keycode.codes.left:
-        case keycode.codes.up :
-            next = this.moveNext(false);
-            this.onSelect(next);
-            break;
-        case keycode.codes.right:
-        case keycode.codes.down:
-            next = this.moveNext(true);
-            this.onSelect(next);
-            break;
-        case keycode.codes.home:
-            next = this.moveEnd(false);
-            this.onSelect(next);
-            break;
-        case keycode.codes.end:
-            next = this.moveEnd(true);
-            this.onSelect(next);
-            break;
-        default:
-        }
-    }
+
     render() {
         const tabProps = {
             ...this.props,

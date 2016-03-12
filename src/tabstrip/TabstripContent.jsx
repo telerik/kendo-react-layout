@@ -11,14 +11,6 @@ const propTypes = {
 };
 
 export default class TabstripContent extends React.Component {
-    mapComponents(props) {
-        return React.Children.map(props, (child, index) => {
-            if (React.isValidElement(child)) {
-                return this.renderContent(child, index);
-            }
-            return child;
-        });
-    }
     componentWillEnter() {
         const { content } = this.refs;
         requestAnimationFrame(function() {
@@ -32,6 +24,16 @@ export default class TabstripContent extends React.Component {
             });
         });
     }
+
+    mapComponents(props) {
+        return React.Children.map(props, (child, index) => {
+            if (React.isValidElement(child)) {
+                return this.renderContent(child, index);
+            }
+            return child;
+        });
+    }
+
     renderContent(child, index) {
         let contentProps = {
             'role': 'tabpanel',

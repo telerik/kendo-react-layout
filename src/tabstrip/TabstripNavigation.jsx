@@ -12,27 +12,25 @@ const propTypes = {
 };
 
 export default class TabstripNavigation extends React.Component {
+    onSelect = (index) => {
+        this.props.onSelect(index);
+    }
     mapComponents(props) {
-        let { children } = props;
-        return React.Children.map(children, (child, index) => {
+        return React.Children.map(props.children, (child, index) => {
             if (React.isValidElement(child)) {
                 return this.renderTab(child, index);
             }
             return child;
         });
     }
-    select = (index) => {
-        this.props.onSelect(index);
-    }
 
     renderTab(child, index) {
-        let { selected } = this.props;
         let tabProps = {
             index,
-            active: selected === index,
+            active: this.props.selected === index,
             title: child.props.title,
             disabled: child.props.disabled,
-            onSelect: this.select
+            onSelect: this.onSelect
         };
 
         return (

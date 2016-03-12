@@ -19,7 +19,12 @@ export default class TabstripNavigationItem extends React.Component {
         this.props.onSelect(this.props.index);
     }
     render() {
-        const { title = 'Untitled', active, disabled } = this.props;
+        const {
+          title = 'Untitled',
+          active,
+          disabled
+        } = this.props;
+
         let props = {
             'aria-selected': active,
             'tabIndex': active ? 0 : -1,
