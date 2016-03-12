@@ -12,12 +12,25 @@ describe('Tabstrip', () => {
         expect(result.type()).toEqual('div');
     });
 
-// see https://github.com/css-modules/webpack-demo/issues/5 to uncomment this
-// stub loader in react-tasks should be changed
-//  it('renders class names correctly', () => {
-//      result = shallow(<Tabstrip />);
-//      expect(result.hasClass('k-Tabstrip')).toEqual(true);
-//  });
+    it('renders k-tabstrip class correctly', () => {
+        result = shallow(<Tabstrip />);
+        expect(result.hasClass('k-tabstrip')).toEqual(true);
+    });
+
+    it('renders k-widget class correctly', () => {
+        result = shallow(<Tabstrip />);
+        expect(result.hasClass('k-widget')).toEqual(true);
+    });
+
+    it('renders k-floatwrap class correctly', () => {
+        result = shallow(<Tabstrip />);
+        expect(result.hasClass('k-floatwrap')).toEqual(true);
+    });
+
+    it('renders k-header class correctly', () => {
+        result = shallow(<Tabstrip />);
+        expect(result.hasClass('k-header')).toEqual(true);
+    });
 
     it('selectes correct tab', () => {
         result = shallow(<Tabstrip selected={1}><Tab /><Tab /></Tabstrip>);
