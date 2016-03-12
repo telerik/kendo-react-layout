@@ -25,44 +25,40 @@ export default class TabstripContent extends React.Component {
         });
     }
 
-    mapComponents(props) {
-        return React.Children.map(props, (child, index) => {
-            if (React.isValidElement(child)) {
-                return this.renderContent(child, index);
-            }
-            return child;
-        });
-    }
-
-    renderContent(child, index) {
+    renderContent(elements) {
+        const { selected } = this.props;
+        let content = null;
         let contentProps = {
             'role': 'tabpanel',
             'aria-expanded': 'true'
         };
-
-        if (this.props.selected === index) {
+        if (selected !== null && elements) {
+            content = elements[this.props.selected];
+        }
+        if (content) {
             return(
               <div {...contentProps}>
-                  {child.props.children}
+                  {content ? content.props.children : null}
               </div>
             );
         }
+        return null;
     }
     render() {
-        const content = this.mapComponents(this.props.children);
+        const content = this.renderContent(this.props.children);
         const contentClasses = [
             styles['content'],
             styles['state-active']
         ].join(" ");
 
-        if (content.length) {
+        if (content) {
             return(
                   <div className={contentClasses} ref="content">
                       <ReactTransitionGroup component="div" componentWillEnter={this.componentWillEnter()}>
                           {content}
                       </ReactTransitionGroup>
                   </div>
-          );
+            );
         }
         return null;
     }
