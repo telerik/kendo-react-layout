@@ -26,7 +26,8 @@ const propTypes = {
         }
     },
     isMaster: React.PropTypes.bool,
-    onSelect: React.PropTypes.func
+    onSelect: React.PropTypes.func,
+    selectedKey: React.PropTypes.string
 };
 
 export default class PanelBarNavigation extends React.Component {
@@ -40,7 +41,7 @@ export default class PanelBarNavigation extends React.Component {
     }
 
     renderItem(child, index) {
-        const { children, onSelect } = this.props;
+        const { children, onSelect, selectedKey } = this.props;
 
         return (
             <PanelBarItem {...child.props }
@@ -49,6 +50,7 @@ export default class PanelBarNavigation extends React.Component {
                 itemKey={child.key}
                 key={child.key}
                 onSelect={onSelect}
+                selected={selectedKey === child.key ? true : false}
             >
                 {child.props.children}
             </PanelBarItem>

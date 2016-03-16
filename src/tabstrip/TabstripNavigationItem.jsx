@@ -17,7 +17,7 @@ const propTypes = {
 export default class TabstripNavigationItem extends React.Component {
     onSelect = () => {
         this.props.onSelect(this.props.index);
-    }
+    };
     render() {
         const {
           title = 'Untitled',

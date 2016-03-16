@@ -14,7 +14,7 @@ const propTypes = {
 export default class TabstripNavigation extends React.Component {
     onSelect = (index) => {
         this.props.onSelect(index);
-    }
+    };
     mapComponents(props) {
         return React.Children.map(props.children, (child, index) => {
             if (React.isValidElement(child)) {

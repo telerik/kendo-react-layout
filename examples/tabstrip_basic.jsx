@@ -11,11 +11,13 @@ class TabstripContainer extends React.Component {
             selected: 1
         };
     }
+
     onSelect = (e) => {
         this.setState({
             selected: e.selected
         });
-    }
+    };
+
     render() {
         return (
           <Tabstrip onSelect={this.onSelect} selected={this.state.selected}>

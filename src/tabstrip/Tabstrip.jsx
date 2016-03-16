@@ -26,7 +26,7 @@ export default class Tabstrip extends React.Component {
                 selected: index
             });
         }
-    }
+    };
 
     onKeyDown = (event) => {
         const handler = this.keyBinding[event.keyCode];
@@ -34,7 +34,7 @@ export default class Tabstrip extends React.Component {
             const next = handler();
             this.onSelect(next);
         }
-    }
+    };
 
     _isDisabled(position) {
         let disabledIndex;
@@ -78,7 +78,7 @@ export default class Tabstrip extends React.Component {
         [keycode.codes.up]: () => this.moveNext(false),
         [keycode.codes.home]: () => this.moveEnd(false),
         [keycode.codes.end]: () => this.moveEnd(true)
-    }
+    };
 
     render() {
         const tabProps = {

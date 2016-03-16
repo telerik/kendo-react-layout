@@ -29,8 +29,8 @@ describe('PanelBarNavigation', () => {
     });
 
     it('should pass valid props to children', () => {
-        result = shallow(<PanelBarNavigation>
-            <PanelBarItem title="first" active selected key="200">
+        result = shallow(<PanelBarNavigation selectedKey="200">
+            <PanelBarItem title="first" active key="200">
                 <PanelBarNavigation><PanelBarItem title="third" /></PanelBarNavigation>
             </PanelBarItem>
             <PanelBarItem title="second" disabled />

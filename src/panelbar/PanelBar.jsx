@@ -22,7 +22,8 @@ const propTypes = {
             }
         }
     },
-    onSelect: React.PropTypes.func
+    onSelect: React.PropTypes.func,
+    selectedKey: React.PropTypes.string
 };
 
 export default class PanelBar extends React.Component {
