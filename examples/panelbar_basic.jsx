@@ -18,7 +18,7 @@ ReactDOM.render(
                   <p>&nbsp;Example content</p>
               </PanelBarContent>
           </PanelBarItem>
-          <PanelBarItem disabled active title="Third item (with childrens)" key="3">
+          <PanelBarItem disabled active title="Third item (with children)" key="3">
               <PanelBarNavigation>
                   <PanelBarItem active disabled key="4" title="Forth item (with content, second level)">
                       <PanelBarContent>

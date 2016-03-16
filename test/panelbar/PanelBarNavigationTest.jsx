@@ -68,7 +68,6 @@ describe('PanelBarNavigation', () => {
         expect(result.hasClass('k-widget')).toEqual(false);
         expect(result.hasClass('k-header')).toEqual(false);
         expect(result.hasClass('k-panelbar')).toEqual(false);
-        expect(result.hasClass('k-group')).toEqual(true);
         expect(result.hasClass('k-panel')).toEqual(true);
     });
 

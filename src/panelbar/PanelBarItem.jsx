@@ -1,7 +1,6 @@
 import * as React from 'react';
 
-//TODO: uncomment when the styles are ready:
-//import styles from '@telerik/kendo-theme-default-base/styles/main';
+import styles from '@telerik/kendo-theme-default/styles/panelbar/main';
 
 import PanelBarNavigation from "./PanelBarNavigation";
 import PanelBarContent from "./PanelBarContent";
@@ -63,7 +62,7 @@ export default class PanelBarItem extends React.Component {
     }
 
     render() {
-        const { active, title = 'Untitled', isLast, index, disabled, selected, ...others } = this.props;
+        const { active, title = 'Untitled', disabled, selected, ...others } = this.props;
 
         let panelBarItemProps = {
             'role': 'menuitem',
@@ -71,22 +70,19 @@ export default class PanelBarItem extends React.Component {
             'aria-selected': !disabled && selected,
             'aria-hidden': !disabled && !active,
             'className': classNames({
-                'k-item': true,
-                'k-last': isLast,
-                'k-first': index === 0,
-                'k-state-default': !disabled,
-                'k-state-disabled': disabled,
-                'k-state-active': !disabled && active
-                //'k-state-highlight'
+                [styles.item]: true,
+                [styles['state-default']]: !disabled,
+                [styles['state-disabled']]: disabled,
+                [styles['state-active']]: !disabled && active
             })
         };
 
         let panelBarItemSpanProps = {
             'onClick': !disabled ? this.onSelect.bind(this) : null,
             'className': classNames({
-                'k-link': true,
-                'k-header': true,
-                'k-state-selected': !disabled && selected
+                [styles['link']]: true,
+                [styles['header']]: true,
+                [styles['state-selected']]: !disabled && selected
             })
         };
 

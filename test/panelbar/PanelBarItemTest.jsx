@@ -104,26 +104,6 @@ describe('PanelBarItem', () => {
         expect(result.hasClass('k-state-disabled')).toEqual(true);
     });
 
-    it('should add k-first CSS class', () => {
-        let props = {
-            index: 0
-        };
-
-        result = shallow(<PanelBarItem title="sometext" {...props} />);
-
-        expect(result.find("li").first().hasClass('k-first')).toEqual(true);
-    });
-
-    it('should add k-last CSS class', () => {
-        let props = {
-            isLast: true
-        };
-
-        result = shallow(<PanelBarItem title="sometext" {...props} />);
-
-        expect(result.find("li").hasClass('k-last')).toEqual(true);
-    });
-
     it('should add k-state-disabled CSS class', () => {
         let props = {
             disabled: true

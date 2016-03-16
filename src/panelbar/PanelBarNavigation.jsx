@@ -1,7 +1,6 @@
 import * as React from 'react';
 
-//TODO: uncomment when the styles are ready:
-//import styles from '@telerik/kendo-theme-default-base/styles/main';
+import styles from '@telerik/kendo-theme-default/styles/panelbar/main';
 
 import classNames from 'classnames';
 import PanelBarItem from './PanelBarItem';
@@ -61,12 +60,11 @@ export default class PanelBarNavigation extends React.Component {
         const items = this.mapComponents(children);
 
         const panelBarItemsClasses = classNames({
-            'k-group': !isMaster,
-            'k-panel': !isMaster,
-            'k-widget': isMaster,
-            'k-reset': isMaster,
-            'k-header': isMaster,
-            'k-panelbar': isMaster
+            [styles['panel']]: !isMaster,
+            [styles['widget']]: isMaster,
+            [styles['reset']]: isMaster,
+            [styles['header']]: isMaster,
+            [styles['panelbar']]: isMaster
         });
 
         const inlineStyles = {
