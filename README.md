@@ -54,7 +54,7 @@ The demo below demonstrates the basic usage of the component.
 
 ```
 
-For more information, refer to the [documentation on the TabStrip]({% slug overview_tabstrip_kendouiforreact %}).
+For more information, refer to the [documentation on the TabStrip](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/overview.md).
 
 ## Get Started
 
