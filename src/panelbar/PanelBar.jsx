@@ -22,24 +22,33 @@ const propTypes = {
             }
         }
     },
-    onSelect: React.PropTypes.func,
-    selectedKey: React.PropTypes.string
+    onSelect: React.PropTypes.func
 };
 
 export default class PanelBar extends React.Component {
-    onSelect(itemKey) {
+    constructor(props) {
+        super(props);
+
+        this.onSelectHandler = this.onSelect.bind(this);
+    }
+
+    onSelect(item) {
         if (this.props.onSelect) {
-            this.props.onSelect({
-                selectedKey: itemKey
-            });
+            this.props.onSelect(item);
         }
     }
 
     render() {
-        const { children, ...props } = this.props;
+        const panelBarProps = {
+            ...this.props,
+            expanded: true,
+            isMaster: true,
+            onSelect: this.onSelectHandler,
+            parentId: null
+        };
 
         return (
-            <PanelBarNavigation active isMaster {...props } onSelect={this.onSelect.bind(this)}>{children}</PanelBarNavigation>
+            <PanelBarNavigation {...panelBarProps} />
         );
     }
 }
