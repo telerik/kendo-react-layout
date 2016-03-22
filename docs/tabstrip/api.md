@@ -10,73 +10,32 @@ position: 2
 
 Represents the Kendo UI TabStrip component for React.
 
-## Buttons
+## Tab Titles
 
-#### buttons `Boolean`*(default: "true")*
+#### title `String`
 
-Makes the Slider side arrow buttons appear. When set to `false` the buttons are not displayed.
+Sets the title of a tab.
 
-#### decreaseButtonTitle `String`*(default: "Decrease")*
+## Tabs on Initial Loading
 
-The title of the decrease button of the Slider.
+#### selected `Number` *(default: 1)*
 
-#### increaseButtonTitle `String`*(default: "Increase")*
+Determines which tab to display upon the initial loading of the TabStrip.
 
-The title of the increase button of the Slider.
+## Disabled Tabs
 
-## Steps  
+#### disabled
 
-#### max `Number`*(default: 10)*
+Disables a tab.
 
-The maximum value of the Slider. The attribute accepts both integers and floating numbers.
+## Remote Content
 
-#### min `Number`*(default: 0)*
+#### fetch `Function`
 
-The minimum value of the Slider. The attribute accepts both integers and floating numbers.
-
-#### smallStep `Number`*(default: 1)*
-
-The step value of the Slider. The attribute accepts only positive numbers. Can be both integer or a floating number.
-
-#### value `Number`
-
-The current value of the Slider when initially displayed.
-
-## Ticks
-
-#### tickPlacement `String`*(default: "both")*
-
-Denotes the location of the tick marks in the Slider.
-
-The available options are:
-
-* `before` - Tick marks are located to the top side of the horizontal track or to the left side of a vertical track.
-* `after` - Tick marks are located to the bottom side of the horizontal track or to the right side of the vertical track.
-* `both` - Tick marks are located on both sides of the track.
-* `none` - Tick marks are not visible. The actual elements are not added to the DOM tree.
-
-#### title `String|Function`
-
-Defines title of the ticks. The default title for each tick is its Slider value. If callback function is used it will accept an argument holding the value of the component and should return a string with the new title.
-
-#### fixedTickwidth `Number`
-
-Sets the width between each two ticks along the track. The value must be set in pixels. If no fixedTickWidth is provided the component will automatically adjust the tick width to accommodate the elements within the size of the component.
-
-## Orientation
-
-#### vertical `Boolean`*(default: "false")*
-
-Changes the orientation of the Slider from horizontal to vertical when set to `true`.
+Triggered when the user selects a tab that loads remote content.
 
 ## State
 
-#### onChange `Function`
+#### onSelect `Function`
 
-As a stateless component the Slider will fire its onChange event handler every time when the value is changed. It should be handled by the parent component.
-
-### Drag handle
-
-#### dragHandleTitle `String`
-
-Changes the title attribute of the drag handle, so it can be localized.
+Indicates the behavior of the component upon selecting a tab.

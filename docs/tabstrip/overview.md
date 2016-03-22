@@ -8,427 +8,107 @@ position: 1
 
 # TabStrip Overview
 
-The Kendo UI Slider for React is a component that lets the user increase, decrease, and select pre-defined values by dragging its handle along the track, or by clicking the side arrow buttons.
+The Kendo UI TabStrip displays a collection of tabs with associated content, which allow the user to open many pages inside a single window. Each tab represents a separate location and by selecting a particular tab, the user navigates between the tab pages.  
 
-The Kendo UI Slider for React is part of the Inputs `npm` package of the Kendo UI suite for React.
+The Kendo UI TabStrip component for React is part of the Layout `npm` package of the Kendo UI suite for React.
 
-**Figure 1. A horizontal template of the Kendo UI Slider for React**
+**Figure 1: A template of the Kendo UI TabStrip for React**
 
-Vasko goes here: template screen - horizontal, parts indicated:
-1. track
-2. handle
-3. ticks
-4. arrow buttons
-5. button title
+//TODO: template screen, parts indicated
 
-**Figure 2. A vertical template of the Kendo UI Slider for React**
-
-Vasko goes here: template screen - vertical, parts indicated:
-1. track
-2. handle
-3. ticks
-4. arrow buttons
-5. button title
+1. tab titles 
+2. tab page
+3. tab title row
 
 ## Demos
 
 ### Default Setup
 
-The example below demonstrates the default setup of a Kendo UI Slider for React.
+The example below demonstrates the default setup of a Kendo UI TabStrip component for React.
 
 ```html-preview
-  <div id="app"></div>
+  //code
 ```
 ```jsx
-  class SliderContainer extends React.Component {
-      constructor(props) {
-          super(props);
-          this.state = {
-              max: 10,
-              min: 0,
-              step: 2
-          };
-      }
-      onChange = (e) => {
-          this.setState({
-              value: e.value
-          });
-      }
-      render() {
-          return (
-              <Slider
-                  max = {this.state.max}
-                  min = {this.state.min}
-                  onChange = {this.onChange}
-                  smallStep = {this.state.step}
-              />);
-      }
-  }
 
-  ReactDOM.render(
-      <SliderContainer />,
-      document.getElementById('app')
-  );
 ```
 
 ## Configuration
 
-### Buttons
+### Tab Titles
 
-When enabled, the side buttons increase or decrease the component value with the pre-defined step. If the initial value does not directly match to a specific tick and the user clicks either of the buttons, the handle is placed on the next available tick. Each subsequent click moves the handle over the available ticks.
-
-By default, the `buttons` configuration property is set to `true`. If set to `false`, the buttons do not appear.
+Each tab displays a title prompting the content of the tab page, which is set through the `title` property.
 
 ```html
-  <div id="app"></div>
+  //code
 ```
 ```jsx
-    class SliderContainer extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = {
-                max: 10,
-                min: 0,
-                step: 2,
-                buttons: false
-            };
-        }
-        onChange = (e) => {
-            this.setState({
-                value: e.value //e.value contains the newly set value of the component
-            });
-        }
-        render() {
-            return (
-                <Slider
-                    max = {this.state.max}
-                    min = {this.state.min}
-                    onChange = {this.onChange}
-                    smallStep = {this.state.step}
-                    buttons = {this.state.buttons}
-                />
-            );
-        }
-    }
 
-    ReactDOM.render(
-        <SliderContainer />,
-        document.getElementById('app')
-    );
 ```
 
-The title of the buttons can be controlled by using the `decreaseButtonTitle` and `increaseButtonTitle` properties, which accept `string` parameters.
+Apart from text elements, a tab title is also able to accommodate an image to add visual context to the tab page content. Indicate the image source by setting the `imageUrl` property.
 
 ```html
-  <div id="app"></div>
+  //code
 ```
 ```jsx
-    class SliderContainer extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = {
-                max: 10,
-                min: 0,
-                step: 2,
-                increaseButtonTitle: 'Inc',
-                decreaseButtonTitle: 'Dec'
-            };
-        }
-        onChange = (e) => {
-            this.setState({
-                value: e.value
-            });
-        }
-        render() {
-            return (
-                <Slider
-                    max = {this.state.max}
-                    min = {this.state.min}
-                    onChange = {this.onChange}
-                    smallStep = {this.state.step}
-                    increaseButtonTitle = {this.state.increaseButtonTitle}
-                    decreaseButtonTitle = {this.state.decreaseButtonTitle}
-                />
-            );
-        }
-    }
 
-    ReactDOM.render(
-        <SliderContainer />,
-        document.getElementById('app')
-    );
 ```
 
-### Steps
+### Tabs on Initial Loading
 
-The `step` property is used to split the track on equal ticks based on the `min` and `max` values. For example, if the `min` value is `0` (zero), the `max` value is `4` (four) and the `smallStep` is `1` (one), the Slider displays ticks indicating four steps. If the `min` value is `2` (two), the `max` value is `4` (four) and the `smallStep` is `1` (one), the Slider displays two steps.
-
-The step is defined through the `smallStep` property. The small steps are applied whenever the user interacts with the Slider. When the side arrow buttons are clicked, or when the handle is dragged, the Slider value changes with small steps.
-
-The `smallStep` property accepts both `integer` and `float` values.
+The TabStrip enables you to display a particular tab upon its initial loading, which is set through the `selected` property.
 
 ```html
-  <div id="app"></div>
+  //code
 ```
 ```jsx
-    class SliderContainer extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = {
-                max: 10,
-                min: 0,
-                step: 2.5
-            };
-        }
-        onChange = (e) => {
-            this.setState({
-                value: e.value
-            });
-        }
-        render() {
-            return (
-                <Slider
-                    max = {this.state.max}
-                    min = {this.state.min}
-                    onChange = {this.onChange}
-                    smallStep = {this.state.step}
-                />
-            );
-        }
-    }
 
-    ReactDOM.render(
-        <SliderContainer />,
-        document.getElementById('app')
-    );
 ```
 
-### Ticks
+### Disabled Tabs
 
-Along the track, the ticks indicate the values resulting from each incremented pre-defined step. Ticks are configured through the `tickPlacement` property. They can be set to appear along the upper side or bottom side of a horizontal Slider, on the left or right side of a vertical Slider, or on both sides of the track. If necessary, they can be set not to show at all.   
+The TabStrip provides the option for specific tabs to be inactive so that the user is not able to click on them. Disable tabs by adding the `disabled` property to the configuration.
 
 ```html
-  <div id="app"></div>
+  //code
 ```
 ```jsx
-     class SliderContainer extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = {
-                max: 10,
-                min: 0,
-                step: 2.5,
-                tickPlacement: "none"
-            };
-        }
-        onChange = (e) => {
-            this.setState({
-                value: e.value
-            });
-        }
-        render() {
-            return (
-                <Slider
-                    max = {this.state.max}
-                    min = {this.state.min}
-                    onChange = {this.onChange}
-                    smallStep = {this.state.step}
-                    tickPlacement = {this.state.tickPlacement}
-                />
-            );
-        }
-    }
 
-    ReactDOM.render(
-        <SliderContainer />,
-        document.getElementById('app')
-    );
 ```
 
-The `title` property defines the titles of the ticks. By default, the title of each tick corresponds to its value. If you want to customize the title, use a callback.
+### Remote Content
+
+The TabStrip provides an option for you to display content from a remote source by handling the `fetch` event.
 
 ```html
-  <div id="app"></div>
+  //code
 ```
 ```jsx
-    class SliderContainer extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = {
-                max: 10,
-                min: 0,
-                step: 2
-            };
-        }
-        title = (e) => {
-            if (e.value > 10) { //e.value contains the value of the current tick being rendered
-                return 'high'
-            }
 
-            return 'low'
-        }
-        onChange = (e) => {
-            this.setState({
-                value: e.value //e.value contains the newly set value of the component
-            });
-        }
-        render() {
-            return (
-                <Slider
-                    max = {this.state.max}
-                    min = {this.state.min}
-                    onChange = {this.onChange}
-                    smallStep = {this.state.step}
-                />
-            );
-        }
-    }
-
-    ReactDOM.render(
-        <SliderContainer />,
-        document.getElementById('app')
-    );
-```
-
-The `fixedTickWidth` property sets the width between each two ticks along the track. Its value must be set in pixels. When the property is enabled, the component gets resized to fit all ticks with the corresponding width. If no `fixedTickWidth` properties is defined, the component adjusts the size of the ticks in a way that the sum matches the actual size of the component.
-
-```html
-  <div id="app"></div>
-```
-```jsx
-    class SliderContainer extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = {
-                max: 10,
-                min: 0,
-                step: 2,
-                fixedTickWidth: 20 //the value should be set in pixels
-            };
-        }
-        onChange = (e) => {
-            this.setState({
-                value: e.value //e.value contains the newly set value of the component
-            });
-        }
-        render() {
-            return (
-                <Slider
-                    max = {this.state.max}
-                    min = {this.state.min}
-                    onChange = {this.onChange}
-                    smallStep = {this.state.step}
-                    fixedTickWidth = {this.state.fixedTickWidth}
-                />
-            );
-        }
-    }
-
-    ReactDOM.render(
-        <SliderContainer />,
-        document.getElementById('app')
-    );
-```
-
-### Orientation
-
-The Slider supports two modes of orientations&mdash;horizontal, which is the default one, and vertical, which can be applied by setting the `vertical` property to `true`.
-
-When used in its horizontal mode, the Slider component displays the smallest value to the left and the largest to the right. When used in its vertical mode, the Slider component displays the smallest value at the bottom and the largest at the top.
-
-```html
-  <div id="app"></div>
-```
-```jsx
-    class SliderContainer extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = {
-                max: 10,
-                min: 0,
-                step: 2
-            };
-        }
-        onChange = (e) => {
-            this.setState({
-                value: e.value
-            });
-        }
-        render() {
-            return (
-                <Slider
-                    max = {this.state.max}
-                    min = {this.state.min}
-                    onChange = {this.onChange}
-                    smallStep = {this.state.step}
-                    vertical
-                />
-            );
-        }
-    }
-
-    ReactDOM.render(
-        <SliderContainer />,
-        document.getElementById('app')
-    );
 ```
 
 ### State
 
-The Slider is designed as a stateless component. Therefore, to store its state and configuration properties, use a high-order component, which controls its state and holds the configuration.
-
-The `onChange` event is fired each time a user interacts with the Slider. The new value is then passed as an argument to the `onChange` callback.
+The TabStrip component enables you to define the behavior of the tabs upon selection. The `onSelect` event fires each time a user interacts with a tab. The new value is then passed as an argument to the `onSelect` callback.
 
 ```html
-  <div id="app"></div>
+  //code
 ```
 ```jsx
-    class SliderContainer extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = {
-                max: 10,
-                min: 0,
-                step: 2
-            };
-        }
-        onChange = (e) => {
-            this.setState({
-                value: e.value //e.value contains the newly set value of the component
-            });
-        }
-        render() {
-            return (
-                <Slider
-                    max = {this.state.max}
-                    min = {this.state.min}
-                    onChange = {this.onChange}
-                    smallStep = {this.state.step}
-                />
-            );
-        }
-    }
 
-    ReactDOM.render(
-        <SliderContainer />,
-        document.getElementById('app')
-    );
 ```
 
-For detailed information on the Kendo UI Slider for React configuration, refer to its [client-side API documentation]({% slug api_slider_kendouiforreact %}).
+For detailed information on the Kendo UI TabStrip for React configuration, refer to its [client-side API documentation]({% slug api_tabstrip_kendouiforreact %}).
 
-## Keyboard Navigation
+## Keyboard Navigation (any?)
 
-Below is the list with the keyboard shortcuts the Slider supports.
+Below is the list with the keyboard shortcuts the TabStrip supports.
 
 | SHORTCUT                            | DESCRIPTION         |
 |:---                                 |:---                 |
-| `Upper Arrow` & `Right Arrow` keys  | Increase the displayed Slider value with a small step. |
-| `Down Arrow` & `Left Arrow` keys    | Decrease the displayed Slider value with a small step. |
-| `Home`                              | Set the Slider to its minimum value.                   |
-| `End`                               | Set the Slider to its maximum value.                   |
-| `Tab`                               | (Accessibility mode) Focus the handle element.                   |
+| `Tab`                               | (Accessibility mode) Focus the handle element. |
 
 ## Accessibility
 
-The Slider is WAI ARIA-accessible through the `Tab` key. The `aria-valuemin`, `aria-valuemax`, and `aria-valuetext` properties define the accessibility values when the user drags the handle of the Slider or interacts with the Slider through its buttons.
+The TabStrip is WAI ARIA-accessible through the `Tab` key. The `aria-expanded` property defines ...
