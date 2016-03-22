@@ -6,7 +6,6 @@ import classNames from 'classnames';
 import PanelBarItem from './PanelBarItem';
 
 const propTypes = {
-    active: React.PropTypes.bool,
     children: function(props, propName) {
         const prop = props[propName];
 
@@ -25,41 +24,36 @@ const propTypes = {
             }
         }
     },
+    expanded: React.PropTypes.bool,
     isMaster: React.PropTypes.bool,
     onSelect: React.PropTypes.func,
-    selectedKey: React.PropTypes.string
+    parentId: React.PropTypes.oneOfType([
+        React.PropTypes.string,
+        React.PropTypes.number
+    ])
 };
 
 export default class PanelBarNavigation extends React.Component {
-    mapComponents(children) {
-        return React.Children.map(children, (child, index) => {
+    mapComponents(props) {
+        return React.Children.map(props.children, (child) => {
             if (React.isValidElement(child)) {
-                return this.renderItem(child, index);
+                return this.renderItem(child);
             }
-            return child;
         });
     }
 
-    renderItem(child, index) {
-        const { children, onSelect, selectedKey } = this.props;
+    renderItem(child) {
+        const itemProps = {
+            ...child.props,
+            onSelect: this.props.onSelect,
+            parentId: this.props.parentId
+        };
 
-        return (
-            <PanelBarItem {...child.props }
-                index={index}
-                isLast={children.length - 1 === index}
-                itemKey={child.key}
-                key={child.key}
-                onSelect={onSelect}
-                selected={selectedKey === child.key ? true : false}
-            >
-                {child.props.children}
-            </PanelBarItem>
-        );
+        return (<PanelBarItem {...itemProps} />);
     }
 
     render() {
-        const { active, isMaster, children } = this.props;
-        const items = this.mapComponents(children);
+        const { expanded, isMaster } = this.props;
 
         const panelBarItemsClasses = classNames({
             [styles['panel']]: !isMaster,
@@ -70,12 +64,12 @@ export default class PanelBarNavigation extends React.Component {
         });
 
         const inlineStyles = {
-            'display': active ? 'block' : 'none'
+            'display': expanded ? 'block' : 'none'
         };
 
         return (
             <ul className={panelBarItemsClasses} style={inlineStyles}>
-                {items}
+                {this.mapComponents(this.props)}
             </ul>
         );
     }
