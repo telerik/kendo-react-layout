@@ -19,7 +19,7 @@ This repository holds the source code files and documentation of the Kendo UI co
 
 ## Glossary
 
-Below are explained the basic terms the Kendo UI suite for React applies.
+Below are explained the basic terms that Kendo UI suite for React applies.
 
 ### Component
 
@@ -54,7 +54,7 @@ The demo below demonstrates the basic usage of the component.
 
 ```
 
-For more information, refer to the [documentation on the TabStrip](...).
+For more information, refer to the [documentation on the TabStrip]({% slug overview_tabstrip_kendouiforreact %}).
 
 ## Get Started
 
@@ -64,12 +64,12 @@ Below are listed the steps for you to follow when setting up and running the Lay
 
 To install the Kendo UI Layout components for React, run the command below.
 
-    npm install kendo-react-inputs;
+    npm install kendo-react-layout;
 
     //ES6 Modules
-    import Slider from 'kendo-react-inputs';
+    import TabStrip from 'kendo-react-layout';
     //or
-    import { Slider } from 'kendo-react-inputs';
+    import { TabStrip } from 'kendo-react-layout';
 
 ### Browser Support
 
