@@ -27,7 +27,7 @@ describe('PanelBarContent', () => {
     });
 
     it('should render visbile', () => {
-        result = shallow(<PanelBarContent active />);
+        result = shallow(<PanelBarContent expanded />);
 
         expect(result.props().style.display).toEqual('block');
     });

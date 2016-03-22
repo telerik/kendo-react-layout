@@ -15,39 +15,36 @@ describe('PanelBarNavigation', () => {
         expect(result.type()).toEqual('ul');
     });
 
-    it('should pass index to children', () => {
-        result = shallow(<PanelBarNavigation>
-            <PanelBarItem title="first" />
-            <PanelBarItem title="second" />
-        </PanelBarNavigation>);
-
-        let items = result.find(PanelBarItem);
-
-        expect(items.first().props().index).toEqual(0);
-        expect(items.last().props().index).toEqual(1);
-        expect(items.last().props().isLast).toEqual(true);
-    });
-
     it('should pass valid props to children', () => {
-        result = shallow(<PanelBarNavigation selectedKey="200">
-            <PanelBarItem title="first" active key="200">
+        result = shallow(<PanelBarNavigation>
+            <PanelBarItem expanded selected id="200" title="first">
                 <PanelBarNavigation><PanelBarItem title="third" /></PanelBarNavigation>
             </PanelBarItem>
-            <PanelBarItem title="second" disabled />
+            <PanelBarItem disabled title="second" />
         </PanelBarNavigation>);
 
         let items = result.find(PanelBarItem);
 
-        expect(items.first().props().index).toEqual(0);
-        expect(items.first().props().active).toEqual(true);
+        expect(items.first().props().expanded).toEqual(true);
         expect(items.first().props().selected).toEqual(true);
-        expect(items.first().props().itemKey).toEqual("200");
+        expect(items.first().props().id).toEqual("200");
 
-        expect(items.last().props().index).toEqual(1);
-        expect(items.last().props().isLast).toEqual(true);
         expect(items.last().props().disabled).toEqual(true);
 
         expect(items.at(1).props().title).toEqual("third");
+    });
+
+    it('should pass valid props to children depending on priority', () => {
+        result = shallow(<PanelBarNavigation>
+            <PanelBarItem expanded id="200" selected title="first">
+                <PanelBarNavigation><PanelBarItem title="third" /></PanelBarNavigation>
+            </PanelBarItem>
+        </PanelBarNavigation>);
+
+        let items = result.find(PanelBarItem);
+
+        expect(items.first().props().expanded).toEqual(true);
+        expect(items.first().props().selected).toEqual(true);
     });
 
     it('should add master CSS classes', () => {
@@ -72,13 +69,13 @@ describe('PanelBarNavigation', () => {
     });
 
     it('should render invisible', () => {
-        result = shallow(<PanelBarNavigation active={false} />);
+        result = shallow(<PanelBarNavigation expanded={false} />);
 
         expect(result.props().style.display).toEqual('none');
     });
 
     it('should render visible', () => {
-        result = shallow(<PanelBarNavigation active />);
+        result = shallow(<PanelBarNavigation expanded />);
 
         expect(result.props().style.display).toEqual('block');
     });

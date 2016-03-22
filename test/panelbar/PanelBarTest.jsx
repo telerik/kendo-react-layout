@@ -34,13 +34,22 @@ describe('PanelBar', () => {
 
     it('should pass children to PanelBarNavigation', () => {
         result = shallow(<PanelBar>
-            <PanelBarItem title="first" active selected />
+            <PanelBarItem key="1" title="first" />
         </PanelBar>);
 
-        let items = result.find(PanelBarItem);
+        let items = result.find(PanelBarNavigation);
 
-        expect(items.first().props().active).toEqual(true);
-        expect(items.first().props().selected).toEqual(true);
+        expect(items.first().props().expanded).toEqual(true);
+    });
+
+    it('should pass default parentId to children', () => {
+        result = shallow(<PanelBar>
+            <PanelBarItem expanded selected key="1" title="first" />
+        </PanelBar>);
+
+        let items = result.find(PanelBarNavigation);
+
+        expect(items.first().props().parentId).toEqual(null);
     });
 
     it('should accept only PanelBarItem as child', () => {

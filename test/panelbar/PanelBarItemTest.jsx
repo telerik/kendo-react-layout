@@ -51,44 +51,44 @@ describe('PanelBarItem', () => {
     });
 
     it('should set aria-expanded attribute to true', () => {
-        result = shallow(<PanelBarItem active title="sometext" />);
+        result = shallow(<PanelBarItem expanded title="sometext" />);
 
         expect(result.find("li").props()['aria-expanded']).toEqual(true);
     });
 
     it('should set aria-expanded attribute to false', () => {
-        result = shallow(<PanelBarItem active={false} title="sometext" />);
+        result = shallow(<PanelBarItem expanded={false} title="sometext" />);
 
         expect(result.find("li").props()['aria-expanded']).toEqual(false);
     });
 
     it('should set aria-expanded attribute to false', () => {
-        result = shallow(<PanelBarItem active disabled title="sometext" />);
+        result = shallow(<PanelBarItem expanded disabled title="sometext" />);
 
         expect(result.find("li").props()['aria-expanded']).toEqual(false);
     });
 
     it('should set aria-hidden attribute to true', () => {
-        result = shallow(<PanelBarItem active title="sometext" />);
+        result = shallow(<PanelBarItem expanded title="sometext" />);
 
         expect(result.find("li").props()['aria-hidden']).toEqual(false);
     });
 
     it('should set aria-hidden attribute to false', () => {
-        result = shallow(<PanelBarItem active={false} title="sometext" />);
+        result = shallow(<PanelBarItem expanded={false} title="sometext" />);
 
         expect(result.find("li").props()['aria-hidden']).toEqual(true);
     });
 
     it('should add CSS classes', () => {
-        result = shallow(<PanelBarItem active />);
+        result = shallow(<PanelBarItem expanded />);
 
         expect(result.hasClass('k-item')).toEqual(true);
         expect(result.hasClass('k-state-default')).toEqual(true);
     });
 
-    it('should add CSS classes when active', () => {
-        result = shallow(<PanelBarItem active />);
+    it('should add CSS classes when expanded', () => {
+        result = shallow(<PanelBarItem expanded />);
 
         expect(result.hasClass('k-item')).toEqual(true);
         expect(result.hasClass('k-state-default')).toEqual(true);
@@ -96,7 +96,7 @@ describe('PanelBarItem', () => {
     });
 
     it('should add CSS classes when disabled', () => {
-        result = shallow(<PanelBarItem active disabled />);
+        result = shallow(<PanelBarItem expanded disabled />);
 
         expect(result.hasClass('k-item')).toEqual(true);
         expect(result.hasClass('k-state-default')).toEqual(false);
@@ -117,27 +117,27 @@ describe('PanelBarItem', () => {
     it('should collapse content if disabled', () => {
         let props = {
             disabled: true,
-            active: true
+            expanded: true
         };
 
         result = shallow(<PanelBarItem disabled title="sometext" {...props}>
             <PanelBarContent>SomeContent</PanelBarContent>
         </PanelBarItem>);
 
-        expect(result.find("PanelBarContent").props().active).toEqual(false);
+        expect(result.find("PanelBarContent").props().expanded).toEqual(false);
     });
 
     it('should collapse navigation if disabled', () => {
         let props = {
             disabled: true,
-            active: true
+            expanded: true
         };
 
         result = shallow(<PanelBarItem disabled title="sometext" {...props}>
             <PanelBarNavigation />
         </PanelBarItem>);
 
-        expect(result.find(PanelBarNavigation).props().active).toEqual(false);
+        expect(result.find(PanelBarNavigation).props().expanded).toEqual(false);
     });
 
     it('should add k-state-selected CSS class', () => {
@@ -163,25 +163,25 @@ describe('PanelBarItem', () => {
 
     it('should pass children and props correctly to child components', () => {
         result = shallow(
-            <PanelBarItem active title="first">
+            <PanelBarItem expanded title="first">
                 <PanelBarNavigation />
             </PanelBarItem>);
 
         let navigation = result.find(PanelBarNavigation);
 
-        expect(navigation.props().active).toEqual(true);
+        expect(navigation.props().expanded).toEqual(true);
     });
 
     it('handler is called when clicked', () => {
         let spy = jasmine.createSpy('click');
-        result = shallow(<PanelBarItem onSelect={spy} key="10" itemKey="10" />);
+        result = shallow(<PanelBarItem id="10" key="10" parentId="1" onSelect={spy} />);
         result.find('span').simulate('click');
-        expect(spy).toHaveBeenCalledWith("10");
+        expect(spy).toHaveBeenCalledWith({ 'id': '10', 'expanded': undefined, 'parentId': '1'  });
     });
 
     it('handler is not called for disabled panels', () => {
         let spy = jasmine.createSpy('click');
-        result = shallow(<PanelBarItem disabled onSelect={spy} key="10" itemKey="10" />);
+        result = shallow(<PanelBarItem disabled id="10" key="10" onSelect={spy} />);
         result.find('span').simulate('click');
         expect(spy).not.toHaveBeenCalled();
     });
