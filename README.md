@@ -27,7 +27,10 @@ A Component is a Kendo UI control developed to operate in the React ecosystem. F
 
 ### Package
 
-A package is a conventional term used to designate a group of several components which share common functionalities and/or common codebase. For example, the Kendo UI TabStrip and PanelBar components for React are part of the Layout Package.
+A package is a conventional term used to designate:
+
+* A complex or core suite component such as the Kendo UI Animation for React.
+* A group of several components which share common functionalities and/or common codebase. For example, the Kendo UI TabStrip and PanelBar components for React are part of the Layout Package.
 
 ### Package Version
 
@@ -39,11 +42,15 @@ Because of the continuous release cycle, Marketing Releases include packages wit
 
 Currently, the Kendo UI Layout package for React consists of the TabStrip component.
 
-For more information on other components intended for implementation, refer to the [Roadmap of the Kendo UI Layout package for React](https://github.com/telerik/kendo-react-inputs/blob/master/docs/roadmap.md).
+For more information on forthcoming Layout package features and components, refer to the [Roadmap of the Kendo UI Layout package for React](https://github.com/telerik/kendo-react-layout/blob/master/docs/roadmap.md).
 
 ## Basic Usage
 
-The Kendo UI TabStrip for React displays a collection of tabs with associated content. It is composed of an unordered list of items, representing tabs, and a collection of elements, which contain the content for each tab.
+The section below demonstrates the basic usage of the Kendo UI TabStrip component.
+
+### Kendo UI TabStrip for React
+
+The TabStrip displays a collection of tabs with associated content. It is composed of an unordered list of items, representing tabs, and a collection of elements, which contain the content for each tab.
 
 The demo below demonstrates the basic usage of the component.
 
@@ -58,7 +65,7 @@ For more information, refer to the [documentation on the TabStrip](https://githu
 
 ## Get Started
 
-Below are listed the steps for you to follow when setting up and running the Layout components.
+The sections below demonstrate how to set up and run the Layout components, and add them to your project.
 
 ### Installation
 

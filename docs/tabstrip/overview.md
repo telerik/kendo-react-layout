@@ -16,7 +16,7 @@ The Kendo UI TabStrip component for React is part of the Layout `npm` package of
 
 //TODO: template screen, parts indicated
 
-1. tab titles 
+1. tab titles
 2. tab page
 3. tab title row
 
@@ -112,3 +112,7 @@ Below is the list with the keyboard shortcuts the TabStrip supports.
 ## Accessibility
 
 The TabStrip is WAI ARIA-accessible through the `Tab` key. The `aria-expanded` property defines ...
+
+## Suggested Links
+
+* [Client-Side API Reference for the Kendo UI TabStrip Component]({% slug api_tabstrip_kendouiforreact %})

@@ -6,7 +6,7 @@ slug: api_tabstrip_kendouiforreact
 position: 2
 ---
 
-# TabStrip
+# TabStrip Client-Side API
 
 Represents the Kendo UI TabStrip component for React.
 
