@@ -10,7 +10,7 @@ position: 1
 
 The Kendo UI TabStrip displays a collection of tabs with associated content, which allow the user to switch between different views inside a single component.
 
-The Kendo UI TabStrip component for React is part of the Layout `npm` package of the Kendo UI suite for React.
+The TabStrip is part of the Layout `npm` package of the Kendo UI suite for React.
 
 **Figure 1: A template of the Kendo UI TabStrip for React**
 
@@ -131,7 +131,7 @@ Apart from text elements, a tab title is also able to accommodate any React comp
 
 ### Tabs on Initial Loading
 
-The TabStrip enables you to display a particular tab upon its initial loading, which is set through the `selected` property. It is zero based value, which means that for selecting the first tab it should be set to `0`.
+The TabStrip enables you to display a particular tab upon its initial loading, which is set through the `selected` property. It is a zero-based value, which means that to select the first tab, you must set it to `0` (zero).
 
 ```html-preview
     <div id="app"></div>
@@ -211,7 +211,7 @@ The TabStrip provides the option for specific tabs to be inactive so that the us
 
 ### Remote Content
 
-The TabStrip does not provide built-in functionality for loading remote content. But this can be achieved with nesting a component that will handle the remote data loading.
+The TabStrip does not provide а built-in functionality for loading remote content. However, you can achieve this through nesting a component that will handle the remote data loading.
 
 ```html-preview
     <div id="app"></div>
@@ -286,9 +286,9 @@ The TabStrip does not provide built-in functionality for loading remote content.
 
 ### State
 
-The Tabstrip is designed as a stateless component. To store its state and configuration properties, wrap it a high-order component.
+The Tabstrip is designed as a stateless component. To store its state and configuration properties, wrap it in a high-order component.
 
-The onSelect event fires each time a user interacts with the component. The newly selected tab index is passed as an argument to the onSelect callback.
+The `onSelect` event fires each time a user interacts with the component. The newly selected tab index is passed as an argument to the `onSelect` callback.
 
 ```html-preview
     <div id="app"></div>
@@ -330,18 +330,18 @@ For detailed information on the Kendo UI TabStrip for React configuration, refer
 
 ## Keyboard Navigation
 
-Below is the list with the keyboard shortcuts the Tabstrip supports.
+Below is the list with the keyboard shortcuts the TabStrip supports.
 
 | SHORTCUT                            | DESCRIPTION         |
 |:---                                 |:---                 |
-| `Upper Arrow` & `Left Arrow` keys   | Select previous tab |
-| `Down Arrow` & `Right Arrow` keys   | Select next tab     |
-| `Home`                              | Select the first tab|
-| `End`                               | Select the last tab |
+| `Upper Arrow` & `Left Arrow` keys   | Select the previous tab. |
+| `Down Arrow` & `Right Arrow` keys   | Select the next tab.     |
+| `Home`                              | Select the first tab.    |
+| `End`                               | Select the last tab.     |
 
 ## Accessibility
 
-The TabStrip is WAI ARIA-accessible through the `Tab` key. The `aria-expanded` attribute is set on the currently displayed content of a tab. The `tabindex` attribute will be set to `0` on the active tab and `-1` for the inactive tabs.
+The TabStrip is WAI ARIA-accessible through the `Tab` key. The `aria-expanded` attribute is set on the currently displayed content of a tab. The `tabindex` attribute will be set to `0` (zero) on the active tab and `-1` (minus one) for the inactive tabs.
 
 ## Suggested Links
 

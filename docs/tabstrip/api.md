@@ -32,4 +32,4 @@ Disables a tab. Used as an attribute on a Tab.
 
 #### onSelect `Function`
 
-Will be called each time new tab is selected, and will include the index of the selected tab as an argument.
+The event is called each time a new tab is selected, and includes the index of the selected tab as an argument.
