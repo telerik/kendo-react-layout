@@ -8,7 +8,7 @@ position: 1
 
 # TabStrip Overview
 
-The Kendo UI TabStrip displays a collection of tabs with associated content, which allow the user to open many pages inside a single window. Each tab represents a separate location and by selecting a particular tab, the user navigates between the tab pages.  
+The Kendo UI TabStrip displays a collection of tabs with associated content, which allow the user to switch between different views inside a single component.
 
 The Kendo UI TabStrip component for React is part of the Layout `npm` package of the Kendo UI suite for React.
 
@@ -27,91 +27,321 @@ The Kendo UI TabStrip component for React is part of the Layout `npm` package of
 The example below demonstrates the default setup of a Kendo UI TabStrip component for React.
 
 ```html-preview
-  //code
+  <div id="app"></div>
 ```
 ```jsx
+    const { Tab } = Tabstrip;
+    class TabstripContainer extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                selected: 0
+            };
+        }
+        onSelect = (e) => {
+            this.setState({
+                selected: e.selected
+            });
+        };
 
+        render() {
+            return (
+              <Tabstrip onSelect={this.onSelect} selected={this.state.selected}>
+                <Tab title="Paris">
+                    <span className="rainy">&nbsp;</span>
+                    <div className="weather">
+                        <h2>17<span>&ordm;C</span></h2>
+                        <p>Rainy weather in Paris.</p>
+                    </div>
+                </Tab>
+                <Tab title="London">
+                    <span className="sunny">&nbsp;</span>
+                    <div className="weather">
+                        <h2>21<span>&ordm;C</span></h2>
+                        <p>Sunny weather in London.</p>
+                    </div>
+                </Tab>
+                <Tab title="New York">
+                    <span className="sunny">&nbsp;</span>
+                    <div className="weather">
+                        <h2>29<span>&ordm;C</span></h2>
+                        <p>Sunny weather in New York.</p>
+                    </div>
+                </Tab>
+                <Tab title="Moscow">
+                    <span className="cloudy">&nbsp;</span>
+                    <div className="weather">
+                        <h2>16<span>&ordm;C</span></h2>
+                        <p>Cloudy weather in Moscow.</p>
+                    </div>
+                </Tab>
+              </Tabstrip>);
+        }
+    }
+    ReactDOM.render(
+        <TabstripContainer />,
+        document.getElementById('app')
+    );
 ```
 
 ## Configuration
 
 ### Tab Titles
 
-Each tab displays a title prompting the content of the tab page, which is set through the `title` property.
+Each tab displays a title prompting the content of the tab page, which is set through the `title` attribute of the Tab.
 
-```html
-  //code
+```html-preview
+    <div id="app"></div>
 ```
 ```jsx
+    const { Tab } = Tabstrip;
+    class TabstripContainer extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                selected: 0
+            };
+        }
+        onSelect = (e) => {
+            this.setState({
+                selected: e.selected
+            });
+        };
+
+        render() {
+            return (
+              <Tabstrip onSelect={this.onSelect} selected={this.state.selected}>
+                <Tab title="First tab title">
+                    First tab content
+                </Tab>
+                <Tab title="Second tab Title">
+                    Second tab content
+                </Tab>
+              </Tabstrip>);
+        }
+    }
+    ReactDOM.render(
+        <TabstripContainer />,
+        document.getElementById('app')
+    );
 
 ```
 
-Apart from text elements, a tab title is also able to accommodate an image to add visual context to the tab page content. Indicate the image source by setting the `imageUrl` property.
-
-```html
-  //code
-```
-```jsx
-
-```
+Apart from text elements, a tab title is also able to accommodate any React component.
 
 ### Tabs on Initial Loading
 
-The TabStrip enables you to display a particular tab upon its initial loading, which is set through the `selected` property.
+The TabStrip enables you to display a particular tab upon its initial loading, which is set through the `selected` property. It is zero based value, which means that for selecting the first tab it should be set to `0`.
 
-```html
-  //code
+```html-preview
+    <div id="app"></div>
 ```
 ```jsx
+    const { Tab } = Tabstrip;
+    class TabstripContainer extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                selected: 1 //sets the tab that will be selected initially
+            };
+        }
+        onSelect = (e) => {
+            this.setState({
+                selected: e.selected
+            });
+        };
 
+        render() {
+            return (
+              <Tabstrip onSelect={this.onSelect} selected={this.state.selected}>
+                <Tab title="Tab1">
+                    First tab content
+                </Tab>
+                <Tab title="Tab2">
+                    Second tab content
+                </Tab>
+              </Tabstrip>);
+        }
+    }
+    ReactDOM.render(
+        <TabstripContainer />,
+        document.getElementById('app')
+    );
 ```
 
 ### Disabled Tabs
 
-The TabStrip provides the option for specific tabs to be inactive so that the user is not able to click on them. Disable tabs by adding the `disabled` property to the configuration.
+The TabStrip provides the option for specific tabs to be inactive so that the user is not able to select them. Disable tabs by adding the `disabled` attribute to the configuration.
 
-```html
-  //code
+```html-preview
+    <div id="app"></div>
 ```
 ```jsx
+    const { Tab } = Tabstrip;
+    class TabstripContainer extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                selected: 1
+            };
+        }
+        onSelect = (e) => {
+            this.setState({
+                selected: e.selected
+            });
+        };
 
+        render() {
+            return (
+              <Tabstrip onSelect={this.onSelect} selected={this.state.selected}>
+                <Tab title="Tab1" disabled>
+                    First tab content
+                </Tab>
+                <Tab title="Tab2">
+                    Second tab content
+                </Tab>
+              </Tabstrip>);
+        }
+    }
+    ReactDOM.render(
+        <TabstripContainer />,
+        document.getElementById('app')
+    );
 ```
 
 ### Remote Content
 
-The TabStrip provides an option for you to display content from a remote source by handling the `fetch` event.
+The TabStrip does not provide built-in functionality for loading remote content. But this can be achieved with nesting a component that will handle the remote data loading.
 
-```html
-  //code
+```html-preview
+    <div id="app"></div>
 ```
 ```jsx
+    const { Tab } = KendoTabstrip;
+    var RemoteContent = React.createClass({
+      getInitialState: function() {
+        return {
+          content: {}
+        };
+      },
 
+      componentDidMount: function() {
+        let that = this;
+        this.fetch().then(function(data) {
+            that.setState({
+                content: data
+            })
+        })
+      },
+
+      fetch: function () {
+        return new Promise(function (resolve, reject) {
+          // simulate an asynchronous action where data is fetched on
+          // a remote server somewhere.
+          setTimeout(function () {
+            // resolve with some mock data
+            resolve({
+                Wheelbase :"2851 mm"
+            });
+          }, 500);
+        });
+      },
+
+      render: function() {
+        return (
+          <dl className="specification">
+              <dt>Wheelbase</dt>
+              <dd>{this.state.content.Wheelbase}</dd>
+          </dl>
+        );
+      }
+    });
+
+    var Tabstrip = React.createClass({
+          getInitialState: function() {
+              return { selected : 0 }
+          },
+          onSelect: function(e) {
+              this.setState({
+                  selected: e.selected
+              })
+          },
+          render: function() {
+            return (
+                <KendoTabstrip onSelect={this.onSelect} selected={this.state.selected}>
+                    <Tab title="Dimensions &amp; Weights">
+                        <RemoteContent />
+                    </Tab>
+                    <Tab title="Engine">
+                        Engine specification here.
+                    </Tab>
+                </KendoTabstrip>
+            )}
+    });
+    ReactDOM.render(
+        <Tabstrip />,
+        document.getElementById('app')
+    )
 ```
 
 ### State
 
-The TabStrip component enables you to define the behavior of the tabs upon selection. The `onSelect` event fires each time a user interacts with a tab. The new value is then passed as an argument to the `onSelect` callback.
+The Tabstrip is designed as a stateless component. To store its state and configuration properties, wrap it a high-order component.
 
-```html
-  //code
+The onSelect event fires each time a user interacts with the component. The newly selected tab index is passed as an argument to the onSelect callback.
+
+```html-preview
+    <div id="app"></div>
 ```
 ```jsx
+    const { Tab } = Tabstrip;
+    class TabstripContainer extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                selected: 1
+            };
+        }
+        onSelect = (e) => {
+            this.setState({
+                selected: e.selected // the callback will be called when selection is made
+            });
+        };
 
+        render() {
+            return (
+              <Tabstrip onSelect={this.onSelect} selected={this.state.selected}>
+                <Tab title="Tab1" disabled>
+                    First tab content
+                </Tab>
+                <Tab title="Tab2">
+                    Second tab content
+                </Tab>
+              </Tabstrip>);
+        }
+    }
+    ReactDOM.render(
+        <TabstripContainer />,
+        document.getElementById('app')
+    );
 ```
 
 For detailed information on the Kendo UI TabStrip for React configuration, refer to its [client-side API documentation]({% slug api_tabstrip_kendouiforreact %}).
 
-## Keyboard Navigation (any?)
+## Keyboard Navigation
 
-Below is the list with the keyboard shortcuts the TabStrip supports.
+Below is the list with the keyboard shortcuts the Tabstrip supports.
 
 | SHORTCUT                            | DESCRIPTION         |
 |:---                                 |:---                 |
-| `Tab`                               | (Accessibility mode) Focus the handle element. |
+| `Upper Arrow` & `Left Arrow` keys   | Select previous tab |
+| `Down Arrow` & `Right Arrow` keys   | Select next tab     |
+| `Home`                              | Select the first tab|
+| `End`                               | Select the last tab |
 
 ## Accessibility
 
-The TabStrip is WAI ARIA-accessible through the `Tab` key. The `aria-expanded` property defines ...
+The TabStrip is WAI ARIA-accessible through the `Tab` key. The `aria-expanded` attribute is set on the currently displayed content of a tab. The `tabindex` attribute will be set to `0` on the active tab and `-1` for the inactive tabs.
 
 ## Suggested Links
 

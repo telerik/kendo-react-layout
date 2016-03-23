@@ -14,28 +14,22 @@ Represents the Kendo UI TabStrip component for React.
 
 #### title `String`
 
-Sets the title of a tab.
+Sets the title of a tab. Used as an attribute on a Tab.
 
 ## Tabs on Initial Loading
 
 #### selected `Number` *(default: 1)*
 
-Determines which tab to display upon the initial loading of the TabStrip.
+Determines which tab to be selected upon the initial loading of the TabStrip.
 
 ## Disabled Tabs
 
 #### disabled
 
-Disables a tab.
-
-## Remote Content
-
-#### fetch `Function`
-
-Triggered when the user selects a tab that loads remote content.
+Disables a tab. Used as an attribute on a Tab.
 
 ## State
 
 #### onSelect `Function`
 
-Indicates the behavior of the component upon selecting a tab.
+Will be called each time new tab is selected, and will include the index of the selected tab as an argument.
