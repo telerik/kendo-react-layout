@@ -1,6 +1,7 @@
 import * as React from 'react';
 import ReactTransitionGroup from 'react-addons-transition-group';
 import styles from '@telerik/kendo-theme-default/styles/main';
+import { ToggleAnimation } from '@telerik/kendo-react-animation';
 
 const propTypes = {
     children: React.PropTypes.oneOfType([
@@ -53,11 +54,9 @@ export default class TabstripContent extends React.Component {
 
         if (content) {
             return(
-                  <div className={contentClasses} ref="content">
-                      <ReactTransitionGroup component="div" componentWillEnter={this.componentWillEnter()}>
+                  <ToggleAnimation className={contentClasses} ref="content" fixedContainer>
                           {content}
-                      </ReactTransitionGroup>
-                  </div>
+                  </ToggleAnimation>
             );
         }
         return null;
