@@ -345,4 +345,4 @@ The TabStrip is WAI ARIA-accessible through the `Tab` key. The `aria-expanded` a
 
 ## Suggested Links
 
-* [Client-Side API Reference for the Kendo UI TabStrip Component]({% slug api_tabstrip_kendouiforreact %})
+* [Client-Side API Reference for the Kendo UI TabStrip Component](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/api.md)
