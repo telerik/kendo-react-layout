@@ -16,5 +16,5 @@ The Kendo UI TabStrip displays a collection of tabs with associated content, whi
 
 Articles on the Kendo UI TabStrip component for React:
 
-* [Get Started with the TabStrip Component](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/overview.md)
-* [Client-Side API Reference of the TabStrip Component](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md)
+* [Get Started with the TabStrip Component](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/overview.md)
+* [Client-Side API Reference of the TabStrip Component](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/api.md)
