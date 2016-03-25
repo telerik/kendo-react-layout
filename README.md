@@ -2,13 +2,13 @@
 
 # Kendo UI Layout for React
 
-* [Overview](https://github.com/telerik/kendo-react-inputs#overview)
-* [Basic Usage](https://github.com/telerik/kendo-react-inputs#basic-usage)
-* [Installation](https://github.com/telerik/kendo-react-inputs#installation)
-* [Browser Support](https://github.com/telerik/kendo-react-inputs#browser-support)
-* [Glossary](https://github.com/telerik/kendo-react-inputs#glossary)
-  * [Component](https://github.com/telerik/kendo-react-inputs#component)
-  * [Package](https://github.com/telerik/kendo-react-inputs#package)
+* [Overview](https://github.com/telerik/kendo-react-layout#overview)
+* [Basic Usage](https://github.com/telerik/kendo-react-layout#basic-usage)
+* [Installation](https://github.com/telerik/kendo-react-layout#installation)
+* [Browser Support](https://github.com/telerik/kendo-react-layout#browser-support)
+* [Glossary](https://github.com/telerik/kendo-react-layout#glossary)
+  * [Component](https://github.com/telerik/kendo-react-layout#component)
+  * [Package](https://github.com/telerik/kendo-react-layout#package)
 
 ## Overview
 
