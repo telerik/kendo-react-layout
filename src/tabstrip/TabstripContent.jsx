@@ -1,5 +1,4 @@
 import * as React from 'react';
-import ReactTransitionGroup from 'react-addons-transition-group';
 import styles from '@telerik/kendo-theme-default/styles/main';
 import { ToggleAnimation } from '@telerik/kendo-react-animation';
 
@@ -54,7 +53,7 @@ export default class TabstripContent extends React.Component {
 
         if (content) {
             return(
-                  <ToggleAnimation className={contentClasses} ref="content" fixedContainer>
+                  <ToggleAnimation className={contentClasses} fixedContainer ref="content">
                           {content}
                   </ToggleAnimation>
             );
