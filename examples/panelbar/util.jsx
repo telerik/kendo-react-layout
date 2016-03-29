@@ -1,17 +1,17 @@
 import * as React from 'react';
-import PanelBarItem from './PanelBarItem';
-import PanelBarNavigation from './PanelBarNavigation';
-import PanelBarContent from './PanelBarContent';
+import PanelBarItem from './../../src/panelbar/PanelBarItem';
+import PanelBarNavigation from './../../src/panelbar/PanelBarNavigation';
+import PanelBarContent from './../../src/panelbar/PanelBarContent';
 
 export function mapDataToComponents(map, parentId = null) {
     const items = (map[parentId] || []).map(item => {
         let child;
 
-        if (item.hasChildren) {
+        if (map[item.id]) {
             child = (<PanelBarNavigation>
                 {mapDataToComponents(map, item.id)}
             </PanelBarNavigation>);
-        } else {
+        } else if (item.content) {
             child = (<PanelBarContent>
                 <div>{item.content}</div>
             </PanelBarContent>);
