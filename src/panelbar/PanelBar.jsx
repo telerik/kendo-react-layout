@@ -22,7 +22,8 @@ const propTypes = {
             }
         }
     },
-    onSelect: React.PropTypes.func
+    onSelect: React.PropTypes.func,
+    onKeyDown: React.PropTypes.func
 };
 
 export default class PanelBar extends React.Component {
@@ -30,11 +31,21 @@ export default class PanelBar extends React.Component {
         super(props);
 
         this.onSelectHandler = this.onSelect.bind(this);
+        this.onKeyDownHandler = this.onKeyDown.bind(this);
     }
 
     onSelect(item) {
         if (this.props.onSelect) {
             this.props.onSelect(item);
+        }
+    }
+
+    onKeyDown(event) {
+        if (this.props.onKeyDown) {
+            this.props.onKeyDown({
+                keyCode: event.keyCode,
+                key: event.key
+            });
         }
     }
 
@@ -44,7 +55,9 @@ export default class PanelBar extends React.Component {
             expanded: true,
             isMaster: true,
             onSelect: this.onSelectHandler,
-            parentId: null
+            onKeyDown: this.onKeyDownHandler,
+            parentId: null,
+            tabIndex: 0
         };
 
         return (

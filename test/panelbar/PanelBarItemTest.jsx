@@ -95,6 +95,18 @@ describe('PanelBarItem', () => {
         expect(result.hasClass('k-state-active')).toEqual(true);
     });
 
+    it('should add CSS classes when focused', () => {
+        result = shallow(<PanelBarItem focused />);
+
+        expect(result.find("span").first().hasClass('k-state-focused')).toEqual(true);
+    });
+
+    it('should not add CSS classes when focused and disabled', () => {
+        result = shallow(<PanelBarItem disabled focused />);
+
+        expect(result.find("span").first().hasClass('k-state-focused')).toEqual(false);
+    });
+
     it('should add CSS classes when disabled', () => {
         result = shallow(<PanelBarItem expanded disabled />);
 

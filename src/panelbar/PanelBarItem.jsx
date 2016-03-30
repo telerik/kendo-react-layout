@@ -36,7 +36,8 @@ const propTypes = {
     parentId: React.PropTypes.oneOfType([
         React.PropTypes.string,
         React.PropTypes.number
-    ])
+    ]),
+    focused: React.PropTypes.bool
 };
 
 export default class PanelBarItem extends React.Component {
@@ -93,7 +94,7 @@ export default class PanelBarItem extends React.Component {
     }
 
     render() {
-        const { children, expanded, title = 'Untitled', disabled, selected } = this.props;
+        const { children, expanded, title = 'Untitled', disabled, selected, focused } = this.props;
 
         let panelBarItemProps = {
             'role': 'menuitem',
@@ -113,7 +114,8 @@ export default class PanelBarItem extends React.Component {
             'className': classNames({
                 [styles['link']]: true,
                 [styles['header']]: true,
-                [styles['state-selected']]: !disabled && selected
+                [styles['state-selected']]: !disabled && selected,
+                [styles['state-focused']]: !disabled && focused
             })
         };
 

@@ -52,6 +52,13 @@ describe('PanelBar', () => {
         expect(items.first().props().parentId).toEqual(null);
     });
 
+    it('handler is called when key is pressed', () => {
+        let spy = jasmine.createSpy('keydown');
+        result = shallow(<PanelBar onKeyDown={spy} />);
+        result.simulate('keydown', { keyCode: 1, key: 2 });
+        expect(spy).toHaveBeenCalledWith({ keyCode: 1, key: 2 });
+    });
+
     it('should accept only PanelBarItem as child', () => {
         result = shallow(<PanelBar>sometext</PanelBar>);
 

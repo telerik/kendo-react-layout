@@ -68,6 +68,19 @@ describe('PanelBarNavigation', () => {
         expect(result.hasClass('k-panel')).toEqual(true);
     });
 
+    it('should add tabIndex', () => {
+        result = shallow(<PanelBarNavigation tabIndex={0} />);
+
+        expect(result.props().tabIndex).toEqual(0);
+    });
+
+    it('handler is called when key is pressed', () => {
+        let spy = jasmine.createSpy('keydown');
+        result = shallow(<PanelBarNavigation onKeyDown={spy} />);
+        result.simulate('keydown');
+        expect(spy).toHaveBeenCalled();
+    });
+
     it('should render invisible', () => {
         result = shallow(<PanelBarNavigation expanded={false} />);
 

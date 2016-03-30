@@ -27,10 +27,12 @@ const propTypes = {
     expanded: React.PropTypes.bool,
     isMaster: React.PropTypes.bool,
     onSelect: React.PropTypes.func,
+    onKeyDown: React.PropTypes.func,
     parentId: React.PropTypes.oneOfType([
         React.PropTypes.string,
         React.PropTypes.number
-    ])
+    ]),
+    tabIndex: React.PropTypes.number
 };
 
 export default class PanelBarNavigation extends React.Component {
@@ -53,7 +55,7 @@ export default class PanelBarNavigation extends React.Component {
     }
 
     render() {
-        const { expanded, isMaster } = this.props;
+        const { expanded, isMaster, tabIndex, onKeyDown } = this.props;
 
         const panelBarItemsClasses = classNames({
             [styles['panel']]: !isMaster,
@@ -67,8 +69,15 @@ export default class PanelBarNavigation extends React.Component {
             'display': expanded ? 'block' : 'none'
         };
 
+        let props = {
+            style: inlineStyles,
+            className: panelBarItemsClasses,
+            tabIndex: tabIndex,
+            onKeyDown: onKeyDown
+        };
+
         return (
-            <ul className={panelBarItemsClasses} style={inlineStyles}>
+            <ul {...props }>
                 {this.mapComponents(this.props)}
             </ul>
         );
