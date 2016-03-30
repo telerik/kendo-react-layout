@@ -1,10 +1,13 @@
 export default () => ({
     panelBarItems: [
-        { id: 1, title: "1", expanded: true },
-        { id: 5, title: "1.1", parentId: 1, content: "1.1 content" },
-        { id: 2, title: "2", expanded: true },
-        { id: 3, title: "2.1", parentId: 2, content: "2.1 content", selected: true },
-        { id: 4, title: "2.2", parentId: 2, content: "2.2 content", expanded: true },
-        { id: 6, title: "2.3", parentId: 2, content: "2.3 content", disabled: true }
+        { id: 1, title: "My Teammates" },
+        { id: 5, title: "Andrew Fuller", parentId: 1, content: "Team Lead" },
+        { id: 7, title: "Nancy Leveling", parentId: 1, content: "Sales Associate" },
+        { id: 8, title: "Robert King", parentId: 1, content: "Business System Analyst" },
+        { id: 2, title: "Project", expanded: true },
+        { id: 3, title: "New Business Plan", parentId: 2, selected: true },
+        { id: 4, title: "Sales Forecast", parentId: 2, content: "Q1 - Q4 forecast", expanded: true },
+        { id: 9, title: "Sales Reports", parentId: 2 },
+        { id: 6, title: "Communication", disabled: true }
     ]
 });
