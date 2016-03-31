@@ -32,14 +32,7 @@ export default class PanelBar extends React.Component {
     constructor(props) {
         super(props);
 
-        this.onSelectHandler = this.onSelect.bind(this);
         this.onKeyDownHandler = this.onKeyDown.bind(this);
-    }
-
-    onSelect(item) {
-        if (this.props.onSelect) {
-            this.props.onSelect(item);
-        }
     }
 
     onKeyDown(event) {
@@ -56,7 +49,6 @@ export default class PanelBar extends React.Component {
             ...this.props,
             expanded: true,
             isMaster: true,
-            onSelect: this.onSelectHandler,
             onKeyDown: this.onKeyDownHandler,
             parentId: null,
             tabIndex: 0
