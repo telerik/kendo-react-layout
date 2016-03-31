@@ -23,7 +23,9 @@ const propTypes = {
         }
     },
     onSelect: React.PropTypes.func,
-    onKeyDown: React.PropTypes.func
+    onKeyDown: React.PropTypes.func,
+    onFocus: React.PropTypes.func,
+    onBlur: React.PropTypes.func
 };
 
 export default class PanelBar extends React.Component {
