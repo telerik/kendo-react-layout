@@ -12,9 +12,13 @@ Layout controls create a perceptive and intuitive layout of web projects to prov
 
 The Kendo UI TabStrip displays a collection of tabs with associated content, which allow the user to open many pages inside a single window. Each tab represents a separate location and by selecting a particular tab, the user navigates between the tab pages.
 
+The Kendo UI PanelBar displays hierarchical data as multi-level, expandable content. It is designed as a stateless component, which means that to store its state and configuration options, you should use a high-order component.
+
 ## Suggested Links
 
-Articles on the Kendo UI TabStrip component for React:
+Articles on the Layout package for React:
 
-* [Get Started with the TabStrip Component](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/overview.md)
+* [Get Started with the TabStrip Component](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/index.md)
 * [Client-Side API Reference of the TabStrip Component](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/api.md)
+* [Get Started with the PanelBar Component](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/index.md)
+* [Client-Side API Reference of the PanelBar Component](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md)
