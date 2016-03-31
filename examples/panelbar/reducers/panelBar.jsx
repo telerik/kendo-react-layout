@@ -3,10 +3,12 @@ import keycode from 'keycode';
 import initialState from './../initialstate';
 import * as util from './../util';
 
-const getItemById = (items, id) => items.find((item) => item.id === id);
+const itemById = (items, id) => items.find((item) => item.id === id);
+const findSelectedItem = (state) => state.find((item) => item.selected);
+const findFocusedItem = (state) => state.find((item) => item.focused);
 
 function selectItem(state, targetItem) {
-    const previouslySelectedItem = state.find((item) => item.selected);
+    const previouslySelectedItem = findSelectedItem(state);
 
     if (previouslySelectedItem) {
         previouslySelectedItem.selected = false;
@@ -16,13 +18,21 @@ function selectItem(state, targetItem) {
 }
 
 function focusItem(state, targetItem) {
-    const previouslyFocusedItem = state.find((item) => item.focused);
+    removePreviousFocus(state);
+
+    targetItem.focused = true;
+}
+
+function copyState(state) {
+    return state.map((item) => Object.assign({}, item));
+}
+
+function removePreviousFocus(state) {
+    const previouslyFocusedItem = findFocusedItem(state);
 
     if (previouslyFocusedItem) {
         previouslyFocusedItem.focused = false;
     }
-
-    targetItem.focused = true;
 }
 
 function expandItem(state, targetItem, isSingleExpand) {
@@ -83,10 +93,10 @@ function isSupportedKey(keyCode) {
     return allowedKeyCodes.indexOf(keyCode) > -1;
 }
 
-export function multipleExpand(state, action) {
+function handleActionByExpandMode(state, action, isSingleExpandMode) {
     if (action.type === constants.SELECT) {
-        let newState = state.map((item) => Object.assign({}, item));
-        const targetItem = getItemById(newState, action.id);
+        let newState = copyState(state);
+        const targetItem = itemById(newState, action.id);
 
         selectItem(newState, targetItem);
         focusItem(newState, targetItem);
@@ -96,8 +106,7 @@ export function multipleExpand(state, action) {
     }
 
     if (action.type === constants.KEY_DOWN && isSupportedKey(action.keyCode)) {
-        let newState = state.map((item) => Object.assign({}, item));
-
+        let newState = copyState(state);
         const targetItem = newState.find((item) => item.focused);
 
         if (!targetItem) {
@@ -106,7 +115,32 @@ export function multipleExpand(state, action) {
             return newState;
         }
 
-        updateStateByKeyCode(newState, action.keyCode, targetItem, false);
+        updateStateByKeyCode(newState, action.keyCode, targetItem, isSingleExpandMode);
+
+        return newState;
+    }
+
+
+    if (action.type === constants.FOCUS) {
+        let newState = copyState(state);
+        const previousSelection = findSelectedItem(newState);
+
+        if (previousSelection) {
+            focusItem(newState, previousSelection);
+
+            return newState;
+        }
+
+        const targetItem = util.findFirstItem(newState);
+        focusItem(newState, targetItem);
+
+        return newState;
+    }
+
+    if (action.type === constants.BLUR) {
+        let newState = copyState(state);
+
+        removePreviousFocus(newState);
 
         return newState;
     }
@@ -114,32 +148,10 @@ export function multipleExpand(state, action) {
     return state || initialState().panelBarItems;
 }
 
+export function multipleExpand(state, action) {
+    return handleActionByExpandMode(state, action, false);
+}
+
 export function singleExpand(state, action) {
-    if (action.type === constants.SELECT) {
-        let newState = state.map((item) => Object.assign({ }, item));
-        const targetItem = getItemById(newState, action.id);
-
-        selectItem(newState, targetItem);
-        focusItem(newState, targetItem);
-        expandItem(newState, targetItem, true);
-
-        return newState;
-    }
-
-    if (action.type === constants.KEY_DOWN && isSupportedKey(action.keyCode)) {
-        let newState = state.map((item) => Object.assign({ }, item));
-        const targetItem = newState.find((item) => item.focused);
-
-        if (!targetItem) {
-            util.findFirstItem(newState).focused = true;
-
-            return newState;
-        }
-
-        updateStateByKeyCode(newState, action.keyCode, targetItem, true);
-
-        return newState;
-    }
-
-    return state || initialState().panelBarItems;
+    return handleActionByExpandMode(state, action, true);
 }
