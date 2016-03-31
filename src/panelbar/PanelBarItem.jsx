@@ -94,7 +94,7 @@ export default class PanelBarItem extends React.Component {
     }
 
     render() {
-        const { children, expanded, title = 'Untitled', disabled, selected, focused } = this.props;
+        const { children, expanded, title = 'Untitled', disabled, selected, focused, ...others } = this.props;
 
         let panelBarItemProps = {
             'role': 'menuitem',
@@ -120,7 +120,7 @@ export default class PanelBarItem extends React.Component {
         };
 
         return (
-            <li {...panelBarItemProps } >
+            <li {...others } {...panelBarItemProps } >
                 <span {...panelBarItemSpanProps }>{title}</span>
                 {this.mapComponents(children)}
             </li>

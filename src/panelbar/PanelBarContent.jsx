@@ -13,7 +13,7 @@ const propTypes = {
 
 export default class PanelBarContent extends React.Component {
     render() {
-        const { children, expanded } = this.props;
+        const { children, expanded, ...others } = this.props;
 
         const panelBarItemContentClasses = classNames({
             [styles['content']]: true
@@ -24,7 +24,7 @@ export default class PanelBarContent extends React.Component {
         };
 
         return (
-            <div className={panelBarItemContentClasses} style={inlineStyles}>{children}</div>
+            <div {...others } className={panelBarItemContentClasses} style={inlineStyles}>{children}</div>
         );
     }
 }
