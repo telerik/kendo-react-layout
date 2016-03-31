@@ -7,3 +7,11 @@ export function onSelect(data) {
 export function onKeyDown(data) {
     return { type: constants.KEY_DOWN, ...data };
 }
+
+export function onFocus(data) {
+    return { type: constants.FOCUS };
+}
+
+export function onBlur(data) {
+    return { type: constants.BLUR };
+}

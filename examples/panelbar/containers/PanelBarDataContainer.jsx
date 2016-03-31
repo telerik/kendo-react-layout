@@ -7,34 +7,17 @@ import * as panelBarUtils from '../util';
 const propTypes = {
     items: React.PropTypes.arrayOf(React.PropTypes.object),
     onSelect: React.PropTypes.func,
-    onKeyDown: React.PropTypes.func
+    onKeyDown: React.PropTypes.func,
+    onFocus: React.PropTypes.func,
+    onBlur: React.PropTypes.func
 };
 
 export class PanelBarContainer extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.onSelectHandler = this.onSelect.bind(this);
-        this.onKeyDownHandler = this.onKeyDown.bind(this);
-    }
-
-    onSelect(eventData) {
-        if (this.props.onSelect) {
-            this.props.onSelect(eventData);
-        }
-    }
-
-    onKeyDown(eventData) {
-        if (this.props.onKeyDown) {
-            this.props.onKeyDown(eventData);
-        }
-    }
-
     render() {
         const itemsByParentId = panelBarUtils.mapItemsByParentId(this.props.items);
 
         return (
-            <PanelBar onKeyDown={this.onKeyDownHandler} onSelect={this.onSelectHandler}>
+            <PanelBar {...this.props }>
                 {panelBarUtils.mapDataToComponents(itemsByParentId)}
             </PanelBar>
         );
@@ -50,7 +33,9 @@ const mapStateToProps = function(state) {
 const mapDispatchToProps = function(dispatch) {
     return {
         onSelect: function(data) { dispatch(actionCreators.onSelect(data)); },
-        onKeyDown: function(data) { dispatch(actionCreators.onKeyDown(data)); }
+        onKeyDown: function(data) { dispatch(actionCreators.onKeyDown(data)); },
+        onFocus: function(data) { dispatch(actionCreators.onFocus(data)); },
+        onBlur: function(data) { dispatch(actionCreators.onBlur(data)); }
     };
 };
 
