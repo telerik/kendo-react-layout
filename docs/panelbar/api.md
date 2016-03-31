@@ -36,4 +36,4 @@ Sets the key of the item so that it is uniquely identified between render passes
 
 #### onSelect `Function`
 
-As a stateless component, the PanelBar fires its `onSelect` event handler every time when a anelBar item is selected. It is handled by the parent component.
+As a stateless component, the PanelBar fires its `onSelect` event handler every time when a PanelBar item is selected. It is handled by the parent component.
