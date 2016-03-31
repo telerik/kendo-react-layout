@@ -28,6 +28,8 @@ const propTypes = {
     isMaster: React.PropTypes.bool,
     onSelect: React.PropTypes.func,
     onKeyDown: React.PropTypes.func,
+    onFocus: React.PropTypes.func,
+    onBlur: React.PropTypes.func,
     parentId: React.PropTypes.oneOfType([
         React.PropTypes.string,
         React.PropTypes.number
@@ -55,7 +57,7 @@ export default class PanelBarNavigation extends React.Component {
     }
 
     render() {
-        const { expanded, isMaster, tabIndex, onKeyDown } = this.props;
+        const { expanded, isMaster, ...others } = this.props;
 
         const panelBarItemsClasses = classNames({
             [styles['panel']]: !isMaster,
@@ -70,10 +72,9 @@ export default class PanelBarNavigation extends React.Component {
         };
 
         let props = {
+            ...others,
             style: inlineStyles,
-            className: panelBarItemsClasses,
-            tabIndex: tabIndex,
-            onKeyDown: onKeyDown
+            className: panelBarItemsClasses
         };
 
         return (

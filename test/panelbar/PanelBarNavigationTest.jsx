@@ -81,6 +81,20 @@ describe('PanelBarNavigation', () => {
         expect(spy).toHaveBeenCalled();
     });
 
+    it('handler is called when item is focused', () => {
+        let spy = jasmine.createSpy('focus');
+        result = shallow(<PanelBarNavigation onFocus={spy} />);
+        result.simulate('focus');
+        expect(spy).toHaveBeenCalled();
+    });
+
+    it('handler is called when item is blurred', () => {
+        let spy = jasmine.createSpy('blur');
+        result = shallow(<PanelBarNavigation onBlur={spy} />);
+        result.simulate('blur');
+        expect(spy).toHaveBeenCalled();
+    });
+
     it('should render invisible', () => {
         result = shallow(<PanelBarNavigation expanded={false} />);
 
