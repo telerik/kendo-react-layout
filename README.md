@@ -37,7 +37,7 @@ For more examples and available configuration options, refer to the [TabStrip do
 
 ### Kendo UI PanelBar Component
 
-The PanelBar displays hierarchical data as multi-level, expandable content. It is designed as a stateless component, which means that to store its state and configuration options, you should use a high-order component.
+The PanelBar displays hierarchical data as multi-level, expandable content. It is designed as a stateless component - to store its state and configuration options, wrap it up in a high-order component.
 
 ```html-preview
     //code
