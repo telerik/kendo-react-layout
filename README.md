@@ -22,6 +22,8 @@ For more information on forthcoming Layout package features and components, refe
 
 ## Basic Usage
 
+### Kendo UI TabStrip Component
+
 The TabStrip displays a collection of tabs with associated content. It is composed of an unordered list of items, representing tabs, and a collection of elements, which contain the content for each tab.
 
 ```html-preview
@@ -31,7 +33,20 @@ The TabStrip displays a collection of tabs with associated content. It is compos
 
 ```
 
-For more examples and available configuration options, refer to the [TabStrip documentation section](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/overview.md).
+For more examples and available configuration options, refer to the [TabStrip documentation section](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/index.md).
+
+### Kendo UI PanelBar Component
+
+The PanelBar displays hierarchical data as multi-level, expandable content. It is designed as a stateless component, which means that to store its state and configuration options, you should use a high-order component.
+
+```html-preview
+    //code
+```
+```jsx
+
+```
+
+For more examples and available configuration options, refer to the [PanelBar documentation section](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/index.md).
 
 ## Installation
 
