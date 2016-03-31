@@ -12,7 +12,7 @@ Layout controls create a perceptive and intuitive layout of web projects to prov
 
 The Kendo UI TabStrip displays a collection of tabs with associated content, which allow the user to open many pages inside a single window. Each tab represents a separate location and by selecting a particular tab, the user navigates between the tab pages.
 
-The Kendo UI PanelBar displays hierarchical data as multi-level, expandable content. It is designed as a stateless component, which means that to store its state and configuration options, you should use a high-order component.
+The Kendo UI PanelBar displays hierarchical data as multi-level, expandable content. It is designed as a stateless component - to store its state and configuration options, wrap it up in a high-order component.
 
 ## Suggested Links
 
