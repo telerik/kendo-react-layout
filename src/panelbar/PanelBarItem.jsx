@@ -96,7 +96,7 @@ export default class PanelBarItem extends React.Component {
     render() {
         const { children, expanded, title = 'Untitled', disabled, selected, focused, ...others } = this.props;
 
-        let panelBarItemProps = {
+        const panelBarItemProps = {
             'role': 'menuitem',
             'aria-expanded': !disabled && expanded,
             'aria-selected': !disabled && selected,
@@ -109,7 +109,7 @@ export default class PanelBarItem extends React.Component {
             })
         };
 
-        let panelBarItemSpanProps = {
+        const panelBarItemSpanProps = {
             'onClick': !disabled ? this.onSelectHandler : null,
             'className': classNames({
                 [styles['link']]: true,
@@ -119,9 +119,24 @@ export default class PanelBarItem extends React.Component {
             })
         };
 
+        const panelBarItemArrowProps = {
+            'className': classNames({
+                [styles['icon']]: true,
+                [styles['i-arrow-n']]: expanded,
+                [styles['panelbar-collapse']]: expanded,
+                [styles['i-arrow-s']]: !expanded,
+                [styles['panelbar-expand']]: !expanded
+            })
+        };
+
+        let arrow = (!disabled && children) ? <span {...panelBarItemArrowProps }></span> : null;
+
         return (
             <li {...others } {...panelBarItemProps } >
-                <span {...panelBarItemSpanProps }>{title}</span>
+                <span {...panelBarItemSpanProps }>
+                    {title}
+                    {arrow}
+                </span>
                 {this.mapComponents(children)}
             </li>
         );

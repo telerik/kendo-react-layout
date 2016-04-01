@@ -19,17 +19,61 @@ describe('PanelBarItem', () => {
     it('should render title correctly', () => {
         result = shallow(<PanelBarItem title="sometext" />);
 
-        expect(result.find("span").length).toEqual(1);
-        expect(result.find("span").text()).toEqual('sometext');
+        expect(result.find("span").first().length).toEqual(1);
+        expect(result.find("span").first().text()).toEqual('sometext');
     });
 
     it('should add title CSS classes', () => {
         result = shallow(<PanelBarItem title="sometext" />);
 
-        expect(result.find("span").hasClass('k-link')).toBeGreaterThan(-1);
-        expect(result.find("span").hasClass('k-header')).toBeGreaterThan(-1);
-        expect(result.find("span").hasClass('k-state-default')).toBeGreaterThan(-1);
-        expect(result.find("span").hasClass('k-state-selected')).toEqual(false);
+        expect(result.find("span").first().hasClass('k-link')).toEqual(true);
+        expect(result.find("span").first().hasClass('k-header')).toEqual(true);
+        expect(result.find("span").first().hasClass('k-state-default')).toEqual(false);
+        expect(result.find("span").first().hasClass('k-state-selected')).toEqual(false);
+    });
+
+    it('should not render title arrow when no children are available', () => {
+        result = shallow(<PanelBarItem title="sometext" />);
+
+        expect(result.find("span").length).toEqual(1);
+    });
+
+    it('should not render title arrow when disabled', () => {
+        result = shallow(<PanelBarItem disabled title="sometext" />);
+
+        expect(result.find("span").length).toEqual(1);
+    });
+
+    it('should not render title arrow when disabled and have children', () => {
+        result = shallow(<PanelBarItem disabled title="sometext">
+            <PanelBarContent><div>SomeText</div></PanelBarContent>
+        </PanelBarItem>);
+
+        expect(result.find("span").length).toEqual(1);
+    });
+
+    it('should add arrow CSS classes for expand state', () => {
+        result = shallow(<PanelBarItem title="sometext" expanded>
+            <PanelBarContent><div>SomeText</div></PanelBarContent>
+        </PanelBarItem>);
+
+        expect(result.find("span").last().hasClass('k-icon')).toEqual(true);
+        expect(result.find("span").last().hasClass('k-i-arrow-s')).toEqual(false);
+        expect(result.find("span").last().hasClass('k-i-arrow-n')).toEqual(true);
+        expect(result.find("span").last().hasClass('k-panelbar-expand')).toEqual(false);
+        expect(result.find("span").last().hasClass('k-panelbar-collapse')).toEqual(true);
+    });
+
+    it('should add arrow CSS classes for collapse state', () => {
+        result = shallow(<PanelBarItem title="sometext">
+            <PanelBarContent><div>SomeText</div></PanelBarContent>
+        </PanelBarItem>);
+
+        expect(result.find("span").last().hasClass('k-icon')).toEqual(true);
+        expect(result.find("span").last().hasClass('k-i-arrow-n')).toEqual(false);
+        expect(result.find("span").last().hasClass('k-i-arrow-s')).toEqual(true);
+        expect(result.find("span").last().hasClass('k-panelbar-collapse')).toEqual(false);
+        expect(result.find("span").last().hasClass('k-panelbar-expand')).toEqual(true);
     });
 
     it('should set aria-selected attribute to true', () => {
@@ -187,14 +231,14 @@ describe('PanelBarItem', () => {
     it('handler is called when clicked', () => {
         let spy = jasmine.createSpy('click');
         result = shallow(<PanelBarItem id="10" key="10" parentId="1" onSelect={spy} />);
-        result.find('span').simulate('click');
+        result.find('span').first().simulate('click');
         expect(spy).toHaveBeenCalledWith({ 'id': '10', 'expanded': undefined, 'parentId': '1'  });
     });
 
     it('handler is not called for disabled panels', () => {
         let spy = jasmine.createSpy('click');
         result = shallow(<PanelBarItem disabled id="10" key="10" onSelect={spy} />);
-        result.find('span').simulate('click');
+        result.find('span').first().simulate('click');
         expect(spy).not.toHaveBeenCalled();
     });
 
