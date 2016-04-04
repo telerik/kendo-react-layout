@@ -33,7 +33,11 @@ export default class TabstripContent extends React.Component {
             'aria-expanded': 'true'
         };
         if (selected !== null && elements) {
-            content = elements[this.props.selected];
+            if (this.props.children.length) {
+                content = elements[this.props.selected];
+            } else {
+                content = elements;
+            }
         }
         if (content) {
             return(

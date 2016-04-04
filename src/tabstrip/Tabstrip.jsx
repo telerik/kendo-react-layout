@@ -38,11 +38,13 @@ export default class Tabstrip extends React.Component {
 
     _isDisabled(position) {
         let disabledIndex;
-        this.props.children.map((tab, index) => {
-            if (tab.props.disabled) {
-                disabledIndex = index;
-            }
-        });
+        if (this.props.children.length) {
+            this.props.children.map((tab, index) => {
+                if (tab.props.disabled) {
+                    disabledIndex = index;
+                }
+            });
+        }
 
         if (disabledIndex === position) {
             return true;
