@@ -30,10 +30,22 @@ Sets the title of the PanelBar item.
 
 #### id `String|Number`
 
-Sets the key of the item so that it is uniquely identified between render passes. 
+Sets the key of the item so that it is uniquely identified between render passes.
 
 ## State
 
 #### onSelect `Function`
 
 As a stateless component, the PanelBar fires its `onSelect` event handler every time when a PanelBar item is selected. It is handled by the parent component.
+
+#### onKeyDown `Function`
+
+...
+
+#### onFocus `Function`
+
+...
+
+#### onBlur `Function`
+
+...

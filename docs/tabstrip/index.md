@@ -88,7 +88,7 @@ The example below demonstrates the default setup of a Kendo UI TabStrip componen
 
 ### Tab Titles
 
-Each tab displays a title prompting the content of the tab page, which is set through the `title` attribute of the Tab.
+Each tab displays a title prompting the content of the tab page, which is set through the [`title`](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/api.md#title-string) attribute of the Tab.
 
 ```html-preview
     <div id="app"></div>
@@ -131,7 +131,7 @@ Apart from text elements, a tab title is also able to accommodate any React comp
 
 ### Tabs on Initial Loading
 
-The TabStrip enables you to display a particular tab upon its initial loading, which is set through the `selected` property. It is a zero-based value, which means that to select the first tab, you must set it to `0` (zero).
+The TabStrip enables you to display a particular tab upon its initial loading, which is set through the [`selected`](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/api.md#selected-number-default-1) property. It is a zero-based value, which means that to select the first tab, you must set it to `0` (zero).
 
 ```html-preview
     <div id="app"></div>
@@ -171,7 +171,7 @@ The TabStrip enables you to display a particular tab upon its initial loading, w
 
 ### Disabled Tabs
 
-The TabStrip provides the option for specific tabs to be inactive so that the user is not able to select them. Disable tabs by adding the `disabled` attribute to the configuration.
+The TabStrip provides the option for specific tabs to be inactive so that the user is not able to select them. Disable tabs by adding the [`disabled`](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/api.md#disabled) attribute to the configuration.
 
 ```html-preview
     <div id="app"></div>
@@ -288,7 +288,7 @@ The TabStrip does not provide а built-in functionality for loading remote conte
 
 The Tabstrip is designed as a stateless component. To store its state and configuration properties, wrap it in a high-order component.
 
-The `onSelect` event fires each time a user interacts with the component. The newly selected tab index is passed as an argument to the `onSelect` callback.
+The [`onSelect`](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/api.md#onselect-function) event fires each time a user interacts with the component. The newly selected tab index is passed as an argument to the `onSelect` callback.
 
 ```html-preview
     <div id="app"></div>
