@@ -24,7 +24,7 @@ Determines which tab to be selected upon the initial loading of the TabStrip.
 
 ## Disabled Tabs
 
-#### disabled
+#### disabled `Attribute`
 
 Disables a tab. Used as an attribute on a Tab.
 

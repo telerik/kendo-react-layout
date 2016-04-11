@@ -5,7 +5,7 @@
         <title>CDN example</title>
         <link rel="stylesheet" href="../../dist/cdn/css/kendo-react-layout.css" />
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.8/react.js"></script>
+        <script src="https://fb.me/react-with-addons-15.0.1.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.8/react-dom.js"></script>
         <script src="../../dist/cdn/js/kendo-react-layout.js"></script>
     </head>
@@ -21,7 +21,7 @@
 
       .k-content.k-reveal {
           opacity: 1;
-          transition: opacity 500ms;
+          transition: opacity 600ms;
       }
 
       .sunny, .cloudy, .rainy {
@@ -70,7 +70,7 @@
         var App = React.createClass({displayName: 'App',
             getInitialState() {
                 return {
-                        selected: 1,
+                        selected: 0,
                         onSelect: this.onSelect
                     }
             },

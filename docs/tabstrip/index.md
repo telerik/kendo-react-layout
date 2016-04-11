@@ -28,9 +28,64 @@ The example below demonstrates the default setup of a Kendo UI TabStrip componen
 
 ```html-preview
   <div id="app"></div>
+  <style>
+      .k-content {
+          opacity: 1;
+      }
+
+      .k-content.k-hide {
+          opacity: 0;
+      }
+
+      .k-content.k-reveal {
+          opacity: 1;
+          transition: opacity 500ms;
+      }
+
+      .sunny, .cloudy, .rainy {
+          display: block;
+          margin: 30px auto 10px;
+          width: 128px;
+          height: 128px;
+          background: url('http://demos.kendoui.com/content/web/tabstrip/weather.png') transparent no-repeat 0 0;
+      }
+
+      .cloudy{
+          background-position: -128px 0;
+      }
+
+      .rainy{
+          background-position: -256px 0;
+      }
+
+      .weather {
+          margin: 0 auto 30px;
+          text-align: center;
+      }
+
+      #tabstrip h2 {
+          font-weight: lighter;
+          font-size: 5em;
+          line-height: 1;
+          padding: 0 0 0 30px;
+          margin: 0;
+      }
+
+      #tabstrip h2 span {
+          background: none;
+          padding-left: 5px;
+          font-size: .3em;
+          vertical-align: top;
+      }
+
+      #tabstrip p {
+          margin: 0;
+          padding: 0;
+      }
+  </style>
 ```
 ```jsx
-    const { Tab } = Tabstrip;
+    const { Tab } = KendoReactLayout.Tabstrip;
     class TabstripContainer extends React.Component {
         constructor(props) {
             super(props);
@@ -46,7 +101,7 @@ The example below demonstrates the default setup of a Kendo UI TabStrip componen
 
         render() {
             return (
-              <Tabstrip onSelect={this.onSelect} selected={this.state.selected}>
+              <KendoReactLayout.Tabstrip onSelect={this.onSelect} selected={this.state.selected}>
                 <Tab title="Paris">
                     <span className="rainy">&nbsp;</span>
                     <div className="weather">
@@ -75,7 +130,7 @@ The example below demonstrates the default setup of a Kendo UI TabStrip componen
                         <p>Cloudy weather in Moscow.</p>
                     </div>
                 </Tab>
-              </Tabstrip>);
+              </KendoReactLayout.Tabstrip>);
         }
     }
     ReactDOM.render(
@@ -94,7 +149,7 @@ Each tab displays a title prompting the content of the tab page, which is set th
     <div id="app"></div>
 ```
 ```jsx
-    const { Tab } = Tabstrip;
+    const { Tab } = KendoReactLayout.Tabstrip;
     class TabstripContainer extends React.Component {
         constructor(props) {
             super(props);
@@ -110,14 +165,14 @@ Each tab displays a title prompting the content of the tab page, which is set th
 
         render() {
             return (
-              <Tabstrip onSelect={this.onSelect} selected={this.state.selected}>
+              <KendoReactLayout.Tabstrip onSelect={this.onSelect} selected={this.state.selected}>
                 <Tab title="First tab title">
                     First tab content
                 </Tab>
                 <Tab title="Second tab Title">
                     Second tab content
                 </Tab>
-              </Tabstrip>);
+              </KendoReactLayout.Tabstrip>);
         }
     }
     ReactDOM.render(
@@ -137,7 +192,7 @@ The TabStrip enables you to display a particular tab upon its initial loading, w
     <div id="app"></div>
 ```
 ```jsx
-    const { Tab } = Tabstrip;
+    const { Tab } = KendoReactLayout.Tabstrip;
     class TabstripContainer extends React.Component {
         constructor(props) {
             super(props);
@@ -153,14 +208,14 @@ The TabStrip enables you to display a particular tab upon its initial loading, w
 
         render() {
             return (
-              <Tabstrip onSelect={this.onSelect} selected={this.state.selected}>
+              <KendoReactLayout.Tabstrip onSelect={this.onSelect} selected={this.state.selected}>
                 <Tab title="Tab1">
                     First tab content
                 </Tab>
                 <Tab title="Tab2">
                     Second tab content
                 </Tab>
-              </Tabstrip>);
+              </KendoReactLayout.Tabstrip>);
         }
     }
     ReactDOM.render(
@@ -177,7 +232,7 @@ The TabStrip provides the option for specific tabs to be inactive so that the us
     <div id="app"></div>
 ```
 ```jsx
-    const { Tab } = Tabstrip;
+    const { Tab } = KendoReactLayout.Tabstrip;
     class TabstripContainer extends React.Component {
         constructor(props) {
             super(props);
@@ -193,14 +248,14 @@ The TabStrip provides the option for specific tabs to be inactive so that the us
 
         render() {
             return (
-              <Tabstrip onSelect={this.onSelect} selected={this.state.selected}>
+              <KendoReactLayout.Tabstrip onSelect={this.onSelect} selected={this.state.selected}>
                 <Tab title="Tab1" disabled>
                     First tab content
                 </Tab>
                 <Tab title="Tab2">
                     Second tab content
                 </Tab>
-              </Tabstrip>);
+              </KendoReactLayout.Tabstrip>);
         }
     }
     ReactDOM.render(
@@ -217,7 +272,7 @@ The TabStrip does not provide а built-in functionality for loading remote conte
     <div id="app"></div>
 ```
 ```jsx
-    const { Tab } = KendoTabstrip;
+    const { Tab } = KendoReactLayout.Tabstrip;
     var RemoteContent = React.createClass({
       getInitialState: function() {
         return {
@@ -268,14 +323,14 @@ The TabStrip does not provide а built-in functionality for loading remote conte
           },
           render: function() {
             return (
-                <KendoTabstrip onSelect={this.onSelect} selected={this.state.selected}>
+                <KendoReactLayout.Tabstrip onSelect={this.onSelect} selected={this.state.selected}>
                     <Tab title="Dimensions &amp; Weights">
                         <RemoteContent />
                     </Tab>
                     <Tab title="Engine">
                         Engine specification here.
                     </Tab>
-                </KendoTabstrip>
+                </KendoReactLayout.Tabstrip>
             )}
     });
     ReactDOM.render(
@@ -292,32 +347,36 @@ The [`onSelect`](https://github.com/telerik/kendo-react-layout/blob/master/docs/
 
 ```html-preview
     <div id="app"></div>
+    <span id="log"></span>
 ```
 ```jsx
-    const { Tab } = Tabstrip;
+    const { Tab } = KendoReactLayout.Tabstrip;
+    let count = 0;
     class TabstripContainer extends React.Component {
         constructor(props) {
             super(props);
             this.state = {
-                selected: 1
+                selected: 0
             };
         }
         onSelect = (e) => {
             this.setState({
                 selected: e.selected // the callback will be called when selection is made
             });
+            count ++;
+            document.getElementById('log').innerText = count + " times the onSelect was called";
         };
 
         render() {
             return (
-              <Tabstrip onSelect={this.onSelect} selected={this.state.selected}>
-                <Tab title="Tab1" disabled>
+              <KendoReactLayout.Tabstrip onSelect={this.onSelect} selected={this.state.selected}>
+                <Tab title="Tab1">
                     First tab content
                 </Tab>
                 <Tab title="Tab2">
                     Second tab content
                 </Tab>
-              </Tabstrip>);
+              </KendoReactLayout.Tabstrip>);
         }
     }
     ReactDOM.render(
