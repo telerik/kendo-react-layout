@@ -27,10 +27,42 @@ For more information on forthcoming Layout package features and components, refe
 The TabStrip displays a collection of tabs with associated content. It is composed of an unordered list of items, representing tabs, and a collection of elements, which contain the content for each tab.
 
 ```html-preview
-    //code
+    <div id="app"></div>
 ```
 ```jsx
+    const { Tab } = Tabstrip;
 
+    class TabstripContainer extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                selected: 0
+            };
+        }
+
+        onSelect = (e) => {
+            this.setState({
+                selected: e.selected
+            });
+        };
+
+        render() {
+            return (
+              <Tabstrip onSelect={this.onSelect} selected={this.state.selected}>
+                <Tab title="Paris">
+                    <span className="rainy">&nbsp;</span>
+                    <div className="weather">
+                        <h2>17<span>&ordm;C</span></h2>
+                        <p>Rainy weather in Paris.</p>
+                    </div>
+                </Tab>
+              </Tabstrip>);
+        }
+    }
+    ReactDOM.render(
+        <TabstripContainer />,
+        document.getElementById('app')
+    );
 ```
 
 For more examples and available configuration options, refer to the [TabStrip documentation section](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/index.md).
