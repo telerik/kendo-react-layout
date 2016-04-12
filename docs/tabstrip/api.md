@@ -16,7 +16,7 @@ Represents the Kendo UI TabStrip component for React.
 
 Sets the title of a tab. Used as an attribute on a Tab.
 
-## Tabs on Initial Loading
+## Selection
 
 #### selected `Number` *(default: 1)*
 
