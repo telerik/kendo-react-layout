@@ -180,7 +180,7 @@ describe('PanelBarItem', () => {
             <PanelBarContent>SomeContent</PanelBarContent>
         </PanelBarItem>);
 
-        expect(result.find("PanelBarContent").props().expanded).toEqual(false);
+        expect(result.find("PanelBarContent").length).toEqual(0);
     });
 
     it('should collapse navigation if disabled', () => {
@@ -193,7 +193,7 @@ describe('PanelBarItem', () => {
             <PanelBarNavigation />
         </PanelBarItem>);
 
-        expect(result.find(PanelBarNavigation).props().expanded).toEqual(false);
+        expect(result.find("PanelBarNavigation").length).toEqual(0);
     });
 
     it('should add k-state-selected CSS class', () => {

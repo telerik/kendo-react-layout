@@ -5,6 +5,7 @@ import styles from '@telerik/kendo-theme-default/styles/panelbar/main';
 import PanelBarNavigation from "./PanelBarNavigation";
 import PanelBarContent from "./PanelBarContent";
 import classNames from 'classnames';
+import PanelBarAnimationContainer from './PanelBarAnimationContainer';
 
 const propTypes = {
     children: function(props, propName) {
@@ -80,21 +81,33 @@ export default class PanelBarItem extends React.Component {
             onSelect: onSelect
         };
 
-        return (<PanelBarNavigation {...navigationProps } />);
+        const children = (<PanelBarNavigation {...navigationProps } key={id + "_navigation"}/>);
+
+        return (
+            <PanelBarAnimationContainer expand={navigationProps.expanded} key={id + "_animation"}>
+                {navigationProps.expanded ? children : null}
+            </PanelBarAnimationContainer>
+        );
     }
 
     renderContent(child) {
-        const { disabled, expanded } = this.props;
+        const { disabled, expanded, id } = this.props;
         const contentProps = {
             ...child.props,
             expanded: disabled ? !disabled : expanded
         };
 
-        return (<PanelBarContent {...contentProps} />);
+        const children = (<PanelBarContent {...contentProps} key={id + "_content"}/>);
+
+        return (
+            <PanelBarAnimationContainer expand={contentProps.expanded} key={id + "_animation"}>
+                {contentProps.expanded ? children : null}
+            </PanelBarAnimationContainer>
+        );
     }
 
     render() {
-        const { children, expanded, title = 'Untitled', disabled, selected, focused, ...others } = this.props;
+        const { children, expanded, title = 'Untitled', disabled, selected, focused, id, ...others } = this.props;
 
         const panelBarItemProps = {
             'role': 'menuitem',
@@ -129,11 +142,11 @@ export default class PanelBarItem extends React.Component {
             })
         };
 
-        let arrow = (!disabled && children) ? <span {...panelBarItemArrowProps }></span> : null;
+        const arrow = (!disabled && children) ? <span {...panelBarItemArrowProps } key={(id + "_arrow")}/> : null;
 
         return (
-            <li {...others } {...panelBarItemProps } >
-                <span {...panelBarItemSpanProps }>
+            <li {...others } {...panelBarItemProps }>
+                <span {...panelBarItemSpanProps } key={(id + "_title")}>
                     {title}
                     {arrow}
                 </span>
