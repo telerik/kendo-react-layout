@@ -96,11 +96,15 @@ Once installed, import the module:
 
 ```jsx
 // ES2015 module syntax
-import {Slider} from 'kendo-react-inputs';
+import { Tabstrip } from 'kendo-react-layout';
+//or
+import { Panelbar } from 'kendo-react-layout';
 ```
 ```jsx
 // CommonJS format
-var Slider = require('kendo-react-inputs').Slider;
+var Tabstrip = require('kendo-react-inputs').Tabstrip;
+//or
+var Panelbar = require('kendo-react-inputs').Panelbar;
 ```
 
 ## Browser Support
