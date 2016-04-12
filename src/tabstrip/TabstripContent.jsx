@@ -13,11 +13,11 @@ const propTypes = {
 export default class TabstripContent extends React.Component {
     componentWillEnter() {
         const { content } = this.refs;
-        requestAnimationFrame(function() {
+        window.requestAnimationFrame(function() {
             if (content) {
                 content.className = 'k-state-active k-content k-hide';
             }
-            requestAnimationFrame(function() {
+            window.requestAnimationFrame(function() {
                 if (content) {
                     content.className = 'k-state-active k-content k-reveal';
                 }
