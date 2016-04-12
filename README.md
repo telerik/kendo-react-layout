@@ -121,4 +121,4 @@ A Component refers to a [React Component](https://facebook.github.io/react/docs/
 
 ### Package
 
-A package contains one or more components, developed in a single repository and distributed in a single NPM package. For example, the Kendo UI Tabtrip and PanelBar components for React are part of the Layout Package.
+A package contains one or more components, developed in a single repository and distributed in a single NPM package. For example, the Kendo UI Tabstrip and PanelBar components for React are part of the Layout Package.
