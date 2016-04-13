@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8" />
+        <title>CDN example</title>
+        <link rel="stylesheet" href="../../dist/cdn/css/kendo-react-layout.css" />
+
+        <script src="https://fb.me/react-with-addons-15.0.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.8/react-dom.js"></script>
+        <script src="../dist/cdn/js/kendo-react-layout.js"></script>
+    </head>
+    <body>
+    <div id="content"></div>
+    <script>
+        var App = React.createClass({displayName: 'App',
+            getInitialState() {
+                return {
+                        selected: 0,
+                        onSelect: this.onSelect
+                    }
+            },
+            onSelect(e) {
+                this.setState({
+                    selected: e.id,
+                })
+            },
+            render() {
+                return (
+                    React.createElement(KendoReactLayout.PanelBar, this.state,
+                            [
+                                React.createElement(
+                                KendoReactLayout.PanelBarItem,
+                                { title: 'Paris', id: 0, key: 0, selected: this.state.selected === 0, expanded: true},
+                                React.createElement(
+                                    KendoReactLayout.PanelBarContent,
+                                    { },
+                                    React.createElement(
+                                            'div',
+                                            { color: 'red'},
+                                            'Some Text'
+                                    )
+                                )),
+                                React.createElement(
+                                    KendoReactLayout.PanelBarItem,
+                                    { title: 'London', id: 1, key: 1, selected: this.state.selected === 1, expanded: true },
+                                    React.createElement(
+                                            KendoReactLayout.PanelBarContent,
+                                            { },
+                                            React.createElement(
+                                                    'div',
+                                                    { color: 'red'},
+                                                    'Some Text'
+                                            )
+                                ))
+                            ]
+                    )
+                );
+            }
+        });
+        ReactDOM.render(
+            React.createElement(App, null),
+            document.getElementById('content')
+        );
+    </script>
+  </body>
+</html>
