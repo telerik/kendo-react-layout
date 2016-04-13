@@ -14,19 +14,11 @@ const propTypes = {
 };
 
 class Tabstrip extends React.Component {
-    constructor(props) {
-        super(props);
-        this.keyDownHandler = this.handleKeyDown;
-    }
-
     onSelect = (index) => {
         if (index === this.props.selected ) { return; }
-        const disabled = this._disabled(index);
-        if (!disabled) {
-            this.props.onSelect({
-                selected: index
-            });
-        }
+        this.props.onSelect({
+            selected: index
+        });
     }
 
     onKeyDown = (event) => {
@@ -37,32 +29,16 @@ class Tabstrip extends React.Component {
         }
     }
 
-    _disabled(position) {
-        let disabledIndex;
-        if (this.props.children.length) {
-            this.props.children.map((tab, index) => {
-                if (tab.props.disabled) {
-                    disabledIndex = index;
-                }
-            });
-        }
-
-        if (disabledIndex === position) {
-            return true;
-        }
-        return false;
-    }
-
     moveNext(moveNext) {
-        let next = null;
+        let nextPosition = null;
         const { children, selected } = this.props;
 
         if (moveNext) {
-            next = selected + 1 > children.length - 1 ? selected : selected + 1;
+            nextPosition = this.findNextNavigatable(children, selected);
         } else {
-            next = selected - 1 > -1 ? selected - 1 : selected;
+            nextPosition = this.findPrevNavigatable(children, selected);
         }
-        return next;
+        return nextPosition;
     }
 
     moveEnd(end) {
@@ -76,13 +52,42 @@ class Tabstrip extends React.Component {
         return next;
     }
 
+    findNextNavigatable(children, selected) {
+        const index = selected + 1;
+
+        if (index >= children.length) {
+            return selected;
+        }
+
+        for ( let i = index; i < children.length; i++ ) {
+            if (!children[i].props.disabled) {
+                return i;
+            }
+        }
+    }
+
+    findPrevNavigatable(children, selected) {
+        const index = selected - 1;
+
+        if (index < 0) {
+            return selected;
+        }
+
+        for ( let i = index; i > -1; i-- ) {
+            if (!children[i].props.disabled) {
+                return i;
+            }
+        }
+    }
+
     renderContent() {
         const { selected, children } = this.props;
 
-        if (this._disabled(selected)) {
+        const content = children[selected];
+
+        if (content && content.props.disabled) {
             return false;
         }
-
         if (selected < children.length && selected > -1) {
             return true;
         }
