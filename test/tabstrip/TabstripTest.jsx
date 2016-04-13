@@ -8,27 +8,27 @@ describe('Tabstrip', () => {
     const { Tab } = Tabstrip;
 
     it('should render a div', () => {
-        result = shallow(<Tabstrip />);
+        result = shallow(<Tabstrip><Tab>Tab</Tab></Tabstrip>);
         expect(result.type()).toEqual('div');
     });
 
     it('renders k-tabstrip class correctly', () => {
-        result = shallow(<Tabstrip />);
+        result = shallow(<Tabstrip><Tab>Tab</Tab></Tabstrip>);
         expect(result.hasClass('k-tabstrip')).toEqual(true);
     });
 
     it('renders k-widget class correctly', () => {
-        result = shallow(<Tabstrip />);
+        result = shallow(<Tabstrip><Tab>Tab</Tab></Tabstrip>);
         expect(result.hasClass('k-widget')).toEqual(true);
     });
 
     it('renders k-floatwrap class correctly', () => {
-        result = shallow(<Tabstrip />);
+        result = shallow(<Tabstrip><Tab>Tab</Tab></Tabstrip>);
         expect(result.hasClass('k-floatwrap')).toEqual(true);
     });
 
     it('renders k-header class correctly', () => {
-        result = shallow(<Tabstrip />);
+        result = shallow(<Tabstrip><Tab>Tab</Tab></Tabstrip>);
         expect(result.hasClass('k-header')).toEqual(true);
     });
 

@@ -13,20 +13,21 @@ const propTypes = {
     selected: React.PropTypes.number
 };
 
-export default class Tabstrip extends React.Component {
+class Tabstrip extends React.Component {
     constructor(props) {
         super(props);
         this.keyDownHandler = this.handleKeyDown;
     }
+
     onSelect = (index) => {
         if (index === this.props.selected ) { return; }
-        const disabled = this._isDisabled(index);
+        const disabled = this._disabled(index);
         if (!disabled) {
             this.props.onSelect({
                 selected: index
             });
         }
-    };
+    }
 
     onKeyDown = (event) => {
         const handler = this.keyBinding[event.keyCode];
@@ -34,9 +35,9 @@ export default class Tabstrip extends React.Component {
             const next = handler();
             this.onSelect(next);
         }
-    };
+    }
 
-    _isDisabled(position) {
+    _disabled(position) {
         let disabledIndex;
         if (this.props.children.length) {
             this.props.children.map((tab, index) => {
@@ -51,6 +52,7 @@ export default class Tabstrip extends React.Component {
         }
         return false;
     }
+
     moveNext(moveNext) {
         let next = null;
         const { children, selected } = this.props;
@@ -62,6 +64,7 @@ export default class Tabstrip extends React.Component {
         }
         return next;
     }
+
     moveEnd(end) {
         let next = null;
 
@@ -71,6 +74,20 @@ export default class Tabstrip extends React.Component {
             next = 0;
         }
         return next;
+    }
+
+    renderContent() {
+        const { selected, children } = this.props;
+
+        if (this._disabled(selected)) {
+            return false;
+        }
+
+        if (selected < children.length && selected > -1) {
+            return true;
+        }
+
+        return false;
     }
 
     keyBinding = {
@@ -86,8 +103,7 @@ export default class Tabstrip extends React.Component {
         const tabProps = {
             ...this.props,
             selected: this.props.selected,
-            onSelect: this.onSelect,
-            isDisabled: this._isDisabled
+            onSelect: this.onSelect
         };
         const componentClasses = [
             styles['widget'],
@@ -99,11 +115,12 @@ export default class Tabstrip extends React.Component {
         return (
             <div className={componentClasses} onKeyDown={this.onKeyDown}>
                 <TabstripNavigation {...tabProps} />
-                <TabstripContent {...tabProps} />
+                {this.renderContent() && <TabstripContent {...tabProps} />}
             </div>
       );
     }
   }
 Tabstrip.propTypes = propTypes;
-
 Tabstrip.Tab = () => { /* metadata object */ };
+
+export default Tabstrip;
