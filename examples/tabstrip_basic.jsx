@@ -20,12 +20,36 @@ class TabstripContainer extends React.Component {
 
     render() {
         return (
-          <Tabstrip onSelect={this.onSelect} selected={this.state.selected}>
-            <Tab title="Paris">
+          <Tabstrip onSelect={this.onSelect} selected={this.state.selected} style={{ width: 300 }}>
+            <Tab>
                 <span className="rainy">&nbsp;</span>
                 <div className="weather">
                     <h2>17<span>&ordm;C</span></h2>
                     <p>Rainy weather in Paris.</p>
+                </div>
+            </Tab>
+
+            <Tab disabled={false} title="Sofia">
+                <span className="rainy">&nbsp;</span>
+                <div className="weather">
+                    <h2>17<span>&ordm;C</span></h2>
+                    <p>Rainy weather in Sofia.</p>
+                </div>
+            </Tab>
+
+            <Tab disabled title="Kaspichan">
+                <span className="rainy">&nbsp;</span>
+                <div className="weather">
+                    <h2>17<span>&ordm;C</span></h2>
+                    <p>Rainy weather in Kaspichan.</p>
+                </div>
+            </Tab>
+
+            <Tab title="London">
+                <span className="rainy">&nbsp;</span>
+                <div className="weather">
+                    <h2>17<span>&ordm;C</span></h2>
+                    <p>Rainy weather in London.</p>
                 </div>
             </Tab>
           </Tabstrip>);

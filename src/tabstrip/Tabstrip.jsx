@@ -10,7 +10,8 @@ const propTypes = {
         React.PropTypes.arrayOf(React.PropTypes.element)
     ]),
     onSelect: React.PropTypes.func,
-    selected: React.PropTypes.number
+    selected: React.PropTypes.number,
+    style: React.PropTypes.object
 };
 
 class Tabstrip extends React.Component {
@@ -84,6 +85,7 @@ class Tabstrip extends React.Component {
             selected: this.props.selected,
             onSelect: this.onSelect
         };
+
         const componentClasses = [
             styles['widget'],
             styles['header'],
@@ -92,7 +94,7 @@ class Tabstrip extends React.Component {
         ].join(" ");
 
         return (
-            <div className={componentClasses} onKeyDown={this.onKeyDown}>
+            <div className={componentClasses} onKeyDown={this.onKeyDown} style={this.props.style}>
                 <TabstripNavigation {...tabProps} />
                 {this.renderContent(tabProps)}
             </div>
