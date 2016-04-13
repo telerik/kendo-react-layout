@@ -2,14 +2,25 @@ import * as React from 'react';
 import TabstripNavigationItem from './TabstripNavigationItem';
 import styles from '@telerik/kendo-theme-default/styles/tabstrip/main';
 
+const propTypes = {
+    children: React.PropTypes.oneOfType([
+        React.PropTypes.element,
+        React.PropTypes.arrayOf(React.PropTypes.element)
+    ]),
+    onSelect: React.PropTypes.func,
+    selected: React.PropTypes.number
+};
+
+const times = (count) => Array.apply(null, Array(count));
+
 const TabstripNavigation = (props) => {
     let {
         selected,
         children,
         onSelect
     } = props;
-    const tabsCount = props.children.length;
-    const times = (count) => Array.apply(null, Array(count));
+
+    const tabsCount = children.length;
 
     const tabs = times(tabsCount)
         .map((item, index, array) => ({
@@ -42,13 +53,6 @@ const TabstripNavigation = (props) => {
     );
 };
 
-TabstripNavigation.propTypes = {
-    children: React.PropTypes.oneOfType([
-        React.PropTypes.element,
-        React.PropTypes.arrayOf(React.PropTypes.element)
-    ]),
-    onSelect: React.PropTypes.func,
-    selected: React.PropTypes.number
-};
+TabstripNavigation.propTypes = propTypes;
 
 export default TabstripNavigation;

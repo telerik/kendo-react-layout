@@ -24,35 +24,12 @@ class Tabstrip extends React.Component {
     onKeyDown = (event) => {
         const handler = this.keyBinding[event.keyCode];
         if (handler) {
-            const next = handler();
-            this.onSelect(next);
+            this.onSelect(handler());
         }
     }
 
-    moveNext(moveNext) {
-        let nextPosition = null;
+    nextNavigatableTab() {
         const { children, selected } = this.props;
-
-        if (moveNext) {
-            nextPosition = this.findNextNavigatable(children, selected);
-        } else {
-            nextPosition = this.findPrevNavigatable(children, selected);
-        }
-        return nextPosition;
-    }
-
-    moveEnd(end) {
-        let next = null;
-
-        if (end) {
-            next = this.props.children.length - 1;
-        } else {
-            next = 0;
-        }
-        return next;
-    }
-
-    findNextNavigatable(children, selected) {
         const index = selected + 1;
 
         if (index >= children.length) {
@@ -66,7 +43,8 @@ class Tabstrip extends React.Component {
         }
     }
 
-    findPrevNavigatable(children, selected) {
+    prevNavigatableTab() {
+        const { children, selected } = this.props;
         const index = selected - 1;
 
         if (index < 0) {
@@ -80,28 +58,24 @@ class Tabstrip extends React.Component {
         }
     }
 
-    renderContent() {
+    renderContent(tabProps) {
         const { selected, children } = this.props;
 
-        const content = children[selected];
-
-        if (content && content.props.disabled) {
-            return false;
-        }
         if (selected < children.length && selected > -1) {
-            return true;
+            return (
+                <TabstripContent {...tabProps} />
+            );
         }
-
-        return false;
+        return null;
     }
 
     keyBinding = {
-        [keycode.codes.left]: () => this.moveNext(false),
-        [keycode.codes.right]: () => this.moveNext(true),
-        [keycode.codes.down]: () => this.moveNext(true),
-        [keycode.codes.up]: () => this.moveNext(false),
-        [keycode.codes.home]: () => this.moveEnd(false),
-        [keycode.codes.end]: () => this.moveEnd(true)
+        [keycode.codes.left]: () => this.prevNavigatableTab(),
+        [keycode.codes.right]: () => this.nextNavigatableTab(),
+        [keycode.codes.down]: () => this.nextNavigatableTab(),
+        [keycode.codes.up]: () => this.prevNavigatableTab(),
+        [keycode.codes.home]: () => 0,
+        [keycode.codes.end]: () => this.props.children.length - 1
     };
 
     render() {
@@ -120,7 +94,7 @@ class Tabstrip extends React.Component {
         return (
             <div className={componentClasses} onKeyDown={this.onKeyDown}>
                 <TabstripNavigation {...tabProps} />
-                {this.renderContent() && <TabstripContent {...tabProps} />}
+                {this.renderContent(tabProps)}
             </div>
       );
     }

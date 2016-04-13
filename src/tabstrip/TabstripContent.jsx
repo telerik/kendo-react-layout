@@ -10,14 +10,19 @@ const propTypes = {
     selected: React.PropTypes.number
 };
 
+const requestAnimationFrame = window.requestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        (fn => window.setTimeout(fn, 20));
+
 class TabstripContent extends React.Component {
     componentWillEnter() {
         const { content } = this.refs;
-        window.requestAnimationFrame(function() {
+        requestAnimationFrame(() => {
             if (content) {
                 content.className = 'k-state-active k-content k-hide';
             }
-            window.requestAnimationFrame(function() {
+            requestAnimationFrame(() => {
                 if (content) {
                     content.className = 'k-state-active k-content k-reveal';
                 }
@@ -26,12 +31,12 @@ class TabstripContent extends React.Component {
     }
 
     renderContent(elements) {
-        let contentProps = {
+        const contentProps = {
             'role': 'tabpanel',
             'aria-expanded': 'true'
         };
 
-        let content = elements[this.props.selected];
+        const content = elements[this.props.selected];
 
         return(
           <div {...contentProps}>
@@ -41,7 +46,6 @@ class TabstripContent extends React.Component {
 
     }
     render() {
-        const content = this.renderContent(this.props.children);
         const contentClasses = [
             styles['content'],
             styles['state-active']
@@ -50,7 +54,7 @@ class TabstripContent extends React.Component {
         return(
             <div className={contentClasses} ref="content">
                 <ReactTransitionGroup component="div" componentWillEnter={this.componentWillEnter()}>
-                    {content}
+                    {this.renderContent(this.props.children)}
                 </ReactTransitionGroup>
             </div>
         );
