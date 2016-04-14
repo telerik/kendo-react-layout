@@ -9,8 +9,22 @@ These components should go in first release of the Kendo React Layout package
 - TabStrip
 - PanelBar
 
+### Features
+
+#### Tabstrip
+
+- rendering of custom titles
+- animation of child content
+- disabled tabs
+- stateless component
+- predefined selection
+
 ## Later version
 
 Will be included on future iterations
 
-- Window
+#### Tabstrip
+
+- Different tab positions
+- Scrollable tabs
+- RTL support
