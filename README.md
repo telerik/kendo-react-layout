@@ -18,7 +18,7 @@ Currently, the package includes the TabStrip and PanelBar components.
 
 Telerik works on porting the Dialog component too.
 
-For more information on forthcoming Layout package features and components, refer to the [Roadmap](https://github.com/telerik/kendo-react-layout/blob/master/docs/roadmap.md).
+For more information on upcoming Layout package features and components, refer to the [Roadmap](https://github.com/telerik/kendo-react-layout/blob/master/docs/roadmap.md).
 
 ## Basic Usage
 
