@@ -4,8 +4,8 @@
   "private": true,
   "description": "Kendo UI React Layout examples",
   "dependencies": {
-    "redux": "^3.3.1",
     "react-redux": "^4.4.1",
-    "react-router": "^2.0.1"
+    "react-router": "^2.2.1",
+    "redux": "^3.3.1"
   }
 }
