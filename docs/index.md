@@ -6,7 +6,7 @@ slug: overview_layout_kendouiforreact
 position: 1
 ---
 
-# Layout Package Overview (draft)
+# Layout Package Overview
 
 Layout controls create a perceptive and intuitive layout of web projects to provide for an easier navigation. Currently, the Layout package includes the Kendo UI TabStrip component for React.
 
@@ -18,7 +18,7 @@ The Kendo UI PanelBar displays hierarchical data as multi-level, expandable cont
 
 Articles on the Layout package for React:
 
-* [Get Started with the TabStrip Component](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/index.md)
-* [Client-Side API Reference of the TabStrip Component](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/api.md)
-* [Get Started with the PanelBar Component](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/index.md)
-* [Client-Side API Reference of the PanelBar Component](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md)
+* [Get Started with the TabStrip Component]({% slug overview_tabstrip_kendouiforreact %})
+* [Client-Side API Reference of the TabStrip Component]({% slug api_tabstrip_kendouiforreact %})
+* [Get Started with the PanelBar Component]({% slug overview_panelbar_kendouiforreact %})
+* [Client-Side API Reference of the PanelBar Component]({% slug api_panelbar_kendouiforreact %})
