@@ -82,7 +82,7 @@ For more examples and available configuration options, refer to the [PanelBar do
 
 ## Installation
 
-The React Inputs are published as a [public scoped NPM package](https://docs.npmjs.com/misc/scope) in the [Telerik organization](https://www.npmjs.com/~telerik) in `http://npmjs.org/`.
+The React Inputs are published as a [public scoped NPM package](https://docs.npmjs.com/misc/scope) in the [Telerik organization](https://www.npmjs.com/~telerik) in http://npmjs.org/.
 
 Install it using NPM:
 
