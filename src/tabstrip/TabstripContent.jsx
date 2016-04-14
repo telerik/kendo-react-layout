@@ -7,7 +7,8 @@ const propTypes = {
         React.PropTypes.element,
         React.PropTypes.arrayOf(React.PropTypes.element)
     ]),
-    selected: React.PropTypes.number
+    selected: React.PropTypes.number,
+    style: React.PropTypes.object
 };
 
 const requestAnimationFrame = window.requestAnimationFrame ||
@@ -51,8 +52,10 @@ class TabstripContent extends React.Component {
             styles['state-active']
         ].join(" ");
 
+        const { height } = this.props.style || {};
+
         return(
-            <div className={contentClasses} ref="content">
+            <div className={contentClasses} ref="content" style={{ height: height }}>
                 <ReactTransitionGroup component="div" componentWillEnter={this.componentWillEnter()}>
                     {this.renderContent(this.props.children)}
                 </ReactTransitionGroup>

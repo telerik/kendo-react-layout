@@ -60,11 +60,16 @@ class Tabstrip extends React.Component {
     }
 
     renderContent(tabProps) {
-        const { selected, children } = this.props;
+        const { selected, children, style } = this.props;
+
+        const contentProps = {
+            ...tabProps,
+            style
+        };
 
         if (selected < children.length && selected > -1) {
             return (
-                <TabstripContent {...tabProps} />
+                <TabstripContent {...contentProps} />
             );
         }
         return null;
@@ -93,8 +98,10 @@ class Tabstrip extends React.Component {
             styles['tabstrip']
         ].join(" ");
 
+        const { width } = this.props.style || {};
+
         return (
-            <div className={componentClasses} onKeyDown={this.onKeyDown} style={this.props.style}>
+            <div className={componentClasses} onKeyDown={this.onKeyDown} style={{ width: width }}>
                 <TabstripNavigation {...tabProps} />
                 {this.renderContent(tabProps)}
             </div>
