@@ -20,11 +20,11 @@ class TabstripContent extends React.Component {
         const { content } = this.refs;
         requestAnimationFrame(() => {
             if (content) {
-                content.className = 'k-state-active k-content k-hide';
+                content.children[0].className = 'k-state-active k-content k-hide';
             }
             requestAnimationFrame(() => {
                 if (content) {
-                    content.className = 'k-state-active k-content k-reveal';
+                    content.children[0].className = 'k-state-active k-content k-reveal';
                 }
             });
         });

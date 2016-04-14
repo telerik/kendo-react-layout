@@ -34,7 +34,7 @@ class TabstripContainer extends React.Component {
         const selection = this.selection(pathname);
 
         return (
-                <Tabstrip onSelect={this.onSelect} selected={selection} style={{ height: "100%" }}>
+                <Tabstrip onSelect={this.onSelect} selected={selection} style={{ width:300 }}>
                     <Tab title="Paris">
                         <span className="rainy">&nbsp;</span>
                         <div className="weather">
