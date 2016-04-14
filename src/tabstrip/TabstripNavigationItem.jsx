@@ -16,7 +16,7 @@ class TabstripNavigationItem extends React.Component {
             'role': 'tab'
         };
 
-        let itemClasses = classNames({
+        const itemClasses = classNames({
             [styles['item']]: true,
             [styles['state-default']]: !(disabled || active),
             [styles['state-disabled']]: disabled,

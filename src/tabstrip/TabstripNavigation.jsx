@@ -14,7 +14,7 @@ const propTypes = {
 const times = (count) => Array.apply(null, Array(count));
 
 const TabstripNavigation = (props) => {
-    let {
+    const {
         selected,
         children,
         onSelect
