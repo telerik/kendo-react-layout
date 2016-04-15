@@ -141,6 +141,47 @@ The example below demonstrates the default setup of a Kendo UI TabStrip componen
 
 ## Configuration
 
+### Animation
+
+The tabs will be animated when the selection si changed. By default the animation is enabled.
+
+```html-preview
+    <div id="app"></div>
+```
+```jsx
+    const { Tab } = KendoReactLayout.Tabstrip;
+    class TabstripContainer extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                selected: 0
+            };
+        }
+        onSelect = (e) => {
+            this.setState({
+                selected: e.selected
+            });
+        };
+
+        render() {
+            return (
+              <KendoReactLayout.Tabstrip onSelect={this.onSelect} selected={this.state.selected} animation={false}>
+                <Tab title="First tab title">
+                    First tab content
+                </Tab>
+                <Tab title="Second tab Title">
+                    Second tab content
+                </Tab>
+              </KendoReactLayout.Tabstrip>);
+        }
+    }
+    ReactDOM.render(
+        <TabstripContainer />,
+        document.getElementById('app')
+    );
+
+```
+
 ### Tab Titles
 
 Each tab displays a title prompting the content of the tab page, which is set through the [`title`]({% slug api_tabstrip_kendouiforreact %}#title-string) attribute of the Tab.

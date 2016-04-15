@@ -10,6 +10,12 @@ position: 2
 
 Represents the Kendo UI TabStrip component for React.
 
+## Animating
+
+#### animation `boolean` *(default: true)*
+
+Enables or disables animation for the tabs.
+
 ## Tab Titles
 
 #### title `String`

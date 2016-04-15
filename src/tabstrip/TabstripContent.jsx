@@ -3,6 +3,7 @@ import styles from '@telerik/kendo-theme-default/styles/tabstrip/main';
 import ReactTransitionGroup from 'react-addons-transition-group';
 
 const propTypes = {
+    animation: React.PropTypes.bool,
     children: React.PropTypes.oneOfType([
         React.PropTypes.element,
         React.PropTypes.arrayOf(React.PropTypes.element)
@@ -37,15 +38,30 @@ class TabstripContent extends React.Component {
             'aria-expanded': 'true'
         };
 
-        const content = elements[this.props.selected];
+        const element = elements[this.props.selected];
 
-        return(
-          <div {...contentProps}>
-              {content.props.children}
-          </div>
+        let content = (
+            <div {...contentProps}>
+                {element.props.children}
+            </div>
         );
 
+        if (this.props.animation !== false) {
+            content = this.addAnimation(content);
+        }
+
+        return content;
+
     }
+
+    addAnimation(content) {
+        return (
+            <ReactTransitionGroup component="div" componentWillEnter={this.componentWillEnter()}>
+                {content}
+            </ReactTransitionGroup>
+        );
+    }
+
     render() {
         const contentClasses = [
             styles['content'],
@@ -54,11 +70,10 @@ class TabstripContent extends React.Component {
 
         const { height } = this.props.style || {};
 
+
         return(
             <div className={contentClasses} ref="content" style={{ height: height }}>
-                <ReactTransitionGroup component="div" componentWillEnter={this.componentWillEnter()}>
                     {this.renderContent(this.props.children)}
-                </ReactTransitionGroup>
             </div>
         );
     }
