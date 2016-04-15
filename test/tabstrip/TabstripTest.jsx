@@ -32,6 +32,21 @@ describe('Tabstrip', () => {
         expect(result.hasClass('k-header')).toEqual(true);
     });
 
+    it('renders k-tabstrip-left when left tab position is set', () => {
+        result = shallow(<Tabstrip tabPosition="left"><Tab>Tab</Tab></Tabstrip>);
+        expect(result.hasClass('k-tabstrip-left')).toEqual(true);
+    });
+
+    it('renders k-tabstrip-right when right tab position is set', () => {
+        result = shallow(<Tabstrip tabPosition="right"><Tab>Tab</Tab></Tabstrip>);
+        expect(result.hasClass('k-tabstrip-right')).toEqual(true);
+    });
+
+    it('renders k-tabstrip-bottom when bottom tab position is set', () => {
+        result = shallow(<Tabstrip tabPosition="bottom"><Tab>Tab</Tab></Tabstrip>);
+        expect(result.hasClass('k-tabstrip-bottom')).toEqual(true);
+    });
+
     it('selectes correct tab', () => {
         result = shallow(<Tabstrip selected={1}><Tab /><Tab /></Tabstrip>);
         let item = result.children().first().children().last();

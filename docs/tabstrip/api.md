@@ -22,6 +22,12 @@ Enables or disables animation for the tabs.
 
 Sets the title of a tab. Used as an attribute on a Tab.
 
+## Tab Position
+
+#### tabPosition `String` *(default: 'top')*
+
+Sets the position of the navigation tabs. Can be set to `top`, `bottom`, `left` and `right`.
+
 ## Selection
 
 #### selected `Number` *(default: 1)*

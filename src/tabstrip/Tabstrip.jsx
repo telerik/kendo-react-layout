@@ -3,6 +3,7 @@ import styles from '@telerik/kendo-theme-default/styles/tabstrip/main';
 import TabstripNavigation from './TabstripNavigation';
 import TabstripContent from './TabstripContent';
 import keycode from 'keycode';
+import classNames from 'classnames';
 
 const propTypes = {
     children: React.PropTypes.oneOfType([
@@ -11,7 +12,8 @@ const propTypes = {
     ]),
     onSelect: React.PropTypes.func,
     selected: React.PropTypes.number,
-    style: React.PropTypes.object
+    style: React.PropTypes.object,
+    tabPosition: React.PropTypes.string
 };
 
 class Tabstrip extends React.Component {
@@ -91,19 +93,25 @@ class Tabstrip extends React.Component {
             onSelect: this.onSelect
         };
 
-        const componentClasses = [
-            styles['widget'],
-            styles['header'],
-            styles['floatwrap'],
-            styles['tabstrip']
-        ].join(" ");
+        const bottom = this.props.tabPosition === 'bottom';
+
+        const componentClasses = classNames({
+            [styles['widget']]: true,
+            [styles['header']]: true,
+            [styles['floatwrap']]: true,
+            [styles['tabstrip']]: true,
+            [styles['tabstrip-left']]: this.props.tabPosition === 'left',
+            [styles['tabstrip-right']]: this.props.tabPosition === 'right',
+            [styles['tabstrip-bottom']]: this.props.tabPosition === 'bottom'
+        });
 
         const { width } = this.props.style || {};
 
         return (
             <div className={componentClasses} onKeyDown={this.onKeyDown} style={{ width: width }}>
-                <TabstripNavigation {...tabProps} />
+                {!bottom && <TabstripNavigation {...tabProps} />}
                 {this.renderContent(tabProps)}
+                {bottom && <TabstripNavigation {...tabProps} />}
             </div>
       );
     }
