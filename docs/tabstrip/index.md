@@ -184,6 +184,8 @@ The tabs will be animated when the selection is changed. By default, the animati
 
 ### Tabs
 
+Below are listed the configuration properties that enable you to set the tabs of the TabStrip component. 
+
 **Titles**
 
 Each tab displays a title prompting the content of the tab page, which is set through the [`title`]({% slug api_tabstrip_kendouiforreact %}#title-string) attribute of the Tab.
