@@ -184,7 +184,7 @@ The tabs will be animated when the selection is changed. By default, the animati
 
 ### Tabs
 
-Below are listed the configuration properties that enable you to set the tabs of the TabStrip component. 
+Below are demonstrated the configuration properties that enable you to set the tabs of the TabStrip component. 
 
 **Titles**
 
