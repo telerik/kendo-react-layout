@@ -15,7 +15,7 @@
         var App = React.createClass({displayName: 'App',
             getInitialState() {
                 return {
-                        selected: 0,
+                        selected: 2,
                         onSelect: this.onSelect
                     }
             },
@@ -25,12 +25,14 @@
                 })
             },
             render() {
+                const selectedId = this.state.selected;
+
                 return (
                     React.createElement(KendoReactLayout.PanelBar, this.state,
                             [
                                 React.createElement(
                                 KendoReactLayout.PanelBarItem,
-                                { title: 'Paris', id: 0, key: 0, selected: this.state.selected === 0, expanded: true},
+                                { title: 'Paris', id: 1, key: 1, selected: selectedId === 1, expanded: selectedId === 1},
                                 React.createElement(
                                     KendoReactLayout.PanelBarContent,
                                     { },
@@ -42,7 +44,7 @@
                                 )),
                                 React.createElement(
                                     KendoReactLayout.PanelBarItem,
-                                    { title: 'London', id: 1, key: 1, selected: this.state.selected === 1, expanded: true },
+                                    { title: 'London', id: 2, key: 2, selected: selectedId === 2, expanded: selectedId === 2 },
                                     React.createElement(
                                             KendoReactLayout.PanelBarContent,
                                             { },
