@@ -484,6 +484,10 @@ Below is the list with the keyboard shortcuts the TabStrip supports.
 | `Home`                              | Select the first tab.    |
 | `End`                               | Select the last tab.     |
 
+## Routing
+
+The Kendo UI Tabstrip for React can easily be integrated with the [react-router](https://github.com/reactjs/react-router). A possible implementation can be found [here](https://github.com/telerik/kendo-react-layout/blob/master/examples/tabstrip_routing.jsx).
+
 ## Accessibility
 
 The TabStrip is WAI ARIA-accessible through the `Tab` key. The `aria-expanded` attribute is set on the currently displayed content of a tab. The `tabindex` attribute will be set to `0` (zero) on the active tab and `-1` (minus one) for the inactive tabs.
