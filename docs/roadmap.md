@@ -18,6 +18,7 @@ These components should go in first release of the Kendo React Layout package
 - disabled tabs
 - stateless component
 - predefined selection
+- different tab positions
 
 ## Later version
 
@@ -25,6 +26,5 @@ Will be included on future iterations
 
 #### Tabstrip
 
-- Different tab positions
 - Scrollable tabs
 - RTL support
