@@ -6,7 +6,7 @@ These components should go in first release of the Kendo React Layout package
 
 ### Components
 
-- TabStrip
+- Tabstrip
 - PanelBar
 
 ### Features
