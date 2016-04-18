@@ -143,7 +143,7 @@ The example below demonstrates the default setup of a Kendo UI TabStrip componen
 
 ### Animation
 
-The tabs will be animated when the selection si changed. By default, the animation is enabled.
+The tabs will be animated when the selection is changed. By default, the animation is enabled.
 
 ```html-preview
     <div id="app"></div>
@@ -182,7 +182,9 @@ The tabs will be animated when the selection si changed. By default, the animati
 
 ```
 
-### Tab Titles
+### Tabs
+
+**Titles**
 
 Each tab displays a title prompting the content of the tab page, which is set through the [`title`]({% slug api_tabstrip_kendouiforreact %}#title-string) attribute of the Tab.
 
@@ -225,7 +227,7 @@ Each tab displays a title prompting the content of the tab page, which is set th
 
 Apart from text elements, a tab title is also able to accommodate any React component.
 
-### Tab position
+**Position**
 
 The tabs can be set to render in different positions around the content. This is set through the [`tabPosition`]({% slug api_tabstrip_kendouiforreact %}#tabPosition-string) attribute of the component.
 
@@ -266,7 +268,7 @@ The tabs can be set to render in different positions around the content. This is
 
 ```
 
-### Tabs on Initial Loading
+**Initial Loading**
 
 The TabStrip enables you to display a particular tab upon its initial loading, which is set through the [`selected`]({% slug api_tabstrip_kendouiforreact %}#selected-number-default-1) property. It is a zero-based value, which means that to select the first tab, you must set it to `0` (zero).
 
@@ -306,7 +308,7 @@ The TabStrip enables you to display a particular tab upon its initial loading, w
     );
 ```
 
-### Disabled Tabs
+**Disabling**
 
 The TabStrip provides the option for specific tabs to be inactive so that the user is not able to select them. Disable tabs by adding the [`disabled`]({% slug api_tabstrip_kendouiforreact %}#disabled) attribute to the configuration.
 
