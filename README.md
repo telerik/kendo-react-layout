@@ -14,15 +14,15 @@
 
 This repository contains the source code and documentation of the Kendo UI Layout components for React.
 
-The Layout package includes the TabStrip and PanelBar components.
+The Layout package includes the Tabstrip and PanelBar components.
 
 For more information on upcoming Layout package features and components, refer to the [Roadmap](https://github.com/telerik/kendo-react-layout/blob/master/docs/roadmap.md).
 
 ## Basic Usage
 
-### Kendo UI TabStrip Component
+### Kendo UI Tabstrip Component
 
-The TabStrip displays a collection of tabs with associated content. It is composed of an unordered list of items, representing tabs, and a collection of elements, which contain the content for each tab.
+The Tabstrip displays a collection of tabs with associated content. It is composed of an unordered list of items, representing tabs, and a collection of elements, which contain the content for each tab.
 
 ```html-preview
     <div id="app"></div>
@@ -63,7 +63,7 @@ The TabStrip displays a collection of tabs with associated content. It is compos
     );
 ```
 
-For more examples and available configuration options, refer to the [TabStrip documentation section](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/index.md).
+For more examples and available configuration options, refer to the [Tabstrip documentation section](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/index.md).
 
 ### Kendo UI PanelBar Component
 
@@ -100,7 +100,7 @@ import { Panelbar } from 'kendo-react-layout';
 // CommonJS format
 var Tabstrip = require('kendo-react-inputs').Tabstrip;
 //or
-var Panelbar = require('kendo-react-inputs').Panelbar;
+var Panelbar = require('kendo-react-inputs').PanelBar;
 ```
 
 ## Browser Support
