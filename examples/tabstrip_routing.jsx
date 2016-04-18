@@ -34,7 +34,7 @@ class TabstripContainer extends React.Component {
         const selection = this.selection(pathname);
 
         return (
-                <Tabstrip onSelect={this.onSelect} selected={selection} style={{ width: 300, height: 260 }} tabPosition="top">
+                <Tabstrip onSelect={this.onSelect} selected={selection} style={{ width: 300, height: 260 }} tabPosition="right">
                     <Tab title="Paris">
                         <span className="rainy">&nbsp;</span>
                         <div className="weather">
@@ -82,9 +82,7 @@ class Container extends React.Component {
         };
         const createElement = (Component, props) => <Component {...props} />;
         return (
-            <div className='k-rtl'>
-                <Router createElement={createElement} history={hashHistory} routes={routes} />
-            </div>
+            <Router createElement={createElement} history={hashHistory} routes={routes} />
         );
     }
 }
