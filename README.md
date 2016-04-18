@@ -84,8 +84,6 @@ The React Layout components are published as a [public scoped NPM package](https
 
 Install it using NPM:
 
-//change acc to this package
-
 ```sh
 npm install --save @telerik/kendo-react-inputs;
 ```
