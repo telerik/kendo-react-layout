@@ -29,7 +29,7 @@
     "cz-conventional-changelog": "^1.1.5",
     "ghooks": "^1.0.3",
     "gulp": "3.9.0",
-    "@telerik/kendo-react-tasks": "~1.0.0",
+    "@telerik/kendo-react-tasks": "^1.0.0",
     "@telerik/kendo-theme-default": "telerik/kendo-theme-default#master",
     "validate-commit-msg": "^1.1.1",
     "semantic-release": "^4.3.5"
