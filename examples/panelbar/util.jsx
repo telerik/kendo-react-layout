@@ -27,7 +27,7 @@ export function mapDataToComponents(map, parentId = null) {
             focused: item.focused
         };
 
-        return (<PanelBarItem {...childProps} key={item.id} />);
+        return (<PanelBarItem {...childProps} />);
     });
 }
 

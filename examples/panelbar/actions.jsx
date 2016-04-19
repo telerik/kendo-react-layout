@@ -1,17 +1,19 @@
 import constants from './constants';
 
-export function onSelect(data) {
-    return { type: constants.SELECT, ...data };
+export function onSelect(event) {
+    event.preventDefault();
+    return { type: constants.SELECT, ...event };
 }
 
-export function onKeyDown(data) {
-    return { type: constants.KEY_DOWN, ...data };
+export function onKeyDown(event) {
+    event.preventDefault();
+    return { type: constants.KEY_DOWN, ...event };
 }
 
-export function onFocus(data) {
+export function onFocus(event) {
     return { type: constants.FOCUS };
 }
 
-export function onBlur(data) {
+export function onBlur(event) {
     return { type: constants.BLUR };
 }
