@@ -161,7 +161,7 @@ export default class PanelBarItem extends React.Component {
         };
 
         const arrow = (!disabled && children) ? <span {...panelBarItemArrowProps } key={(id + "_arrow")}/> : null;
-console.log(title, this.props.animation);
+
         return (
             <li {...others } {...panelBarItemProps }>
                 <span {...panelBarItemSpanProps } key={(id + "_title")}>
