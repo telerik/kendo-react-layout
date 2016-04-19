@@ -43,27 +43,15 @@ By default, the PanelBar enables you to make its content appear by setting the [
 ```jsx
     const { PanelBar, PanelBarItem, PanelBarContent } = KendoReactLayout;
     class PanbelBarContainer extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = {
-                expanded: "0"
-            };
-        }
-        onSelect = (e) => {
-            this.setState({
-                expanded: e.id
-            });
-        };
-
         render() {
             return (
               <PanelBar onSelect={this.onSelect}>
-                <PanelBarItem title="First item title" id="0" expanded={this.state.expanded == "0"}>
+                <PanelBarItem title="First item title (expanded)" id="0" expanded="true">
                     <PanelBarContent>
                         First item text
                     </PanelBarContent>
                 </PanelBarItem>
-                <PanelBarItem title="Second item Title" id="1" expanded={this.state.expanded == "1"}>
+                <PanelBarItem title="Second item Title (collapsed)" id="1" expanded="false">
                     <PanelBarContent>
                         Second item text
                     </PanelBarContent>
@@ -85,50 +73,20 @@ Setting the [`disabled`](https://github.com/telerik/kendo-react-layout/blob/mast
 ```jsx
     const { PanelBar, PanelBarItem, PanelBarContent } = KendoReactLayout;
     class PanbelBarContainer extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = {
-                selected: "0",
-                expanded: "0"
-            };
-        }
-        onSelect = (e) => {
-            this.setState({
-                selected: e.id,
-                expanded: e.id
-            });
-        };
-
         render() {
             return (
                 <PanelBar onSelect={this.onSelect}>
-                    <PanelBarItem
-                        title="First item title"
-                        id="0"
-                        selected={this.state.expanded == "0"}
-                        expanded={this.state.expanded == "0"}
-                    >
+                    <PanelBarItem title="First item title (enabled)" id="0" disabled="false">
                         <PanelBarContent>
                             First item text
                         </PanelBarContent>
                     </PanelBarItem>
-                    <PanelBarItem
-                        title="Second item Title"
-                        disabled="true"
-                        id="1"
-                        selected={this.state.expanded == "1"}
-                        expanded={this.state.expanded == "1"}
-                    >
+                    <PanelBarItem title="Second item Title (disabled)" disabled="true" id="1">
                         <PanelBarContent>
                             Second item text
                         </PanelBarContent>
                     </PanelBarItem>
-                    <PanelBarItem
-                        title="Third item Title"
-                        id="2"
-                        selected={this.state.expanded == "2"}
-                        expanded={this.state.expanded == "2"}
-                    >
+                    <PanelBarItem title="Third item Title" id="2" (enabled) disabled="false">
                         <PanelBarContent>
                             Third item text
                         </PanelBarContent>
@@ -150,23 +108,33 @@ The PanelBar enables you to add selected CSS styles to an item of your choice by
 ```jsx
     const { PanelBar, PanelBarItem, PanelBarContent } = KendoReactLayout;
     class PanbelBarContainer extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = {
-                selected: "0"
-            };
-        }
-        onSelect = (e) => {
-            this.setState({
-                selected: e.id
-            });
-        };
-
         render() {
             return (
               <PanelBar onSelect={this.onSelect}>
-                <PanelBarItem title="First item title" id="0" selected={this.state.selected == "0"} />
-                <PanelBarItem title="Second item Title" id="1" selected={this.state.selected == "1"} />
+                <PanelBarItem title="First item title (selected)" id="0" selected="true" />
+                <PanelBarItem title="Second item Title" id="1" selected="false" />
+              </PanelBar>);
+        }
+    }
+    ReactDOM.render(
+        <PanbelBarContainer />,
+        document.getElementById('app')
+    );
+```
+
+The PanelBar enables you to add focused CSS styles to an item of your choice by configuring the [`focused`](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md#focused-booleandefault-false) option from its `false` setting to `true`.
+
+```html
+<div id="app"></div>
+```
+```jsx
+    const { PanelBar, PanelBarItem, PanelBarContent } = KendoReactLayout;
+    class PanbelBarContainer extends React.Component {
+        render() {
+            return (
+              <PanelBar onSelect={this.onSelect}>
+                <PanelBarItem title="First item title (focused)" id="0" focused="true" />
+                <PanelBarItem title="Second item Title" id="1" focused="false" />
               </PanelBar>);
         }
     }
@@ -184,24 +152,12 @@ The PanelBar enables you to set a title of your choice to any of its items. By d
 ```jsx
     const { PanelBar, PanelBarItem, PanelBarContent } = KendoReactLayout;
     class PanbelBarContainer extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = {
-                selected: "0"
-            };
-        }
-        onSelect = (e) => {
-            this.setState({
-                selected: e.id
-            });
-        };
-
         render() {
             return (
               <PanelBar onSelect={this.onSelect}>
-                <PanelBarItem title="First item title" id="0" selected={this.state.selected == "0"} />
-                <PanelBarItem title="Second item Title" id="1" selected={this.state.selected == "1"} />
-                <PanelBarItem id="2" selected={this.state.selected == "2"} />
+                <PanelBarItem title="First item title" id="0" />
+                <PanelBarItem title="Second item Title" id="1" />
+                <PanelBarItem id="2" />
               </PanelBar>);
         }
     }
@@ -219,23 +175,11 @@ By setting the [`id`](https://github.com/telerik/kendo-react-layout/blob/master/
 ```jsx
     const { PanelBar, PanelBarItem, PanelBarContent } = KendoReactLayout;
     class PanbelBarContainer extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = {
-                selected: "0"
-            };
-        }
-        onSelect = (e) => {
-            this.setState({
-                selected: e.id
-            });
-        };
-
         render() {
             return (
               <PanelBar onSelect={this.onSelect}>
-                <PanelBarItem title="First item title" id="0" selected={this.state.selected == "0"} />
-                <PanelBarItem title="Second item Title" id="1" selected={this.state.selected == "1"} />
+                <PanelBarItem title="First item title" id="0"/>
+                <PanelBarItem title="Second item Title" id="1"/>
               </PanelBar>);
         }
     }
@@ -283,7 +227,7 @@ The [`onSelect`](https://github.com/telerik/kendo-react-layout/blob/master/docs/
     );
 ```
 
-The [`onKeyDown`](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md#onkeydown-function) event fires each time a user...
+The [`onKeyDown`](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md#onkeydown-function) event fires each time a user presses keyboard key and the component is focused.
 
 ```html
 <div id="app"></div>
@@ -392,7 +336,7 @@ The [`onKeyDown`](https://github.com/telerik/kendo-react-layout/blob/master/docs
     );
 ```
 
-The [`onFocus`](...) event fires each time a user...
+The [`onFocus`](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md#onfocus-function) event fires each time a user focus the component.
 
 ```html
 <div id="app"></div>
@@ -431,7 +375,7 @@ The [`onFocus`](...) event fires each time a user...
     );
 ```
 
-The [`onBlur`](...) event fires each time a user...
+The [`onBlur`](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md#onblur-function) event fires each time a user blur the component (the focus is moved to another item on the page).
 
 ```html
 <div id="app"></div>
