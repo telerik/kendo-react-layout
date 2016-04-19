@@ -1,13 +1,11 @@
 import constants from './constants';
 
 export function onSelect(event) {
-    event.preventDefault();
-    return { type: constants.SELECT, ...event };
+    return { ...event, type: constants.SELECT};
 }
 
 export function onKeyDown(event) {
-    event.preventDefault();
-    return { type: constants.KEY_DOWN, ...event };
+    return { ...event, type: constants.KEY_DOWN };
 }
 
 export function onFocus(event) {

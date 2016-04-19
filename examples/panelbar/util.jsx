@@ -21,6 +21,7 @@ export function mapDataToComponents(map, parentId = null) {
             children: child,
             expanded: item.expanded,
             id: item.id,
+            key: item.id,
             selected: item.selected,
             title: item.title,
             disabled: item.disabled,
