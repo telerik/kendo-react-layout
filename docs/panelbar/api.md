@@ -24,6 +24,10 @@ Disables the `PanelBarItem`. The content of the item is collapsed and cannot be 
 
 Adds the selected CSS styles to the items.
 
+#### focused `Boolean`*(default: "false")*
+
+Adds the focused CSS styles to the items.
+
 #### title `String`*(default: "Untitled")*
 
 Sets the title of the PanelBar item.
@@ -40,12 +44,12 @@ As a stateless component, the PanelBar fires its `onSelect` event handler every 
 
 #### onKeyDown `Function`
 
-...
+As a stateless component, the PanelBar fires its `onKeyDown` event handler every time when a keyboard key is pressed and the PanelBar is focused. It is handled by the parent component.
 
 #### onFocus `Function`
 
-...
+As a stateless component, the PanelBar fires its `onFocus` event handler every time when the PanelBar is focused. It is handled by the parent component.
 
 #### onBlur `Function`
 
-...
+As a stateless component, the PanelBar fires its `onBlur` event handler every time when the PanelBar is blurred. It is handled by the parent component.
