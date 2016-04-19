@@ -37,10 +37,7 @@ export default class PanelBar extends React.Component {
 
     onKeyDown(event) {
         if (this.props.onKeyDown) {
-            this.props.onKeyDown({
-                keyCode: event.keyCode,
-                key: event.key
-            });
+            this.props.onKeyDown(event);
         }
     }
 
