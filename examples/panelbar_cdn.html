@@ -15,7 +15,7 @@
         var App = React.createClass({displayName: 'App',
             getInitialState() {
                 return {
-                        selected: 2,
+                        selected: 0,
                         onSelect: this.onSelect
                     }
             },
@@ -24,35 +24,42 @@
                     selected: e.id,
                 })
             },
+            panelBarItemProps(title, id, selectedId) {
+                return {
+                    title: title,
+                    id: id,
+                    key: id,
+                    selected: this.state.selected === id,
+                    expanded: this.state.selected === id
+                };
+            },
             render() {
-                const selectedId = this.state.selected;
-
                 return (
                     React.createElement(KendoReactLayout.PanelBar, this.state,
                             [
                                 React.createElement(
-                                KendoReactLayout.PanelBarItem,
-                                { title: 'Paris', id: 1, key: 1, selected: selectedId === 1, expanded: selectedId === 1},
-                                React.createElement(
-                                    KendoReactLayout.PanelBarContent,
-                                    { },
+                                    KendoReactLayout.PanelBarItem,
+                                    this.panelBarItemProps('Paris', 0),
                                     React.createElement(
-                                            'div',
-                                            { color: 'red'},
-                                            'Some Text'
-                                    )
+                                        KendoReactLayout.PanelBarContent,
+                                        { },
+                                        React.createElement(
+                                                'div',
+                                                { },
+                                                'Some Text'
+                                        )
                                 )),
                                 React.createElement(
                                     KendoReactLayout.PanelBarItem,
-                                    { title: 'London', id: 2, key: 2, selected: selectedId === 2, expanded: selectedId === 2 },
+                                    this.panelBarItemProps('London', 1),
                                     React.createElement(
-                                            KendoReactLayout.PanelBarContent,
-                                            { },
-                                            React.createElement(
-                                                    'div',
-                                                    { color: 'red'},
-                                                    'Some Text'
-                                            )
+                                        KendoReactLayout.PanelBarContent,
+                                        { },
+                                        React.createElement(
+                                                'div',
+                                                { },
+                                                'Some Text'
+                                        )
                                 ))
                             ]
                     )
