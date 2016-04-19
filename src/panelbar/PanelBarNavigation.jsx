@@ -50,7 +50,8 @@ export default class PanelBarNavigation extends React.Component {
         const itemProps = {
             ...child.props,
             onSelect: this.props.onSelect,
-            parentId: this.props.parentId
+            parentId: this.props.parentId,
+            key: child.props.id
         };
 
         return (<PanelBarItem {...itemProps} />);
