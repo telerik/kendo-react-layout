@@ -35,6 +35,50 @@ The example below demonstrates the default setup of a Kendo UI PanelBar for Reac
 
 ### Items
 
+By default, the PanelBar animates the appear and disappear of the PanelBarItems content. You can disable the animation by setting the [`animation`](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md#animation-booleandefault-true) option to `false`.
+
+```html
+<div id="app"></div>
+```
+```jsx
+    const { PanelBar, PanelBarItem, PanelBarContent } = KendoReactLayout;
+    class PanbelBarContainer extends React.Component {
+        constructor(props) {
+            super(props);
+
+            this.state = {
+                expanded: false
+            };
+
+            const panelBarContainer = this;
+            setInterval(function() {
+                panelBarContainer.setState({
+                    expanded: !panelBarContainer.state.expanded
+                });
+            },2000);
+        }
+        render() {
+            return (
+              <PanelBar>
+                <PanelBarItem title="First item title (animated)" id="0"  animation={true} expanded={this.state.expanded}>
+                    <PanelBarContent>
+                        First item text
+                    </PanelBarContent>
+                </PanelBarItem>
+                <PanelBarItem title="Second item Title (not animated)" id="1"  animation={false} expanded={this.state.expanded}>
+                    <PanelBarContent>
+                        Second item text
+                    </PanelBarContent>
+                </PanelBarItem>
+              </PanelBar>);
+        }
+    }
+    ReactDOM.render(
+        <PanbelBarContainer/>,
+        document.getElementById('app')
+    );
+```
+
 By default, the PanelBar enables you to make its content appear by setting the [`expanded`](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md#expanded-booleandefault-false) option to `true`. When configured to `false`, it hides the content.
 
 ```html
@@ -45,13 +89,13 @@ By default, the PanelBar enables you to make its content appear by setting the [
     class PanbelBarContainer extends React.Component {
         render() {
             return (
-              <PanelBar onSelect={this.onSelect}>
-                <PanelBarItem title="First item title (expanded)" id="0" expanded="true">
+              <PanelBar>
+                <PanelBarItem title="First item title (expanded)" id="0" expanded={true}>
                     <PanelBarContent>
                         First item text
                     </PanelBarContent>
                 </PanelBarItem>
-                <PanelBarItem title="Second item Title (collapsed)" id="1" expanded="false">
+                <PanelBarItem title="Second item Title (collapsed)" id="1" expanded={false}>
                     <PanelBarContent>
                         Second item text
                     </PanelBarContent>
@@ -75,18 +119,18 @@ Setting the [`disabled`](https://github.com/telerik/kendo-react-layout/blob/mast
     class PanbelBarContainer extends React.Component {
         render() {
             return (
-                <PanelBar onSelect={this.onSelect}>
-                    <PanelBarItem title="First item title (enabled)" id="0" disabled="false">
+                <PanelBar>
+                    <PanelBarItem title="First item title (enabled)" id="0" disabled={false}>
                         <PanelBarContent>
                             First item text
                         </PanelBarContent>
                     </PanelBarItem>
-                    <PanelBarItem title="Second item Title (disabled)" disabled="true" id="1">
+                    <PanelBarItem title="Second item Title (disabled)" disabled={true} id="1">
                         <PanelBarContent>
                             Second item text
                         </PanelBarContent>
                     </PanelBarItem>
-                    <PanelBarItem title="Third item Title" id="2" (enabled) disabled="false">
+                    <PanelBarItem title="Third item Title" id="2" (enabled) disabled={false}>
                         <PanelBarContent>
                             Third item text
                         </PanelBarContent>
@@ -110,9 +154,9 @@ The PanelBar enables you to add selected CSS styles to an item of your choice by
     class PanbelBarContainer extends React.Component {
         render() {
             return (
-              <PanelBar onSelect={this.onSelect}>
-                <PanelBarItem title="First item title (selected)" id="0" selected="true" />
-                <PanelBarItem title="Second item Title" id="1" selected="false" />
+              <PanelBar>
+                <PanelBarItem title="First item title (selected)" id="0" selected={true} />
+                <PanelBarItem title="Second item Title" id="1" selected={false} />
               </PanelBar>);
         }
     }
@@ -132,9 +176,9 @@ The PanelBar enables you to add focused CSS styles to an item of your choice by 
     class PanbelBarContainer extends React.Component {
         render() {
             return (
-              <PanelBar onSelect={this.onSelect}>
-                <PanelBarItem title="First item title (focused)" id="0" focused="true" />
-                <PanelBarItem title="Second item Title" id="1" focused="false" />
+              <PanelBar>
+                <PanelBarItem title="First item title (focused)" id="0" focused={true} />
+                <PanelBarItem title="Second item Title" id="1" focused={false} />
               </PanelBar>);
         }
     }
@@ -154,7 +198,7 @@ The PanelBar enables you to set a title of your choice to any of its items. By d
     class PanbelBarContainer extends React.Component {
         render() {
             return (
-              <PanelBar onSelect={this.onSelect}>
+              <PanelBar>
                 <PanelBarItem title="First item title" id="0" />
                 <PanelBarItem title="Second item Title" id="1" />
                 <PanelBarItem id="2" />
@@ -177,7 +221,7 @@ By setting the [`id`](https://github.com/telerik/kendo-react-layout/blob/master/
     class PanbelBarContainer extends React.Component {
         render() {
             return (
-              <PanelBar onSelect={this.onSelect}>
+              <PanelBar>
                 <PanelBarItem title="First item title" id="0"/>
                 <PanelBarItem title="Second item Title" id="1"/>
               </PanelBar>);

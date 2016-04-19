@@ -12,6 +12,10 @@ Represents the Kendo UI PanelBar component for React.
 
 ## Items
 
+#### animation `Boolean`*(default: "true")*
+
+Makes the content of the `PanelBarItem` to be animated on appear and disappear. When set to `false`, the nested content is not animated.
+
 #### expanded `Boolean`*(default: "false")*
 
 Makes the content of the `PanelBarItem` to appear. When set to `false`, the nested content is not displayed.
