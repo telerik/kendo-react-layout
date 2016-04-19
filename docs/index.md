@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Overview | Kendo UI Layout Package for React
-description: "Learn which Kendo UI components for React the Layout package delivers."
+description: "Learn about the Kendo UI components for React which are delivered by the Layout package."
 slug: overview_layout_kendouiforreact
 position: 1
 ---
