@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import PanelBarItem from './PanelBarItem';
 
 const propTypes = {
+    animation: React.PropTypes.bool,
     children: function(props, propName) {
         const prop = props[propName];
 
@@ -48,6 +49,7 @@ export default class PanelBarNavigation extends React.Component {
 
     renderItem(child) {
         const itemProps = {
+            animation: this.props.animation,
             ...child.props,
             onSelect: this.props.onSelect,
             parentId: this.props.parentId,

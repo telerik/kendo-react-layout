@@ -8,6 +8,7 @@ import classNames from 'classnames';
 import PanelBarAnimationContainer from './PanelBarAnimationContainer';
 
 const propTypes = {
+    animation: React.PropTypes.bool,
     children: function(props, propName) {
         let prop = props[propName];
 
@@ -73,37 +74,54 @@ export default class PanelBarItem extends React.Component {
     }
 
     renderNavigation(child) {
-        const { disabled, expanded, onSelect, id } = this.props;
+        const { animation, disabled, expanded, onSelect, id } = this.props;
         const navigationProps = {
+            animation: animation,
             ...child.props,
             expanded: disabled ? !disabled : expanded,
             parentId: id,
             onSelect: onSelect
         };
 
-        const children = (<PanelBarNavigation {...navigationProps } key={id + "_navigation"}/>);
+        let children = null;
 
-        return (
-            <PanelBarAnimationContainer expand={navigationProps.expanded} key={id + "_animation"}>
-                {navigationProps.expanded ? children : null}
-            </PanelBarAnimationContainer>
-        );
+        if (navigationProps.expanded) {
+            children = (<PanelBarNavigation {...navigationProps } key={id + "_navigation"}/>);
+        }
+
+        if (animation !== false) {
+            return (
+                <PanelBarAnimationContainer expand={navigationProps.expanded} key={id + "_animation"}>
+                    {children}
+                </PanelBarAnimationContainer>
+            );
+        }
+
+        return children;
     }
 
     renderContent(child) {
-        const { disabled, expanded, id } = this.props;
+        const { animation, disabled, expanded, id } = this.props;
         const contentProps = {
             ...child.props,
             expanded: disabled ? !disabled : expanded
         };
 
-        const children = (<PanelBarContent {...contentProps} key={id + "_content"}/>);
+        let children = null;
 
-        return (
-            <PanelBarAnimationContainer expand={contentProps.expanded} key={id + "_animation"}>
-                {contentProps.expanded ? children : null}
-            </PanelBarAnimationContainer>
-        );
+        if (contentProps.expanded) {
+            children = (<PanelBarContent {...contentProps} key={id + "_content"}/>);
+        }
+
+        if (animation !== false) {
+            return (
+                <PanelBarAnimationContainer expand={contentProps.expanded} key={id + "_animation"}>
+                    {children}
+                </PanelBarAnimationContainer>
+            );
+        }
+
+        return children;
     }
 
     render() {
@@ -143,7 +161,7 @@ export default class PanelBarItem extends React.Component {
         };
 
         const arrow = (!disabled && children) ? <span {...panelBarItemArrowProps } key={(id + "_arrow")}/> : null;
-
+console.log(title, this.props.animation);
         return (
             <li {...others } {...panelBarItemProps }>
                 <span {...panelBarItemSpanProps } key={(id + "_title")}>

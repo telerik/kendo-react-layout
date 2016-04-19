@@ -4,6 +4,7 @@ import PanelBarNavigation from "./PanelBarNavigation";
 import PanelBarItem from "./PanelBarItem";
 
 const propTypes = {
+    animation: React.PropTypes.bool,
     children: function(props, propName) {
         const prop = props[propName];
 

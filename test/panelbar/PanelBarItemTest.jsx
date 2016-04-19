@@ -139,6 +139,46 @@ describe('PanelBarItem', () => {
         expect(result.hasClass('k-state-active')).toEqual(true);
     });
 
+    it('should wrap child content in animation container', () => {
+        result = shallow(<PanelBarItem expanded>
+            <PanelBarContent>SomeContent</PanelBarContent>
+        </PanelBarItem>);
+
+        expect(result.find("PanelBarAnimationContainer").length).toEqual(1);
+    });
+
+    it('should wrap child items in animation container', () => {
+        result = shallow(<PanelBarItem expanded>
+            <PanelBarNavigation>
+                <PanelBarItem expanded>
+                    <PanelBarContent>SomeContent</PanelBarContent>
+                </PanelBarItem>
+            </PanelBarNavigation>
+        </PanelBarItem>);
+
+        expect(result.find("PanelBarAnimationContainer").length).toEqual(1);
+    });
+
+    it('should not wrap child content in animation container', () => {
+        result = shallow(<PanelBarItem expanded animation={false}>
+            <PanelBarContent>SomeContent</PanelBarContent>
+        </PanelBarItem>);
+
+        expect(result.find("PanelBarAnimationContainer").length).toEqual(0);
+    });
+
+    it('should not wrap child items in animation container', () => {
+        result = shallow(<PanelBarItem expanded animation={false}>
+            <PanelBarNavigation>
+                <PanelBarItem expanded animation={false}>
+                    <PanelBarContent>SomeContent</PanelBarContent>
+                </PanelBarItem>
+            </PanelBarNavigation>
+        </PanelBarItem>);
+
+        expect(result.find("PanelBarAnimationContainer").length).toEqual(0);
+    });
+
     it('should add CSS classes when focused', () => {
         result = shallow(<PanelBarItem focused />);
 
