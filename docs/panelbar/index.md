@@ -6,7 +6,7 @@ slug: overview_panelbar_kendouiforreact
 position: 1
 ---
 
-# PanelBar Overview (draft)
+# PanelBar Overview
 
 The Kendo UI PanelBar for React is a component that displays hierarchical data as a multi-level, expandable component. It is designed as a stateless component, which means that to store its state and configuration options, you should use a high-order component.
 
@@ -16,7 +16,9 @@ The Kendo UI PanelBar for React is part of the Layout `npm` package of the Kendo
 
 //screen goes here - Vasko
 
-*1. Item header | 2. Item | 3. Expand/Collapse arrow*
+1. Item header 
+2. Item
+3. Expand/Collapse arrow
 
 ## Demos
 
