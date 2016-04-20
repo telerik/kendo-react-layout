@@ -144,7 +144,7 @@ describe('PanelBarItem', () => {
             <PanelBarContent>SomeContent</PanelBarContent>
         </PanelBarItem>);
 
-        expect(result.find("PanelBarAnimationContainer").length).toEqual(1);
+        expect(result.find("Expand").length).toEqual(1);
     });
 
     it('should wrap child items in animation container', () => {
@@ -156,7 +156,7 @@ describe('PanelBarItem', () => {
             </PanelBarNavigation>
         </PanelBarItem>);
 
-        expect(result.find("PanelBarAnimationContainer").length).toEqual(1);
+        expect(result.find("Expand").length).toEqual(1);
     });
 
     it('should not wrap child content in animation container', () => {
