@@ -462,7 +462,7 @@ The [`onBlur`]({% slug api_panelbar_kendouiforreact %}#onblur-function) event fi
 
 ## Accessibility
 
-//TBD applicable? - The PanelBar is WAI ARIA-accessible through the `Tab` key. The `aria-valuemin`, `aria-valuemax`, and `aria-valuetext` properties define the accessibility values when the user drags the handle of the Slider or interacts with the Slider through its buttons.
+The PanelBar provides support for WAI ARIA-accessible high-order component by setting the `aria-expanded`, `aria-selected` and `aria-hidden` properties depending on the [`selected`](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md#selected-booleandefault-false), [`expanded`](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md#expanded-booleandefault-false), [`disabled`](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md#disabled-booleandefault-false).
 
 ## Suggested Links
 
