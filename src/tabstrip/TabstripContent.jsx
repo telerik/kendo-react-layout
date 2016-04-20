@@ -2,6 +2,7 @@ import * as React from 'react';
 import styles from '@telerik/kendo-theme-default/styles/tabstrip/main';
 import animationStyles from '@telerik/kendo-theme-default/styles/animation/main';
 import { Toggle } from '@telerik/kendo-react-animation';
+import util from './util';
 
 const propTypes = {
     animation: React.PropTypes.bool,
@@ -21,10 +22,9 @@ class TabstripContent extends React.Component {
         };
 
         const element = elements[this.props.selected];
-        const key = new Date().getTime();
 
         let content = (
-            <div {...contentProps} key={key}>
+            <div {...contentProps} key={util.guid()}>
                 {element.props.children}
             </div>
         );
