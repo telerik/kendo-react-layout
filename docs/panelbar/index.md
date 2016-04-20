@@ -37,7 +37,7 @@ The example below demonstrates the default setup of a Kendo UI PanelBar for Reac
 
 ### Items
 
-By default, the PanelBar animates the appear and disappear of the PanelBarItems content. You can disable the animation by setting the [`animation`](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md#animation-booleandefault-true) option to `false`.
+By default, the PanelBar animates the appear and disappear of the PanelBarItems content. You can disable the animation by setting the [`animation`]({% slug api_panelbar_kendouiforreact %}#animation-booleandefault-true) option to `false`.
 
 ```html
 <div id="app"></div>
@@ -81,7 +81,7 @@ By default, the PanelBar animates the appear and disappear of the PanelBarItems 
     );
 ```
 
-By default, the PanelBar enables you to make its content appear by setting the [`expanded`](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md#expanded-booleandefault-false) option to `true`. When configured to `false`, it hides the content.
+By default, the PanelBar enables you to make its content appear by setting the [`expanded`]({% slug api_panelbar_kendouiforreact %}#expanded-booleandefault-false) option to `true`. When configured to `false`, it hides the content.
 
 ```html
 <div id="app"></div>
@@ -111,7 +111,7 @@ By default, the PanelBar enables you to make its content appear by setting the [
     );
 ```
 
-Setting the [`disabled`](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md#disabled-booleandefault-false) option from its default `false` configuration to `true` disables the selection and display of a PanelBar item. This means that its content cannot be expanded and the item cannot be selected.
+Setting the [`disabled`]({% slug api_panelbar_kendouiforreact %}#disabled-booleandefault-false) option from its default `false` configuration to `true` disables the selection and display of a PanelBar item. This means that its content cannot be expanded and the item cannot be selected.
 
 ```html
 <div id="app"></div>
@@ -146,7 +146,7 @@ Setting the [`disabled`](https://github.com/telerik/kendo-react-layout/blob/mast
     );
 ```
 
-The PanelBar enables you to add selected CSS styles to an item of your choice by configuring the [`selected`](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md#selected-booleandefault-false) option from its `false` setting to `true`.
+The PanelBar enables you to add selected CSS styles to an item of your choice by configuring the [`selected`]({% slug api_panelbar_kendouiforreact %}#selected-booleandefault-false) option from its `false` setting to `true`.
 
 ```html
 <div id="app"></div>
@@ -168,7 +168,7 @@ The PanelBar enables you to add selected CSS styles to an item of your choice by
     );
 ```
 
-The PanelBar enables you to add focused CSS styles to an item of your choice by configuring the [`focused`](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md#focused-booleandefault-false) option from its `false` setting to `true`.
+The PanelBar enables you to add focused CSS styles to an item of your choice by configuring the [`focused`]({% slug api_panelbar_kendouiforreact %}#focused-booleandefault-false) option from its `false` setting to `true`.
 
 ```html
 <div id="app"></div>
@@ -190,7 +190,7 @@ The PanelBar enables you to add focused CSS styles to an item of your choice by 
     );
 ```
 
-The PanelBar enables you to set a title of your choice to any of its items. By default, the [`title`](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md#title-stringdefault-untitled) option is set to `untitled`.
+The PanelBar enables you to set a title of your choice to any of its items. By default, the [`title`]({% slug api_panelbar_kendouiforreact %}#title-stringdefault-untitled) option is set to `untitled`.
 
 ```html
 <div id="app"></div>
@@ -213,7 +213,7 @@ The PanelBar enables you to set a title of your choice to any of its items. By d
     );
 ```
 
-By setting the [`id`](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md#id-stringnumber) option of the PanelBar, you are able to determine the key of the item so it is uniquely identified between render passes. This setting is required.
+By setting the [`id`]({% slug api_panelbar_kendouiforreact %}#id-stringnumber) option of the PanelBar, you are able to determine the key of the item so it is uniquely identified between render passes. This setting is required.
 
 ```html
 <div id="app"></div>
@@ -239,7 +239,7 @@ By setting the [`id`](https://github.com/telerik/kendo-react-layout/blob/master/
 
 The PanelBar is designed as a stateless component. To store its state and configuration properties, wrap it in a high-order component.
 
-The [`onSelect`](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md#onselect-function) event fires each time a user selects a PanelBar item. This is handled by the parent component.
+The [`onSelect`]({% slug api_panelbar_kendouiforreact %}#onselect-function) event fires each time a user selects a PanelBar item. This is handled by the parent component.
 
 ```html
 <div id="app"></div>
@@ -273,7 +273,7 @@ The [`onSelect`](https://github.com/telerik/kendo-react-layout/blob/master/docs/
     );
 ```
 
-The [`onKeyDown`](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md#onkeydown-function) event fires each time a user presses keyboard key and the component is focused.
+The [`onKeyDown`]({% slug api_panelbar_kendouiforreact %}#onkeydown-function) event fires each time a user presses keyboard key and the component is focused.
 
 ```html
 <div id="app"></div>
@@ -382,7 +382,7 @@ The [`onKeyDown`](https://github.com/telerik/kendo-react-layout/blob/master/docs
     );
 ```
 
-The [`onFocus`](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md#onfocus-function) event fires each time a user focus the component.
+The [`onFocus`]({% slug api_panelbar_kendouiforreact %}#onfocus-function) event fires each time a user focus the component.
 
 ```html
 <div id="app"></div>
@@ -421,7 +421,7 @@ The [`onFocus`](https://github.com/telerik/kendo-react-layout/blob/master/docs/p
     );
 ```
 
-The [`onBlur`](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md#onblur-function) event fires each time a user blur the component (the focus is moved to another item on the page).
+The [`onBlur`]({% slug api_panelbar_kendouiforreact %}#onblur-function) event fires each time a user blur the component (the focus is moved to another item on the page).
 
 ```html
 <div id="app"></div>
