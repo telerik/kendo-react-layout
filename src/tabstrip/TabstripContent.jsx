@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styles from '@telerik/kendo-theme-default/styles/tabstrip/main';
-import ReactTransitionGroup from 'react-addons-transition-group';
+import animationStyles from '@telerik/kendo-theme-default/styles/animation/main';
+import { Toggle } from '@telerik/kendo-react-animation';
 
 const propTypes = {
     animation: React.PropTypes.bool,
@@ -12,26 +13,7 @@ const propTypes = {
     style: React.PropTypes.object
 };
 
-const requestAnimationFrame = window.requestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        window.webkitRequestAnimationFrame ||
-        (fn => window.setTimeout(fn, 20));
-
 class TabstripContent extends React.Component {
-    componentWillEnter() {
-        const { content } = this.refs;
-        requestAnimationFrame(() => {
-            if (content) {
-                content.children[0].className = 'k-state-active k-content k-hide';
-            }
-            requestAnimationFrame(() => {
-                if (content) {
-                    content.children[0].className = 'k-state-active k-content k-reveal';
-                }
-            });
-        });
-    }
-
     renderContent(elements) {
         const contentProps = {
             'role': 'tabpanel',
@@ -39,9 +21,10 @@ class TabstripContent extends React.Component {
         };
 
         const element = elements[this.props.selected];
+        const key = new Date().getTime();
 
         let content = (
-            <div {...contentProps}>
+            <div {...contentProps} key={key}>
                 {element.props.children}
             </div>
         );
@@ -55,10 +38,15 @@ class TabstripContent extends React.Component {
     }
 
     addAnimation(content) {
+        const toggleClassNames = {
+            enter: animationStyles['toggle-enter'],
+            enterActive: animationStyles['toggle-enter-active']
+        };
+
         return (
-            <ReactTransitionGroup component="div" componentWillEnter={this.componentWillEnter()}>
+            <Toggle name={toggleClassNames} toggleTimeout={500}>
                 {content}
-            </ReactTransitionGroup>
+            </Toggle>
         );
     }
 
