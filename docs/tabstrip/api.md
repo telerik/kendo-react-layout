@@ -10,31 +10,25 @@ position: 2
 
 Represents the Kendo UI TabStrip component for React.
 
-## Animating
+## Animation
 
 #### animation `boolean` *(default: true)*
 
 Enables or disables animation for the tabs.
 
-## Tab Titles
+## Tabs
 
 #### title `String`
 
 Sets the title of a tab. Used as an attribute on a Tab.
 
-## Tab Position
-
 #### tabPosition `String` *(default: 'top')*
 
 Sets the position of the navigation tabs. Can be set to `top`, `bottom`, `left` and `right`.
 
-## Selection
-
 #### selected `Number` *(default: 1)*
 
 Determines which tab to be selected upon the initial loading of the TabStrip.
-
-## Disabled Tabs
 
 #### disabled `Attribute`
 
