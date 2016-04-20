@@ -5,7 +5,7 @@ import styles from '@telerik/kendo-theme-default/styles/panelbar/main';
 import PanelBarNavigation from "./PanelBarNavigation";
 import PanelBarContent from "./PanelBarContent";
 import classNames from 'classnames';
-import PanelBarAnimationContainer from './PanelBarAnimationContainer';
+import { Expand } from '@telerik/kendo-react-animation';
 
 const propTypes = {
     animation: React.PropTypes.bool,
@@ -91,9 +91,9 @@ export default class PanelBarItem extends React.Component {
 
         if (animation !== false) {
             return (
-                <PanelBarAnimationContainer expand={navigationProps.expanded} key={id + "_animation"}>
+                <Expand key={id + "_animation"}>
                     {children}
-                </PanelBarAnimationContainer>
+                </Expand>
             );
         }
 
@@ -115,9 +115,9 @@ export default class PanelBarItem extends React.Component {
 
         if (animation !== false) {
             return (
-                <PanelBarAnimationContainer expand={contentProps.expanded} key={id + "_animation"}>
+                <Expand key={id + "_animation"}>
                     {children}
-                </PanelBarAnimationContainer>
+                </Expand>
             );
         }
 
