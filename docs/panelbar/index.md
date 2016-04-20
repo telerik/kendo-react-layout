@@ -466,4 +466,4 @@ The [`onBlur`]({% slug api_panelbar_kendouiforreact %}#onblur-function) event fi
 
 ## Suggested Links
 
-* [Client-Side API Reference for the Kendo UI PanelBar Component](https://github.com/telerik/kendo-react-inputs/blob/master/docs/panelbar/api.md)
+* [Client-Side API Reference for the Kendo UI PanelBar Component]({% slug api_panelbar_kendouiforreact %})
