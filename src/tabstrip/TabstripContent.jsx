@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styles from '@telerik/kendo-theme-default/styles/tabstrip/main';
-import animationStyles from '@telerik/kendo-theme-default/styles/animation/main';
-import { Toggle } from '@telerik/kendo-react-animation';
+import animationStyles from '@telerik/kendo-theme-default/styles/animation/main'; //eslint-disable-line
+import { FadeIn } from '@telerik/kendo-react-animation';
 import util from './util';
 
 const propTypes = {
@@ -38,15 +38,10 @@ class TabstripContent extends React.Component {
     }
 
     addAnimation(content) {
-        const toggleClassNames = {
-            enter: animationStyles['toggle-enter'],
-            enterActive: animationStyles['toggle-enter-active']
-        };
-
         return (
-            <Toggle name={toggleClassNames} toggleTimeout={500}>
+            <FadeIn>
                 {content}
-            </Toggle>
+            </FadeIn>
         );
     }
 

@@ -14,8 +14,8 @@
     "React"
   ],
   "dependencies": {
-    "@telerik/kendo-react-animation": "^0.2.2",
-    "@telerik/kendo-theme-default": "telerik/kendo-theme-default#master",
+    "@telerik/kendo-react-animation": "^0.2.4",
+    "@telerik/kendo-theme-default": "^1.7.0",
     "classnames": "^2.1.5",
     "keycode": "^2.1.0"
   },
