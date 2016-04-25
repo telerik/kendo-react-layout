@@ -15,7 +15,7 @@
   ],
   "dependencies": {
     "@telerik/kendo-react-animation": "^0.2.4",
-    "@telerik/kendo-theme-default": "^1.7.0",
+    "@telerik/kendo-theme-default": "^1.8.0",
     "classnames": "^2.1.5",
     "keycode": "^2.1.0"
   },
@@ -29,7 +29,7 @@
     "ghooks": "^1.0.3",
     "gulp": "3.9.0",
     "@telerik/kendo-react-tasks": "^1.0.0",
-    "@telerik/kendo-theme-default": "telerik/kendo-theme-default#master",
+    "@telerik/kendo-theme-default": "^1.8.0",
     "validate-commit-msg": "^1.1.1",
     "semantic-release": "^4.3.5"
   },
