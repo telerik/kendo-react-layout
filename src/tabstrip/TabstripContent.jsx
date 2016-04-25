@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styles from '@telerik/kendo-theme-default/styles/tabstrip/main';
 import animationStyles from '@telerik/kendo-theme-default/styles/animation/main'; //eslint-disable-line
-import { FadeIn } from '@telerik/kendo-react-animation';
+import { Fade } from '@telerik/kendo-react-animation';
 import util from './util';
 
 const propTypes = {
@@ -21,27 +21,14 @@ class TabstripContent extends React.Component {
             'aria-expanded': 'true'
         };
 
-        const element = elements[this.props.selected];
+        const tab = elements[this.props.selected];
 
-        let content = (
-            <div {...contentProps} key={util.guid()}>
-                {element.props.children}
-            </div>
-        );
-
-        if (this.props.animation !== false) {
-            content = this.addAnimation(content);
-        }
-
-        return content;
-
-    }
-
-    addAnimation(content) {
         return (
-            <FadeIn>
-                {content}
-            </FadeIn>
+            <Fade animateOnFadeIn={this.props.animation}>
+                <div {...contentProps} key={util.guid()}>
+                    {tab.props.children}
+                </div>
+            </Fade>
         );
     }
 
