@@ -14,11 +14,11 @@ The TabStrip is part of the Layout `npm` package of the Kendo UI suite for React
 
 **Figure 1: A template of the Kendo UI TabStrip for React**
 
-//TODO: template screen, parts indicated
+![Template of the Kendo UI TabStrip for React](images/tabstrip.png)
 
-1. Tab titles
-2. Tab page
-3. Tab title row
+1. Active tab
+2. Inactive tab
+3. Content area
 
 ## Demos
 
@@ -184,7 +184,7 @@ The tabs will be animated when the selection is changed. By default, the animati
 
 ### Tabs
 
-Below are demonstrated the configuration properties that enable you to set the tabs of the TabStrip component. 
+Below are demonstrated the configuration properties that enable you to set the tabs of the TabStrip component.
 
 **Titles**
 
@@ -494,4 +494,4 @@ The TabStrip is WAI ARIA-accessible through the `Tab` key. The `aria-expanded` a
 
 ## Suggested Links
 
-* [Client-Side API Reference for the Kendo UI TabStrip Component](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/api.md)
+* [API Reference of the TabStrip Component](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/api.md)

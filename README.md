@@ -14,7 +14,7 @@
 
 This repository contains the source code and documentation of the Kendo UI Layout components for React.
 
-The Layout package includes the Tabstrip and PanelBar components.
+The Layout package includes the Kendo UI Tabstrip and PanelBar components for React.
 
 For more information on upcoming Layout package features and components, refer to the [Roadmap](https://github.com/telerik/kendo-react-layout/blob/master/docs/roadmap.md).
 
@@ -80,7 +80,7 @@ For more examples and available configuration options, refer to the [PanelBar do
 
 ## Installation
 
-The React Layout components are published as a [public scoped NPM package](https://docs.npmjs.com/misc/scope) in the [Telerik organization](https://www.npmjs.com/~telerik) in `http://npmjs.org/`.
+The React Layout components are published as a [public scoped NPM package](https://docs.npmjs.com/misc/scope) in the [Telerik organization](https://www.npmjs.com/~telerik) in http://npmjs.org/.
 
 Install it using NPM:
 
