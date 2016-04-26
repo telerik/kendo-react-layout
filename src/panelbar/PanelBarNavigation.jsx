@@ -1,7 +1,5 @@
 import * as React from 'react';
-
 import styles from '@telerik/kendo-theme-default/styles/panelbar/main';
-
 import classNames from 'classnames';
 import PanelBarItem from './PanelBarItem';
 
@@ -11,7 +9,6 @@ const propTypes = {
         const prop = props[propName];
 
         if (prop) {
-            //TODO: instead use: if (Object.prototype.toString.call(obj) == '[object Array]')
             if (prop instanceof Array) {
                 for (let value of prop) {
                     if (!value.type || value.type !== PanelBarItem) {
@@ -25,8 +22,9 @@ const propTypes = {
             }
         }
     },
+    className: React.PropTypes.string,
     expanded: React.PropTypes.bool,
-    isMaster: React.PropTypes.bool,
+    root: React.PropTypes.bool,
     onSelect: React.PropTypes.func,
     onKeyDown: React.PropTypes.func,
     onFocus: React.PropTypes.func,
@@ -39,12 +37,10 @@ const propTypes = {
 };
 
 export default class PanelBarNavigation extends React.Component {
-    mapComponents(props) {
-        return React.Children.map(props.children, (child) => {
-            if (React.isValidElement(child)) {
-                return this.renderItem(child);
-            }
-        });
+    renderChildren(children) {
+        return React.Children.toArray(children)
+            .filter(React.isValidElement)
+            .map(this.renderItem, this);
     }
 
     renderItem(child) {
@@ -60,29 +56,27 @@ export default class PanelBarNavigation extends React.Component {
     }
 
     render() {
-        const { expanded, isMaster, ...others } = this.props;
+        const { expanded, root, className, ...others } = this.props;
 
         const panelBarItemsClasses = classNames({
-            [styles['panel']]: !isMaster,
-            [styles['widget']]: isMaster,
-            [styles['reset']]: isMaster,
-            [styles['header']]: isMaster,
-            [styles['panelbar']]: isMaster
-        });
+            [styles['panel']]: !root,
+            [styles['widget']]: root,
+            [styles['reset']]: root,
+            [styles['header']]: root,
+            [styles['panelbar']]: root
+        }, className);
 
-        const inlineStyles = {
-            'display': expanded ? 'block' : 'none'
-        };
-
-        let props = {
+        const props = {
             ...others,
-            style: inlineStyles,
+            style: {
+                display: expanded ? 'block' : 'none'
+            },
             className: panelBarItemsClasses
         };
 
         return (
             <ul {...props }>
-                {this.mapComponents(this.props)}
+                {this.renderChildren(this.props.children)}
             </ul>
         );
     }

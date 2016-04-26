@@ -20,6 +20,13 @@ describe('PanelBarContent', () => {
         expect(result.hasClass('k-content')).toEqual(true);
     });
 
+    it('should add custom CSS classes', () => {
+        result = shallow(<PanelBarContent className="customClass" />);
+
+        expect(result.hasClass('k-content')).toEqual(true);
+        expect(result.hasClass('customClass')).toEqual(true);
+    });
+
     it('should render invisible', () => {
         result = shallow(<PanelBarContent active={false} />);
 

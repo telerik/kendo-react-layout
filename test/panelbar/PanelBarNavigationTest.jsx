@@ -48,7 +48,7 @@ describe('PanelBarNavigation', () => {
     });
 
     it('should add master CSS classes', () => {
-        result = shallow(<PanelBarNavigation isMaster />);
+        result = shallow(<PanelBarNavigation root />);
 
         expect(result.hasClass('k-panelbar')).toEqual(true);
         expect(result.hasClass('k-widget')).toEqual(true);
@@ -66,6 +66,13 @@ describe('PanelBarNavigation', () => {
         expect(result.hasClass('k-header')).toEqual(false);
         expect(result.hasClass('k-panelbar')).toEqual(false);
         expect(result.hasClass('k-panel')).toEqual(true);
+    });
+
+    it('should add custom CSS classes', () => {
+        result = shallow(<PanelBarNavigation className="customClass" />);
+
+        expect(result.hasClass('k-panel')).toEqual(true);
+        expect(result.hasClass('customClass')).toEqual(true);
     });
 
     it('should add tabIndex', () => {
