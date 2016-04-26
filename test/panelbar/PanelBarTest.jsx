@@ -16,12 +16,12 @@ describe('PanelBar', () => {
         expect(result.type().name).toEqual('PanelBarNavigation');
     });
 
-    it('should set isMaster to children', () => {
+    it('should set root to children', () => {
         result = shallow(<PanelBar />);
 
         let items = result.find(PanelBarNavigation);
 
-        expect(items.first().props().isMaster).toEqual(true);
+        expect(items.first().props().root).toEqual(true);
     });
 
     it('should pass custom props to children', () => {

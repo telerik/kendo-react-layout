@@ -1,7 +1,5 @@
 import * as React from 'react';
-
 import styles from '@telerik/kendo-theme-default/styles/panelbar/main';
-
 import PanelBarNavigation from "./PanelBarNavigation";
 import PanelBarContent from "./PanelBarContent";
 import classNames from 'classnames';
@@ -13,7 +11,7 @@ const propTypes = {
         let prop = props[propName];
 
         if (prop) {
-            //TODO: instead use: if (Object.prototype.toString.call(obj) == '[object Array]')
+            //TODO: Utility function shared across classes.
             if (prop instanceof Array) {
                 return new Error('Children should be either PanelBarContent or PanelBarNavigation.');
             }
@@ -23,6 +21,7 @@ const propTypes = {
             }
         }
     },
+    className: React.PropTypes.string,
     expanded: React.PropTypes.bool,
     disabled: React.PropTypes.bool,
     onSelect: React.PropTypes.func,
@@ -42,14 +41,12 @@ const propTypes = {
     focused: React.PropTypes.bool
 };
 
+const defaultProps = {
+    title: 'Untitled'
+};
+
 export default class PanelBarItem extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.onSelectHandler = this.onSelect.bind(this);
-    }
-
-    onSelect() {
+    onSelect = () => {
         if (this.props.onSelect) {
             const { expanded, id, parentId } = this.props;
 
@@ -61,71 +58,30 @@ export default class PanelBarItem extends React.Component {
         }
     }
 
-    mapComponents(child) {
+    renderChild(child) {
         if (React.isValidElement(child)) {
-            if (child && child.type === PanelBarNavigation) {
-                return this.renderNavigation(child);
-            }
-
-            return this.renderContent(child);
+            return this.renderContent(child.type.create(this.props, child.props));
         }
 
         return child;
     }
 
-    renderNavigation(child) {
-        const { animation, disabled, expanded, onSelect, id } = this.props;
-        const navigationProps = {
-            animation: animation,
-            ...child.props,
-            expanded: disabled ? !disabled : expanded,
-            parentId: id,
-            onSelect: onSelect
-        };
-
-        let children = null;
-
-        if (navigationProps.expanded) {
-            children = (<PanelBarNavigation {...navigationProps } key={id + "_navigation"}/>);
-        }
-
-        if (animation !== false) {
-            return (
-                <Expand key={id + "_animation"}>
-                    {children}
-                </Expand>
-            );
-        }
-
-        return children;
-    }
-
     renderContent(child) {
-        const { animation, disabled, expanded, id } = this.props;
-        const contentProps = {
-            ...child.props,
-            expanded: disabled ? !disabled : expanded
-        };
-
-        let children = null;
-
-        if (contentProps.expanded) {
-            children = (<PanelBarContent {...contentProps} key={id + "_content"}/>);
-        }
+        const { animation, id } = this.props;
 
         if (animation !== false) {
             return (
                 <Expand key={id + "_animation"}>
-                    {children}
+                    {child}
                 </Expand>
             );
         }
 
-        return children;
+        return child;
     }
 
     render() {
-        const { children, expanded, title = 'Untitled', disabled, selected, focused, id, ...others } = this.props;
+        const { children, expanded, title, disabled, selected, focused, id, className, ...others } = this.props;
 
         const panelBarItemProps = {
             'role': 'menuitem',
@@ -137,11 +93,11 @@ export default class PanelBarItem extends React.Component {
                 [styles['state-default']]: !disabled,
                 [styles['state-disabled']]: disabled,
                 [styles['state-active']]: !disabled && expanded
-            })
+            }, className)
         };
 
         const panelBarItemSpanProps = {
-            'onClick': !disabled ? this.onSelectHandler : null,
+            'onClick': !disabled ? this.onSelect : null,
             'className': classNames({
                 [styles['link']]: true,
                 [styles['header']]: true,
@@ -168,10 +124,11 @@ export default class PanelBarItem extends React.Component {
                     {title}
                     {arrow}
                 </span>
-                {this.mapComponents(children)}
+                {this.renderChild(children)}
             </li>
         );
     }
 }
 
 PanelBarItem.propTypes = propTypes;
+PanelBarItem.defaultProps = defaultProps;

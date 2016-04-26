@@ -12,6 +12,19 @@ const propTypes = {
 };
 
 export default class PanelBarContent extends React.Component {
+    static create({ disabled, expanded, id }, props) {
+        if (!disabled && expanded) {
+            const contentProps = {
+                ...props,
+                expanded: expanded
+            };
+
+            return (<PanelBarContent {...contentProps} key={id + "_content"}/>);
+        }
+
+        return null;
+    }
+
     render() {
         const { children, expanded, className, ...others } = this.props;
 

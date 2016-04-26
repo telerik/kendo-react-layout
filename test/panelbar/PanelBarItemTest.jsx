@@ -131,6 +131,13 @@ describe('PanelBarItem', () => {
         expect(result.hasClass('k-state-default')).toEqual(true);
     });
 
+    it('should add custom CSS classes', () => {
+        result = shallow(<PanelBarItem className="customClass" />);
+
+        expect(result.hasClass('k-item')).toEqual(true);
+        expect(result.hasClass('customClass')).toEqual(true);
+    });
+
     it('should add CSS classes when expanded', () => {
         result = shallow(<PanelBarItem expanded />);
 

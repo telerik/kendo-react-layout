@@ -55,6 +55,22 @@ export default class PanelBarNavigation extends React.Component {
         return (<PanelBarItem {...itemProps} />);
     }
 
+    static create({ animation, disabled, expanded, onSelect, id }, props) {
+        if (!disabled && expanded) {
+            const navigationProps = {
+                animation: animation,
+                ...props,
+                expanded: expanded,
+                parentId: id,
+                onSelect: onSelect
+            };
+
+            return (<PanelBarNavigation {...navigationProps } key={id + "_navigation"}/>);
+        }
+
+        return null;
+    }
+
     render() {
         const { expanded, root, className, ...others } = this.props;
 
