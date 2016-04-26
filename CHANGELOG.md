@@ -1,0 +1,51 @@
+<a name="0.1.0"></a>
+# 0.1.0 (2016-04-26)
+
+
+### Bug Fixes
+
+* **tabstrip** use only Tabstrip styles([40d57cb](https://github.com/telerik/kendo-react-layout/commit/40d57cb))
+* **panelbar:** update kendo-react-tasks to fix CDN issues([b04ef62](https://github.com/telerik/kendo-react-layout/commit/b04ef62))
+* **panelbar-content:** fix incorrect property type validation([045c1f6](https://github.com/telerik/kendo-react-layout/commit/045c1f6))
+* **panelbar-navigation:** children are not passed correctly to nested component([b0f8d26](https://github.com/telerik/kendo-react-layout/commit/b0f8d26))
+* **tabstrip:** set width and height based on parent component props([9900298](https://github.com/telerik/kendo-react-layout/commit/9900298))
+
+
+### Features
+
+* **kendo-panelbar:** add ability to show and hide panels([a286b4e](https://github.com/telerik/kendo-react-layout/commit/a286b4e))
+* **kendo-react-panelbar:** add stateful component in demos section([7b6cbb5](https://github.com/telerik/kendo-react-layout/commit/7b6cbb5))
+* **kendo-react-tabstrip:** move the Tabstrip to layout package([e0451c8](https://github.com/telerik/kendo-react-layout/commit/e0451c8))
+* **kendopanelbar:** add select event([3a7ec20](https://github.com/telerik/kendo-react-layout/commit/3a7ec20))
+* **kendopanelbaritem:** add aria attributes([82c35cd](https://github.com/telerik/kendo-react-layout/commit/82c35cd))
+* **kendopanelbaritem:** hide children when disabled([074cf8d](https://github.com/telerik/kendo-react-layout/commit/074cf8d))
+* **kendopanelbarnavigation:** add unique key support to child items needed for proper event handling([25ae6fe](https://github.com/telerik/kendo-react-layout/commit/25ae6fe))
+* **kendoreactpanelbar:** add support for selectedKey([d729549](https://github.com/telerik/kendo-react-layout/commit/d729549))
+* **layout:** add react router as dev dependency([1af93cb](https://github.com/telerik/kendo-react-layout/commit/1af93cb))
+* **layout:** export Panelbar classes([681b91b](https://github.com/telerik/kendo-react-layout/commit/681b91b))
+* **panelbar:** add ability to disable animation([eeb5294](https://github.com/telerik/kendo-react-layout/commit/eeb5294))
+* **panelbar:** add expand collapse icons([2c7a640](https://github.com/telerik/kendo-react-layout/commit/2c7a640))
+* **panelbar:** add kendo-react-animation dependency([42b9361](https://github.com/telerik/kendo-react-layout/commit/42b9361))
+* **panelbar:** add keydown handler required for implementing keyboard navigation([0c4f2f0](https://github.com/telerik/kendo-react-layout/commit/0c4f2f0))
+* **panelbar:** add support for blur and focus events to the navigation([35282cc](https://github.com/telerik/kendo-react-layout/commit/35282cc))
+* **panelbar:** add util functions for mapping data to components([cec19b1](https://github.com/telerik/kendo-react-layout/commit/cec19b1))
+* **panelbar:** automatically set the id as item key([5f34a07](https://github.com/telerik/kendo-react-layout/commit/5f34a07))
+* **panelbar:** change animation to expand([cb097d1](https://github.com/telerik/kendo-react-layout/commit/cb097d1))
+* **panelbar:** implement animation for collapse / expand([b1abaec](https://github.com/telerik/kendo-react-layout/commit/b1abaec))
+* **panelbar:** make onKeyDown event preventable([224156a](https://github.com/telerik/kendo-react-layout/commit/224156a))
+* **panelbar-item:** add ability to disable tabs([0cb8e1c](https://github.com/telerik/kendo-react-layout/commit/0cb8e1c))
+* **panelbar-item:** add class to first and last item([0920482](https://github.com/telerik/kendo-react-layout/commit/0920482))
+* **panelbar-item:** allow selecting panels([6b006cc](https://github.com/telerik/kendo-react-layout/commit/6b006cc))
+* **panelbaritem:** add support for id and parentId props([8dc7f1e](https://github.com/telerik/kendo-react-layout/commit/8dc7f1e))
+* **panelbarnavigation:** add support for id and parentId props([6d6697f](https://github.com/telerik/kendo-react-layout/commit/6d6697f))
+* **styling:** Add reference to the theme base([45e54f9](https://github.com/telerik/kendo-react-layout/commit/45e54f9))
+* **tabstrip:** add main file for CDN build([15a22e7](https://github.com/telerik/kendo-react-layout/commit/15a22e7))
+* **tabstrip:** add option for disabling the tabs animation([ebf38f1](https://github.com/telerik/kendo-react-layout/commit/ebf38f1))
+* **tabstrip:** add react as peer dependency([5d3c3ff](https://github.com/telerik/kendo-react-layout/commit/5d3c3ff))
+* **tabstrip:** add tabPosition configuration property. Closes #1([29ab518](https://github.com/telerik/kendo-react-layout/commit/29ab518)), closes [#1](https://github.com/telerik/kendo-react-layout/issues/1)
+* **tabstrip:** animate only the visible part of the content([6b8b3ad](https://github.com/telerik/kendo-react-layout/commit/6b8b3ad))
+* **tabstrip:** do not set common classes for animation([639e4e9](https://github.com/telerik/kendo-react-layout/commit/639e4e9))
+* **tabstrip:** propagate styling from props([91a9fe4](https://github.com/telerik/kendo-react-layout/commit/91a9fe4))
+* **tabstrip:** render single tab content([cd8d6bd](https://github.com/telerik/kendo-react-layout/commit/cd8d6bd))
+* **tabstrip** change animation([4fd1185](https://github.com/telerik/kendo-react-layout/commit/4fd1185))
+* **panelbar** use default theme css module([77f7851](https://github.com/telerik/kendo-react-layout/commit/77f7851))
