@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import PanelBarNavigation from "./PanelBarNavigation";
 import PanelBarItem from "./PanelBarItem";
 
@@ -9,7 +8,6 @@ const propTypes = {
         const prop = props[propName];
 
         if (prop) {
-            //TODO: instead use: if (Object.prototype.toString.call(obj) == '[object Array]')
             if (prop instanceof Array) {
                 for (let value of prop) {
                     if (!value.type || value.type !== PanelBarItem) {
@@ -23,6 +21,7 @@ const propTypes = {
             }
         }
     },
+    className: React.PropTypes.string,
     onSelect: React.PropTypes.func,
     onKeyDown: React.PropTypes.func,
     onFocus: React.PropTypes.func,
@@ -30,24 +29,18 @@ const propTypes = {
 };
 
 export default class PanelBar extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.onKeyDownHandler = this.onKeyDown.bind(this);
-    }
-
-    onKeyDown(event) {
+    onKeyDown = event => {
         if (this.props.onKeyDown) {
             this.props.onKeyDown(event);
         }
-    }
+    };
 
     render() {
         const panelBarProps = {
             ...this.props,
             expanded: true,
-            isMaster: true,
-            onKeyDown: this.onKeyDownHandler,
+            root: true,
+            onKeyDown: this.onKeyDown,
             parentId: null,
             tabIndex: 0
         };
