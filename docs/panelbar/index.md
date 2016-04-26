@@ -16,7 +16,7 @@ The Kendo UI PanelBar for React is part of the Layout `npm` package of the Kendo
 
 //screen goes here - Vasko
 
-1. Item header 
+1. Item header
 2. Item
 3. Expand/Collapse arrow
 
@@ -359,19 +359,19 @@ The [`onKeyDown`]({% slug api_panelbar_kendouiforreact %}#onkeydown-function) ev
             return (
               <PanelBar onFocus={this.onFocus} onKeyDown={this.onKeyDown}>
                 <PanelBarItem
-                    title="First item title" id="0" 
-                    focused={this.state.focused == "0"} 
-                    selected={this.state.selected == "0"} 
+                    title="First item title" id="0"
+                    focused={this.state.focused == "0"}
+                    selected={this.state.selected == "0"}
                 />
-                <PanelBarItem 
-                    title="Second item title" id="1" 
-                    focused={this.state.focused == "1"} 
-                    selected={this.state.selected == "1"} 
+                <PanelBarItem
+                    title="Second item title" id="1"
+                    focused={this.state.focused == "1"}
+                    selected={this.state.selected == "1"}
                 />
-                <PanelBarItem 
-                    title="Third item title" id="2" 
-                    focused={this.state.focused == "2"} 
-                    selected={this.state.selected == "2"} 
+                <PanelBarItem
+                    title="Third item title" id="2"
+                    focused={this.state.focused == "2"}
+                    selected={this.state.selected == "2"}
                 />
               </PanelBar>);
         }
@@ -466,4 +466,4 @@ The PanelBar provides support for WAI ARIA-accessible high-order component by se
 
 ## Suggested Links
 
-* [Client-Side API Reference for the Kendo UI PanelBar Component]({% slug api_panelbar_kendouiforreact %})
+* [API Reference of the PanelBar Component]({% slug api_panelbar_kendouiforreact %})
