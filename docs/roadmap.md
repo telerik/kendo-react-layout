@@ -20,6 +20,14 @@ These components should go in first release of the Kendo React Layout package
 - predefined selection
 - different tab positions
 
+#### PanelBar
+
+- animation of expanding and collapsing items
+- disabled items
+- predefined focus and selection
+- ARIA attributes based on the state of the items
+- stateless component
+
 ## Later version
 
 Will be included on future iterations
@@ -28,3 +36,12 @@ Will be included on future iterations
 
 - Scrollable tabs
 - RTL support
+
+#### PanelBar
+
+- RTL support
+- ImageUrl option
+- Component for handling keyboard and mouse navigation
+- Component for handling toggle of PanelBar items
+- Component for binding data to components
+- Component for mapping components to data
