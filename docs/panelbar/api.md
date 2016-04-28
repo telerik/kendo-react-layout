@@ -10,6 +10,10 @@ position: 2
 
 Represents the Kendo UI PanelBar component for React.
 
+## Animation
+
+#### animation `Boolean`*(default: "true")*
+
 ## Items
 
 #### animation `Boolean`*(default: "true")*
