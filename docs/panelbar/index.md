@@ -549,15 +549,15 @@ The [`onBlur`]({% slug api_panelbar_kendouiforreact %}#onblur-function) event fi
 
 ## Accessibility
 
-The PanelBar provides support for WAI ARIA-accessible high-order component by setting the `aria-expanded`, `aria-selected` and `aria-hidden` properties depending on the [`selected`](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md#selected-booleandefault-false), [`expanded`](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md#expanded-booleandefault-false), [`disabled`](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/api.md#disabled-booleandefault-false).
+The PanelBar provides support for WAI ARIA-accessible high-order component by setting the `aria-expanded`, `aria-selected` and `aria-hidden` properties depending on the [`selected`]({% slug api_panelbar_kendouiforreact %}#selected-booleandefault-false), [`expanded`]({% slug api_panelbar_kendouiforreact %}#expanded-booleandefault-false), [`disabled`]({% slug api_panelbar_kendouiforreact %}#disabled-booleandefault-false).
 
 ## Routing
 
-The Kendo UI PanelBar for React can easily be integrated with the [react-router](https://github.com/reactjs/react-router). A possible implementation can be found [here](https://github.com/telerik/kendo-react-layout/blob/master/examples/panelbar_routing.jsx).
+The Kendo UI PanelBar for React can be easily integrated with the [React Router](https://github.com/reactjs/react-router). Find a possible implementation [here](https://github.com/telerik/kendo-react-layout/blob/master/examples/panelbar_routing.jsx).
 
 ## Flux
 
-The Kendo UI PanelBar for React can easily be integrated with flux implementations like [redux](https://github.com/reactjs/redux). Example implementation can be found [here](https://github.com/telerik/kendo-react-layout/blob/master/examples/panelbar_basic.jsx).
+The Kendo UI PanelBar for React can be easily integrated with [Flux](https://facebook.github.io/flux/docs/overview.html) implementations like [Redux](https://github.com/reactjs/redux). Find an exemplary implementation [here](https://github.com/telerik/kendo-react-layout/blob/master/examples/panelbar_basic.jsx).
 
 ## Suggested Links
 
