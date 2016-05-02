@@ -177,7 +177,7 @@ By default, the PanelBar enables you to make its content appear by setting the [
     );
 ```
 
-Setting the [`disabled`]({% slug api_panelbar_kendouiforreact %}#disabled-booleandefault-false) option from its default `false` configuration to `true` disables the selection and display of a PanelBar item. This means that its content cannot be expanded and the item cannot be selected.
+Setting the [`disabled`]({% slug api_panelbar_kendouiforreact %}#disabled-booleandefault-false) option from its default `false` configuration to `true` disables the selection and the display of a PanelBar item. This means that its content cannot be expanded, nor its item selected.
 
 ```html-preview
 <div id="app"></div>
