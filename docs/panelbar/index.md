@@ -111,6 +111,12 @@ By default, the PanelBar animates the appear and disappear of the PanelBarItems 
 
 ```html-preview
 <div id="app"></div>
+<style>
+    .k-panelbar {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+</style>
 ```
 ```jsx
     const { PanelBar, PanelBarItem, PanelBarContent } = KendoReactLayout;
@@ -155,6 +161,12 @@ By default, the PanelBar enables you to make its content appear by setting the [
 
 ```html-preview
 <div id="app"></div>
+<style>
+    .k-panelbar {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+</style>
 ```
 ```jsx
     const { PanelBar, PanelBarItem, PanelBarContent } = KendoReactLayout;
@@ -185,6 +197,12 @@ Setting the [`disabled`]({% slug api_panelbar_kendouiforreact %}#disabled-boolea
 
 ```html-preview
 <div id="app"></div>
+<style>
+    .k-panelbar {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+</style>
 ```
 ```jsx
     const { PanelBar, PanelBarItem, PanelBarContent } = KendoReactLayout;
@@ -220,6 +238,12 @@ The PanelBar enables you to add selected CSS styles to an item of your choice by
 
 ```html-preview
 <div id="app"></div>
+<style>
+    .k-panelbar {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+</style>
 ```
 ```jsx
     const { PanelBar, PanelBarItem, PanelBarContent } = KendoReactLayout;
@@ -242,6 +266,12 @@ The PanelBar enables you to add focused CSS styles to an item of your choice by 
 
 ```html-preview
 <div id="app"></div>
+<style>
+    .k-panelbar {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+</style>
 ```
 ```jsx
     const { PanelBar, PanelBarItem, PanelBarContent } = KendoReactLayout;
@@ -264,6 +294,13 @@ The PanelBar enables you to set a title of your choice to any of its items. By d
 
 ```html-preview
 <div id="app"></div>
+<style>
+    .k-panelbar {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+</style>
+
 ```
 ```jsx
     const { PanelBar, PanelBarItem, PanelBarContent } = KendoReactLayout;
@@ -287,6 +324,12 @@ By setting the [`id`]({% slug api_panelbar_kendouiforreact %}#id-stringnumber) o
 
 ```html-preview
 <div id="app"></div>
+<style>
+    .k-panelbar {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+</style>
 ```
 ```jsx
     const { PanelBar, PanelBarItem, PanelBarContent } = KendoReactLayout;
@@ -313,8 +356,14 @@ The [`onSelect`]({% slug api_panelbar_kendouiforreact %}#onselect-function) even
 
 ```html-preview
 <div id="app"></div>
-<span>onSelect event is called with following params: </span>
+<span>onSelect event is called with: </span>
 <span id="log"></span>
+<style>
+    .k-panelbar {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+</style>
 ```
 ```jsx
     const { PanelBar, PanelBarItem, PanelBarContent } = KendoReactLayout;
@@ -351,8 +400,14 @@ The [`onKeyDown`]({% slug api_panelbar_kendouiforreact %}#onkeydown-function) ev
 
 ```html-preview
 <div id="app"></div>
-<span>onKeyDown event is called with following params: </span>
+<span>onKeyDown event is called with: </span>
 <span id="log"></span>
+<style>
+    .k-panelbar {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+</style>
 ```
 ```jsx
     const { PanelBar, PanelBarItem, PanelBarContent } = KendoReactLayout;
@@ -468,6 +523,12 @@ The [`onFocus`]({% slug api_panelbar_kendouiforreact %}#onfocus-function) event 
 ```html-preview
 <div id="app"></div>
 <span id="log"></span>
+<style>
+    .k-panelbar {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+</style>
 ```
 ```jsx
     const { PanelBar, PanelBarItem, PanelBarContent } = KendoReactLayout;
@@ -512,6 +573,12 @@ The [`onBlur`]({% slug api_panelbar_kendouiforreact %}#onblur-function) event fi
 ```html-preview
 <div id="app"></div>
 <span id="log"></span>
+<style>
+    .k-panelbar {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+</style>
 ```
 ```jsx
     const { PanelBar, PanelBarItem, PanelBarContent } = KendoReactLayout;
