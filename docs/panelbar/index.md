@@ -12,6 +12,10 @@ The Kendo UI PanelBar for React is a component that displays hierarchical data a
 
 The Kendo UI PanelBar for React is part of the Layout `npm` package of the Kendo UI suite for React.
 
+**Figure 1: A template of the Kendo UI PanelBar for React**
+
+![Template of the Kendo UI PanelBar for React](images/panelbar.png)
+
 ## Demos
 
 ### Default Setup
