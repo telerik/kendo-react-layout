@@ -7,7 +7,9 @@ import * as reducers from './panelbar/reducers/panelBar';
 import initialState from './panelbar/initialstate';
 
 const rootReducer = Redux.combineReducers({
-    panelBarItems: reducers.multipleExpand
+    //Here you can switch between single and multiple expand modes
+    //panelBarItems: reducers.multipleExpand
+    panelBarItems: reducers.singleExpand
 });
 
 let store = Redux.createStore(rootReducer, initialState());

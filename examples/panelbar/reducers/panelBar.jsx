@@ -100,7 +100,7 @@ function handleActionByExpandMode(state, action, isSingleExpandMode) {
 
         selectItem(newState, targetItem);
         focusItem(newState, targetItem);
-        expandItem(newState, targetItem, false);
+        expandItem(newState, targetItem, isSingleExpandMode);
 
         return newState;
     }
