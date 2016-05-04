@@ -41,7 +41,7 @@ Will be included on future iterations
 
 - RTL support
 - ImageUrl option
-- Component for handling keyboard and mouse navigation
-- Component for handling toggle of PanelBar items
-- Component for binding data to components
-- Component for mapping components to data
+- ARIA compatible keyboard and mouse navigation
+- Full and Single expand modes for PanelBar
+- High-order component for mapping data to components
+- High-order component for mapping components to data
