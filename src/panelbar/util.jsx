@@ -1,7 +1,7 @@
 import * as React from 'react';
-import PanelBarItem from './../../src/panelbar/PanelBarItem';
-import PanelBarNavigation from './../../src/panelbar/PanelBarNavigation';
-import PanelBarContent from './../../src/panelbar/PanelBarContent';
+import PanelBarItem from './PanelBarItem';
+import PanelBarNavigation from './PanelBarNavigation';
+import PanelBarContent from './PanelBarContent';
 
 export function mapDataToComponents(map, parentId = null) {
     return (map[parentId] || []).map(item => {
@@ -17,18 +17,15 @@ export function mapDataToComponents(map, parentId = null) {
             </PanelBarContent>);
         }
 
+        const { id } = item;
+
         const childProps = {
+            ...item,
             children: child,
-            expanded: item.expanded,
-            id: item.id,
-            key: item.id,
-            selected: item.selected,
-            title: item.title,
-            disabled: item.disabled,
-            focused: item.focused
+            id: id
         };
 
-        return (<PanelBarItem {...childProps} />);
+        return (<PanelBarItem {...childProps} key={id} />);
     });
 }
 
@@ -40,6 +37,14 @@ export function mapItemsByParentId(items) {
         itemsByParentId[parentId].push(item);
 
         return itemsByParentId;
+    }, {});
+}
+
+export function mapItemsById(items) {
+    return items.reduce((itemsById, item) => {
+        itemsById[item.id || null] = item;
+
+        return itemsById;
     }, {});
 }
 

@@ -1,7 +1,7 @@
 import constants from './../constants';
 import keycode from 'keycode';
 import initialState from './../initialstate';
-import * as util from './../util';
+import * as util from './../../../src/panelbar/util';
 
 const itemById = (items, id) => items.find((item) => item.id === id);
 const findSelectedItem = (state) => state.find((item) => item.selected);

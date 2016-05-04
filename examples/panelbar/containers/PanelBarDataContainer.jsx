@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactRedux from "react-redux";
 import PanelBar from '../../../src/panelbar/PanelBar';
 import * as actionCreators from './../actions';
-import * as panelBarUtils from '../util';
+import * as panelBarUtils from '../../../src/panelbar/util';
 
 const propTypes = {
     items: React.PropTypes.arrayOf(React.PropTypes.object),
