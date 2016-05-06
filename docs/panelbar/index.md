@@ -8,11 +8,11 @@ position: 1
 
 # PanelBar Overview
 
-The Kendo UI PanelBar for React is a component that displays hierarchical data as a multi-level, expandable component. It is designed as a stateless component, which means that to store its state and configuration options, you should use a high-order component.
+The PanelBar for React is a stateless component that displays hierarchical data as a multi-level, expandable component. To store its state and configuration options, you should use a high-order component.
 
-The Kendo UI PanelBar for React is part of the Layout `npm` package of the Kendo UI suite for React.
+The component is part of the Layout `npm` package of the Kendo UI suite for React.
 
-**Figure 1: A template of the Kendo UI PanelBar for React**
+**Figure 1: A template of the PanelBar for React**
 
 ![Template of the Kendo UI PanelBar for React](images/panelbar.png)
 
@@ -20,7 +20,7 @@ The Kendo UI PanelBar for React is part of the Layout `npm` package of the Kendo
 
 ### Default Setup
 
-The example below demonstrates the default setup of a Kendo UI PanelBar for React.
+The example below demonstrates the default setup of a PanelBar for React.
 
 ```html-preview
 <div id="app"></div>
@@ -107,14 +107,14 @@ The example below demonstrates the default setup of a Kendo UI PanelBar for Reac
 
 ### Items
 
-By default, the PanelBar animates the appear and disappear of the PanelBarItems content. You can disable the animation by setting the [`animation`]({% slug api_panelbar_kendouiforreact %}#animation-booleandefault-true) option to `false`.
+The PanelBar animates the appear and disappear of the PanelBarItems content. You can disable the animation by setting the [`animation`]({% slug api_panelbar_kendouiforreact %}#animation-booleandefault-true) option to `false`.
 
 ```html-preview
 <div id="app"></div>
 <style>
-    .k-panelbar {
+    .k-panelbar, .center {
         max-width: 400px;
-        margin: 0 auto;
+        margin: 1em auto;
     }
 </style>
 ```
@@ -127,28 +127,31 @@ By default, the PanelBar animates the appear and disappear of the PanelBarItems 
             this.state = {
                 expanded: false
             };
-
-            const panelBarContainer = this;
-            setInterval(function() {
-                panelBarContainer.setState({
-                    expanded: !panelBarContainer.state.expanded
-                });
-            },2000);
         }
+
+        onSelect = () => {
+            this.setState({
+                expanded: !this.state.expanded
+            });
+        }
+
         render() {
             return (
-              <PanelBar>
-                <PanelBarItem title="First item title (animated)" id="0"  animation={true} expanded={this.state.expanded}>
-                    <PanelBarContent>
-                        First item text
-                    </PanelBarContent>
-                </PanelBarItem>
-                <PanelBarItem title="Second item Title (not animated)" id="1"  animation={false} expanded={this.state.expanded}>
-                    <PanelBarContent>
-                        Second item text
-                    </PanelBarContent>
-                </PanelBarItem>
-              </PanelBar>);
+              <div>
+                <div className="center"><button onClick={this.onSelect}>Toggle expand state</button></div>
+                <PanelBar>
+                    <PanelBarItem title="First item title (animated)" id="0"  animation={true} expanded={this.state.expanded}>
+                        <PanelBarContent>
+                            First item text
+                        </PanelBarContent>
+                    </PanelBarItem>
+                    <PanelBarItem title="Second item Title (not animated)" id="1"  animation={false} expanded={this.state.expanded}>
+                        <PanelBarContent>
+                            Second item text
+                        </PanelBarContent>
+                    </PanelBarItem>
+                </PanelBar>
+              </div>);
         }
     }
     ReactDOM.render(
@@ -157,7 +160,7 @@ By default, the PanelBar animates the appear and disappear of the PanelBarItems 
     );
 ```
 
-By default, the PanelBar enables you to make its content appear by setting the [`expanded`]({% slug api_panelbar_kendouiforreact %}#expanded-booleandefault-false) option to `true`. When configured to `false`, it hides the content.
+To make the PanelBar content appear you can set the [`expanded`]({% slug api_panelbar_kendouiforreact %}#expanded-booleandefault-false) option to `true`. When configured to `false`, it hides the content.
 
 ```html-preview
 <div id="app"></div>
@@ -193,7 +196,7 @@ By default, the PanelBar enables you to make its content appear by setting the [
     );
 ```
 
-Setting the [`disabled`]({% slug api_panelbar_kendouiforreact %}#disabled-booleandefault-false) option from its default `false` configuration to `true` disables the selection and the display of a PanelBar item. This means that its content cannot be expanded, nor its item selected.
+Setting the [`disabled`]({% slug api_panelbar_kendouiforreact %}#disabled-booleandefault-false) option to `true` prevents expanding and selecting the PanelBar item.
 
 ```html-preview
 <div id="app"></div>
@@ -234,7 +237,7 @@ Setting the [`disabled`]({% slug api_panelbar_kendouiforreact %}#disabled-boolea
     );
 ```
 
-The PanelBar enables you to add selected CSS styles to an item of your choice by configuring the [`selected`]({% slug api_panelbar_kendouiforreact %}#selected-booleandefault-false) option from its `false` setting to `true`.
+You can apply the selected CSS style to PanelBar items by setting the [`selected`]({% slug api_panelbar_kendouiforreact %}#selected-booleandefault-false) option to `true`.
 
 ```html-preview
 <div id="app"></div>
@@ -262,7 +265,7 @@ The PanelBar enables you to add selected CSS styles to an item of your choice by
     );
 ```
 
-The PanelBar enables you to add focused CSS styles to an item of your choice by configuring the [`focused`]({% slug api_panelbar_kendouiforreact %}#focused-booleandefault-false) option from its `false` setting to `true`.
+To apply the focused CSS style to an item you can configure the [`focused`]({% slug api_panelbar_kendouiforreact %}#focused-booleandefault-false) option to `true`.
 
 ```html-preview
 <div id="app"></div>
@@ -320,9 +323,9 @@ The PanelBar enables you to set a title of your choice to any of its items. By d
     );
 ```
 
-By setting the [`id`]({% slug api_panelbar_kendouiforreact %}#id-stringnumber) option of the PanelBar, you are able to determine the key of the item so it is uniquely identified between render passes. This setting is required.
+The [`id`]({% slug api_panelbar_kendouiforreact %}#id-stringnumber) option of the PanelBar items is required and should be unique. This allows the PanelBar to set unique ["key" attribute](https://facebook.github.io/react/docs/reconciliation.html#keys) of each item.
 
-```html-preview
+```html
 <div id="app"></div>
 <style>
     .k-panelbar {
@@ -479,7 +482,9 @@ The [`onSelect`]({% slug api_panelbar_kendouiforreact %}#onselect-function) even
 
 The [`onKeyDown`]({% slug api_panelbar_kendouiforreact %}#onkeydown-function) event fires each time a user presses keyboard key and the component is focused.
 
-```html
+Focus the widget using the `Tab` key. Then navigate between the items using the `Upper Arrow`, `Left Arrow`, `Down Arrow` and `Right Arrow` keys. Finally you can select items using the `Enter` and `Space` keys.
+
+```html-preview
 <div id="app"></div>
 <span>onKeyDown event is called with: </span>
 <span id="log"></span>
@@ -705,11 +710,11 @@ The PanelBar provides support for WAI ARIA-accessible high-order component by se
 
 ## Routing
 
-THe PanelBar can be easily integrated with the [React Router](https://github.com/reactjs/react-router). Find a possible implementation [here](https://github.com/telerik/kendo-react-layout/blob/master/examples/panelbar_routing.jsx).
+You can easily integrate the PanelBar with the [React Router](https://github.com/reactjs/react-router). Find a possible implementation [in our examples](https://github.com/telerik/kendo-react-layout/blob/master/examples/panelbar_routing.jsx).
 
 ## Flux
 
-The Kendo UI PanelBar for React can be easily integrated with [Flux](https://facebook.github.io/flux/docs/overview.html) implementations like [Redux](https://github.com/reactjs/redux). Find an exemplary implementation [here](https://github.com/telerik/kendo-react-layout/blob/master/examples/panelbar_basic.jsx).
+The PanelBar can be easily integrated with [Flux](https://facebook.github.io/flux/docs/overview.html) implementations like [Redux](https://github.com/reactjs/redux). Find an exemplary implementation [in our examples](https://github.com/telerik/kendo-react-layout/blob/master/examples/panelbar_basic.jsx).
 
 ## Suggested Links
 
