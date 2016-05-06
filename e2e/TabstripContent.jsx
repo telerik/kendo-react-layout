@@ -28,20 +28,13 @@ describe('TabstripContent', withRoot(root => {
 
     it('should render aria-expanded attr', () => {
         content();
-        const div = root.find('[aria-expanded = true]');
+        const div = root.find('[aria-expanded=true]');
         expect(div.length).toEqual(1);
     });
 
     it('should render role attr', () => {
         content();
-        const div = root.find('[role = tabpanel]');
+        const div = root.find('[role=tabpanel]');
         expect(div.length).toEqual(1);
-    });
-
-    it('should render role attr', () => {
-        props.selected = null;
-        content();
-        const div = root.find('.k-content');
-        expect(div.length).toEqual(0);
     });
 }));
