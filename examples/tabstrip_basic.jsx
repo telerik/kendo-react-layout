@@ -20,8 +20,8 @@ class TabstripContainer extends React.Component {
 
     render() {
         return (
-          <Tabstrip onSelect={this.onSelect} selected={this.state.selected} style={{ width: 300 }}>
-            <Tab>
+          <Tabstrip onSelect={this.onSelect} selected={this.state.selected} style={{ width: 400 }}>
+            <Tab title="Paris">
                 <span className="rainy">&nbsp;</span>
                 <div className="weather">
                     <h2>17<span>&ordm;C</span></h2>
