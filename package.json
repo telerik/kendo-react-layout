@@ -26,6 +26,7 @@
   "devDependencies": {
     "react": "~15.0.1",
     "react-dom": "~15.0.1",
+    "react-addons-transition-group": "~15.0.1",
     "@telerik/eslint-config": "1.1.0",
     "cz-conventional-changelog": "^1.1.5",
     "ghooks": "^1.0.3",
