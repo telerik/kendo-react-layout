@@ -14,6 +14,21 @@ Represents the Kendo UI PanelBar component for React.
 
 #### animation `Boolean`*(default: "true")*
 
+```jsx
+    <PanelBar animation={false}>
+        <PanelBarItem title="First item title" id="0" >
+            <PanelBarContent>
+                First item text
+            </PanelBarContent>
+        </PanelBarItem>
+        <PanelBarItem title="Second item Title" id="1">
+            <PanelBarContent>
+                Second item text
+            </PanelBarContent>
+        </PanelBarItem>
+    </PanelBar>
+```
+
 ## Items
 
 #### animation `Boolean`*(default: "true")*
@@ -32,6 +47,22 @@ Disables the `PanelBarItem`. The content of the item is collapsed and cannot be 
 
 Adds the selected CSS styles to the items.
 
+```jsx
+    <PanelBar>
+        <PanelBarItem title="First item title (animated)" id="0" selected={true} >
+            <PanelBarContent>
+                First item text
+            </PanelBarContent>
+        </PanelBarItem>
+        <PanelBarItem title="Second item Title (not animated)" id="1">
+            <PanelBarContent>
+                Second item text
+            </PanelBarContent>
+        </PanelBarItem>
+    </PanelBar>
+```
+
+
 #### focused `Boolean`*(default: "false")*
 
 Adds the focused CSS styles to the items.
@@ -42,9 +73,25 @@ Sets the title of the PanelBar item.
 
 #### id `String|Number`
 
-Sets the key of the item so that it is uniquely identified between render passes.
+Sets the key of the item so that it is uniquely identified between render passes. This option is required.
 
-## State
+```jsx
+    <PanelBar>
+        <PanelBarItem title="First item title (animated)" id="0" disabled={true} >
+            <PanelBarContent>
+                First item text
+            </PanelBarContent>
+        </PanelBarItem>
+        <PanelBarItem title="Second item Title (not animated)" id="1">
+            <PanelBarContent>
+                Second item text
+            </PanelBarContent>
+        </PanelBarItem>
+    </PanelBar>
+```
+
+
+## Events
 
 #### onSelect `Function`
 
