@@ -348,13 +348,94 @@ By setting the [`id`]({% slug api_panelbar_kendouiforreact %}#id-stringnumber) o
     );
 ```
 
-### State
+### Remote Content
+
+Loading Remote Content in the PanelBar can be done with a nested component that will handle the remote data loading.
+
+```html-preview
+    <div id="app"></div>
+```
+```jsx
+    const { PanelBar, PanelBarItem, PanelBarContent } = KendoReactLayout;
+    var RemoteContent = React.createClass({
+      getInitialState: function() {
+        return {
+          content: {}
+        };
+      },
+
+      componentDidMount: function() {
+        let that = this;
+        this.fetch().then(function(data) {
+            that.setState({
+                content: data
+            })
+        })
+      },
+
+      fetch: function () {
+        return new Promise(function (resolve, reject) {
+          // simulate an asynchronous action where data is fetched on
+          // a remote server somewhere.
+          setTimeout(function () {
+            // resolve with some mock data
+            resolve({
+                Wheelbase :"2851 mm"
+            });
+          }, 500);
+        });
+      },
+
+      render: function() {
+        return (
+          <dl className="specification">
+              <dt>Wheelbase:</dt>
+              <dd>{this.state.content.Wheelbase}</dd>
+          </dl>
+        );
+      }
+    });
+
+    var PanelBarWrapper = React.createClass({
+          getInitialState: function() {
+              return { selected : 0 }
+          },
+          onSelect: function(e) {
+            console.log(e);
+              this.setState({
+                  selected: e.id
+              })
+          },
+          render: function() {
+            const selectedId = this.state.selected ;
+            return (
+                <PanelBar onSelect={this.onSelect}>
+                    <PanelBarItem id="0" title="Engine" expanded={selectedId == "0"} selected={selectedId == "0"}>
+                        <PanelBarContent>
+                            <RemoteContent />
+                        </PanelBarContent>
+                    </PanelBarItem>
+                    <PanelBarItem id="1" title="Dimensions &amp; Weights" expanded={selectedId == "1"} selected={selectedId == "1"}>
+                        <PanelBarContent>
+                            Dimensions &amp; Weights specification here.
+                        </PanelBarContent>
+                    </PanelBarItem>
+                </PanelBar>
+            )}
+    });
+    ReactDOM.render(
+        <PanelBarWrapper />,
+        document.getElementById('app')
+    )
+```
+
+### Events
 
 The PanelBar is designed as a stateless component. To store its state and configuration properties, wrap it in a high-order component.
 
 The [`onSelect`]({% slug api_panelbar_kendouiforreact %}#onselect-function) event fires each time a user selects a PanelBar item. This is handled by the parent component.
 
-```html-preview
+```html
 <div id="app"></div>
 <span>onSelect event is called with: </span>
 <span id="log"></span>
@@ -398,7 +479,7 @@ The [`onSelect`]({% slug api_panelbar_kendouiforreact %}#onselect-function) even
 
 The [`onKeyDown`]({% slug api_panelbar_kendouiforreact %}#onkeydown-function) event fires each time a user presses keyboard key and the component is focused.
 
-```html-preview
+```html
 <div id="app"></div>
 <span>onKeyDown event is called with: </span>
 <span id="log"></span>
@@ -520,7 +601,7 @@ The [`onKeyDown`]({% slug api_panelbar_kendouiforreact %}#onkeydown-function) ev
 
 The [`onFocus`]({% slug api_panelbar_kendouiforreact %}#onfocus-function) event fires each time a user focus the component.
 
-```html-preview
+```html
 <div id="app"></div>
 <span id="log"></span>
 <style>
@@ -570,7 +651,7 @@ The [`onFocus`]({% slug api_panelbar_kendouiforreact %}#onfocus-function) event 
 
 The [`onBlur`]({% slug api_panelbar_kendouiforreact %}#onblur-function) event fires each time a user blur the component (the focus is moved to another item on the page).
 
-```html-preview
+```html
 <div id="app"></div>
 <span id="log"></span>
 <style>
@@ -624,7 +705,7 @@ The PanelBar provides support for WAI ARIA-accessible high-order component by se
 
 ## Routing
 
-The Kendo UI PanelBar for React can be easily integrated with the [React Router](https://github.com/reactjs/react-router). Find a possible implementation [here](https://github.com/telerik/kendo-react-layout/blob/master/examples/panelbar_routing.jsx).
+THe PanelBar can be easily integrated with the [React Router](https://github.com/reactjs/react-router). Find a possible implementation [here](https://github.com/telerik/kendo-react-layout/blob/master/examples/panelbar_routing.jsx).
 
 ## Flux
 
