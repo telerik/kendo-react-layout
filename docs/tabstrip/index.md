@@ -1,20 +1,20 @@
 ---
 title: Overview
-page_title: Overview | Kendo UI TabStrip for React
-description: "Use the Kendo UI TabStrip component in a React project."
+page_title: Overview | Kendo UI Tabstrip
+description: "Use the Kendo UI Tabstrip component in a React project."
 slug: overview_tabstrip_kendouiforreact
 position: 1
 ---
 
-# TabStrip Overview
+# Tabstrip Overview
 
-The Kendo UI TabStrip displays a collection of tabs with associated content, which allow the user to switch between different views inside a single component.
+The Kendo UI Tabstrip displays a collection of tabs with associated content, which allow the user to switch between different views inside a single component.
 
-The TabStrip is part of the Layout `npm` package of the Kendo UI suite for React.
+The Tabstrip is part of the Layout `npm` package of the Kendo UI suite for React.
 
-**Figure 1: A template of the Kendo UI TabStrip for React**
+**Figure 1: A template of the Kendo UI Tabstrip**
 
-![Template of the Kendo UI TabStrip for React](images/tabstrip.png)
+![Template of the Kendo UI Tabstrip](images/tabstrip.png)
 
 1. Active tab
 2. Inactive tab
@@ -24,24 +24,11 @@ The TabStrip is part of the Layout `npm` package of the Kendo UI suite for React
 
 ### Default Setup
 
-The example below demonstrates the default setup of a Kendo UI TabStrip component for React.
+The example below demonstrates the default setup of a Kendo UI Tabstrip component.
 
 ```html-preview
   <div id="app"></div>
   <style>
-      .k-content {
-          opacity: 1;
-      }
-
-      .k-content.k-hide {
-          opacity: 0;
-      }
-
-      .k-content.k-reveal {
-          opacity: 1;
-          transition: opacity 500ms;
-      }
-
       .sunny, .cloudy, .rainy {
           display: block;
           margin: 30px auto 10px;
@@ -184,7 +171,7 @@ The tabs will be animated when the selection is changed. By default, the animati
 
 ### Tabs
 
-Below are demonstrated the configuration properties that enable you to set the tabs of the TabStrip component.
+Below are demonstrated the configuration properties that enable you to set the tabs of the Tabstrip component.
 
 **Titles**
 
@@ -272,7 +259,7 @@ The tabs can be set to render in different positions around the content. This is
 
 **Initial Loading**
 
-The TabStrip enables you to display a particular tab upon its initial loading, which is set through the [`selected`]({% slug api_tabstrip_kendouiforreact %}#selected-number-default-1) property. It is a zero-based value, which means that to select the first tab, you must set it to `0` (zero).
+The Tabstrip enables you to display a particular tab upon its initial loading, which is set through the [`selected`]({% slug api_tabstrip_kendouiforreact %}#selected-number-default-1) property. It is a zero-based value, which means that to select the first tab, you must set it to `0` (zero).
 
 ```html-preview
     <div id="app"></div>
@@ -312,7 +299,7 @@ The TabStrip enables you to display a particular tab upon its initial loading, w
 
 **Disabling**
 
-The TabStrip provides the option for specific tabs to be inactive so that the user is not able to select them. Disable tabs by adding the [`disabled`]({% slug api_tabstrip_kendouiforreact %}#disabled) attribute to the configuration.
+The Tabstrip provides the option for specific tabs to be inactive so that the user is not able to select them. Disable tabs by adding the [`disabled`]({% slug api_tabstrip_kendouiforreact %}#disabled) attribute to the configuration.
 
 ```html-preview
     <div id="app"></div>
@@ -352,7 +339,7 @@ The TabStrip provides the option for specific tabs to be inactive so that the us
 
 ### Remote Content
 
-The TabStrip does not provide а built-in functionality for loading remote content. However, you can achieve this through nesting a component that will handle the remote data loading.
+Loading Remote Content in the Kendo UI Tabstrip can be done with a nested component that will handle the remote data loading.
 
 ```html-preview
     <div id="app"></div>
@@ -425,7 +412,7 @@ The TabStrip does not provide а built-in functionality for loading remote conte
     )
 ```
 
-### State
+### Events
 
 The Tabstrip is designed as a stateless component. To store its state and configuration properties, wrap it in a high-order component.
 
@@ -471,11 +458,11 @@ The [`onSelect`]({% slug api_tabstrip_kendouiforreact %}#onselect-function) even
     );
 ```
 
-For detailed information on the Kendo UI TabStrip for React configuration, refer to its [client-side API documentation]({% slug api_tabstrip_kendouiforreact %}).
+For detailed information refer to the [client-side API documentation]({% slug api_tabstrip_kendouiforreact %}).
 
 ## Keyboard Navigation
 
-Below is the list with the keyboard shortcuts the TabStrip supports.
+Below is the list with the keyboard shortcuts the Tabstrip supports.
 
 | SHORTCUT                            | DESCRIPTION         |
 |:---                                 |:---                 |
@@ -486,12 +473,12 @@ Below is the list with the keyboard shortcuts the TabStrip supports.
 
 ## Routing
 
-The Kendo UI Tabstrip for React can easily be integrated with the [react-router](https://github.com/reactjs/react-router). A possible implementation can be found [here](https://github.com/telerik/kendo-react-layout/blob/master/examples/tabstrip_routing.jsx).
+The Kendo UI Tabstrip can easily be integrated with the [react-router](https://github.com/reactjs/react-router). Here is [possible implementation](https://github.com/telerik/kendo-react-layout/blob/master/examples/tabstrip_routing.jsx).
 
 ## Accessibility
 
-The TabStrip is WAI ARIA-accessible through the `Tab` key. The `aria-expanded` attribute is set on the currently displayed content of a tab. The `tabindex` attribute will be set to `0` (zero) on the active tab and `-1` (minus one) for the inactive tabs.
+The Tabstrip is WAI ARIA-accessible through the `Tab` key. The `aria-expanded` attribute is set on the currently displayed content of a tab. The `tabindex` attribute will be set to `0` (zero) on the active tab and `-1` (minus one) for the inactive tabs.
 
 ## Suggested Links
 
-* [API Reference of the TabStrip Component](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/api.md)
+* [API Reference of the Tabstrip Component](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/api.md)
