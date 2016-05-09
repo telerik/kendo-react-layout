@@ -107,7 +107,7 @@ The example below demonstrates the default setup of a Kendo UI PanelBar for Reac
 
 ### Items
 
-The PanelBar animates the appearance and disappearance of the PanelBarItems  content. To disable the animation, set the [`animation`]({% slug api_panelbar_kendouiforreact %}#animation-booleandefault-true) option to `false`.
+The PanelBar animates the appearance and disappearance of the PanelBarItems content through the [`animation`]({% slug api_panelbar_kendouiforreact %}#animation-booleandefault-true) property. By default, `animation` is set to `true`. To disable it, set `animation` to `false`.
 
 ```html-preview
 <div id="app"></div>
@@ -160,7 +160,7 @@ The PanelBar animates the appearance and disappearance of the PanelBarItems  con
     );
 ```
 
-To make the PanelBar content appear, set the [`expanded`]({% slug api_panelbar_kendouiforreact %}#expanded-booleandefault-false) option to `true`. When configured to `false`, it hides the content.
+By default, the content of the PanelBarItem appears and the [`expanded`]({% slug api_panelbar_kendouiforreact %}#expanded-booleandefault-false) property is set to `true`. To avoid the display of the nested content, set `expanded` to `false`.
 
 ```html-preview
 <div id="app"></div>
@@ -196,7 +196,7 @@ To make the PanelBar content appear, set the [`expanded`]({% slug api_panelbar_k
     );
 ```
 
-Setting the [`disabled`]({% slug api_panelbar_kendouiforreact %}#disabled-booleandefault-false) option to `true` prevents the expanding and selecting of the PanelBar item.
+By default, PanelBarItem content is enabled and the [`disabled`]({% slug api_panelbar_kendouiforreact %}#disabled-booleandefault-false) property is set to `false`. To prevent the expansion and selection of the PanelBar item, set `disabled` to `true`. 
 
 ```html-preview
 <div id="app"></div>
@@ -237,7 +237,7 @@ Setting the [`disabled`]({% slug api_panelbar_kendouiforreact %}#disabled-boolea
     );
 ```
 
-To apply the selected CSS style to PanelBar items, set the [`selected`]({% slug api_panelbar_kendouiforreact %}#selected-booleandefault-false) option to `true`.
+By default, the application of CSS classes to PanelBar items is prevented and the [`selected`]({% slug api_panelbar_kendouiforreact %}#selected-booleandefault-false) property is set to `false`. To add CSS classes to the items, set `selected` to `true`.
 
 ```html-preview
 <div id="app"></div>
@@ -265,7 +265,7 @@ To apply the selected CSS style to PanelBar items, set the [`selected`]({% slug 
     );
 ```
 
-To apply the focused CSS style to an item, configure the [`focused`]({% slug api_panelbar_kendouiforreact %}#focused-booleandefault-false) option to `true`.
+By default, adding focused CSS classes to PanelBar items is prevented and the [`focused`]({% slug api_panelbar_kendouiforreact %}#focused-booleandefault-false) property is set to `false`. To apply focused CSS classes to the items, set `focused` to `true`.
 
 ```html-preview
 <div id="app"></div>
@@ -293,7 +293,7 @@ To apply the focused CSS style to an item, configure the [`focused`]({% slug api
     );
 ```
 
-The PanelBar enables you to set a title of your choice to any of its items. By default, the [`title`]({% slug api_panelbar_kendouiforreact %}#title-stringdefault-untitled) option is set to `untitled`.
+The PanelBar enables you to set a title of your choice to any of its items. By default, the [`title`]({% slug api_panelbar_kendouiforreact %}#title-stringdefault-untitled) property is set to `untitled`.
 
 ```html-preview
 <div id="app"></div>
@@ -323,7 +323,7 @@ The PanelBar enables you to set a title of your choice to any of its items. By d
     );
 ```
 
-The [`id`]({% slug api_panelbar_kendouiforreact %}#id-stringnumber) option of the PanelBar items is required and should be unique. This allows the component to set a unique [key attribute](https://facebook.github.io/react/docs/reconciliation.html#keys) to each item.
+The [`id`]({% slug api_panelbar_kendouiforreact %}#id-stringnumber) property of the PanelBar items is required and should be unique. This allows the component to set a unique [key attribute](https://facebook.github.io/react/docs/reconciliation.html#keys) to each item.
 
 ```html
 <div id="app"></div>
@@ -482,7 +482,7 @@ The [`onSelect`]({% slug api_panelbar_kendouiforreact %}#onselect-function) even
 
 The [`onKeyDown`]({% slug api_panelbar_kendouiforreact %}#onkeydown-function) event fires each time a user presses a keyboard key and the component is focused.
 
-To focus the component, use the `Tab` key. Then navigate between the items by applying the `Upper Arrow`, `Left Arrow`, `Down Arrow`, or `Right Arrow` keys. Finally, to select items, use the `Enter` and `Space` keys.
+To focus the component, use `Tab`. To navigate between items, use `Upper Arrow`, `Left Arrow`, `Down Arrow`, or `Right Arrow`. To select items, use `Enter` and `Space`.
 
 ```html-preview
 <div id="app"></div>
