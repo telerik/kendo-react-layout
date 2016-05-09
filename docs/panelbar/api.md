@@ -10,9 +10,11 @@ position: 2
 
 Represents the Kendo UI PanelBar component for React.
 
-## Animation
+## Items
 
 #### animation `Boolean`*(default: "true")*
+
+Animates the content of the `PanelBarItem` on appear and disappear. When set to `false`, the nested content is not animated.
 
 ```jsx
     <PanelBar animation={false}>
@@ -28,12 +30,6 @@ Represents the Kendo UI PanelBar component for React.
         </PanelBarItem>
     </PanelBar>
 ```
-
-## Items
-
-#### animation `Boolean`*(default: "true")*
-
-Animates the content of the `PanelBarItem` on appear and disappear. When set to `false`, the nested content is not animated.
 
 #### expanded `Boolean`*(default: "false")*
 
@@ -62,7 +58,6 @@ Adds the selected CSS styles to the items.
     </PanelBar>
 ```
 
-
 #### focused `Boolean`*(default: "false")*
 
 Adds the focused CSS styles to the items.
@@ -89,7 +84,6 @@ Sets the key of the item so that it is uniquely identified between render passes
         </PanelBarItem>
     </PanelBar>
 ```
-
 
 ## Events
 
