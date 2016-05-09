@@ -41,7 +41,7 @@ Disables the `PanelBarItem`. The content of the item is collapsed and cannot be 
 
 #### selected `Boolean`*(default: "false")*
 
-Adds the selected CSS styles to the items.
+Adds the selected CSS classes to the items.
 
 ```jsx
     <PanelBar>
@@ -60,7 +60,7 @@ Adds the selected CSS styles to the items.
 
 #### focused `Boolean`*(default: "false")*
 
-Adds the focused CSS styles to the items.
+Adds the focused CSS classes to the items.
 
 #### title `String`*(default: "Untitled")*
 
@@ -68,7 +68,7 @@ Sets the title of the PanelBar item.
 
 #### id `String|Number`
 
-Sets the key of the item so that it is uniquely identified between render passes. This option is required.
+Sets the key of the item so that it is uniquely identified between render passes. This property is required.
 
 ```jsx
     <PanelBar>
