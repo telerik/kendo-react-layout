@@ -67,7 +67,7 @@ Disables a tab. Used as an attribute on a Tab.
     </KendoReactLayout.Tabstrip>
 ```
 
-## State
+## Events
 
 #### onSelect `Function`
 
