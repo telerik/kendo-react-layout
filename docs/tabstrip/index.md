@@ -130,7 +130,7 @@ The example below demonstrates the default setup of a Kendo UI Tabstrip componen
 
 ### Animation
 
-The tabs will be animated when the selection is changed. By default, the animation is enabled.
+By default, tabs are animated when the selection is changed and the  the [`animation`]({% slug api_tabstrip_kendouiforreact %}#animation-boolean-default-true) property is set to `true`. To disable it, set `animation` to `false`.
 
 ```html-preview
     <div id="app"></div>
@@ -218,7 +218,7 @@ Apart from text elements, a tab title is also able to accommodate any React comp
 
 **Position**
 
-The tabs can be set to render in different positions around the content. This is set through the [`tabPosition`]({% slug api_tabstrip_kendouiforreact %}#tabPosition-string) attribute of the component.
+The tabs can render in different positions around the content by setting the [`tabPosition`]({% slug api_tabstrip_kendouiforreact %}#tabPosition-string) attribute of the component.
 
 ```html-preview
     <div id="app"></div>
@@ -259,7 +259,7 @@ The tabs can be set to render in different positions around the content. This is
 
 **Initial Loading**
 
-The Tabstrip enables you to display a particular tab upon its initial loading, which is set through the [`selected`]({% slug api_tabstrip_kendouiforreact %}#selected-number-default-1) property. It is a zero-based value, which means that to select the first tab, you must set it to `0` (zero).
+The Tabstrip enables you to display a particular tab upon its initial loading through the [`selected`]({% slug api_tabstrip_kendouiforreact %}#selected-number-default-1) property. It is a zero-based value&mdash;to select the first tab, you must set it to `0` (zero).
 
 ```html-preview
     <div id="app"></div>
@@ -299,7 +299,7 @@ The Tabstrip enables you to display a particular tab upon its initial loading, w
 
 **Disabling**
 
-The Tabstrip provides the option for specific tabs to be inactive so that the user is not able to select them. Disable tabs by adding the [`disabled`]({% slug api_tabstrip_kendouiforreact %}#disabled) attribute to the configuration.
+The Tabstrip enables you to deactivate specific tabs, so that the user is not able to select them. To disable tabs, add the [`disabled`]({% slug api_tabstrip_kendouiforreact %}#disabled) attribute to the configuration.
 
 ```html-preview
     <div id="app"></div>
@@ -339,7 +339,7 @@ The Tabstrip provides the option for specific tabs to be inactive so that the us
 
 ### Remote Content
 
-Loading Remote Content in the Kendo UI Tabstrip can be done with a nested component that will handle the remote data loading.
+To load remote content in the Kendo UI Tabstrip, nest a component that will handle the remote data loading.
 
 ```html-preview
     <div id="app"></div>
