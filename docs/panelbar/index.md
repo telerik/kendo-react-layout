@@ -20,7 +20,7 @@ The component is part of the Layout `npm` package of the Kendo UI suite for Reac
 
 ### Default Setup
 
-The example below demonstrates the default setup of a PanelBar for React.
+The example below demonstrates the default setup of a Kendo UI PanelBar for React.
 
 ```html-preview
 <div id="app"></div>
@@ -107,7 +107,7 @@ The example below demonstrates the default setup of a PanelBar for React.
 
 ### Items
 
-The PanelBar animates the appear and disappear of the PanelBarItems content. You can disable the animation by setting the [`animation`]({% slug api_panelbar_kendouiforreact %}#animation-booleandefault-true) option to `false`.
+The PanelBar animates the appearance and disappearance of the PanelBarItems  content. To disable the animation, set the [`animation`]({% slug api_panelbar_kendouiforreact %}#animation-booleandefault-true) option to `false`.
 
 ```html-preview
 <div id="app"></div>
@@ -160,7 +160,7 @@ The PanelBar animates the appear and disappear of the PanelBarItems content. You
     );
 ```
 
-To make the PanelBar content appear you can set the [`expanded`]({% slug api_panelbar_kendouiforreact %}#expanded-booleandefault-false) option to `true`. When configured to `false`, it hides the content.
+To make the PanelBar content appear, set the [`expanded`]({% slug api_panelbar_kendouiforreact %}#expanded-booleandefault-false) option to `true`. When configured to `false`, it hides the content.
 
 ```html-preview
 <div id="app"></div>
@@ -196,7 +196,7 @@ To make the PanelBar content appear you can set the [`expanded`]({% slug api_pan
     );
 ```
 
-Setting the [`disabled`]({% slug api_panelbar_kendouiforreact %}#disabled-booleandefault-false) option to `true` prevents expanding and selecting the PanelBar item.
+Setting the [`disabled`]({% slug api_panelbar_kendouiforreact %}#disabled-booleandefault-false) option to `true` prevents the expanding and selecting of the PanelBar item.
 
 ```html-preview
 <div id="app"></div>
@@ -237,7 +237,7 @@ Setting the [`disabled`]({% slug api_panelbar_kendouiforreact %}#disabled-boolea
     );
 ```
 
-You can apply the selected CSS style to PanelBar items by setting the [`selected`]({% slug api_panelbar_kendouiforreact %}#selected-booleandefault-false) option to `true`.
+To apply the selected CSS style to PanelBar items, set the [`selected`]({% slug api_panelbar_kendouiforreact %}#selected-booleandefault-false) option to `true`.
 
 ```html-preview
 <div id="app"></div>
@@ -265,7 +265,7 @@ You can apply the selected CSS style to PanelBar items by setting the [`selected
     );
 ```
 
-To apply the focused CSS style to an item you can configure the [`focused`]({% slug api_panelbar_kendouiforreact %}#focused-booleandefault-false) option to `true`.
+To apply the focused CSS style to an item, configure the [`focused`]({% slug api_panelbar_kendouiforreact %}#focused-booleandefault-false) option to `true`.
 
 ```html-preview
 <div id="app"></div>
@@ -323,7 +323,7 @@ The PanelBar enables you to set a title of your choice to any of its items. By d
     );
 ```
 
-The [`id`]({% slug api_panelbar_kendouiforreact %}#id-stringnumber) option of the PanelBar items is required and should be unique. This allows the PanelBar to set unique ["key" attribute](https://facebook.github.io/react/docs/reconciliation.html#keys) of each item.
+The [`id`]({% slug api_panelbar_kendouiforreact %}#id-stringnumber) option of the PanelBar items is required and should be unique. This allows the component to set a unique [key attribute](https://facebook.github.io/react/docs/reconciliation.html#keys) to each item.
 
 ```html
 <div id="app"></div>
@@ -353,7 +353,7 @@ The [`id`]({% slug api_panelbar_kendouiforreact %}#id-stringnumber) option of th
 
 ### Remote Content
 
-Loading Remote Content in the PanelBar can be done with a nested component that will handle the remote data loading.
+To load remote content in the PanelBar, nest a component that will handle the remote data loading.
 
 ```html-preview
     <div id="app"></div>
@@ -480,9 +480,9 @@ The [`onSelect`]({% slug api_panelbar_kendouiforreact %}#onselect-function) even
     );
 ```
 
-The [`onKeyDown`]({% slug api_panelbar_kendouiforreact %}#onkeydown-function) event fires each time a user presses keyboard key and the component is focused.
+The [`onKeyDown`]({% slug api_panelbar_kendouiforreact %}#onkeydown-function) event fires each time a user presses a keyboard key and the component is focused.
 
-Focus the widget using the `Tab` key. Then navigate between the items using the `Upper Arrow`, `Left Arrow`, `Down Arrow` and `Right Arrow` keys. Finally you can select items using the `Enter` and `Space` keys.
+To focus the component, use the `Tab` key. Then navigate between the items by applying the `Upper Arrow`, `Left Arrow`, `Down Arrow`, or `Right Arrow` keys. Finally, to select items, use the `Enter` and `Space` keys.
 
 ```html-preview
 <div id="app"></div>
@@ -604,7 +604,7 @@ Focus the widget using the `Tab` key. Then navigate between the items using the 
     );
 ```
 
-The [`onFocus`]({% slug api_panelbar_kendouiforreact %}#onfocus-function) event fires each time a user focus the component.
+The [`onFocus`]({% slug api_panelbar_kendouiforreact %}#onfocus-function) event fires each time a user focuses the component.
 
 ```html
 <div id="app"></div>
@@ -654,7 +654,7 @@ The [`onFocus`]({% slug api_panelbar_kendouiforreact %}#onfocus-function) event 
     );
 ```
 
-The [`onBlur`]({% slug api_panelbar_kendouiforreact %}#onblur-function) event fires each time a user blur the component (the focus is moved to another item on the page).
+The [`onBlur`]({% slug api_panelbar_kendouiforreact %}#onblur-function) event fires each time a user blurs the component&mdash;the focus is moved to another item on the page.
 
 ```html
 <div id="app"></div>
@@ -706,15 +706,15 @@ The [`onBlur`]({% slug api_panelbar_kendouiforreact %}#onblur-function) event fi
 
 ## Accessibility
 
-The PanelBar provides support for WAI ARIA-accessible high-order component by setting the `aria-expanded`, `aria-selected` and `aria-hidden` properties depending on the [`selected`]({% slug api_panelbar_kendouiforreact %}#selected-booleandefault-false), [`expanded`]({% slug api_panelbar_kendouiforreact %}#expanded-booleandefault-false), [`disabled`]({% slug api_panelbar_kendouiforreact %}#disabled-booleandefault-false).
+The PanelBar provides support for WAI ARIA-accessible high-order component by setting the `aria-expanded`, `aria-selected` and `aria-hidden` properties depending on the [`selected`]({% slug api_panelbar_kendouiforreact %}#selected-booleandefault-false), [`expanded`]({% slug api_panelbar_kendouiforreact %}#expanded-booleandefault-false), or [`disabled`]({% slug api_panelbar_kendouiforreact %}#disabled-booleandefault-false) options.
 
 ## Routing
 
-You can easily integrate the PanelBar with the [React Router](https://github.com/reactjs/react-router). Find a possible implementation [in our examples](https://github.com/telerik/kendo-react-layout/blob/master/examples/panelbar_routing.jsx).
+You can easily integrate the PanelBar with the [React Router](https://github.com/reactjs/react-router). Find a possible implementation [in the PanelBar examples for React](https://github.com/telerik/kendo-react-layout/blob/master/examples/panelbar_routing.jsx).
 
 ## Flux
 
-The PanelBar can be easily integrated with [Flux](https://facebook.github.io/flux/docs/overview.html) implementations like [Redux](https://github.com/reactjs/redux). Find an exemplary implementation [in our examples](https://github.com/telerik/kendo-react-layout/blob/master/examples/panelbar_basic.jsx).
+The PanelBar can be easily integrated with [Flux](https://facebook.github.io/flux/docs/overview.html) implementations like [Redux](https://github.com/reactjs/redux). Find an exemplary implementation [in the PanelBar examples for React](https://github.com/telerik/kendo-react-layout/blob/master/examples/panelbar_basic.jsx).
 
 ## Suggested Links
 
