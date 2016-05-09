@@ -1,6 +1,5 @@
 import * as React from 'react';
-import styles from '@telerik/kendo-theme-default/styles/tabstrip/main';
-import animationStyles from '@telerik/kendo-theme-default/styles/animation/main'; //eslint-disable-line
+import styles from '@telerik/kendo-theme-default/styles/packages/layout';
 import { Fade } from '@telerik/kendo-react-animation';
 import util from './util';
 

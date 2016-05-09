@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from '@telerik/kendo-theme-default/styles/tabstrip/main';
+import styles from '@telerik/kendo-theme-default/styles/packages/layout';
 import TabstripNavigation from './TabstripNavigation';
 import TabstripContent from './TabstripContent';
 import keycode from 'keycode';

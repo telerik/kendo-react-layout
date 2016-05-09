@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from '@telerik/kendo-theme-default/styles/panelbar/main';
+import styles from '@telerik/kendo-theme-default/styles/packages/layout';
 import classNames from 'classnames';
 import PanelBarItem from './PanelBarItem';
 
