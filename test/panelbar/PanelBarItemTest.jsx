@@ -27,9 +27,14 @@ describe('PanelBarItem', () => {
         result = shallow(<PanelBarItem title="sometext" />);
 
         expect(result.find("span").first().hasClass('k-link')).toEqual(true);
-        expect(result.find("span").first().hasClass('k-header')).toEqual(true);
+        expect(result.find("span").first().hasClass('k-header')).toEqual(false);
         expect(result.find("span").first().hasClass('k-state-default')).toEqual(false);
         expect(result.find("span").first().hasClass('k-state-selected')).toEqual(false);
+    });
+
+    it('should add title header class for root items', () => {
+        result = shallow(<PanelBarItem title="sometext" root />);
+        expect(result.find("span").first().hasClass('k-header')).toEqual(true);
     });
 
     it('should not render title arrow when no children are available', () => {

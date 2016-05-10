@@ -49,6 +49,7 @@ export default class PanelBarNavigation extends React.Component {
             ...child.props,
             onSelect: this.props.onSelect,
             parentId: this.props.parentId,
+            root: this.props.root,
             key: child.props.id
         };
 

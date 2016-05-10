@@ -6,7 +6,11 @@ export default () => ({
         { id: 8, title: "Robert King", parentId: 1, content: "Business System Analyst" },
         { id: 2, title: "Project", expanded: true },
         { id: 3, title: "New Business Plan", parentId: 2, selected: true },
-        { id: 4, title: "Sales Forecast", parentId: 2, content: "Q1 - Q4 forecast", expanded: true },
+        { id: 4, title: "Sales Forecast", parentId: 2, expanded: true },
+        { id: 10, title: "Q1 Forecast", parentId: 4 },
+        { id: 11, title: "Q2 Forecast", parentId: 4 },
+        { id: 12, title: "Q3 Forecast", parentId: 4 },
+        { id: 13, title: "Q4 Forecast", parentId: 4 },
         { id: 9, title: "Sales Reports", parentId: 2 },
         { id: 6, title: "Communication", disabled: true }
     ]

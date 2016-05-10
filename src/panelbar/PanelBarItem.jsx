@@ -24,6 +24,7 @@ const propTypes = {
     className: React.PropTypes.string,
     expanded: React.PropTypes.bool,
     disabled: React.PropTypes.bool,
+    root: React.PropTypes.bool,
     onSelect: React.PropTypes.func,
     selected: React.PropTypes.bool,
     title: React.PropTypes.oneOfType([
@@ -81,7 +82,7 @@ export default class PanelBarItem extends React.Component {
     }
 
     render() {
-        const { children, expanded, title, disabled, selected, focused, id, className, ...others } = this.props;
+        const { children, expanded, title, root, disabled, selected, focused, id, className, ...others } = this.props;
 
         const panelBarItemProps = {
             'role': 'menuitem',
@@ -100,7 +101,7 @@ export default class PanelBarItem extends React.Component {
             'onClick': !disabled ? this.onSelect : null,
             'className': classNames({
                 [styles['link']]: true,
-                [styles['header']]: true,
+                [styles['header']]: root,
                 [styles['state-selected']]: !disabled && selected,
                 [styles['state-focused']]: !disabled && focused
             })
