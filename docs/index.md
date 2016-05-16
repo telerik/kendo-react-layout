@@ -19,6 +19,4 @@ The Kendo UI PanelBar displays hierarchical data as multi-level, expandable cont
 Articles on the Kendo UI Layout package for React:
 
 * [Get Started with the TabStrip Component]({% slug overview_tabstrip_kendouiforreact %})
-* [API Reference of the TabStrip Component]({% slug api_tabstrip_kendouiforreact %})
 * [Get Started with the PanelBar Component]({% slug overview_panelbar_kendouiforreact %})
-* [API Reference of the PanelBar Component]({% slug api_panelbar_kendouiforreact %})
