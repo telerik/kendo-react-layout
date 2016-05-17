@@ -8,7 +8,7 @@ position: 1
 
 # PanelBar Overview
 
-The PanelBar for React is a stateless component that displays hierarchical data as a multi-level, expandable component. To store its state and configuration options, you should use a high-order component.
+The PanelBar for React is a stateless component that displays hierarchical data as a multi-level, expandable component. To store its state and configuration options, use a high-order component.
 
 The component is part of the Layout `npm` package of the Kendo UI suite for React.
 
