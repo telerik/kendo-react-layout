@@ -12,9 +12,9 @@
 
 ## Overview
 
-This repository contains the source code and documentation of the Kendo UI Layout components for React.
+This repository contains the source code and documentation of the Kendo UI Layout package for React.
 
-Currently, the package includes the following components: 
+Currently, it includes the following components: 
 
 * Tabstrip
 * PanelBar
@@ -25,7 +25,7 @@ For more information on upcoming Layout features, refer to the [Roadmap](https:/
 
 ### Kendo UI Tabstrip for React
 
-The Tabstrip displays a collection of tabs with associated content. It is composed of an unordered list of items, representing tabs, and a collection of elements, which contain the content for each tab.
+The Tabstrip displays a collection of tabs with associated content, which allow the user to switch between different views inside a single component.
 
 ```html-preview
     <div id="app"></div>
@@ -68,15 +68,89 @@ The Tabstrip displays a collection of tabs with associated content. It is compos
 
 For more examples and available configuration options, refer to the [Tabstrip documentation](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/index.md).
 
-### Kendo UI PanelBar for React
+### Kendo UI PanelBar
 
-The PanelBar displays hierarchical data as multi-level, expandable content. To store its state and configuration options, use a high-order component.
+The PanelBar displays hierarchical data as a multi-level, expandable component. To store its state and configuration options, use a high-order component.
 
 ```html-preview
-    //code
+<div id="app"></div>
+<style>
+    .k-panelbar {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    .teamMate:after {
+        content: ".";
+        display: block;
+        height: 0;
+        line-height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+    .teamMate h2 {
+        font-size: 1.4em;
+        font-weight: normal;
+        padding-top: 20px;
+    }
+    .teamMate p {
+        margin: 0;
+    }
+    .teamMate img {
+        float: left;
+        margin: 5px 15px 5px 5px;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+    }
+</style>
 ```
 ```jsx
+    const { PanelBar, PanelBarItem, PanelBarContent } = KendoReactLayout;
+    class PanbelBarContainer extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                selected: "0"
+            };
+        }
+        onSelect = (e) => {
+            this.setState({
+                selected: e.id
+            });
+        };
 
+        render() {
+            const selected = this.state.selected;
+
+            return (
+              <PanelBar onSelect={this.onSelect}>
+                <PanelBarItem title="Andrew Fuller" id="0" selected={selected == "0"} expanded={selected == "0"}>
+                    <PanelBarContent className="teamMate">
+                        <img src="http://demos.kendoui.com/content/web/panelbar/andrew.jpg" alt="Andrew Fuller" />
+                        <h2>Andrew Fuller</h2>
+                        <p>Team Lead</p>
+                    </PanelBarContent>
+                </PanelBarItem>
+                <PanelBarItem title="Nancy Leverling" id="1" selected={selected == "1"} expanded={selected == "1"}>
+                    <PanelBarContent className="teamMate">
+                        <img src="http://demos.kendoui.com/content/web/panelbar/nancy.jpg" alt="Nancy Leverling" />
+                        <h2>Nancy Leverling</h2>
+                        <p>Sales Associate</p>
+                    </PanelBarContent>
+                </PanelBarItem>
+                 <PanelBarItem title="Robert King" id="2" selected={selected == "2"} expanded={selected == "2"}>
+                    <PanelBarContent className="teamMate">
+                        <img src="http://demos.kendoui.com/content/web/panelbar/robert.jpg" alt="Robert King" />
+                        <h2>Robert King</h2>
+                        <p>Business System Analyst</p>
+                    </PanelBarContent>
+                </PanelBarItem>
+              </PanelBar>);
+        }
+    }
+    ReactDOM.render(
+        <PanbelBarContainer />,
+        document.getElementById('app')
+    );
 ```
 
 For more examples and available configuration options, refer to the [PanelBar documentation](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/index.md).
@@ -88,7 +162,7 @@ The Layout components are published as a [public scoped NPM package](https://doc
 Install it using NPM.
 
 ```sh
-npm install --save @telerik/kendo-react-inputs;
+npm install --save @telerik/kendo-react-layout;
 ```
 
 Once installed, import the module.
@@ -101,14 +175,14 @@ import { Panelbar } from 'kendo-react-layout';
 ```
 ```jsx
 // CommonJS format
-var Tabstrip = require('kendo-react-inputs').Tabstrip;
+var Tabstrip = require('kendo-react-layout').Tabstrip;
 //or
-var Panelbar = require('kendo-react-inputs').PanelBar;
+var Panelbar = require('kendo-react-layout').PanelBar;
 ```
 
 ## Browser Support
 
-The Layout components support all browsers supported by the React framework&mdash;Internet Explorer 9 and later versions.
+The Layout components work in all browsers supported by the React framework&mdash;Internet Explorer 9 and later versions.
 
 ## Glossary
 
