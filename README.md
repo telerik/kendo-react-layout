@@ -112,7 +112,7 @@ The Layout components support all browsers supported by the React framework&mdas
 
 ## Glossary
 
-Below are explained the basic terms that Kendo UI suite for React applies.
+Below are explained the basic terms the suite for React applies.
 
 ### Component
 
