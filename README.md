@@ -23,7 +23,7 @@ For more information on upcoming Layout features, refer to the [Roadmap](https:/
 
 ## Basic Usage
 
-### Kendo UI Tabstrip for React
+### Kendo UI Tabstrip
 
 The Tabstrip displays a collection of tabs with associated content, which allow the user to switch between different views inside a single component.
 
