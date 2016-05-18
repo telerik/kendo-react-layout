@@ -10,20 +10,20 @@ position: 2
 
 Represents the Kendo UI PanelBar component for React.
 
-## Items
+## PanelBarItem
 
-#### animation `Boolean`*(default: "true")*
+#### id `String|Number`
 
-Animates the content of the `PanelBarItem` on appear and disappear. When set to `false`, the nested content is not animated.
+Allows the component to set the key attribute to each item. It is required and should be unique.
 
 ```jsx
-    <PanelBar animation={false}>
-        <PanelBarItem title="First item title" id="0" >
+    <PanelBar>
+        <PanelBarItem title="First item title (animated)" id="0" disabled={true} >
             <PanelBarContent>
                 First item text
             </PanelBarContent>
         </PanelBarItem>
-        <PanelBarItem title="Second item Title" id="1">
+        <PanelBarItem title="Second item Title (not animated)" id="1">
             <PanelBarContent>
                 Second item text
             </PanelBarContent>
@@ -33,15 +33,15 @@ Animates the content of the `PanelBarItem` on appear and disappear. When set to 
 
 #### expanded `Boolean`*(default: "false")*
 
-Makes the content of the `PanelBarItem` appear. When set to `false`, the nested content is not displayed.
+Expands the PanelBar items when set to `true`. 
 
 #### disabled `Boolean`*(default: "false")*
 
-Disables the `PanelBarItem`. The content of the item is collapsed and cannot be expanded, meaning that the `onSelect` event is not triggered.
+Disables PanelBar items when set to `true`.
 
 #### selected `Boolean`*(default: "false")*
 
-Adds the selected CSS classes to the items.
+Sets the selected state to a PanelBar item.
 
 ```jsx
     <PanelBar>
@@ -60,24 +60,26 @@ Adds the selected CSS classes to the items.
 
 #### focused `Boolean`*(default: "false")*
 
-Adds the focused CSS classes to the items.
+Sets the focused state to a PanelBar item.
 
 #### title `String`*(default: "Untitled")*
 
 Sets the title of the PanelBar item.
 
-#### id `String|Number`
+## Animation
 
-Sets the key of the item so that it is uniquely identified between render passes. This property is required.
+#### animation `Boolean`*(default: "true")*
+
+Animates the content of the PanelBar items on collapse and expand. When set to `false`, this behavior is disabled.
 
 ```jsx
-    <PanelBar>
-        <PanelBarItem title="First item title (animated)" id="0" disabled={true} >
+    <PanelBar animation={false}>
+        <PanelBarItem title="First item title" id="0" >
             <PanelBarContent>
                 First item text
             </PanelBarContent>
         </PanelBarItem>
-        <PanelBarItem title="Second item Title (not animated)" id="1">
+        <PanelBarItem title="Second item Title" id="1">
             <PanelBarContent>
                 Second item text
             </PanelBarContent>
@@ -89,16 +91,16 @@ Sets the key of the item so that it is uniquely identified between render passes
 
 #### onSelect `Function`
 
-As a stateless component, the PanelBar fires its `onSelect` event handler every time when a PanelBar item is selected. It is handled by the parent component.
+Fires each time a user selects a PanelBar item. It is handled by the parent component.
 
 #### onKeyDown `Function`
 
-As a stateless component, the PanelBar fires its `onKeyDown` event handler every time when a keyboard key is pressed and the PanelBar is focused. It is handled by the parent component.
+Fires each time a user presses a keyboard key and the component is focused. It is handled by the parent component.
 
 #### onFocus `Function`
 
-As a stateless component, the PanelBar fires its `onFocus` event handler every time when the PanelBar is focused. It is handled by the parent component.
+Fires each time a user focuses the component. It is handled by the parent component.
 
 #### onBlur `Function`
 
-As a stateless component, the PanelBar fires its `onBlur` event handler every time when the PanelBar is blurred. It is handled by the parent component.
+Fires each time a user blurs the component and the focus is moved to another item on the page. It is handled by the parent component.
