@@ -14,13 +14,16 @@
 
 This repository contains the source code and documentation of the Kendo UI Layout components for React.
 
-The Layout package includes the Kendo UI Tabstrip and PanelBar components for React.
+Currently, the package includes the following components: 
 
-For more information on upcoming Layout package features and components, refer to the [Roadmap](https://github.com/telerik/kendo-react-layout/blob/master/docs/roadmap.md).
+* Tabstrip
+* PanelBar
+
+For more information on upcoming Layout features, refer to the [Roadmap](https://github.com/telerik/kendo-react-layout/blob/master/docs/roadmap.md).
 
 ## Basic Usage
 
-### Kendo UI Tabstrip Component
+### Kendo UI Tabstrip for React
 
 The Tabstrip displays a collection of tabs with associated content. It is composed of an unordered list of items, representing tabs, and a collection of elements, which contain the content for each tab.
 
@@ -63,11 +66,11 @@ The Tabstrip displays a collection of tabs with associated content. It is compos
     );
 ```
 
-For more examples and available configuration options, refer to the [Tabstrip documentation section](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/index.md).
+For more examples and available configuration options, refer to the [Tabstrip documentation](https://github.com/telerik/kendo-react-layout/blob/master/docs/tabstrip/index.md).
 
-### Kendo UI PanelBar Component
+### Kendo UI PanelBar for React
 
-The PanelBar displays hierarchical data as multi-level, expandable content. It is designed as a stateless component - to store its state and configuration options, wrap it up in a high-order component.
+The PanelBar displays hierarchical data as multi-level, expandable content. To store its state and configuration options, use a high-order component.
 
 ```html-preview
     //code
@@ -76,19 +79,19 @@ The PanelBar displays hierarchical data as multi-level, expandable content. It i
 
 ```
 
-For more examples and available configuration options, refer to the [PanelBar documentation section](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/index.md).
+For more examples and available configuration options, refer to the [PanelBar documentation](https://github.com/telerik/kendo-react-layout/blob/master/docs/panelbar/index.md).
 
 ## Installation
 
-The React Layout components are published as a [public scoped NPM package](https://docs.npmjs.com/misc/scope) in the [Telerik organization](https://www.npmjs.com/~telerik) in http://npmjs.org/.
+The Layout components are published as a [public scoped NPM package](https://docs.npmjs.com/misc/scope) in the [Telerik organization](https://www.npmjs.com/~telerik) in http://npmjs.org/.
 
-Install it using NPM:
+Install it using NPM.
 
 ```sh
 npm install --save @telerik/kendo-react-inputs;
 ```
 
-Once installed, import the module:
+Once installed, import the module.
 
 ```jsx
 // ES2015 module syntax
@@ -105,7 +108,7 @@ var Panelbar = require('kendo-react-inputs').PanelBar;
 
 ## Browser Support
 
-The Kendo UI Layout components for React support all browsers that are supported by the React framework&mdash;Internet Explorer 9 and later versions.
+The Layout components support all browsers supported by the React framework&mdash;Internet Explorer 9 and later versions.
 
 ## Glossary
 
@@ -117,4 +120,4 @@ A Component refers to a [React Component](https://facebook.github.io/react/docs/
 
 ### Package
 
-A package contains one or more components, developed in a single repository and distributed in a single NPM package. For example, the Kendo UI Tabstrip and PanelBar components for React are part of the Layout Package.
+A package contains one or more components, developed in a single repository and distributed in a single NPM package. For example, the Tabstrip and PanelBar components for React are part of the Layout Package.
