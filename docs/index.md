@@ -18,5 +18,5 @@ The PanelBar for React is a stateless component that displays hierarchical data 
 
 Articles on the Kendo UI Layout package for React:
 
-* [Get Started with the TabStrip Component]({% slug overview_tabstrip_kendouiforreact %})
-* [Get Started with the PanelBar Component]({% slug overview_panelbar_kendouiforreact %})
+* [Get Started with the TabStrip]({% slug overview_tabstrip_kendouiforreact %})
+* [Get Started with the PanelBar]({% slug overview_panelbar_kendouiforreact %})
