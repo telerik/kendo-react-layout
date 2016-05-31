@@ -12,9 +12,9 @@ The Kendo UI Tabstrip displays a collection of tabs with associated content, whi
 
 The Tabstrip is part of the [kendo-react-layout npm package](https://www.npmjs.com/package/@telerik/kendo-react-layout).
 
-**Figure 1: A template of the Kendo UI Tabstrip**
+**Figure 1: A template of the Tabstrip**
 
-![Template of the Kendo UI Tabstrip](images/tabstrip.png)
+![Template of the Kendo UI Tabstrip for React](images/tabstrip.png)
 
 1. Active tab
 2. Inactive tab
