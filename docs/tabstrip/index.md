@@ -454,7 +454,7 @@ The [`onSelect`]({% slug api_tabstrip_kendouiforreact %}#onselect-function) even
     );
 ```
 
-For detailed information refer to the [API documentation]({% slug api_tabstrip_kendouiforreact %}).
+For detailed information ont the Tabstrip configuration, refer to its [API documentation]({% slug api_tabstrip_kendouiforreact %}).
 
 ## Keyboard Navigation
 
