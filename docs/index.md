@@ -8,7 +8,7 @@ position: 1
 
 # Layout Package Overview
 
-Layout controls create a perceptive and intuitive layout of web projects to provide for an easier navigation. Currently, the Layout package includes the Kendo UI Tabstrip component for React.
+Layout controls create a perceptive and intuitive layout of web projects to provide for an easier navigation. Currently, the Layout package includes the Kendo UI Tabstrip and PanelBar components for React.
 
 The Kendo UI Tabstrip displays a collection of tabs with associated content, which allow the user to open many pages inside a single window. Each tab represents a separate location and by selecting a particular tab, the user navigates between the tab pages.
 
