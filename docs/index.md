@@ -16,7 +16,7 @@ The PanelBar for React is a stateless component that displays hierarchical data 
 
 ## Suggested Links
 
-Articles on the Layout package for React:
+Articles on the Layout components for React:
 
 * [Get Started with the TabStrip]({% slug overview_tabstrip_kendouiforreact %})
 * [Get Started with the PanelBar]({% slug overview_panelbar_kendouiforreact %})
