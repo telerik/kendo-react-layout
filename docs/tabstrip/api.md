@@ -1,14 +1,14 @@
 ---
 title: API
-page_title: API | Kendo UI TabStrip for React
-description: "Configure and customize the Kendo UI TabStrip for React through its API reference."
+page_title: API | Kendo UI Tabstrip for React
+description: "Configure and customize the Kendo UI Tabstrip for React through its API reference."
 slug: api_tabstrip_kendouiforreact
 position: 2
 ---
 
-# TabStrip API
+# Tabstrip API
 
-Represents the Kendo UI TabStrip component for React.
+Represents the Kendo UI Tabstrip component for React.
 
 ## Animation
 
@@ -50,7 +50,7 @@ Sets the position of the navigation tabs. Can be set to `top`, `bottom`, `left` 
 
 #### selected `Number` *(default: 1)*
 
-Determines which tab to be selected upon the initial loading of the TabStrip.
+Determines which tab to be selected upon the initial loading of the Tabstrip.
 
 #### disabled `Attribute`
 
