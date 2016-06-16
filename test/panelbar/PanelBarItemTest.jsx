@@ -32,6 +32,12 @@ describe('PanelBarItem', () => {
         expect(result.find("span").first().hasClass('k-state-selected')).toEqual(false);
     });
 
+    it('headerClassName is rendered on header element', () => {
+        result = shallow(<PanelBarItem title="sometext" headerClassName="foo" />);
+
+        expect(result.find("span").first().hasClass('foo')).toEqual(true);
+    });
+
     it('should add title header class for root items', () => {
         result = shallow(<PanelBarItem title="sometext" root />);
         expect(result.find("span").first().hasClass('k-header')).toEqual(true);

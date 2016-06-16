@@ -31,9 +31,17 @@ Allows the component to set the key attribute to each item. It is required and s
     </PanelBar>
 ```
 
+#### className `String`
+
+Additional class name(s) to be rendered on the item element, enclosing the item and its child content.
+
+#### headerClassName `String`
+
+Additional class name(s) to be rendered on the item header.
+
 #### expanded `Boolean`*(default: "false")*
 
-Expands the PanelBar items when set to `true`. 
+Expands the PanelBar items when set to `true`.
 
 #### disabled `Boolean`*(default: "false")*
 

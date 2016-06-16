@@ -22,6 +22,7 @@ const propTypes = {
         }
     },
     className: React.PropTypes.string,
+    headerClassName: React.PropTypes.string,
     expanded: React.PropTypes.bool,
     disabled: React.PropTypes.bool,
     root: React.PropTypes.bool,
@@ -82,7 +83,7 @@ export default class PanelBarItem extends React.Component {
     }
 
     render() {
-        const { children, expanded, title, root, disabled, selected, focused, id, className, ...others } = this.props;
+        const { children, expanded, title, root, disabled, selected, focused, id, className, headerClassName, ...others } = this.props;
 
         const panelBarItemProps = {
             'role': 'menuitem',
@@ -104,7 +105,7 @@ export default class PanelBarItem extends React.Component {
                 [styles['header']]: root,
                 [styles['state-selected']]: !disabled && selected,
                 [styles['state-focused']]: !disabled && focused
-            })
+            }, headerClassName)
         };
 
         const panelBarItemArrowProps = {
