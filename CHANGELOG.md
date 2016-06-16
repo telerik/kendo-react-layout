@@ -1,3 +1,13 @@
+<a name="0.1.1"></a>
+## [0.1.1](https://github.com/telerik//kendo-react-layout/compare/v0.1.0...v0.1.1) (2016-06-16)
+
+
+### Features
+
+* add headerClassName item prop ([9e7fc14](https://github.com/telerik//kendo-react-layout/commit/9e7fc14))
+
+
+
 <a name="0.1.0"></a>
 # 0.1.0 (2016-04-26)
 
