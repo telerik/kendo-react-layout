@@ -180,6 +180,8 @@ var Tabstrip = require('kendo-react-layout').Tabstrip;
 var Panelbar = require('kendo-react-layout').PanelBar;
 ```
 
+> To install the npm package, it is recommended that you use Node.js 4.0.0 or later versions. 
+
 ## Browser Support
 
 The Layout components work in all browsers supported by the React framework&mdash;Internet Explorer 9 and later versions.
