@@ -103,7 +103,9 @@ It is part of the [kendo-react-layout npm package](https://www.npmjs.com/package
 
 ## Configuration
 
-### PanelBarItem 
+### PanelBarItem
+
+**Setting key attributes**
 
 > The [`id`]({% slug api_panelbar_kendouiforreact %}#id-stringnumber) property of the PanelBarItem allows the component to set the [key attribute](https://facebook.github.io/react/docs/reconciliation.html#keys) to each item. It is required and should be unique.
 
@@ -133,7 +135,9 @@ It is part of the [kendo-react-layout npm package](https://www.npmjs.com/package
     );
 ```
 
-By default, all PanelBar items are collapsed. To expand them, set the [`expanded`]({% slug api_panelbar_kendouiforreact %}#expanded-booleandefault-false) property to `true`. 
+**Expanding**
+
+By default, all PanelBar items are collapsed. To expand them, set the [`expanded`]({% slug api_panelbar_kendouiforreact %}#expanded-booleandefault-false) property to `true`.
 
 ```html-preview
 <div id="app"></div>
@@ -168,6 +172,8 @@ By default, all PanelBar items are collapsed. To expand them, set the [`expanded
         document.getElementById('app')
     );
 ```
+
+**Disabling**
 
 To disable PanelBar items, set the [`disabled`]({% slug api_panelbar_kendouiforreact %}#disabled-booleandefault-false) property to `true`.  
 
@@ -210,7 +216,9 @@ To disable PanelBar items, set the [`disabled`]({% slug api_panelbar_kendouiforr
     );
 ```
 
-To set the selected state to a PanelBar item, use the [`selected`]({% slug api_panelbar_kendouiforreact %}#selected-booleandefault-false) property. 
+**Setting the selected state**
+
+To set the selected state to a PanelBar item, use the [`selected`]({% slug api_panelbar_kendouiforreact %}#selected-booleandefault-false) property.
 
 ```html-preview
 <div id="app"></div>
@@ -237,6 +245,8 @@ To set the selected state to a PanelBar item, use the [`selected`]({% slug api_p
         document.getElementById('app')
     );
 ```
+
+**Focusing**
 
 To set the focused state to a PanelBar item, use the [`focused`]({% slug api_panelbar_kendouiforreact %}#focused-booleandefault-false) property.
 
@@ -265,6 +275,8 @@ To set the focused state to a PanelBar item, use the [`focused`]({% slug api_pan
         document.getElementById('app')
     );
 ```
+
+**Titles**
 
 Each PanelBar item has a title. It is set through the [`title`]({% slug api_tabstrip_kendouiforreact %}#title-string) attribute.
 
@@ -296,7 +308,7 @@ Each PanelBar item has a title. It is set through the [`title`]({% slug api_tabs
     );
 ```
 
-### Animation 
+### Animation
 
 By default, the content of PanelBar items is animated on collapse and expand. To disable this behavior, set the [`animation`]({% slug api_panelbar_kendouiforreact %}#animation-booleandefault-true) property to `false`.
 
