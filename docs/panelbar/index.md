@@ -135,6 +135,38 @@ It is part of the [kendo-react-layout npm package](https://www.npmjs.com/package
     );
 ```
 
+**Titles**
+
+Each PanelBar item has a title. It is set through the [`title`]({% slug api_tabstrip_kendouiforreact %}#title-string) attribute.
+
+```html-preview
+<div id="app"></div>
+<style>
+    .k-panelbar {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+</style>
+
+```
+```jsx
+    const { PanelBar, PanelBarItem, PanelBarContent } = KendoReactLayout;
+    class PanbelBarContainer extends React.Component {
+        render() {
+            return (
+              <PanelBar>
+                <PanelBarItem title="First item title" id="0" />
+                <PanelBarItem title="Second item Title" id="1" />
+                <PanelBarItem id="2" />
+              </PanelBar>);
+        }
+    }
+    ReactDOM.render(
+        <PanbelBarContainer />,
+        document.getElementById('app')
+    );
+```
+
 **Expanding**
 
 By default, all PanelBar items are collapsed. To expand them, set the [`expanded`]({% slug api_panelbar_kendouiforreact %}#expanded-booleandefault-false) property to `true`.
@@ -267,38 +299,6 @@ To set the focused state to a PanelBar item, use the [`focused`]({% slug api_pan
               <PanelBar>
                 <PanelBarItem title="First item title (focused)" id="0" focused={true} />
                 <PanelBarItem title="Second item Title" id="1" focused={false} />
-              </PanelBar>);
-        }
-    }
-    ReactDOM.render(
-        <PanbelBarContainer />,
-        document.getElementById('app')
-    );
-```
-
-**Titles**
-
-Each PanelBar item has a title. It is set through the [`title`]({% slug api_tabstrip_kendouiforreact %}#title-string) attribute.
-
-```html-preview
-<div id="app"></div>
-<style>
-    .k-panelbar {
-        max-width: 400px;
-        margin: 0 auto;
-    }
-</style>
-
-```
-```jsx
-    const { PanelBar, PanelBarItem, PanelBarContent } = KendoReactLayout;
-    class PanbelBarContainer extends React.Component {
-        render() {
-            return (
-              <PanelBar>
-                <PanelBarItem title="First item title" id="0" />
-                <PanelBarItem title="Second item Title" id="1" />
-                <PanelBarItem id="2" />
               </PanelBar>);
         }
     }
