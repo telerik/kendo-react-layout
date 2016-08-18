@@ -94,7 +94,7 @@ export default class PanelBarItem extends React.Component {
                 [styles.item]: true,
                 [styles['state-default']]: !disabled,
                 [styles['state-disabled']]: disabled,
-                [styles['state-active']]: !disabled && expanded
+                [styles['state-expanded']]: !disabled && expanded && children
             }, className)
         };
 

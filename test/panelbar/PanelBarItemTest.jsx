@@ -150,11 +150,19 @@ describe('PanelBarItem', () => {
     });
 
     it('should add CSS classes when expanded', () => {
-        result = shallow(<PanelBarItem expanded />);
+        result = shallow(<PanelBarItem expanded>
+            <PanelBarContent>SomeContent</PanelBarContent>
+        </PanelBarItem>);
 
         expect(result.hasClass('k-item')).toEqual(true);
         expect(result.hasClass('k-state-default')).toEqual(true);
-        expect(result.hasClass('k-state-active')).toEqual(true);
+        expect(result.hasClass('k-state-expanded')).toEqual(true);
+    });
+
+    it('should not add state-expanded class when no children are available', () => {
+        result = shallow(<PanelBarItem expanded />);
+
+        expect(result.hasClass('k-state-expanded')).toEqual(false);
     });
 
     it('should wrap child content in animation container', () => {
