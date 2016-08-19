@@ -1,6 +1,5 @@
 import * as React from 'react';
 import TabstripNavigationItem from './TabstripNavigationItem';
-import styles from '@telerik/kendo-theme-default/styles/packages/layout';
 
 const propTypes = {
     children: React.PropTypes.oneOfType([
@@ -42,8 +41,8 @@ const TabstripNavigation = (props) => {
         });
 
     const navClasses = [
-        styles['tabstrip-items'],
-        styles['reset']
+        'k-tabstrip-items',
+        'k-reset'
     ].join(" ");
 
     return (

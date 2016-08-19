@@ -1,6 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import styles from '@telerik/kendo-theme-default/styles/packages/layout';
 
 class TabstripNavigationItem extends React.Component {
 
@@ -17,11 +16,11 @@ class TabstripNavigationItem extends React.Component {
         };
 
         const itemClasses = classNames({
-            [styles['item']]: true,
-            [styles['state-default']]: !(disabled || active),
-            [styles['state-disabled']]: disabled,
-            [styles['state-active']]: active,
-            [styles['tab-on-top']]: active
+            ['k-item']: true,
+            ['k-state-default']: !(disabled || active),
+            ['k-state-disabled']: disabled,
+            ['k-state-active']: active,
+            ['k-tab-on-top']: active
         });
 
         if (!disabled) {

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import styles from '@telerik/kendo-theme-default/styles/packages/layout';
 import TabstripNavigation from './TabstripNavigation';
 import TabstripContent from './TabstripContent';
 import keycode from 'keycode';
@@ -96,13 +95,13 @@ class Tabstrip extends React.Component {
         const bottom = this.props.tabPosition === 'bottom';
 
         const componentClasses = classNames({
-            [styles['widget']]: true,
-            [styles['header']]: true,
-            [styles['floatwrap']]: true,
-            [styles['tabstrip']]: true,
-            [styles['tabstrip-left']]: this.props.tabPosition === 'left',
-            [styles['tabstrip-right']]: this.props.tabPosition === 'right',
-            [styles['tabstrip-bottom']]: this.props.tabPosition === 'bottom'
+            ['k-widget']: true,
+            ['k-header']: true,
+            ['k-floatwrap']: true,
+            ['k-tabstrip']: true,
+            ['k-tabstrip-left']: this.props.tabPosition === 'left',
+            ['k-tabstrip-right']: this.props.tabPosition === 'right',
+            ['k-tabstrip-bottom']: this.props.tabPosition === 'bottom'
         });
 
         const { width } = this.props.style || {};

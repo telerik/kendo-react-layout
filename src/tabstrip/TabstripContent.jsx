@@ -1,5 +1,4 @@
 import * as React from 'react';
-import styles from '@telerik/kendo-theme-default/styles/packages/layout';
 import { Fade } from '@telerik/kendo-react-animation';
 import util from './util';
 
@@ -33,8 +32,8 @@ class TabstripContent extends React.Component {
 
     render() {
         const contentClasses = [
-            styles['content'],
-            styles['state-active']
+            'k-content',
+            'k-state-active'
         ].join(" ");
 
         const { height } = this.props.style || {};

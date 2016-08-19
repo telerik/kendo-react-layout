@@ -1,6 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import styles from '@telerik/kendo-theme-default/styles/packages/layout';
 
 const propTypes = {
     children: React.PropTypes.oneOfType([
@@ -29,7 +28,7 @@ export default class PanelBarContent extends React.Component {
         const { children, expanded, className, ...others } = this.props;
 
         const panelBarItemContentClasses = classNames({
-            [styles['content']]: true
+            ['k-content']: true
         }, className);
 
         const inlineStyles = {

@@ -26,7 +26,7 @@
     "react-dom": "~15.0.1"
   },
   "dependencies": {
-    "@telerik/kendo-theme-default": "^1.11.2",
+    "@telerik/kendo-theme-default": "^1.18.1",
     "@telerik/kendo-react-animation": "^0.3.1",
     "classnames": "^2.1.5",
     "keycode": "^2.1.0"

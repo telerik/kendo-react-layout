@@ -1,5 +1,4 @@
 import * as React from 'react';
-import styles from '@telerik/kendo-theme-default/styles/packages/layout';
 import PanelBarNavigation from "./PanelBarNavigation";
 import PanelBarContent from "./PanelBarContent";
 import classNames from 'classnames';
@@ -91,30 +90,30 @@ export default class PanelBarItem extends React.Component {
             'aria-selected': !disabled && selected,
             'aria-hidden': !disabled && !expanded,
             'className': classNames({
-                [styles.item]: true,
-                [styles['state-default']]: !disabled,
-                [styles['state-disabled']]: disabled,
-                [styles['state-expanded']]: !disabled && expanded && children
+                ['k-item']: true,
+                ['k-state-default']: !disabled,
+                ['k-state-disabled']: disabled,
+                ['k-state-expanded']: !disabled && expanded && children
             }, className)
         };
 
         const panelBarItemSpanProps = {
             'onClick': !disabled ? this.onSelect : null,
             'className': classNames({
-                [styles['link']]: true,
-                [styles['header']]: root,
-                [styles['state-selected']]: !disabled && selected,
-                [styles['state-focused']]: !disabled && focused
+                ['k-link']: true,
+                ['k-header']: root,
+                ['k-state-selected']: !disabled && selected,
+                ['k-state-focused']: !disabled && focused
             }, headerClassName)
         };
 
         const panelBarItemArrowProps = {
             'className': classNames({
-                [styles['icon']]: true,
-                [styles['i-arrow-n']]: expanded,
-                [styles['panelbar-collapse']]: expanded,
-                [styles['i-arrow-s']]: !expanded,
-                [styles['panelbar-expand']]: !expanded
+                ['k-icon']: true,
+                ['k-i-arrow-n']: expanded,
+                ['k-panelbar-collapse']: expanded,
+                ['k-i-arrow-s']: !expanded,
+                ['k-panelbar-expand']: !expanded
             })
         };
 
